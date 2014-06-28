@@ -1,0 +1,37 @@
+AllCops:
+  Include:
+    - 'lib/**/*.rb'
+  Exclude:
+    - 'spec/**/*'
+    - 'test/**/*'
+
+MethodLength:
+  Max: 30
+
+Documentation:
+  Enabled: false
+
+AndOr:
+  Enabled: false
+
+ParenthesesAroundCondition:
+  Enabled: false
+
+MethodCallParentheses:
+  Enabled: false
+
+# why use this option ?
+#RedundantBegin:
+#  Enabled: false
+
+NumericLiterals:
+  Enabled: false
+
+CyclomaticComplexity:
+  Max: 15
+
+Next:
+  Enabled: false
+
+Style/AlignHash:
+  Enabled: false
