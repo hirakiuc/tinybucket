@@ -1,3 +1,4 @@
 module Bitbucket
-  VERSION = '0.0.1'
+  module Api
+  end
 end
