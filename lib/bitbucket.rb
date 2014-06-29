@@ -10,16 +10,20 @@ require 'pry'
 require 'bitbucket/api'
 require 'bitbucket/api/base_api'
 require 'bitbucket/api/repos_api'
+require 'bitbucket/api/repo_api'
+require 'bitbucket/api/pull_requests_api'
 require 'bitbucket/api/teams_api'
 require 'bitbucket/api/users_api'
 
 require 'active_support/notifications'
-ActiveSupport::Notifications.subscribe('request.faraday') do |name, start_time, end_time, _, env|
-  url = env[:url]
-  http_method = env[:method].to_s.upcase
-  duration = end_time - start_time
-  $stdout.puts '[%s] %s %s (%.3f s)' % [url.host, http_method, url.request_uri, duration]
-end
+ActiveSupport::Notifications.subscribe('request.faraday') \
+  do |_name, start_time, end_time, _, env|
+    url = env[:url]
+    http_method = env[:method].to_s.upcase
+    duration = end_time - start_time
+    $stdout.puts format('[%s] %s %s (%.3f s)',
+                        url.host, http_method, url.request_uri, duration)
+  end
 
 module Bitbucket
   extend ActiveSupport::Autoload

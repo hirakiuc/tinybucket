@@ -11,6 +11,11 @@ module Bitbucket
       @repos.list(options)
     end
 
+    def repo(owner, repo_slug, options = {})
+      @repo ||= create_instance('Repo', options)
+      @repo.find(owner, repo_slug, options)
+    end
+
     def teams(options = {})
       @teams ||= create_instance('Teams', options)
     end

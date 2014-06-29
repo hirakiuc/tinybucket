@@ -4,9 +4,11 @@ module Bitbucket
   module Models
     class BaseModel
       include ::ActiveModel::Serializers::JSON
+      attr_accessor :api_config
 
       def initialize(json)
         self.attributes = json
+        @api_config = {}
       end
 
       def attributes=(hash)

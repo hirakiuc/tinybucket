@@ -32,7 +32,7 @@ module Bitbucket
       }
     end
 
-    def default_middleware(options)
+    def default_middleware(_options)
       proc do |conn|
         conn.request :multipart
         conn.request :url_encoded

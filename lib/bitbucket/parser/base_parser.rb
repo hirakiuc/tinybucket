@@ -9,11 +9,11 @@ module Bitbucket
       end
 
       def parse_response?(env)
-        (env[:body]).kind_of?(Hash)
+        (env[:body]).is_a?(Hash)
       end
 
       # override on subclass
-      def convert(json)
+      def convert(_json)
       end
     end
   end
