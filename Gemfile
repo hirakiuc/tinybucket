@@ -4,3 +4,6 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'rubocop'
+gem 'pry'
+gem 'pry-stack_explorer'
+gem 'pry-byebug'
