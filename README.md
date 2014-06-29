@@ -63,19 +63,19 @@ repo (Repository Model) には RepoApi , repository attributes が含まれる�
 
 ```
 # GET a repository
-repo = bucket.repo(order: 'self', repo_slug: 'slug')
+repo = bucket.repo(owner: 'self', repo_slug: 'slug')
 
 # POST a new repository
-repo = bucket.repo(order: 'self', repo_slug: 'slug').create(options)
+repo = bucket.repo(owner: 'self', repo_slug: 'slug').create(options)
 
 # DELETE a repository
            bucket.repo(owner: 'self', repo_slug: 'slug').delete
 
 # GET a list of watchers
-watchers = bucket.repo(order: 'self', repo_slug: 'slug').watchers
+watchers = bucket.repo(owner: 'self', repo_slug: 'slug').watchers
 
 # GET a list of forks
-repos = bucket.repo(order: 'self', repo_slug: 'slug').forks
+repos = bucket.repo(owner: 'self', repo_slug: 'slug').forks
 ```
 
 ##### pullrequests Resource
