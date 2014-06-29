@@ -2,7 +2,11 @@ module Bitbucket
   class Client
     include ActiveSupport::Configurable
 
-    def initialize(_options)
+    def initialize(options)
+      options.each_pair do |key, value|
+        config.send("#{key}=", value)
+      end
+
       yield(config) if block_given?
     end
 
