@@ -1,6 +1,10 @@
 # Bitbucket
 
-TODO: Write a gem description
+A Ruby client library for Bitbucket REST API v2 with oauth authentication.
+
+**WARNING** This gem is under development.
+
+This gem is inspired by [vongrippen/bitbucket](https://github.com/vongrippen/bitbucket). Thanks.
 
 ## Installation
 
@@ -18,13 +22,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+**WARNING** These specs will be changed at any time.
 
 ### init
-
-```
-bucket = Bitbucket.new(options)
-```
 
 ```
 bucket = Bitbucket.new do |config|
@@ -37,7 +37,7 @@ end
 
 ```
 # GET a list of repositories for an account
-my_repos  = bucket.repos(owner: :self)
+repos  = bucket.repos(owner: 'someone')
 
 # GET a list of all public repositories
 repos = bucket.repos
@@ -45,93 +45,71 @@ repos = bucket.repos
 
 repos is an array contains Bitbucket::Repository object.
 
-```
-Bitbucket::Repository
-   RepoApi
-      => repository resource
-      => pullrequests resource
-      => commits or commit resource
-      => branch-restrictions resource
-      => diff resource
-```
-
 ##### repository Resource
-
-bucket.repo(owner: 'self', repo_slug: 'slug') で RepoApi が返ってくる感じ
-
-repo (Repository Model) には RepoApi , repository attributes が含まれる感じ
 
 ```
 # GET a repository
-repo = bucket.repo(owner: 'self', repo_slug: 'slug')
+repo = bucket.repo('someone', 'great_repo').find
 
 # POST a new repository
-repo = bucket.repo(owner: 'self', repo_slug: 'slug').create(options)
+repo = bucket.repo('someone', 'great_repo').create(params)
 
 # DELETE a repository
-           bucket.repo(owner: 'self', repo_slug: 'slug').delete
+       bucket.repo('someone', 'great_repo').delete
 
 # GET a list of watchers
-watchers = bucket.repo(owner: 'self', repo_slug: 'slug').watchers
+watchers = bucket.repo('someone', 'great_repo').watchers
 
 # GET a list of forks
-repos = bucket.repo(owner: 'self', repo_slug: 'slug').forks
+repos = bucket.repo('someone', 'great_repo').forks
 ```
 
 ##### pullrequests Resource
 
-bucket.pull_requests(owner: 'self', repo_slug: 'slug') で PullRequestsApi が返ってくる感じ
-
-bucket.repo(owner: 'self', repo_slug: 'slug').pull_requests で PullRequestsApi が返ってくる感じ
-  all で PullRequest modelsのarrayが返る
-
-PullRequest が attributes と PullRequestApi を保持
-  親にあたるrepoへの参照も保持
-
 ```
-repo = bucket.repo(owner: 'self', repo_slug: 'slug')
+repo = bucket.repo('someone', 'great_repo')
 
 # GET a list of open pull requests
-pull_requests = repo.pull_requests(options).all
+pull_requests = repo.pull_requests(options)
 
 # POST (create) a new pull request
-                         repo.pull_request(options).create
+                repo.pull_request(params).create
 
 # PUT a pull request update
-                         repo.pull_request(id: pr_id).update(options)
+                repo.pull_request(pr_id).update(params)
 
 # GET a specific pull request
-pull_request   = repo.pull_request(id: pr_id)
+pull_request   = repo.pull_request(pr_id).find
 
 # GET the commits for a pull request
-commits = repo.pull_request(id: pr_id).commits
+commits = repo.pull_request(pr_id).commits
 
 # POST a pull request approval
-                 repo.pull_request(id: pr_id).approve
-                 
+                 repo.pull_request(pr_id).approve
+
 # DELETE a pull request approval
-                 repo.pull_request(id: pr_id).unapprove
+                 repo.pull_request(pr_id).unapprove
 
 # GET the diff for a pull request
-diff = repo.pull_request(id: pr_id).diff
+diff = repo.pull_request(pr_id).diff
 
 # GET the log of all of a repository's pull request activity
-activities = repo.pull_requests.activities(options)
+activities = repo.pull_requests_activities(options) # TODO: fix method name.
 
 # GET the activity for a pull request
-activities = repo.pull_request(id: pr_id).activities(options)
+activities = repo.pull_request(pr_id).activities(options)
 
 # Accept and merge a pull request
-                  repo.pull_request(id: pr_id).merge(options)
+             repo.pull_request(pr_id).merge(options)
 
 # Decline or reject a pull request
-                  repo.pull_request(id: pr_id).decline(options)
+             repo.pull_request(pr_id).decline(options)
 
 # GET a list of pull request comments
-comments = repo.pull_request(id: pr_id).comments
+comments = repo.pull_request(pr_id).comments
 
 # GET an individual pull request comment
-comment = repo.pull_request(id: pr_id).comment(id: comment_id)
+comment = repo.pull_request(pr_id).comment(comment_id)
 ```
 
 ##### commits or commit Resource
@@ -156,16 +134,16 @@ pending
 
 ```
 # GET the team profile
-profile = bucket.team('team name', options).profile
+profile = bucket.team('team name').profile
 
 # GET the team members
-members = bucket.team('team name', options).members
+members = bucket.team('team name').members
 
 # GET the team followers
-followers = bucket.team('team name', options).followers
+followers = bucket.team('team name').followers
 
 # GET the team's repositories
-repos = bucket.team('team name', options).repos
+repos = bucket.team('team name').repos
 ```
 
 #### users Endpoint
