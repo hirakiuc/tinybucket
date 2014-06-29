@@ -17,7 +17,6 @@ rescue LoadError
   end
 end
 
-=begin
 require 'yard'
 YARD::Rake::YardocTask.new
 
@@ -30,6 +29,5 @@ require 'yardstick/rake/verify'
 Yardstick::Rake::Verify.new do |verify|
   verify.threshold = 59.6
 end
-=end
 
 task :default => [:spec, :rubocop]

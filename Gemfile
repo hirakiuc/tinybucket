@@ -4,11 +4,14 @@ source 'https://rubygems.org'
 gemspec
 
 group :development do
-  gem 'rubocop'
   gem 'pry'
   gem 'pry-stack_explorer'
   gem 'pry-byebug'
 
   gem 'guard-rspec'
   gem 'guard-spork'
+
+  gem 'rubocop'
+  gem 'yard'
+  gem 'yardstick'
 end
