@@ -53,9 +53,9 @@ module Bitbucket
       @stack ||=
         begin
           if block_given?
-            Faraday::Builder.new(&block)
+            Faraday::RackBuilder.new(&block)
           else
-            Faraday::Builder.new do |conn|
+            Faraday::RackBuilder.new do |conn|
               conn.use parser if parser.present?
               default_middleware(options).call(conn)
             end
