@@ -5,8 +5,6 @@ require 'active_support/dependencies/autoload'
 require 'active_support/core_ext/hash'
 require 'active_support/configurable'
 
-require 'pry'
-
 require 'bitbucket/api'
 require 'bitbucket/api/base_api'
 require 'bitbucket/api/repos_api'
