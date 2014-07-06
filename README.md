@@ -27,6 +27,10 @@ Or install it yourself as:
 ### init
 
 ```
+bucket = Bitbucket.new(oauth_key: 'key', oauth_secret: 'secret')
+```
+
+```
 bucket = Bitbucket.new do |config|
   config.oauth_key    = 'key'
   config.oauth_secret = 'secret'
@@ -36,11 +40,11 @@ end
 #### repositories Endpoint
 
 ```
-# GET a list of repositories for an account
-repos  = bucket.repos(owner: 'someone')
-
 # GET a list of all public repositories
 repos = bucket.repos
+
+# GET a list of repositories for an account
+repos  = bucket.repos(owner: 'someone')
 ```
 
 repos is an array contains Bitbucket::Repository object.
@@ -55,7 +59,7 @@ repo = bucket.repo('someone', 'great_repo').find
 repo = bucket.repo('someone', 'great_repo').create(params)
 
 # DELETE a repository
-       bucket.repo('someone', 'great_repo').delete
+       bucket.repo('someone', 'great_repo').destroy
 
 # GET a list of watchers
 watchers = bucket.repo('someone', 'great_repo').watchers
@@ -115,7 +119,26 @@ comment = repo.pull_request(pr_id).comment(comment_id)
 ##### commits or commit Resource
 
 ```
-pending
+repo = bucket.repo('someone', 'great_repo')
+
+# GET a commits list for a repository or compare commits across branches
+# branchortag, include, exclude options
+commits = repo.commits(options)
+
+# GET an individual commit
+commit = repo.commit('revision').find
+
+# GET a list of commit comments
+comments = repo.commit('revision').comments
+
+# GET an individual commit comment
+comment = repo.commit('revision').comment(comment_id)
+
+# POST a commit approval
+  repo.commit('revision').approve
+  
+# DELETE a commit approval
+  repo.commit('revision').unapprove
 ```
 
 ##### branch-restrictions Resource
