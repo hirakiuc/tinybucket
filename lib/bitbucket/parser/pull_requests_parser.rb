@@ -1,6 +1,3 @@
-require 'bitbucket/parser/base_parser'
-require 'bitbucket/models/pull_request'
-
 module Bitbucket
   module Parser
     class PullRequestsParser < BaseParser

@@ -11,7 +11,5 @@ group :development do
   gem 'guard-rspec'
   gem 'guard-spork'
 
-  gem 'rubocop'
-  gem 'yard'
-  gem 'yardstick'
+  gem 'guard-rubocop'
 end

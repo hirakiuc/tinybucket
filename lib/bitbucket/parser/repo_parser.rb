@@ -1,6 +1,3 @@
-require 'bitbucket/parser/base_parser'
-require 'bitbucket/models/repository'
-
 module Bitbucket
   module Parser
     class RepoParser < BaseParser

@@ -1,6 +1,3 @@
-require 'bitbucket/models/base_model'
-require 'bitbucket/api_factory'
-
 module Bitbucket
   module Models
     class Repository < BaseModel

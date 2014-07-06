@@ -2,7 +2,7 @@ module Bitbucket
   class Client
     include ActiveSupport::Configurable
 
-    def initialize(options)
+    def initialize(options = {})
       options.each_pair do |key, value|
         config.send("#{key}=", value)
       end
@@ -17,7 +17,10 @@ module Bitbucket
 
     def repo(owner, repo_slug, options = {})
       @repo ||= create_instance('Repo', options)
-      @repo.find(owner, repo_slug, options)
+
+      @repo.owner     = owner
+      @repo.repo_slug = repo_slug
+      @repo
     end
 
     def teams(options = {})

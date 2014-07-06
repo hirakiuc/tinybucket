@@ -1,6 +1,3 @@
-require 'faraday'
-require 'bitbucket/error'
-
 module Bitbucket
   module Response
     class ErrorHandler < Faraday::Response::Middleware

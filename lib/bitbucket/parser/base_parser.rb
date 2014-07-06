@@ -1,6 +1,3 @@
-require 'faraday_middleware/response_middleware'
-require 'bitbucket/models/page'
-
 module Bitbucket
   module Parser
     class BaseParser < FaradayMiddleware::ResponseMiddleware

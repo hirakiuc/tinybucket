@@ -1,7 +1,3 @@
-require 'faraday'
-require 'faraday_middleware'
-require 'bitbucket/response/error_handler'
-
 module Bitbucket
   module Connection
     def clear_cache

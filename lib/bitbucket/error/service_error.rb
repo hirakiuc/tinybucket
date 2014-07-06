@@ -1,5 +1,3 @@
-require 'bitbucket/error/base_error'
-
 module Bitbucket
   module Error
     class ServiceError < BaseError

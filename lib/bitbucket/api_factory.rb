@@ -8,8 +8,9 @@ module Bitbucket
           begin
             name = "#{klass_name}Api".intern
             (Bitbucket::Api).const_get name
-          rescue
+          rescue => e
             # TODO: log exception
+            Bitbucket.logger.error e
             raise ArgumentError, 'must provide klass to be instantiated'
           end
 

@@ -1,5 +1,3 @@
-require 'bitbucket/parser/repos_parser'
-
 module Bitbucket
   module Api
     class ReposApi < BaseApi

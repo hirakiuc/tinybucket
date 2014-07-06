@@ -1,5 +1,3 @@
-require 'bitbucket/parser/pull_requests_parser'
-
 module Bitbucket
   module Api
     class PullRequestsApi < BaseApi

@@ -1,5 +1,3 @@
-require 'bitbucket/models/base_model'
-
 module Bitbucket
   module Models
     class PullRequest < BaseModel
