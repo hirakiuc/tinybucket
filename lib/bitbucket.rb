@@ -32,7 +32,10 @@ ActiveSupport::Notifications.subscribe('request.faraday') \
     http_method = env[:method].to_s.upcase
     duration = end_time - start_time
     Bitbucket.logger.debug \
-      format('[%s] %s %s (%.3f s)', url.host, http_method, url.request_uri, duration)
+      format(
+        '[%s] %s %s (%.3f s)',
+        url.host, http_method, url.request_uri, duration
+      )
   end
 
 module Bitbucket

@@ -36,3 +36,6 @@ Next:
 
 Style/AlignHash:
   Enabled: false
+
+Style/RaiseArgs:
+  Enabled: false
