@@ -1,7 +1,5 @@
 require 'spec_helper.rb'
 
-require 'bitbucket/api/base_api.rb'
-
 RSpec.describe Bitbucket::Api::ReposApi do
   include ApiResponseMacros
 
