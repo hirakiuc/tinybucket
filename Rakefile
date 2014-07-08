@@ -3,6 +3,12 @@ require 'bundler/setup'
 
 require "bundler/gem_tasks"
 
+desc 'cleanup rcov, doc directories'
+task :clean do
+  rm_rf 'coverage'
+  rm_rf 'doc'
+end
+
 # https://github.com/sferik/twitter/blob/master/Rakefile
 require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new(:spec)
