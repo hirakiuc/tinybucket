@@ -4,6 +4,7 @@ module Bitbucket
 
     autoload :BaseApi
     autoload :PullRequestsApi
+    autoload :PullRequestApi
     autoload :RepoApi
     autoload :ReposApi
     autoload :TeamsApi

@@ -18,7 +18,7 @@ module Bitbucket
     def repo(owner, repo_slug, options = {})
       @repo ||= create_instance('Repo', options)
 
-      @repo.owner     = owner
+      @repo.repo_owner = owner
       @repo.repo_slug = repo_slug
       @repo
     end

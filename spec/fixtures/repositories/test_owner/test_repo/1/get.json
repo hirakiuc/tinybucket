@@ -1,0 +1,170 @@
+{
+  "description": "![img](https://cloudup.com/c7ZJtChLw9J+) ## Removing: * Notifications * Email * Change password * Sessions ## Renaming: * Change username * Delete account (rename to delete team) ",
+  "links": {
+    "decline": {
+      "href": "https://staging.bitbucket.org/api/2.0/repositories/bitbucket/bitbucket/pullrequests/3767/decline"
+    },
+    "commits": {
+      "href": "https://staging.bitbucket.org/api/2.0/repositories/bitbucket/bitbucket/pullrequests/3767/commits"
+    },
+    "self": {
+      "href": "https://staging.bitbucket.org/api/2.0/repositories/bitbucket/bitbucket/pullrequests/3767"
+    },
+    "comments": {
+      "href": "https://staging.bitbucket.org/api/2.0/repositories/bitbucket/bitbucket/pullrequests/3767/comments"
+    },
+    "patch": {
+      "href": "https://staging.bitbucket.org/api/2.0/repositories/bitbucket/bitbucket/pullrequests/3767/patch"
+    },
+    "merge": {
+      "href": "https://staging.bitbucket.org/api/2.0/repositories/bitbucket/bitbucket/pullrequests/3767/merge"
+    },
+    "html": {
+      "href": "https://staging.bitbucket.org/bitbucket/bitbucket/pull-request/3767"
+    },
+    "activity": {
+      "href": "https://staging.bitbucket.org/api/2.0/repositories/bitbucket/bitbucket/pullrequests/3767/activity"
+    },
+    "diff": {
+      "href": "https://staging.bitbucket.org/api/2.0/repositories/bitbucket/bitbucket/pullrequests/3767/diff"
+    },
+    "approve": {
+      "href": "https://staging.bitbucket.org/api/2.0/repositories/bitbucket/bitbucket/pullrequests/3767/approve"
+    }
+  },
+  "title": "BB-9500: Remove certain admin links for Team accounts",
+  "close_source_branch": true,
+  "reviewers": [
+    {
+      "username": "bnguyen",
+      "display_name": "Brian Nguyen",
+      "links": {
+        "self": {
+          "href": "https://staging.bitbucket.org/api/2.0/users/bnguyen"
+        },
+        "avatar": {
+          "href": "https://bitbucket-staging-assetroot.s3.amazonaws.com/c/photos/2013/Jul/24/bnguyen-avatar-124941034-2_avatar.png"
+        }
+      }
+    }
+  ],
+  "destination": {
+    "commit": {
+      "hash": "e04099ba977c",
+      "links": {
+        "self": {
+          "href": "https://staging.bitbucket.org/api/2.0/repositories/bitbucket/bitbucket/commit/e04099ba977c"
+        }
+      }
+    },
+    "repository": {
+      "links": {
+        "self": {
+          "href": "https://staging.bitbucket.org/api/2.0/repositories/bitbucket/bitbucket"
+        },
+        "avatar": {
+          "href": "https://bitbucket-staging-assetroot.s3.amazonaws.com/c/photos/2013/Sep/27/bitbucket-logo-1832464563-7_avatar.png"
+        }
+      },
+      "full_name": "bitbucket/bitbucket",
+      "name": "bitbucket"
+    },
+    "branch": {
+      "name": "staging"
+    }
+  },
+  "reason": "",
+  "closed_by": null,
+  "source": {
+    "commit": {
+      "hash": "2a81a1edc0c2",
+      "links": {
+        "self": {
+          "href": "https://staging.bitbucket.org/api/2.0/repositories/bitbucket/bitbucket/commit/2a81a1edc0c2"
+        }
+      }
+    },
+    "repository": {
+      "links": {
+        "self": {
+          "href": "https://staging.bitbucket.org/api/2.0/repositories/bitbucket/bitbucket"
+        },
+        "avatar": {
+          "href": "https://bitbucket-staging-assetroot.s3.amazonaws.com/c/photos/2013/Sep/27/bitbucket-logo-1832464563-7_avatar.png"
+        }
+      },
+      "full_name": "bitbucket/bitbucket",
+      "name": "bitbucket"
+    },
+    "branch": {
+      "name": "mfrauenholtz/team-removal/admin-links"
+    }
+  },
+  "state": "OPEN",
+  "author": {
+    "username": "mfrauenholtz",
+    "display_name": "Michael Frauenholtz",
+    "links": {
+      "self": {
+        "href": "https://staging.bitbucket.org/api/2.0/users/mfrauenholtz"
+      },
+      "avatar": {
+        "href": "https://bitbucket-staging-assetroot.s3.amazonaws.com/c/photos/2013/Aug/24/mfrauenholtz-avatar-1858533797-5_avatar.png"
+      }
+    }
+  },
+  "created_on": "2013-11-05T23:59:26.480984+00:00",
+  "participants": [
+    {
+      "role": "PARTICIPANT",
+      "user": {
+        "username": "mfrauenholtz",
+        "display_name": "Michael Frauenholtz",
+        "links": {
+          "self": {
+            "href": "https://staging.bitbucket.org/api/2.0/users/mfrauenholtz"
+          },
+          "avatar": {
+            "href": "https://bitbucket-staging-assetroot.s3.amazonaws.com/c/photos/2013/Aug/24/mfrauenholtz-avatar-1858533797-5_avatar.png"
+          }
+        }
+      },
+      "approved": false
+    },
+    {
+      "role": "PARTICIPANT",
+      "user": {
+        "username": "dbennett",
+        "display_name": "Daniel Bennett",
+        "links": {
+          "self": {
+            "href": "https://staging.bitbucket.org/api/2.0/users/dbennett"
+          },
+          "avatar": {
+            "href": "https://bitbucket-staging-assetroot.s3.amazonaws.com/c/photos/2013/Aug/23/dbennett-avatar-2862131757-8_avatar.png"
+          }
+        }
+      },
+      "approved": false
+    },
+    {
+      "role": "REVIEWER",
+      "user": {
+        "username": "bnguyen",
+        "display_name": "Brian Nguyen",
+        "links": {
+          "self": {
+            "href": "https://staging.bitbucket.org/api/2.0/users/bnguyen"
+          },
+          "avatar": {
+            "href": "https://bitbucket-staging-assetroot.s3.amazonaws.com/c/photos/2013/Jul/24/bnguyen-avatar-124941034-2_avatar.png"
+          }
+        }
+      },
+      "approved": false
+    }
+  ],
+  "updated_on": "2013-11-07T00:17:41.061613+00:00",
+  "merge_commit": null,
+  "id": 3767
+}

@@ -1,10 +1,10 @@
 require 'spec_helper.rb'
 
-RSpec.describe Bitbucket::Api::RepoApi do
+RSpec.describe Bitbucket::Api::PullRequestApi do
   include ApiResponseMacros
 
   let(:api_config){ {} }
-  let(:api){ Bitbucket::Api::RepoApi.new(api_config) }
+  let(:api){ Bitbucket::Api::PullRequestApi.new(api_config) }
 
   it { expect(api).to be_a_kind_of(Bitbucket::Api::BaseApi) }
 
@@ -21,7 +21,8 @@ RSpec.describe Bitbucket::Api::RepoApi do
   end
 
   describe 'find' do
-    subject{ api.find(options) }
+    let(:pr_id){ 1 }
+    subject{ api.find(pr_id, options) }
 
     context 'when without repo_owner and repo_slug' do
       let(:repo_owner){ nil }
@@ -40,8 +41,8 @@ RSpec.describe Bitbucket::Api::RepoApi do
     end
 
     context 'when with repo_owner and repo_slug' do
-      let(:request_path){ "/repositories/#{repo_owner}/#{repo_slug}" }
-      it { expect(subject).to be_an_instance_of(Bitbucket::Models::Repository) }
+      let(:request_path){ "/repositories/#{repo_owner}/#{repo_slug}/#{pr_id}" }
+      it { expect(subject).to be_an_instance_of(Bitbucket::Models::PullRequest) }
     end
   end
 end

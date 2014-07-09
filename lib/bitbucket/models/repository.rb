@@ -17,6 +17,17 @@ module Bitbucket
         list
       end
 
+      def pull_request(pullrequest_id, options = {})
+        @pull_request ||= create_instance 'PullRequest', options
+        @pull_request.repo_owner = repo_owner
+        @pull_request.repo_slug = repo_slug
+
+        m = @pull_request.find(pullrequest_id, options)
+        m.repository = self
+
+        m
+      end
+
       private
 
       def create_instance(klass_name, options)
