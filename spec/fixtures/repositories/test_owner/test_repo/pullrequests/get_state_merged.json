@@ -1,0 +1,112 @@
+{
+    "pagelen": 1,
+    "next": "https://api.bitbucket.org/2.0/repositories/bitbucket/bitbucket/pullrequests?pagelen=1&page=2",
+    "values": [{
+        "description": "![img](https://cloudup.com/c7ZJtChLw9J+)\r\n\r\n## Removing:\r\n\r\n* Notifications\r\n* Email\r\n* Change password\r\n* Sessions\r\n\r\n## Renaming: \r\n\r\n* Change username\r\n* Delete account (rename to delete team)\r\n\r\n",
+        "links": {
+            "decline": {
+                "href": "https://api.bitbucket.org/2.0/repositories/bitbucket/bitbucket/pullrequests/3767/decline"
+            },
+            "commits": {
+                "href": "https://api.bitbucket.org/2.0/repositories/bitbucket/bitbucket/pullrequests/3767/commits"
+            },
+            "self": {
+                "href": "https://api.bitbucket.org/2.0/repositories/bitbucket/bitbucket/pullrequests/3767"
+            },
+            "comments": {
+                "href": "https://api.bitbucket.org/2.0/repositories/bitbucket/bitbucket/pullrequests/3767/comments"
+            },
+            "patch": {
+                "href": "https://api.bitbucket.org/2.0/repositories/bitbucket/bitbucket/pullrequests/3767/patch"
+            },
+            "merge": {
+                "href": "https://api.bitbucket.org/2.0/repositories/bitbucket/bitbucket/pullrequests/3767/merge"
+            },
+            "html": {
+                "href": "https://api.bitbucket.org/bitbucket/bitbucket/pull-request/3767"
+            },
+            "activity": {
+                "href": "https://api.bitbucket.org/2.0/repositories/bitbucket/bitbucket/pullrequests/3767/activity"
+            },
+            "diff": {
+                "href": "https://api.bitbucket.org/2.0/repositories/bitbucket/bitbucket/pullrequests/3767/diff"
+            },
+            "approve": {
+                "href": "https://api.bitbucket.org/2.0/repositories/bitbucket/bitbucket/pullrequests/3767/approve"
+            }
+        },
+        "author": {
+            "username": "mfrauenholtz",
+            "display_name": "Michael Frauenholtz",
+            "links": {
+                "self": {
+                    "href": "https://api.bitbucket.org/2.0/users/mfrauenholtz"
+                },
+                "avatar": {
+                    "href": "https://bitbucket-staging-assetroot.s3.amazonaws.com/c/photos/2013/Aug/24/mfrauenholtz-avatar-1858533797-5_avatar.png"
+                }
+            }
+        },
+        "close_source_branch": true,
+        "title": "BB-9500: Remove certain admin links for Team accounts",
+        "destination": {
+            "commit": {
+                "hash": "e04099ba977c",
+                "links": {
+                    "self": {
+                        "href": "https://api.bitbucket.org/2.0/repositories/bitbucket/bitbucket/commit/e04099ba977c"
+                    }
+                }
+            },
+            "repository": {
+                "links": {
+                    "self": {
+                        "href": "https://api.bitbucket.org/2.0/repositories/bitbucket/bitbucket"
+                    },
+                    "avatar": {
+                        "href": "https://bitbucket-staging-assetroot.s3.amazonaws.com/c/photos/2013/Sep/27/bitbucket-logo-1832464563-7_avatar.png"
+                    }
+                },
+                "full_name": "bitbucket/bitbucket",
+                "name": "bitbucket"
+            },
+            "branch": {
+                "name": "staging"
+            }
+        },
+        "reason": "",
+        "closed_by": null,
+        "source": {
+            "commit": {
+                "hash": "2a81a1edc0c2",
+                "links": {
+                    "self": {
+                        "href": "https://api.bitbucket.org/2.0/repositories/bitbucket/bitbucket/commit/2a81a1edc0c2"
+                    }
+                }
+            },
+            "repository": {
+                "links": {
+                    "self": {
+                        "href": "https://api.bitbucket.org/2.0/repositories/bitbucket/bitbucket"
+                    },
+                    "avatar": {
+                        "href": "https://bitbucket-staging-assetroot.s3.amazonaws.com/c/photos/2013/Sep/27/bitbucket-logo-1832464563-7_avatar.png"
+                    }
+                },
+                "full_name": "bitbucket/bitbucket",
+                "name": "bitbucket"
+            },
+            "branch": {
+                "name": "mfrauenholtz/team-removal/admin-links"
+            }
+        },
+        "state": "MERGED",
+        "created_on": "2013-11-05T23:59:26.480984+00:00",
+        "updated_on": "2013-11-07T00:17:41.061613+00:00",
+        "merge_commit": null,
+        "id": 3767
+    }],
+    "page": 1,
+    "size": 12
+}

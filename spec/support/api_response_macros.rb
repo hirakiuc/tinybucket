@@ -13,7 +13,13 @@ module ApiResponseMacros
   private
 
   def fixture_json(method, path)
-    path = 'spec/fixtures/' + method.to_s.downcase + path.gsub('/','_') + '.json'
-    File.read(path)
+    parts = path.split('?')
+
+    path = 'spec/fixtures' + parts[0]
+    fname = method.to_s
+    fname += '_' + parts[1].gsub(/[\/??&=]/, '_') if parts[1].present?
+    fname += '.json'
+
+    File.read(path + '/' + fname)
   end
 end

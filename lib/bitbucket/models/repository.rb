@@ -8,9 +8,11 @@ module Bitbucket
 
       def pull_requests(options = {})
         @pull_requests ||= create_instance 'PullRequests', options
+        @pull_requests.repo_owner = repo_owner
+        @pull_requests.repo_slug = repo_slug
 
-        list = @pull_requests.list(repo_owner, repo_slug, options)
-        list.each { |pr| pr.repository = self }
+        list = @pull_requests.list(options)
+        list.map { |pr| pr.repository = self }
 
         list
       end
