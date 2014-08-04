@@ -3,10 +3,10 @@ module Bitbucket
     extend ActiveSupport::Autoload
 
     autoload :BaseApi
+    autoload :CommitsApi
     autoload :PullRequestsApi
-    autoload :PullRequestApi
-    autoload :RepoApi
     autoload :ReposApi
+    autoload :RepoApi
     autoload :TeamsApi
     autoload :UsersApi
   end
