@@ -16,11 +16,8 @@ module Bitbucket
     end
 
     def repo(owner, repo_slug, options = {})
-      @repo ||= create_instance('Repo', options)
-
-      @repo.repo_owner = owner
-      @repo.repo_slug = repo_slug
-      @repo
+      @repos ||= create_instance('Repos', options)
+      @repos.find(owner, repo_slug, options)
     end
 
     def teams(options = {})
