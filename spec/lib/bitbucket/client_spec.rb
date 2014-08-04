@@ -32,14 +32,16 @@ RSpec.describe Bitbucket::Client do
   end
 
   describe 'repo' do
-    let(:owner) { 'test_owner' }
+    let(:repo_owner) { 'test_owner' }
     let(:repo_slug) { 'test_repo' }
-    let(:request_path) { "/repositories/#{owner}/#{repo_slug}" }
 
-    before { stub_apiresponse(:get, request_path) }
-    subject { client.repo(owner, repo_slug) }
+    subject { client.repo(repo_owner, repo_slug) }
 
-    it { expect(subject).to be_instance_of(Bitbucket::Models::Repository) }
+    it 'return RepoApi instance' do
+      expect(subject).to be_instance_of(Bitbucket::Api::RepoApi)
+      expect(subject.repo_owner).to eq(repo_owner)
+      expect(subject.repo_slug).to eq(repo_slug)
+    end
   end
 
   describe 'teams' do
