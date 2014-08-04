@@ -99,4 +99,34 @@ RSpec.describe Bitbucket::Api::PullRequestsApi do
       end
     end
   end
+
+  describe 'commits' do
+    let(:pr_id) { 1 }
+    subject { api.commits(pr_id) }
+
+    context 'when without repo_owner and repo_slug' do
+      let(:owner) { nil }
+      let(:slug) { nil }
+      it { expect { subject }.to raise_error(ArgumentError) }
+    end
+
+    context 'when without repo_owner' do
+      let(:owner) { nil }
+      it { expect { subject }.to raise_error(ArgumentError) }
+    end
+
+    context 'when without repo_slug' do
+      let(:slug) { nil }
+      it { expect { subject }.to raise_error(ArgumentError) }
+    end
+
+    context 'when with repo_owner and repo_slug' do
+      let(:request_path) do
+        "/repositories/#{owner}/#{slug}/pullrequests/1/commits"
+      end
+      it 'return page model which contains commit models' do
+        expect(subject).to be_an_instance_of(Bitbucket::Models::Page)
+      end
+    end
+  end
 end
