@@ -12,13 +12,16 @@ module Bitbucket
         @pull_requests.repo_slug = repo_slug
 
         list = @pull_requests.list(options)
-        list.map { |pr| pr.repository = self }
+        list.map do |pr|
+          pr.repository = self
+          pr.api_config = api_config.dup
+        end
 
         list
       end
 
       def pull_request(pullrequest_id, options = {})
-        @pull_request ||= create_instance 'PullRequest', options
+        @pull_request ||= create_instance 'PullRequests', options
         @pull_request.repo_owner = repo_owner
         @pull_request.repo_slug = repo_slug
 
@@ -26,12 +29,6 @@ module Bitbucket
         m.repository = self
 
         m
-      end
-
-      private
-
-      def create_instance(klass_name, options)
-        ApiFactory.create_instance(klass_name, api_config, options)
       end
 
       def repo_owner

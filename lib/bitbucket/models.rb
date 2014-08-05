@@ -3,6 +3,7 @@ module Bitbucket
     extend ActiveSupport::Autoload
 
     autoload :BaseModel
+    autoload :Commit
     autoload :ErrorResponse
     autoload :Page
     autoload :PullRequest

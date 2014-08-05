@@ -18,6 +18,12 @@ module Bitbucket
       def attributes
         instance_values
       end
+
+      protected
+
+      def create_instance(klass_name, options)
+        ApiFactory.create_instance(klass_name, api_config, options)
+      end
     end
   end
 end
