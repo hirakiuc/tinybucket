@@ -7,6 +7,7 @@ module Bitbucket
     autoload :Commit
     autoload :ErrorResponse
     autoload :Page
+    autoload :Profile
     autoload :PullRequest
     autoload :Repository
   end

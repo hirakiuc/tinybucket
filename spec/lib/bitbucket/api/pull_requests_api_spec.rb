@@ -10,7 +10,7 @@ RSpec.describe Bitbucket::Api::PullRequestsApi do
   let(:slug) { 'test_repo' }
   let(:request_path) { nil }
 
-  it { expect(api).to be_a_kind_of(Bitbucket::Api::PullRequestsApi) }
+  it { expect(api).to be_a_kind_of(Bitbucket::Api::BaseApi) }
 
   before do
     api.repo_owner = owner
