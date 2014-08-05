@@ -64,7 +64,7 @@ repo = bucket.repo('someone', 'great_repo').create(params)
 # [x] GET a list of watchers
 watchers = bucket.repo('someone', 'great_repo').watchers
 
-# [ ] GET a list of forks
+# [x] GET a list of forks
 repos = bucket.repo('someone', 'great_repo').forks
 ```
 
