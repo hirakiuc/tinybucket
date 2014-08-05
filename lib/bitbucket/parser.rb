@@ -3,6 +3,8 @@ module Bitbucket
     extend ActiveSupport::Autoload
 
     autoload :BaseParser
+    autoload :CommitsParser
+    autoload :CommitParser
     autoload :PullRequestParser
     autoload :PullRequestsParser
     autoload :RepoParser
