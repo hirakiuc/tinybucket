@@ -61,7 +61,7 @@ repo = bucket.repo('someone', 'great_repo').create(params)
 # [ ] DELETE a repository
        bucket.repo('someone', 'great_repo').destroy
 
-# [ ] GET a list of watchers
+# [x] GET a list of watchers
 watchers = bucket.repo('someone', 'great_repo').watchers
 
 # [ ] GET a list of forks
@@ -136,7 +136,7 @@ comment = repo.commit('revision').comment(comment_id)
 
 # POST a commit approval
   repo.commit('revision').approve
-  
+
 # DELETE a commit approval
   repo.commit('revision').unapprove
 ```

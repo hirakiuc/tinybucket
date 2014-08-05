@@ -31,6 +31,14 @@ module Bitbucket
         m
       end
 
+      def watchers(options = {})
+        @repo ||= create_instance 'Repo', options
+        @repo.repo_owner = repo_owner
+        @repo.repo_slug = repo_slug
+
+        @repo.watchers(options)
+      end
+
       def repo_owner
         case owner
         when Hash
