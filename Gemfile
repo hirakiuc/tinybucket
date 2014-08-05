@@ -3,10 +3,11 @@ source 'https://rubygems.org'
 # Specify your gem's dependencies in bitbucket.gemspec
 gemspec
 
-group :development do
+group :development, :test do
   gem 'pry'
   gem 'pry-stack_explorer'
   gem 'pry-byebug'
+  gem 'pry-rescue'
 
   gem 'guard-rspec'
   gem 'guard-spork'
