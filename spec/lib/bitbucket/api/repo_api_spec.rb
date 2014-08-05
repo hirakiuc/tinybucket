@@ -70,4 +70,31 @@ RSpec.describe Bitbucket::Api::RepoApi do
       it { expect(subject).to be_an_instance_of(Bitbucket::Models::Page) }
     end
   end
+
+  describe 'forks' do
+    subject { api.forks }
+
+    context 'when without repo_owner and repo_slug' do
+      let(:repo_owner) { nil }
+      let(:repo_slug) { nil }
+      it { expect { subject }.to raise_error(ArgumentError) }
+    end
+
+    context 'when without repo_owner' do
+      let(:repo_owner) { nil }
+      it { expect { subject }.to raise_error(ArgumentError) }
+    end
+
+    context 'when without repo_slug' do
+      let(:repo_slug) { nil }
+      it { expect { subject }.to raise_error(ArgumentError) }
+    end
+
+    context 'when with repo_owner and repo_slug' do
+      let(:request_path) do
+        "/repositories/#{repo_owner}/#{repo_slug}/forks"
+      end
+      it { expect(subject).to be_an_instance_of(Bitbucket::Models::Page) }
+    end
+  end
 end

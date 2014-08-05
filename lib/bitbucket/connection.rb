@@ -10,9 +10,10 @@ module Bitbucket
 
     def connection(options = {}, parser = nil)
       conn_options = default_options(options)
-      clear_cache unless options.empty?
+      clear_cache
 
-      @connection ||= Faraday.new(
+      # TODO: cache connection for each (options, parser) pairs.
+      Faraday.new(
         conn_options.merge(builder: stack(options, parser)))
     end
 
@@ -46,17 +47,13 @@ module Bitbucket
     end
 
     def stack(options = {}, parser, &block)
-      @stack ||=
-        begin
-          if block_given?
-            Faraday::RackBuilder.new(&block)
-          else
-            Faraday::RackBuilder.new do |conn|
-              conn.use parser if parser.present?
-              default_middleware(options).call(conn)
-            end
-          end
-        end
+      Faraday::RackBuilder.new(&block) and return if block_given?
+
+      # TODO: cache stack for each (options, parser) pairs
+      Faraday::RackBuilder.new do |conn|
+        conn.use parser if parser.present?
+        default_middleware(options).call(conn)
+      end
     end
   end
 end
