@@ -35,7 +35,8 @@ module Bitbucket
         owner = (repo_owner.nil?) ? '' : CGI.escape(repo_owner)
         slug  = (repo_slug.nil?)  ? '' : CGI.escape(repo_slug)
 
-        fail ArgumentError, 'require owner and repo_slug params.' if owner.blank? || slug.blank?
+        fail ArgumentError, 'require repo_owner/repo_slug.' \
+          if owner.blank? || slug.blank?
 
         "/repositories/#{owner}/#{slug}"
       end
@@ -44,7 +45,8 @@ module Bitbucket
         owner = (repo_owner.nil?) ? '' : CGI.escape(repo_owner)
         slug  = (repo_slug.nil?)  ? '' : CGI.escape(repo_slug)
 
-        fail ArgumentError, 'require owner/slug params.' if owner.blank? || slug.blank?
+        fail ArgumentError, 'require owner/slug params.' \
+          if owner.blank? || slug.blank?
 
         "/repositories/#{owner}/#{slug}/watchers"
       end
@@ -53,7 +55,8 @@ module Bitbucket
         owner = (repo_owner.nil?) ? '' : CGI.escape(repo_owner)
         slug  = (repo_slug.nil?)  ? '' : CGI.escape(repo_slug)
 
-        fail ArgumentError, 'require owner/slug params.' if owner.blank? || slug.blank?
+        fail ArgumentError, 'require owner/slug params.' \
+          if owner.blank? || slug.blank?
 
         "/repositories/#{owner}/#{slug}/forks"
       end
