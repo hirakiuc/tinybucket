@@ -53,17 +53,17 @@ RSpec.describe Bitbucket::Api::PullRequestsApi do
       end
 
       context 'when state is OPEN' do
-        let(:state) { 'OPEN' }
+        let(:state) { 'open' }
         it { expect(subject).to be_an_instance_of(Bitbucket::Models::Page) }
       end
 
       context 'when state is DECLINED' do
-        let(:state) { 'DECLINED' }
+        let(:state) { 'declined' }
         it { expect(subject).to be_an_instance_of(Bitbucket::Models::Page) }
       end
 
       context 'when state is MERGED' do
-        let(:state) { 'MERGED' }
+        let(:state) { 'merged' }
         it { expect(subject).to be_an_instance_of(Bitbucket::Models::Page) }
       end
     end
