@@ -1,0 +1,32 @@
+{
+  "pagelen": 2,
+  "next": "https://bitbucket.org/api/2.0/repositories/tutorials/tutorials.bitbucket.org/watchers?pagelen=2&page=2",
+  "values": [
+    {
+      "username": "tutorials",
+      "display_name": "first name last",
+      "links": {
+        "self": {
+          "href": "https://bitbucket.org/api/2.0/users/tutorials"
+        },
+        "avatar": {
+          "href": "https://bitbucket-assetroot.s3.amazonaws.com/c/photos/2013/Jul/17/tutorials-avatar-1826704565-4_avatar.png"
+        }
+      }
+    },
+    {
+      "username": "mmangier",
+      "display_name": "mmangier",
+      "links": {
+        "self": {
+          "href": "https://bitbucket.org/api/2.0/users/mmangier"
+        },
+        "avatar": {
+          "href": "https://secure.gravatar.com/avatar/16b32ae6fcb078db0a088ce2516f2a05?d=https%3A%2F%2Fd3oaxc4q5k2d6q.cloudfront.net%2Fm%2Ff5a36db3429b%2Fimg%2Fdefault_avatar%2F32%2Fuser_blue.png&s=32"
+        }
+      }
+    }
+  ],
+  "page": 1,
+  "size": 19
+}

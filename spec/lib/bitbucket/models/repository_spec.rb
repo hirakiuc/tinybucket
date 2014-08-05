@@ -35,6 +35,12 @@ RSpec.describe Bitbucket::Models::Repository do
     it { expect(subject).to be_an_instance_of(Bitbucket::Models::PullRequest) }
   end
 
+  describe 'watchers' do
+    let(:request_path) { "/repositories/#{owner}/#{slug}/watchers" }
+    subject { model.watchers }
+    it { expect(subject).to be_an_instance_of(Bitbucket::Models::Page) }
+  end
+
   describe '#repo_owner' do
     pending 'TODO add specs'
   end

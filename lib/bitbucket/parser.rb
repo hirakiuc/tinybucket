@@ -2,6 +2,7 @@ module Bitbucket
   module Parser
     extend ActiveSupport::Autoload
 
+    autoload :AccountsParser
     autoload :BaseParser
     autoload :CommitsParser
     autoload :CommitParser
