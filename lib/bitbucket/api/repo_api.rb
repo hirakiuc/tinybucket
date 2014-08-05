@@ -20,6 +20,15 @@ module Bitbucket
         list
       end
 
+      def forks(options = {})
+        path = path_to_forks
+        list = get_path(path, options, Bitbucket::Parser::ReposParser)
+
+        # pass @config to api_config
+        list.map { |m| m.api_config = @config.dup }
+        list
+      end
+
       private
 
       def path_to_find
@@ -38,6 +47,15 @@ module Bitbucket
         fail ArgumentError, 'require owner/slug params.' if owner.blank? || slug.blank?
 
         "/repositories/#{owner}/#{slug}/watchers"
+      end
+
+      def path_to_forks
+        owner = (repo_owner.nil?) ? '' : CGI.escape(repo_owner)
+        slug  = (repo_slug.nil?)  ? '' : CGI.escape(repo_slug)
+
+        fail ArgumentError, 'require owner/slug params.' if owner.blank? || slug.blank?
+
+        "/repositories/#{owner}/#{slug}/forks"
       end
     end
   end
