@@ -28,8 +28,11 @@ module Bitbucket
       @teams ||= create_instance('Teams', options)
     end
 
-    def users(options = {})
-      @users ||= create_instance('Users', options)
+    def user(username, options = {})
+      @user ||= create_instance('User', options)
+      @user.username = username
+
+      @user
     end
 
     private

@@ -1,0 +1,100 @@
+{
+  "pagelen": 10,
+  "values":  [
+     {
+      "username": "jdoklovic",
+      "kind": "user",
+      "website": "http://www.sysbliss.com/",
+      "display_name": "Jonathan Doklovic",
+      "links":  {
+        "self":  {
+          "href": "https://api.bitbucket.org/2.0/users/jdoklovic"
+        },
+        "repositories":  {
+          "href": "https://api.bitbucket.org/2.0/users/jdoklovic/repositories"
+        },
+        "html":  {
+          "href": "https://api.bitbucket.org/jdoklovic"
+        },
+        "followers":  {
+          "href": "https://api.bitbucket.org/2.0/users/jdoklovic/followers"
+        },
+        "avatar":  {
+          "href": "https://bitbucket-assetroot.s3.amazonaws.com/c/photos/2010/Sep/30/jd_profile_avatar.jpg"
+        },
+        "following":  {
+          "href": "https://api.bitbucket.org/2.0/users/jdoklovic/following"
+        }
+      },
+      "created_on": "2010-09-30T13:44:45.049874+00:00",
+      "location": "Minneapolis, MN",
+      "type":"user"
+    },
+     {
+      "username": "atlassian_tutorial",
+      "kind": "team",
+      "website": "",
+      "display_name": "Atlassian Tutorials",
+      "links":  {
+        "self":  {
+          "href": "https://api.bitbucket.org/2.0/teams/atlassian_tutorial"
+        },
+        "repositories":  {
+          "href": "https://api.bitbucket.org/2.0/teams/atlassian_tutorial/repositories"
+        },
+        "html":  {
+          "href": "https://api.bitbucket.org/atlassian_tutorial"
+        },
+        "followers":  {
+          "href": "https://api.bitbucket.org/2.0/teams/atlassian_tutorial/followers"
+        },
+        "avatar":  {
+          "href": "https://secure.gravatar.com/avatar/eb4e0ad6934518b3e335345a4ceeef21?d=https%3A%2F%2Fd3oaxc4q5k2d6q.cloudfront.net%2Fm%2Fbc85d1577e04%2Fimg%2Fdefault_team_avatar%2F32%2Fteam_blue.png&s=32"
+        },
+        "members":  {
+          "href": "https://api.bitbucket.org/2.0/teams/atlassian_tutorial/members"
+        },
+        "following":  {
+          "href": "https://api.bitbucket.org/2.0/teams/atlassian_tutorial/following"
+        }
+      },
+      "created_on": "2011-11-29T05:38:01.075233+00:00",
+      "location": "",
+      "type":"team"
+    },
+     {
+      "username": "cat_vasja",
+      "kind": "team",
+      "website": "",
+      "display_name": "cat_vasja",
+      "links":  {
+        "self":  {
+          "href": "https://api.bitbucket.org/2.0/teams/cat_vasja"
+        },
+        "repositories":  {
+          "href": "https://api.bitbucket.org/2.0/teams/cat_vasja/repositories"
+        },
+        "html":  {
+          "href": "https://api.bitbucket.org/cat_vasja"
+        },
+        "followers":  {
+          "href": "https://api.bitbucket.org/2.0/teams/cat_vasja/followers"
+        },
+        "avatar":  {
+          "href": "https://secure.gravatar.com/avatar/e16be80e861baccc5ed4691737faeb05?d=https%3A%2F%2Fd3oaxc4q5k2d6q.cloudfront.net%2Fm%2Fbc85d1577e04%2Fimg%2Fdefault_team_avatar%2F32%2Fteam_blue.png&s=32"
+        },
+        "members":  {
+          "href": "https://api.bitbucket.org/2.0/teams/cat_vasja/members"
+        },
+        "following":  {
+          "href": "https://api.bitbucket.org/2.0/teams/cat_vasja/following"
+        }
+      },
+      "created_on": "2012-10-09T19:45:37.292078+00:00",
+      "location": "Deutschland",
+      "type":"team"
+    }
+  ],
+  "page": 1,
+  "size": 3
+}

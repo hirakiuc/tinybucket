@@ -1,0 +1,65 @@
+{
+  "pagelen": 10,
+  "values": [
+    {
+      "username": "RagnarArdal",
+      "kind": "user",
+      "website": null,
+      "display_name": "Ragnar Árdal",
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/users/RagnarArdal"
+        },
+        "repositories": {
+          "href": "https://api.bitbucket.org/2.0/users/RagnarArdal/repositories"
+        },
+        "html": {
+          "href": "https://api.bitbucket.org/RagnarArdal"
+        },
+        "followers": {
+          "href": "https://api.bitbucket.org/2.0/users/RagnarArdal/followers"
+        },
+        "avatar": {
+          "href": "https://secure.gravatar.com/avatar/27ca0dc0bb96722af4f0222f6260fbb5?d=https%3A%2F%2Fd3oaxc4q5k2d6q.cloudfront.net%2Fm%2Fb376619db485%2Fimg%2Fdefault_avatar%2F32%2Fuser_blue.png&s=32"
+        },
+        "following": {
+          "href": "https://api.bitbucket.org/2.0/users/RagnarArdal/following"
+        }
+      },
+      "created_on": "2013-04-19T19:10:54.044200+00:00",
+      "location": null,
+      "type":"user"
+    },
+    {
+      "username": "ericko",
+      "kind": "user",
+      "website": "",
+      "display_name": "ericko",
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/users/ericko"
+        },
+        "repositories": {
+          "href": "https://api.bitbucket.org/2.0/users/ericko/repositories"
+        },
+        "html": {
+          "href": "https://api.bitbucket.org/ericko"
+        },
+        "followers": {
+          "href": "https://api.bitbucket.org/2.0/users/ericko/followers"
+        },
+        "avatar": {
+          "href": "https://secure.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?d=https%3A%2F%2Fd3oaxc4q5k2d6q.cloudfront.net%2Fm%2Fb376619db485%2Fimg%2Fdefault_avatar%2F32%2Fuser_blue.png&s=32"
+        },
+        "following": {
+          "href": "https://api.bitbucket.org/2.0/users/ericko/following"
+        }
+      },
+      "created_on": "2013-10-20T16:29:04.388755+00:00",
+      "location": "",
+      "type":"user"
+    }
+  ],
+  "page": 1,
+  "size": 2
+}
