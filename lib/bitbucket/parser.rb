@@ -6,6 +6,8 @@ module Bitbucket
     autoload :BaseParser
     autoload :CommitsParser
     autoload :CommitParser
+    autoload :ProfileParser
+    autoload :ProfilesParser
     autoload :PullRequestParser
     autoload :PullRequestsParser
     autoload :RepoParser

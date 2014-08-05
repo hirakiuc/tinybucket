@@ -8,6 +8,6 @@ module Bitbucket
     autoload :ReposApi
     autoload :RepoApi
     autoload :TeamsApi
-    autoload :UsersApi
+    autoload :UserApi
   end
 end
