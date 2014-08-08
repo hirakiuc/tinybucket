@@ -1,0 +1,125 @@
+{
+  "pagelen": 10,
+  "values": [
+    {
+      "scm": "hg",
+      "has_wiki": true,
+      "description": "This repository is used by the Bitbucket tutorial documentation.  It is referenced from this page:\r\n\r\nhttps://confluence.atlassian.com/display/BITBUCKET/Split+a+Repository+in+Two ",
+      "links": {
+        "watchers": {
+          "href": "https://api.bitbucket.org/2.0/repositories/tutorials/hgsplitpractice/watchers"
+        },
+        "commits": {
+          "href": "https://api.bitbucket.org/2.0/repositories/tutorials/hgsplitpractice/commits"
+        },
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/repositories/tutorials/hgsplitpractice"
+        },
+        "html": {
+          "href": "https://api.bitbucket.org/tutorials/hgsplitpractice"
+        },
+        "avatar": {
+          "href": "https://bitbucket-assetroot.s3.amazonaws.com/c/photos/2012/Nov/28hgsplitpractice-logo-129947197-5_avatar.png"
+        },
+        "forks": {
+          "href": "https://api.bitbucket.org/2.0/repositories/tutorials/hgsplitpractice/forks"
+        },
+        "clone": [
+          {
+            "href": "https://tutorials@bitbucket.org/tutorials/hgsplitpractice",
+            "name": "https"
+          },
+          {
+            "href": "ssh://hg@bitbucket.org/tutorials/hgsplitpractice",
+            "name": "ssh"
+          }
+        ],
+        "pullrequests": {
+          "href": "https://api.bitbucket.org/2.0/repositories/tutorials/hgsplitpractice/pullrequests"
+        }
+      },
+      "fork_policy": "allow_forks",
+      "language": "",
+      "created_on": "2012-11-27T19:19:33.315067+00:00",
+      "full_name": "tutorials/hgsplitpractice",
+      "has_issues": false,
+      "owner": {
+        "teamname": "tutorials",
+        "display_name": "first name last",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/teams/tutorials"
+          },
+          "avatar": {
+            "href": "https://bitbucket-assetroot.s3.amazonaws.com/c/photos/2013/Jul/17/tutorials-avatar-1826704565-4_avatar.png"
+          }
+        }
+      },
+      "updated_on": "2013-02-04T17:04:13.612906+00:00",
+      "size": 19065,
+      "is_private": false,
+      "name": "hgsplitpractice"
+    },
+    {
+      "scm": "git",
+      "has_wiki": false,
+      "description": "Example scripts using OAuth to connect to Bitbucket. Please contribute more by issuing a Pull Request here!",
+      "links": {
+        "watchers": {
+          "href": "https://api.bitbucket.org/2.0/repositories/tutorials/oauth-examples/watchers"
+        },
+        "commits": {
+          "href": "https://api.bitbucket.org/2.0/repositories/tutorials/oauth-examples/commits"
+        },
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/repositories/tutorials/oauth-examples"
+        },
+        "html": {
+          "href": "https://api.bitbucket.org/tutorials/oauth-examples"
+        },
+        "avatar": {
+          "href": "https://d3oaxc4q5k2d6q.cloudfront.net/m/bc85d1577e04/img/language-avatars/default_16.png"
+        },
+        "forks": {
+          "href": "https://api.bitbucket.org/2.0/repositories/tutorials/oauth-examples/forks"
+        },
+        "clone": [
+          {
+            "href": "https://tutorials@bitbucket.org/tutorials/oauth-examples.git",
+            "name": "https"
+          },
+          {
+            "href": "ssh://git@bitbucket.org/tutorials/oauth-examples.git",
+            "name": "ssh"
+          }
+        ],
+        "pullrequests": {
+          "href": "https://api.bitbucket.org/2.0/repositories/tutorials/oauth-examples/pullrequests"
+        }
+      },
+      "fork_policy": "allow_forks",
+      "language": "",
+      "created_on": "2013-04-01T21:19:07.973032+00:00",
+      "full_name": "tutorials/oauth-examples",
+      "has_issues": false,
+      "owner": {
+        "teamname": "tutorials",
+        "display_name": "first name last",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/teams/tutorials"
+          },
+          "avatar": {
+            "href": "https://bitbucket-assetroot.s3.amazonaws.com/c/photos/2013/Jul/17/tutorials-avatar-1826704565-4_avatar.png"
+          }
+        }
+      },
+      "updated_on": "2013-04-01T21:20:22.492622+00:00",
+      "size": 1794,
+      "is_private": false,
+      "name": "OAuth Examples"
+    }
+  ],
+  "page": 1,
+  "size": 2
+}

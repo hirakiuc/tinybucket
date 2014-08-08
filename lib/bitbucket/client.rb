@@ -24,8 +24,11 @@ module Bitbucket
       @repo
     end
 
-    def teams(options = {})
-      @teams ||= create_instance('Teams', options)
+    def team(teamname, options = {})
+      @team ||= create_instance('Team', options)
+      @team.teamname = teamname
+
+      @team
     end
 
     def user(username, options = {})

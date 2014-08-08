@@ -44,9 +44,10 @@ RSpec.describe Bitbucket::Client do
     end
   end
 
-  describe 'teams' do
-    subject { client.teams }
-    it { expect(subject).to be_instance_of(Bitbucket::Api::TeamsApi) }
+  describe 'team' do
+    let(:team) { 'test_team' }
+    subject { client.team(team) }
+    it { expect(subject).to be_instance_of(Bitbucket::Api::TeamApi) }
   end
 
   describe 'user' do
