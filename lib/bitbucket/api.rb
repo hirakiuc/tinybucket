@@ -7,7 +7,7 @@ module Bitbucket
     autoload :PullRequestsApi
     autoload :ReposApi
     autoload :RepoApi
-    autoload :TeamsApi
+    autoload :TeamApi
     autoload :UserApi
   end
 end

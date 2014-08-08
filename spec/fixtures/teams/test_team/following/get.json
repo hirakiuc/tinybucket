@@ -1,0 +1,39 @@
+{
+  "pagelen": 10,
+  "values": [
+    {
+      "username": "bitbucket",
+      "kind": "team",
+      "website": "http://bitbucket.org/",
+      "display_name": "Atlassian Bitbucket",
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/teams/bitbucket"
+        },
+        "repositories": {
+          "href": "https://api.bitbucket.org/2.0/teams/bitbucket/repositories"
+        },
+        "html": {
+          "href": "https://api.bitbucket.org/bitbucket"
+        },
+        "followers": {
+          "href": "https://api.bitbucket.org/2.0/teams/bitbucket/followers"
+        },
+        "avatar": {
+          "href": "https://secure.gravatar.com/avatar/5833a1ae59138da47cd14a9ab6bd1a7f?d=https%3A%2F%2Fd3oaxc4q5k2d6q.cloudfront.net%2Fm%2Fbc85d1577e04%2Fimg%2Fdefault_team_avatar%2F32%2Fteam_blue.png&s=32"
+        },
+        "members": {
+          "href": "https://api.bitbucket.org/2.0/teams/bitbucket/members"
+        },
+        "following": {
+          "href": "https://api.bitbucket.org/2.0/teams/bitbucket/following"
+        }
+      },
+      "created_on": "2010-03-23T08:07:49+00:00",
+      "location": "",
+      "type": "team"
+    }
+  ],
+  "page": 1,
+  "size": 1
+}

@@ -31,13 +31,16 @@ module Bitbucket
 
     def default_middleware(_options)
       proc do |conn|
-        conn.request :multipart
-        conn.request :url_encoded
-        conn.request \
-          :oauth,
+        oauth_secrets = {
           consumer_key: config(:oauth_token),
           consumer_secret: config(:oauth_secret)
+        }
 
+        conn.request :multipart
+        conn.request :url_encoded
+        conn.request :oauth, oauth_secrets
+
+        conn.response :follow_oauth_redirects, oauth_secrets
         conn.response :json, content_type: /\bjson$/
         conn.use Bitbucket::Response::ErrorHandler
         conn.use :instrumentation

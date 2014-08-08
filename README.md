@@ -156,32 +156,35 @@ pending
 #### teams Endpoint
 
 ```
-# GET the team profile
+# [x] GET the team profile
 profile = bucket.team('team name').profile
 
-# GET the team members
+# [x] GET the team members
 members = bucket.team('team name').members
 
-# GET the team followers
+# [x] GET the team followers
 followers = bucket.team('team name').followers
 
-# GET the team's repositories
+# [x] GET a list of accounts the team is following
+following = bucket.team('team name').following
+
+# [x] GET the team's repositories
 repos = bucket.team('team name').repos
 ```
 
 #### users Endpoint
 
 ```
-# GET the user profile
+# [x] GET the user profile
 profile = bucket.user('user name').profile
 
-# GET the list of followers
+# [x] GET the list of followers
 followers = bucket.user('user name').followers
 
-# GET a list of accounts the user is following
+# [x] GET a list of accounts the user is following
 followings = bucket.user('user name').followings
 
-# GET the user's repositories
+# [x] GET the user's repositories
 repos = bucket.user('user name').repos
 ```
 

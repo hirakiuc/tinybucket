@@ -10,5 +10,6 @@ module Bitbucket
     autoload :Profile
     autoload :PullRequest
     autoload :Repository
+    autoload :Team
   end
 end
