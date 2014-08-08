@@ -9,6 +9,7 @@ require 'active_support/inflector'
 require 'faraday'
 require 'faraday_middleware'
 require 'faraday_middleware/response_middleware'
+require 'faraday_middleware/follow_oauth_redirects'
 
 require 'active_model'
 

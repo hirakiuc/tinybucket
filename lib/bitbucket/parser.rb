@@ -12,5 +12,7 @@ module Bitbucket
     autoload :PullRequestsParser
     autoload :RepoParser
     autoload :ReposParser
+    autoload :TeamParser
+    autoload :TeamsParser
   end
 end
