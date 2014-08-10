@@ -1,26 +1,35 @@
 *.gem
 *.rbc
 .bundle
-.config
-.yardoc
 Gemfile.lock
-InstalledFiles
-_yardoc
-coverage
-doc/
-lib/bundler/man
-pkg
-rdoc
-spec/reports
-test/tmp
-test/version_tmp
-tmp
 *.bundle
 *.so
 *.o
 *.a
 mkmf.log
-
 app.rb
 log/*.log
 *.swp
+
+## from github ignore.
+
+/.config
+/coverage/
+/InstalledFiles
+/pkg/
+/tmp/
+
+## Specific to RubyMotion:
+.dat*
+.repl_history
+build/
+
+## Documentation cache and generated files:
+/.yardoc/
+/_yardoc/
+/doc/
+/rdoc/
+
+## Environment normalisation:
+/.bundle/
+/lib/bundler/man/

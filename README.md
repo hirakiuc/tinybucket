@@ -1,6 +1,7 @@
-# Tinybucket gem
+tinybucket gem
+==========
 
-A Ruby client library for Bitbucket REST API v2 with oauth authentication.
+A Ruby client library for Bitbucket REST API v2 with OAuth Authentication.
 
 **WARNING** This gem is under development.
 
@@ -196,7 +197,7 @@ repos = bucket.user('user name').repos
 
 ## License
 
-MIT
+See LICENSE file.
 
 ## Author
 
