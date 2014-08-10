@@ -1,17 +1,25 @@
 require 'rubygems'
 require 'bundler/setup'
 
-require 'tinybucket'
 require 'rspec'
 require 'webmock/rspec'
 
 require 'pry'
 
+require 'coveralls'
 require 'simplecov'
+Coveralls.wear!
+
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
 SimpleCov.start do
   add_filter '.bundle/'
   add_filter 'spec'
 end
+
+require 'tinybucket'
 
 path = Pathname.new(Dir.pwd)
 Dir[path.join('spec/support/**/*.rb')].each { |f| require f }

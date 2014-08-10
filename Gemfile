@@ -14,3 +14,7 @@ group :development, :test do
 
   gem 'guard-rubocop'
 end
+
+group :test do
+  gem 'coveralls', require: false
+end
