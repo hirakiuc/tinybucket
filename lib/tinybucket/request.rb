@@ -1,4 +1,4 @@
-module Bitbucket
+module Tinybucket
   module Request
     def get_path(path, params = {}, parser = nil, options = {})
       request(:get, path, params, parser, options)

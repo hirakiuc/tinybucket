@@ -1,4 +1,4 @@
-module Bitbucket
+module Tinybucket
   class Client
     include ActiveSupport::Configurable
 

@@ -1,11 +1,11 @@
-module Bitbucket
+module Tinybucket
   module Api
     class UserApi < BaseApi
       attr_accessor :username
 
       def profile(options = {})
         path = path_to_find
-        m = get_path(path, options, Bitbucket::Parser::ProfileParser)
+        m = get_path(path, options, Tinybucket::Parser::ProfileParser)
 
         # pass @config to profile as api_config
         m.api_config = @config.dup
@@ -14,7 +14,7 @@ module Bitbucket
 
       def followers(options = {})
         path = path_to_followers
-        list = get_path(path, options, Bitbucket::Parser::ProfilesParser)
+        list = get_path(path, options, Tinybucket::Parser::ProfilesParser)
 
         # pass @config to each profile as api_config
         list.map { |m| m.api_config = @config.dup }
@@ -23,7 +23,7 @@ module Bitbucket
 
       def following(options = {})
         path = path_to_following
-        list = get_path(path, options, Bitbucket::Parser::ProfilesParser)
+        list = get_path(path, options, Tinybucket::Parser::ProfilesParser)
 
         # pass @config to each profile as api_config
         list.map { |m| m.api_config = @config.dup }
@@ -32,7 +32,7 @@ module Bitbucket
 
       def repos(options = {})
         path = path_to_repos
-        list = get_path(path, options, Bitbucket::Parser::ReposParser)
+        list = get_path(path, options, Tinybucket::Parser::ReposParser)
 
         # pass @config to each profile as api_config
         list.map { |m| m.api_config = @config.dup }

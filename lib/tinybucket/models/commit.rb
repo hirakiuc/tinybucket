@@ -1,4 +1,4 @@
-module Bitbucket
+module Tinybucket
   module Models
     class Commit < BaseModel
       attr_accessor \

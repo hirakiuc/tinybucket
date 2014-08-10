@@ -1,4 +1,4 @@
-module Bitbucket
+module Tinybucket
   module Connection
     def clear_cache
       @connection = nil
@@ -42,7 +42,7 @@ module Bitbucket
 
         conn.response :follow_oauth_redirects, oauth_secrets
         conn.response :json, content_type: /\bjson$/
-        conn.use Bitbucket::Response::ErrorHandler
+        conn.use Tinybucket::Response::ErrorHandler
         conn.use :instrumentation
 
         conn.adapter Faraday.default_adapter

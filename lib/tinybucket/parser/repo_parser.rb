@@ -1,8 +1,8 @@
-module Bitbucket
+module Tinybucket
   module Parser
     class RepoParser < BaseParser
       def convert(json)
-        ::Bitbucket::Models::Repository.new(json)
+        ::Tinybucket::Models::Repository.new(json)
       end
     end
   end

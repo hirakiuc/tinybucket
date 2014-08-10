@@ -1,4 +1,4 @@
-module Bitbucket
+module Tinybucket
   class ApiFactory
     class << self
       def create_instance(klass_name, config, options)
@@ -7,10 +7,10 @@ module Bitbucket
         klass =
           begin
             name = "#{klass_name}Api".intern
-            (Bitbucket::Api).const_get name
+            (Tinybucket::Api).const_get name
           rescue => e
             # TODO: log exception
-            Bitbucket.logger.error e
+            Tinybucket.logger.error e
             raise ArgumentError, 'must provide klass to be instantiated'
           end
 

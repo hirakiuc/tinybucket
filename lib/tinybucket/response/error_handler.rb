@@ -1,4 +1,4 @@
-module Bitbucket
+module Tinybucket
   module Response
     class ErrorHandler < Faraday::Response::Middleware
       def on_complete(env)
@@ -6,8 +6,8 @@ module Bitbucket
 
         return if status_code < 400
 
-        Bitbucket.logger.error "Invalid response code:#{status_code}"
-        fail Bitbucket::Error::ServiceError.new(env)
+        Tinybucket.logger.error "Invalid response code:#{status_code}"
+        fail Tinybucket::Error::ServiceError.new(env)
       end
     end
   end

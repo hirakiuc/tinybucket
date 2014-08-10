@@ -1,4 +1,4 @@
-module Bitbucket
+module Tinybucket
   module Parser
     class BaseParser < FaradayMiddleware::ResponseMiddleware
       def process_response(env)

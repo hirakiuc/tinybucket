@@ -1,8 +1,8 @@
-module Bitbucket
+module Tinybucket
   module Parser
     class CommitParser < BaseParser
       def convert(json)
-        Bitbucket::Models::Commit.new(json)
+        Tinybucket::Models::Commit.new(json)
       end
     end
   end

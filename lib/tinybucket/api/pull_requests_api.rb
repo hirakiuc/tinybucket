@@ -1,11 +1,11 @@
-module Bitbucket
+module Tinybucket
   module Api
     class PullRequestsApi < BaseApi
       attr_accessor :repo_owner, :repo_slug
 
       def list(options = {})
         path = path_to_list
-        list = get_path(path, options, Bitbucket::Parser::PullRequestsParser)
+        list = get_path(path, options, Tinybucket::Parser::PullRequestsParser)
 
         # pass @config to each model as api_config
         list.each { |m| m.api_config = @config.dup }
@@ -14,7 +14,7 @@ module Bitbucket
 
       def find(pr_id, options = {})
         path = path_to_find(pr_id)
-        m = get_path(path, options, Bitbucket::Parser::PullRequestParser)
+        m = get_path(path, options, Tinybucket::Parser::PullRequestParser)
 
         # pass @config to each model as api_config
         m.api_config = @config.dup if m
@@ -23,7 +23,7 @@ module Bitbucket
 
       def commits(pr_id, options = {})
         path = path_to_commits(pr_id)
-        list = get_path(path, options, Bitbucket::Parser::CommitsParser)
+        list = get_path(path, options, Tinybucket::Parser::CommitsParser)
 
         # pass @config to each model as api_config
         list.each { |m| m.api_config = @config.dup }

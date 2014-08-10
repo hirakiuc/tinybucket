@@ -1,4 +1,4 @@
-module Bitbucket
+module Tinybucket
   module Models
     class Page
       include Enumerable

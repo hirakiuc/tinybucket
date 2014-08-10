@@ -1,4 +1,4 @@
-module Bitbucket
+module Tinybucket
   module Error
     class ServiceError < BaseError
       attr_accessor :http_headers

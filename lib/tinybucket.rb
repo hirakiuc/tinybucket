@@ -1,4 +1,4 @@
-require 'bitbucket/version'
+require 'tinybucket/version'
 
 require 'active_support/dependencies/autoload'
 
@@ -15,16 +15,16 @@ require 'active_model'
 
 require 'logger'
 
-require 'bitbucket/api'
-require 'bitbucket/api_factory'
-require 'bitbucket/client'
-require 'bitbucket/connection'
-require 'bitbucket/constants'
-require 'bitbucket/error'
-require 'bitbucket/models'
-require 'bitbucket/parser'
-require 'bitbucket/request'
-require 'bitbucket/response'
+require 'tinybucket/api'
+require 'tinybucket/api_factory'
+require 'tinybucket/client'
+require 'tinybucket/connection'
+require 'tinybucket/constants'
+require 'tinybucket/error'
+require 'tinybucket/models'
+require 'tinybucket/parser'
+require 'tinybucket/request'
+require 'tinybucket/response'
 
 require 'active_support/notifications'
 ActiveSupport::Notifications.subscribe('request.faraday') \
@@ -32,20 +32,20 @@ ActiveSupport::Notifications.subscribe('request.faraday') \
     url = env[:url]
     http_method = env[:method].to_s.upcase
     duration = end_time - start_time
-    Bitbucket.logger.debug \
+    Tinybucket.logger.debug \
       format(
         '[%s] %s %s (%.3f s)',
         url.host, http_method, url.request_uri, duration
       )
   end
 
-module Bitbucket
+module Tinybucket
   class << self
     include ActiveSupport::Configurable
     attr_accessor :logger, :api_client
 
     def new(options = {}, &block)
-      @api_client = Bitbucket::Client.new(options, &block)
+      @api_client = Tinybucket::Client.new(options, &block)
     end
 
     def logger

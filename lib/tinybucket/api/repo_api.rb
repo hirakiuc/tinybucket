@@ -1,11 +1,11 @@
-module Bitbucket
+module Tinybucket
   module Api
     class RepoApi < BaseApi
       attr_accessor :repo_owner, :repo_slug
 
       def find(options = {})
         path = path_to_find
-        repo = get_path(path, options, Bitbucket::Parser::RepoParser)
+        repo = get_path(path, options, Tinybucket::Parser::RepoParser)
 
         # pass @config to api_config
         repo.api_config = @config.dup if repo
@@ -14,7 +14,7 @@ module Bitbucket
 
       def watchers(options = {})
         path = path_to_watchers
-        list = get_path(path, options, Bitbucket::Parser::AccountsParser)
+        list = get_path(path, options, Tinybucket::Parser::AccountsParser)
 
         list.each { |m| m.api_config = @config.dup }
         list
@@ -22,7 +22,7 @@ module Bitbucket
 
       def forks(options = {})
         path = path_to_forks
-        list = get_path(path, options, Bitbucket::Parser::ReposParser)
+        list = get_path(path, options, Tinybucket::Parser::ReposParser)
 
         # pass @config to api_config
         list.map { |m| m.api_config = @config.dup }

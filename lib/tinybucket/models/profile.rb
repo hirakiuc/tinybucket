@@ -1,4 +1,4 @@
-module Bitbucket
+module Tinybucket
   module Models
     class Profile < BaseModel
       attr_accessor \

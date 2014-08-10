@@ -1,3 +1,3 @@
-module Bitbucket
+module Tinybucket
   VERSION = '0.0.1'
 end

@@ -1,4 +1,4 @@
-module Bitbucket
+module Tinybucket
   module Models
     class PullRequest < BaseModel
       attr_accessor \

@@ -1,4 +1,4 @@
-module Bitbucket
+module Tinybucket
   module Error
     class BaseError < StandardError
       attr_reader :response_message, :response_headers

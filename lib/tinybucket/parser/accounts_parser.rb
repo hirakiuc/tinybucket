@@ -1,8 +1,8 @@
-module Bitbucket
+module Tinybucket
   module Parser
     class AccountsParser < BaseParser
       def convert(json)
-        Bitbucket::Models::Page.new(json, Bitbucket::Models::Account)
+        Tinybucket::Models::Page.new(json, Tinybucket::Models::Account)
       end
     end
   end

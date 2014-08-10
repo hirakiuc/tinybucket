@@ -1,4 +1,4 @@
-module Bitbucket
+module Tinybucket
   module Models
     class Repository < BaseModel
       attr_accessor \

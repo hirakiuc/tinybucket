@@ -1,4 +1,4 @@
-module Bitbucket
+module Tinybucket
   module Api
     class ReposApi < BaseApi
       def list(options = {})
@@ -6,7 +6,7 @@ module Bitbucket
 
         opts = options.clone
         opts.delete(:owner)
-        parser = Bitbucket::Parser::ReposParser
+        parser = Tinybucket::Parser::ReposParser
         list = get_path(path, opts, parser)
 
         # pass @config to each repo as api_config

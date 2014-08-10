@@ -1,4 +1,4 @@
-module Bitbucket
+module Tinybucket
   module Api
     extend ActiveSupport::Autoload
 

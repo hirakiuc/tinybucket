@@ -1,8 +1,8 @@
-module Bitbucket
+module Tinybucket
   module Api
     class BaseApi
-      include Bitbucket::Connection
-      include Bitbucket::Request
+      include Tinybucket::Connection
+      include Tinybucket::Request
 
       def initialize(config, options = {})
         @config = filter_config(config)

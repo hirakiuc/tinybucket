@@ -1,4 +1,4 @@
-module Bitbucket
+module Tinybucket
   module Error
     extend ActiveSupport::Autoload
 

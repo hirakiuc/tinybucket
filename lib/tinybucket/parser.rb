@@ -1,4 +1,4 @@
-module Bitbucket
+module Tinybucket
   module Parser
     extend ActiveSupport::Autoload
 

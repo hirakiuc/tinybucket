@@ -1,11 +1,11 @@
-module Bitbucket
+module Tinybucket
   module Api
     class TeamApi < BaseApi
       attr_accessor :teamname
 
       def profile(options = {})
         path = path_to_profile
-        m = get_path(path, options, Bitbucket::Parser::TeamParser)
+        m = get_path(path, options, Tinybucket::Parser::TeamParser)
 
         # pass @config to profile as api-config
         m.api_config = @config.dup
@@ -14,7 +14,7 @@ module Bitbucket
 
       def members(options = {})
         path = path_to_members
-        list = get_path(path, options, Bitbucket::Parser::TeamsParser)
+        list = get_path(path, options, Tinybucket::Parser::TeamsParser)
 
         # pass @config to profile as api_config
         list.map { |m| m.api_config = @config.dup }
@@ -23,7 +23,7 @@ module Bitbucket
 
       def followers(options = {})
         path = path_to_followers
-        list = get_path(path, options, Bitbucket::Parser::TeamsParser)
+        list = get_path(path, options, Tinybucket::Parser::TeamsParser)
 
         # pass @config to each profiles as api_config
         list.map { |m| m.api_config = @config.dup }
@@ -32,7 +32,7 @@ module Bitbucket
 
       def following(options = {})
         path = path_to_following
-        list = get_path(path, options, Bitbucket::Parser::TeamsParser)
+        list = get_path(path, options, Tinybucket::Parser::TeamsParser)
 
         # pass @config to each profiles as api_config
         list.map { |m| m.api_config = @config.dup }
@@ -41,7 +41,7 @@ module Bitbucket
 
       def repos(options = {})
         path = path_to_repos
-        list = get_path(path, options, Bitbucket::Parser::ReposParser)
+        list = get_path(path, options, Tinybucket::Parser::ReposParser)
 
         # pass @config to each profiles as api_config
         list.map { |m| m.api_config = @config.dup }

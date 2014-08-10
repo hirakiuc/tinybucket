@@ -1,4 +1,4 @@
-module Bitbucket
+module Tinybucket
   module Models
     class BaseModel
       include ::ActiveModel::Serializers::JSON
