@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'bundler/setup'
 
-require 'bitbucket'
+require 'tinybucket'
 require 'rspec'
 require 'webmock/rspec'
 
@@ -14,13 +14,12 @@ SimpleCov.start do
 end
 
 path = Pathname.new(Dir.pwd)
-Dir[path.join('spec/support/**/*.rb')].each {|f| require f }
+Dir[path.join('spec/support/**/*.rb')].each { |f| require f }
 
-# configure bitbucket logger.
+# configure tinybucket logger.
 logger = Logger.new('log/test.log')
 logger.level = Logger::DEBUG
-Bitbucket.logger = logger
-
+Tinybucket.logger = logger
 
 RSpec.configure do |config|
 

@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-RSpec.describe Bitbucket::Api::UserApi do
+RSpec.describe Tinybucket::Api::UserApi do
   include ApiResponseMacros
 
   let(:api_config) { {} }
   let(:api) do
-    api = Bitbucket::Api::UserApi.new(api_config)
+    api = Tinybucket::Api::UserApi.new(api_config)
     api.username = user
     api
   end
@@ -14,7 +14,7 @@ RSpec.describe Bitbucket::Api::UserApi do
   let(:request_path) { nil }
   before { stub_apiresponse(:get, request_path) if request_path }
 
-  it { expect(api).to be_a_kind_of(Bitbucket::Api::BaseApi) }
+  it { expect(api).to be_a_kind_of(Tinybucket::Api::BaseApi) }
 
   describe 'profile' do
     subject { api.profile }
@@ -26,7 +26,7 @@ RSpec.describe Bitbucket::Api::UserApi do
 
     context 'when with username' do
       let(:request_path) { "/users/#{user}" }
-      it { expect(subject).to be_an_instance_of(Bitbucket::Models::Profile) }
+      it { expect(subject).to be_an_instance_of(Tinybucket::Models::Profile) }
     end
   end
 
@@ -40,7 +40,7 @@ RSpec.describe Bitbucket::Api::UserApi do
 
     context 'when with username' do
       let(:request_path) { "/users/#{user}/followers" }
-      it { expect(subject).to be_an_instance_of(Bitbucket::Models::Page) }
+      it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
     end
   end
 
@@ -54,7 +54,7 @@ RSpec.describe Bitbucket::Api::UserApi do
 
     context 'when with username' do
       let(:request_path) { "/users/#{user}/following" }
-      it { expect(subject).to be_an_instance_of(Bitbucket::Models::Page) }
+      it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
     end
   end
 end

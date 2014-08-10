@@ -1,21 +1,21 @@
 require 'spec_helper.rb'
 
-RSpec.describe Bitbucket::Client do
+RSpec.describe Tinybucket::Client do
   include ApiResponseMacros
 
-  let(:client) { Bitbucket::Client.new({}) }
+  let(:client) { Tinybucket::Client.new({}) }
 
   describe 'new' do
     let(:options) { {} }
 
     context 'without block' do
-      subject { Bitbucket::Client.new(options) }
+      subject { Tinybucket::Client.new(options) }
       it { expect(subject.config).to eq(options) }
     end
 
     context 'with block' do
       subject do
-        Bitbucket::Client.new do |config|
+        Tinybucket::Client.new do |config|
           options.each_pair do |key, value|
             config.send("#{key}=", value)
           end
@@ -28,7 +28,7 @@ RSpec.describe Bitbucket::Client do
   describe 'repos' do
     subject { client.repos }
     before { stub_apiresponse(:get, '/repositories') }
-    it { expect(subject).to be_instance_of(Bitbucket::Models::Page) }
+    it { expect(subject).to be_instance_of(Tinybucket::Models::Page) }
   end
 
   describe 'repo' do
@@ -38,7 +38,7 @@ RSpec.describe Bitbucket::Client do
     subject { client.repo(repo_owner, repo_slug) }
 
     it 'return RepoApi instance' do
-      expect(subject).to be_instance_of(Bitbucket::Api::RepoApi)
+      expect(subject).to be_instance_of(Tinybucket::Api::RepoApi)
       expect(subject.repo_owner).to eq(repo_owner)
       expect(subject.repo_slug).to eq(repo_slug)
     end
@@ -47,12 +47,12 @@ RSpec.describe Bitbucket::Client do
   describe 'team' do
     let(:team) { 'test_team' }
     subject { client.team(team) }
-    it { expect(subject).to be_instance_of(Bitbucket::Api::TeamApi) }
+    it { expect(subject).to be_instance_of(Tinybucket::Api::TeamApi) }
   end
 
   describe 'user' do
     let(:user) { 'test_owner' }
     subject { client.user(user) }
-    it { expect(subject).to be_instance_of(Bitbucket::Api::UserApi) }
+    it { expect(subject).to be_instance_of(Tinybucket::Api::UserApi) }
   end
 end

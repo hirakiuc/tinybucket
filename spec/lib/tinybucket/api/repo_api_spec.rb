@@ -1,6 +1,6 @@
 require 'spec_helper.rb'
 
-RSpec.describe Bitbucket::Api::RepoApi do
+RSpec.describe Tinybucket::Api::RepoApi do
   include ApiResponseMacros
 
   let(:repo_owner) { 'test_owner' }
@@ -9,13 +9,13 @@ RSpec.describe Bitbucket::Api::RepoApi do
 
   let(:api_config) { {} }
   let(:api) do
-    api = Bitbucket::Api::RepoApi.new(api_config)
+    api = Tinybucket::Api::RepoApi.new(api_config)
     api.repo_owner = repo_owner
     api.repo_slug  = repo_slug
     api
   end
 
-  it { expect(api).to be_a_kind_of(Bitbucket::Api::BaseApi) }
+  it { expect(api).to be_a_kind_of(Tinybucket::Api::BaseApi) }
 
   before { stub_apiresponse(:get, request_path) if request_path }
 
@@ -40,7 +40,7 @@ RSpec.describe Bitbucket::Api::RepoApi do
 
     context 'when with repo_owner and repo_slug' do
       let(:request_path) { "/repositories/#{repo_owner}/#{repo_slug}" }
-      it { expect(subject).to be_an_instance_of(Bitbucket::Models::Repository) }
+      it { expect(subject).to be_an_instance_of(Tinybucket::Models::Repository) }
     end
   end
 
@@ -67,7 +67,7 @@ RSpec.describe Bitbucket::Api::RepoApi do
       let(:request_path) do
         "/repositories/#{repo_owner}/#{repo_slug}/watchers"
       end
-      it { expect(subject).to be_an_instance_of(Bitbucket::Models::Page) }
+      it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
     end
   end
 
@@ -94,7 +94,7 @@ RSpec.describe Bitbucket::Api::RepoApi do
       let(:request_path) do
         "/repositories/#{repo_owner}/#{repo_slug}/forks"
       end
-      it { expect(subject).to be_an_instance_of(Bitbucket::Models::Page) }
+      it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
     end
   end
 end

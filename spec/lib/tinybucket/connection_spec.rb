@@ -1,9 +1,9 @@
 require 'spec_helper.rb'
 
-RSpec.describe Bitbucket::Connection do
+RSpec.describe Tinybucket::Connection do
 
   class MockApi
-    include Bitbucket::Connection
+    include Tinybucket::Connection
 
     def config(key)
       nil

@@ -1,16 +1,16 @@
 require 'spec_helper.rb'
 
-RSpec.describe Bitbucket::Api::PullRequestsApi do
+RSpec.describe Tinybucket::Api::PullRequestsApi do
   include ApiResponseMacros
 
   let(:api_config) { {} }
-  let(:api) { Bitbucket::Api::PullRequestsApi.new(api_config) }
+  let(:api) { Tinybucket::Api::PullRequestsApi.new(api_config) }
 
   let(:owner) { 'test_owner' }
   let(:slug) { 'test_repo' }
   let(:request_path) { nil }
 
-  it { expect(api).to be_a_kind_of(Bitbucket::Api::BaseApi) }
+  it { expect(api).to be_a_kind_of(Tinybucket::Api::BaseApi) }
 
   before do
     api.repo_owner = owner
@@ -43,7 +43,7 @@ RSpec.describe Bitbucket::Api::PullRequestsApi do
 
     context 'with repo_owner and repo_slug' do
       let(:request_path) { "/repositories/#{owner}/#{slug}/pullrequests" }
-      it { expect(subject).to be_an_instance_of(Bitbucket::Models::Page) }
+      it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
     end
 
     context 'when request with state' do
@@ -54,17 +54,17 @@ RSpec.describe Bitbucket::Api::PullRequestsApi do
 
       context 'when state is OPEN' do
         let(:state) { 'open' }
-        it { expect(subject).to be_an_instance_of(Bitbucket::Models::Page) }
+        it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
       end
 
       context 'when state is DECLINED' do
         let(:state) { 'declined' }
-        it { expect(subject).to be_an_instance_of(Bitbucket::Models::Page) }
+        it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
       end
 
       context 'when state is MERGED' do
         let(:state) { 'merged' }
-        it { expect(subject).to be_an_instance_of(Bitbucket::Models::Page) }
+        it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
       end
     end
   end
@@ -95,7 +95,7 @@ RSpec.describe Bitbucket::Api::PullRequestsApi do
       end
 
       it 'return pull request model' do
-        expect(subject).to be_an_instance_of(Bitbucket::Models::PullRequest)
+        expect(subject).to be_an_instance_of(Tinybucket::Models::PullRequest)
       end
     end
   end
@@ -125,7 +125,7 @@ RSpec.describe Bitbucket::Api::PullRequestsApi do
         "/repositories/#{owner}/#{slug}/pullrequests/1/commits"
       end
       it 'return page model which contains commit models' do
-        expect(subject).to be_an_instance_of(Bitbucket::Models::Page)
+        expect(subject).to be_an_instance_of(Tinybucket::Models::Page)
       end
     end
   end

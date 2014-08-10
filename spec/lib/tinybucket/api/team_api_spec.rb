@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-RSpec.describe Bitbucket::Api::TeamApi do
+RSpec.describe Tinybucket::Api::TeamApi do
   include ApiResponseMacros
 
   let(:api_config) { {} }
   let(:api) do
-    api = Bitbucket::Api::TeamApi.new(api_config)
+    api = Tinybucket::Api::TeamApi.new(api_config)
     api.teamname = teamname
     api
   end
@@ -14,7 +14,7 @@ RSpec.describe Bitbucket::Api::TeamApi do
   let(:request_path) { nil }
   before { stub_apiresponse(:get, request_path) if request_path }
 
-  it { expect(api).to be_a_kind_of(Bitbucket::Api::BaseApi) }
+  it { expect(api).to be_a_kind_of(Tinybucket::Api::BaseApi) }
 
   describe 'profile' do
     subject { api.profile }
@@ -26,7 +26,7 @@ RSpec.describe Bitbucket::Api::TeamApi do
 
     context 'when with teamname' do
       let(:request_path) { "/teams/#{teamname}" }
-      it { expect(subject).to be_an_instance_of(Bitbucket::Models::Team) }
+      it { expect(subject).to be_an_instance_of(Tinybucket::Models::Team) }
     end
   end
 
@@ -40,7 +40,7 @@ RSpec.describe Bitbucket::Api::TeamApi do
 
     context 'when with teamname' do
       let(:request_path) { "/teams/#{teamname}/members" }
-      it { expect(subject).to be_an_instance_of(Bitbucket::Models::Page) }
+      it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
     end
   end
 
@@ -54,7 +54,7 @@ RSpec.describe Bitbucket::Api::TeamApi do
 
     context 'when with teamname' do
       let(:request_path) { "/teams/#{teamname}/followers" }
-      it { expect(subject).to be_an_instance_of(Bitbucket::Models::Page) }
+      it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
     end
   end
 
@@ -68,7 +68,7 @@ RSpec.describe Bitbucket::Api::TeamApi do
 
     context 'when with teamname' do
       let(:request_path) { "/teams/#{teamname}/following" }
-      it { expect(subject).to be_an_instance_of(Bitbucket::Models::Page) }
+      it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
     end
   end
 
@@ -82,7 +82,7 @@ RSpec.describe Bitbucket::Api::TeamApi do
 
     context 'when with teamname' do
       let(:request_path) { "/teams/#{teamname}/repositories" }
-      it { expect(subject).to be_an_instance_of(Bitbucket::Models::Page) }
+      it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
     end
   end
 

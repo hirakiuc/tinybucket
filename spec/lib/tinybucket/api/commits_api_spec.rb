@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Bitbucket::Api::CommitsApi do
+RSpec.describe Tinybucket::Api::CommitsApi do
   include ApiResponseMacros
 
   let(:request_path) { nil }
@@ -10,13 +10,13 @@ RSpec.describe Bitbucket::Api::CommitsApi do
 
   let(:api_config) { {} }
   let(:api) do
-    api = Bitbucket::Api::CommitsApi.new(api_config)
+    api = Tinybucket::Api::CommitsApi.new(api_config)
     api.repo_owner = owner
     api.repo_slug  = slug
     api
   end
 
-  it { expect(api).to be_a_kind_of(Bitbucket::Api::BaseApi) }
+  it { expect(api).to be_a_kind_of(Tinybucket::Api::BaseApi) }
 
   before { stub_apiresponse(:get, request_path) if request_path }
 
@@ -35,7 +35,7 @@ RSpec.describe Bitbucket::Api::CommitsApi do
 
     context 'with owner and slug' do
       let(:request_path) { "/repositories/#{owner}/#{slug}/commits" }
-      it { expect(subject).to be_an_instance_of(Bitbucket::Models::Page) }
+      it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
     end
   end
 
@@ -57,7 +57,7 @@ RSpec.describe Bitbucket::Api::CommitsApi do
       let(:request_path) do
         "/repositories/#{owner}/#{slug}/commit/#{revision}"
       end
-      it { expect(subject).to be_instance_of(Bitbucket::Models::Commit) }
+      it { expect(subject).to be_instance_of(Tinybucket::Models::Commit) }
     end
   end
 end
