@@ -27,11 +27,12 @@ module FaradayMiddleware
     end
 
     def oauth_signed_request?(env)
-      !!env[:request].fetch(:oauth, true)
+      env[:request].fetch(:oauth, nil).present?
     end
 
     def oauth_options(env)
-      if extra = env[:request][:oauth] and extra.is_a? Hash and !extra.empty?
+      extra = env[:request][:oauth]
+      if extra.present? and extra.is_a? Hash and !extra.empty?
         @options.merge extra
       else
         @options
@@ -55,7 +56,7 @@ module FaradayMiddleware
 
     def signature_params(params)
       params.empty? ? params :
-        params.reject { |k,v| v.respond_to?(:content_type) }
+        params.reject { |_k, v| v.respond_to?(:content_type) }
     end
   end
 
