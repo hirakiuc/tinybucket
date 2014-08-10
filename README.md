@@ -7,6 +7,7 @@ A Ruby client library for Bitbucket REST API v2 with OAuth Authentication.
 
 This gem is inspired by [vongrippen/bitbucket](https://github.com/vongrippen/bitbucket). Thanks.
 
+[![Build Status](https://travis-ci.org/hirakiuc/tinybucket.svg?branch=master)](https://travis-ci.org/hirakiuc/tinybucket)
 [![Code Climate](https://codeclimate.com/github/hirakiuc/tinybucket/badges/gpa.svg)](https://codeclimate.com/github/hirakiuc/tinybucket)
 
 ## Installation
