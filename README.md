@@ -1,4 +1,4 @@
-# Bitbucket gem
+# Tinybucket gem
 
 A Ruby client library for Bitbucket REST API v2 with oauth authentication.
 
@@ -10,7 +10,7 @@ This gem is inspired by [vongrippen/bitbucket](https://github.com/vongrippen/bit
 
 Add this line to your application's Gemfile:
 
-    gem 'bitbucket'
+    gem 'tinybucket'
 
 And then execute:
 
@@ -27,11 +27,11 @@ Or install it yourself as:
 ### init
 
 ```
-bucket = Bitbucket.new(oauth_key: 'key', oauth_secret: 'secret')
+bucket = Tinybucket.new(oauth_key: 'key', oauth_secret: 'secret')
 ```
 
 ```
-bucket = Bitbucket.new do |config|
+bucket = Tinybucket.new do |config|
   config.oauth_key    = 'key'
   config.oauth_secret = 'secret'
 end
@@ -46,8 +46,6 @@ repos = bucket.repos
 # [x] GET a list of repositories for an account
 repos  = bucket.repos(owner: 'someone')
 ```
-
-repos is an array contains Bitbucket::Repository object.
 
 ##### repository Resource
 
