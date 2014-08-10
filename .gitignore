@@ -8,7 +8,7 @@ Gemfile.lock
 *.a
 mkmf.log
 app.rb
-log/*.log
+log/
 *.swp
 
 ## from github ignore.
