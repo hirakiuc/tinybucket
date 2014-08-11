@@ -19,8 +19,11 @@ SimpleCov.start do
   add_filter 'spec'
 end
 
-require 'codeclimate-test-reporter'
-CodeClimate::TestReporter.start
+if ENV['CODECLIMATE_REPO_TOKEN']
+  WebMock.disable_net_connect!(allow: 'codeclimate.com')
+  require 'codeclimate-test-reporter'
+  CodeClimate::TestReporter.start
+end
 
 require 'tinybucket'
 
