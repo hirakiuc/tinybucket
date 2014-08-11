@@ -17,6 +17,7 @@ require 'logger'
 
 require 'tinybucket/api'
 require 'tinybucket/api_factory'
+require 'tinybucket/api/helper'
 require 'tinybucket/client'
 require 'tinybucket/connection'
 require 'tinybucket/constants'
