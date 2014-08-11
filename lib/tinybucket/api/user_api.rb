@@ -1,11 +1,14 @@
 module Tinybucket
   module Api
     class UserApi < BaseApi
+      include Tinybucket::Api::Helper::UserHelper
+
       attr_accessor :username
 
       def profile(options = {})
-        path = path_to_find
-        m = get_path(path, options, Tinybucket::Parser::ProfileParser)
+        m = get_path(path_to_find,
+                     options,
+                     Tinybucket::Parser::ProfileParser)
 
         # pass @config to profile as api_config
         m.api_config = @config.dup
@@ -13,8 +16,9 @@ module Tinybucket
       end
 
       def followers(options = {})
-        path = path_to_followers
-        list = get_path(path, options, Tinybucket::Parser::ProfilesParser)
+        list = get_path(path_to_followers,
+                        options,
+                        Tinybucket::Parser::ProfilesParser)
 
         # pass @config to each profile as api_config
         list.map { |m| m.api_config = @config.dup }
@@ -22,8 +26,9 @@ module Tinybucket
       end
 
       def following(options = {})
-        path = path_to_following
-        list = get_path(path, options, Tinybucket::Parser::ProfilesParser)
+        list = get_path(path_to_following,
+                        options,
+                        Tinybucket::Parser::ProfilesParser)
 
         # pass @config to each profile as api_config
         list.map { |m| m.api_config = @config.dup }
@@ -31,46 +36,13 @@ module Tinybucket
       end
 
       def repos(options = {})
-        path = path_to_repos
-        list = get_path(path, options, Tinybucket::Parser::ReposParser)
+        list = get_path(path_to_repos,
+                        options,
+                        Tinybucket::Parser::ReposParser)
 
         # pass @config to each profile as api_config
         list.map { |m| m.api_config = @config.dup }
         list
-      end
-
-      private
-
-      def path_to_find
-        name = (username.nil?) ? '' : CGI.escape(username)
-
-        fail ArgumentError, 'require username' if name.blank?
-
-        "/users/#{name}"
-      end
-
-      def path_to_followers
-        name = (username.nil?) ? '' : CGI.escape(username)
-
-        fail ArgumentError, 'require username' if name.blank?
-
-        "/users/#{name}/followers"
-      end
-
-      def path_to_following
-        name = (username.nil?) ? '' : CGI.escape(username)
-
-        fail ArgumentError, 'require username' if name.blank?
-
-        "/users/#{name}/following"
-      end
-
-      def path_to_repos
-        name = (username.nil?) ? '' : CGI.escape(username)
-
-        fail ArgumentError, 'require username' if name.blank?
-
-        "/repositories/#{name}"
       end
     end
   end
