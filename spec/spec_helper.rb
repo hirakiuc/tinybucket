@@ -19,7 +19,7 @@ SimpleCov.start do
   add_filter 'spec'
 end
 
-if ENV['CODECLIMATE_REPO_TOKEN']
+if ENV['CODECLIMATE_REPORT']
   WebMock.disable_net_connect!(allow: 'codeclimate.com')
   require 'codeclimate-test-reporter'
   CodeClimate::TestReporter.start

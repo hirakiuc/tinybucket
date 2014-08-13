@@ -7,3 +7,4 @@ notifications:
   slack:
     rooms:
       - secure: VnXzbJEGFsHRZN0alas2Yu7o22VyXEnVlqIebI99yMZgULKh1IGA7uvGGOAyvIxTIAoY9yWm44RghBMSwYEZjoNgXNFC0EEl66sYdEgw2pEmza8ydlolFLsjX5RFIsbPSGHQArNBnV1sYuuP7452TheDn/BJTi53tnR+B4tF2JU=
+env: CODECLIMATE_REPORT='on'
