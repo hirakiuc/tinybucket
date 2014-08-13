@@ -10,9 +10,7 @@ module Tinybucket
                      options,
                      Tinybucket::Parser::ProfileParser)
 
-        # pass @config to profile as api_config
-        m.api_config = @config.dup
-        m
+        pass_api_config(m)
       end
 
       def followers(options = {})
@@ -20,9 +18,7 @@ module Tinybucket
                         options,
                         Tinybucket::Parser::ProfilesParser)
 
-        # pass @config to each profile as api_config
-        list.map { |m| m.api_config = @config.dup }
-        list
+        pass_api_config(list)
       end
 
       def following(options = {})
@@ -30,9 +26,7 @@ module Tinybucket
                         options,
                         Tinybucket::Parser::ProfilesParser)
 
-        # pass @config to each profile as api_config
-        list.map { |m| m.api_config = @config.dup }
-        list
+        pass_api_config(list)
       end
 
       def repos(options = {})
@@ -40,9 +34,7 @@ module Tinybucket
                         options,
                         Tinybucket::Parser::ReposParser)
 
-        # pass @config to each profile as api_config
-        list.map { |m| m.api_config = @config.dup }
-        list
+        pass_api_config(list)
       end
     end
   end

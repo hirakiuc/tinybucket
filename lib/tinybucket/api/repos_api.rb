@@ -11,9 +11,7 @@ module Tinybucket
                         opts,
                         Tinybucket::Parser::ReposParser)
 
-        # pass @config to each repo as api_config
-        list.each { |repo| repo.api_config = @config.dup }
-        list
+        pass_api_config(list)
       end
     end
   end

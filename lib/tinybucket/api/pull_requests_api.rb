@@ -10,9 +10,7 @@ module Tinybucket
                         options,
                         Tinybucket::Parser::PullRequestsParser)
 
-        # pass @config to each model as api_config
-        list.each { |m| m.api_config = @config.dup }
-        list
+        pass_api_config(list)
       end
 
       def find(pr_id, options = {})
@@ -20,9 +18,7 @@ module Tinybucket
                      options,
                      Tinybucket::Parser::PullRequestParser)
 
-        # pass @config to each model as api_config
-        m.api_config = @config.dup if m
-        m
+        pass_api_config(m)
       end
 
       def commits(pr_id, options = {})
@@ -30,9 +26,7 @@ module Tinybucket
                         options,
                         Tinybucket::Parser::CommitsParser)
 
-        # pass @config to each model as api_config
-        list.each { |m| m.api_config = @config.dup }
-        list
+        pass_api_config(list)
       end
     end
   end

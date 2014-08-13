@@ -10,9 +10,7 @@ module Tinybucket
                         options,
                         Tinybucket::Parser::CommitsParser)
 
-        # pass @config to each repo as api_config
-        list.each { |m| m.api_config = @config.dup }
-        list
+        pass_api_config(list)
       end
 
       def find(revision, options = {})
@@ -20,8 +18,7 @@ module Tinybucket
                      options,
                      Tinybucket::Parser::CommitParser)
 
-        m.api_config = @config.dup if m
-        m
+        pass_api_config(m)
       end
     end
   end
