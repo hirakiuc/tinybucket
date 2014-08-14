@@ -10,7 +10,7 @@ module Tinybucket
                         options,
                         Tinybucket::Parser::RepoParser)
 
-        pass_api_config(repo)
+        inject_api_config(repo)
       end
 
       def watchers(options = {})
@@ -18,7 +18,7 @@ module Tinybucket
                         options,
                         Tinybucket::Parser::AccountsParser)
 
-        pass_api_config(list)
+        inject_api_config(list)
       end
 
       def forks(options = {})
@@ -26,7 +26,7 @@ module Tinybucket
                         options,
                         Tinybucket::Parser::ReposParser)
 
-        pass_api_config(list)
+        inject_api_config(list)
       end
     end
   end

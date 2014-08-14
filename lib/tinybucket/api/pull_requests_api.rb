@@ -10,7 +10,7 @@ module Tinybucket
                         options,
                         Tinybucket::Parser::PullRequestsParser)
 
-        pass_api_config(list)
+        inject_api_config(list)
       end
 
       def find(pr_id, options = {})
@@ -18,7 +18,7 @@ module Tinybucket
                      options,
                      Tinybucket::Parser::PullRequestParser)
 
-        pass_api_config(m)
+        inject_api_config(m)
       end
 
       def commits(pr_id, options = {})
@@ -26,7 +26,7 @@ module Tinybucket
                         options,
                         Tinybucket::Parser::CommitsParser)
 
-        pass_api_config(list)
+        inject_api_config(list)
       end
     end
   end

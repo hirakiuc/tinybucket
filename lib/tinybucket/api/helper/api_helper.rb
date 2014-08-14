@@ -4,7 +4,7 @@ module Tinybucket
       module ApiHelper
         private
 
-        def pass_api_config(result)
+        def inject_api_config(result)
           case result
           when Tinybucket::Models::Page
             result.map { |m| m.api_config = @config.dup }

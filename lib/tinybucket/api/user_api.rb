@@ -10,7 +10,7 @@ module Tinybucket
                      options,
                      Tinybucket::Parser::ProfileParser)
 
-        pass_api_config(m)
+        inject_api_config(m)
       end
 
       def followers(options = {})
@@ -18,7 +18,7 @@ module Tinybucket
                         options,
                         Tinybucket::Parser::ProfilesParser)
 
-        pass_api_config(list)
+        inject_api_config(list)
       end
 
       def following(options = {})
@@ -26,7 +26,7 @@ module Tinybucket
                         options,
                         Tinybucket::Parser::ProfilesParser)
 
-        pass_api_config(list)
+        inject_api_config(list)
       end
 
       def repos(options = {})
@@ -34,7 +34,7 @@ module Tinybucket
                         options,
                         Tinybucket::Parser::ReposParser)
 
-        pass_api_config(list)
+        inject_api_config(list)
       end
     end
   end
