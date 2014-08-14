@@ -10,7 +10,7 @@ module Tinybucket
                         options,
                         Tinybucket::Parser::CommitsParser)
 
-        pass_api_config(list)
+        inject_api_config(list)
       end
 
       def find(revision, options = {})
@@ -18,7 +18,7 @@ module Tinybucket
                      options,
                      Tinybucket::Parser::CommitParser)
 
-        pass_api_config(m)
+        inject_api_config(m)
       end
     end
   end

@@ -11,7 +11,7 @@ module Tinybucket
                         opts,
                         Tinybucket::Parser::ReposParser)
 
-        pass_api_config(list)
+        inject_api_config(list)
       end
     end
   end
