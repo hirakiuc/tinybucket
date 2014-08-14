@@ -47,6 +47,22 @@ module Tinybucket
         @repo.forks(options)
       end
 
+      def commits(options = {})
+        @commits ||= create_instance 'Commits', options
+        @commits.repo_owner = repo_owner
+        @commits.repo_slug = repo_slug
+
+        @commits.list(options)
+      end
+
+      def commit(revision, options = {})
+        @commits ||= create_instance 'Commits', options
+        @commits.repo_owner = repo_owner
+        @commits.repo_slug = repo_slug
+
+        @commits.find(revision, options)
+      end
+
       def repo_owner
         case owner
         when Hash
