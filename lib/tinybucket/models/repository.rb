@@ -7,60 +7,31 @@ module Tinybucket
         :is_private, :full_name, :name, :language
 
       def pull_requests(options = {})
-        @pull_requests ||= create_instance 'PullRequests', options
-        @pull_requests.repo_owner = repo_owner
-        @pull_requests.repo_slug = repo_slug
-
-        list = @pull_requests.list(options)
-        list.map do |pr|
-          pr.repository = self
-          pr.api_config = api_config.dup
-        end
-
-        list
+        list = pull_requests_api(options).list(options)
+        inject_repository(list)
       end
 
       def pull_request(pullrequest_id, options = {})
-        @pull_request ||= create_instance 'PullRequests', options
-        @pull_request.repo_owner = repo_owner
-        @pull_request.repo_slug = repo_slug
-
-        m = @pull_request.find(pullrequest_id, options)
-        m.repository = self
-
-        m
+        m = pull_requests_api(options).find(pullrequest_id, options)
+        inject_repository(m)
       end
 
       def watchers(options = {})
-        @repo ||= create_instance 'Repo', options
-        @repo.repo_owner = repo_owner
-        @repo.repo_slug = repo_slug
-
-        @repo.watchers(options)
+        repo_api(options).watchers(options)
       end
 
       def forks(options = {})
-        @repo ||= create_instance 'Repo', options
-        @repo.repo_owner = repo_owner
-        @repo.repo_slug = repo_slug
-
-        @repo.forks(options)
+        repo_api(options).forks(options)
       end
 
       def commits(options = {})
-        @commits ||= create_instance 'Commits', options
-        @commits.repo_owner = repo_owner
-        @commits.repo_slug = repo_slug
-
-        @commits.list(options)
+        list = commits_api(options).list(options)
+        inject_repository(list)
       end
 
       def commit(revision, options = {})
-        @commits ||= create_instance 'Commits', options
-        @commits.repo_owner = repo_owner
-        @commits.repo_slug = repo_slug
-
-        @commits.find(revision, options)
+        m = commits_api(options).find(revision, options)
+        inject_repository(m)
       end
 
       def repo_owner
@@ -81,6 +52,49 @@ module Tinybucket
         keys = full_name.split('/')
         return nil if keys.size < 2
         keys[1]
+      end
+
+      private
+
+      def pull_requests_api(options)
+        return @pull_requests if @pull_requests
+
+        @pull_requests = create_instance 'PullRequests', options
+        @pull_requests.repo_owner = repo_owner
+        @pull_requests.repo_slug = repo_slug
+
+        @pull_requests
+      end
+
+      def repo_api(options)
+        return @repo if @repo
+
+        @repo = create_instance 'Repo', options
+        @repo.repo_owner = repo_owner
+        @repo.repo_slug = repo_slug
+
+        @repo
+      end
+
+      def commits_api(options)
+        return @commits if @commits
+
+        @commits = create_instance 'Commits', options
+        @commits.repo_owner = repo_owner
+        @commits.repo_slug = repo_slug
+
+        @commits
+      end
+
+      def inject_repository(result)
+        case result
+        when Tinybucket::Models::Page
+          result.map { |m| m.repository = self }
+        when Tinybucket::Models::BaseModel
+          result.repository = self if result.respond_to?(:repository=)
+        end
+
+        result
       end
     end
   end
