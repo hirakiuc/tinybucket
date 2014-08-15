@@ -1,0 +1,37 @@
+module Tinybucket
+  module Api
+    module Helper
+      module CommitCommentsHelper
+        include ::Tinybucket::Api::Helper::ApiHelper
+
+        BASE_PATH = '/repositories'.freeze
+
+        private
+
+        def path_to_list
+          base_path
+        end
+
+        def path_to_find(comment_id)
+          build_path(base_path,
+                     [comment_id, 'comment_id'])
+        end
+
+        def base_path
+          assert_commit
+
+          build_path(BASE_PATH,
+                     [repo_owner, 'repo_owner'],
+                     [repo_slug,  'repo_slug'],
+                     'commit',
+                     [commit.hash, 'revision'],
+                     'comments')
+        end
+
+        def assert_commit
+          fail ArgumentError, 'commit was nil.' if commit.nil?
+        end
+      end
+    end
+  end
+end

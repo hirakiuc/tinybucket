@@ -125,23 +125,23 @@ comment = repo.pull_request(pr_id).comment(comment_id)
 ```
 repo = bucket.repo('someone', 'great_repo')
 
-# GET a commits list for a repository or compare commits across branches
+# [x] GET a commits list for a repository or compare commits across branches
 # branchortag, include, exclude options
 commits = repo.commits(options)
 
-# GET an individual commit
+# [x] GET an individual commit
 commit = repo.commit('revision').find
 
-# GET a list of commit comments
+# [x] GET a list of commit comments
 comments = repo.commit('revision').comments
 
-# GET an individual commit comment
+# [x] GET an individual commit comment
 comment = repo.commit('revision').comment(comment_id)
 
-# POST a commit approval
+# [ ] POST a commit approval
   repo.commit('revision').approve
 
-# DELETE a commit approval
+# [ ] DELETE a commit approval
   repo.commit('revision').unapprove
 ```
 

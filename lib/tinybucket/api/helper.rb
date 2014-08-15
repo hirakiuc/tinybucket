@@ -5,6 +5,7 @@ module Tinybucket
 
       autoload :ApiHelper
       autoload :CommitsHelper
+      autoload :CommitCommentsHelper
       autoload :ReposHelper
       autoload :RepoHelper
       autoload :PullRequestsHelper

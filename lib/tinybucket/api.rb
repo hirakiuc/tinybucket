@@ -4,6 +4,7 @@ module Tinybucket
 
     autoload :BaseApi
     autoload :CommitsApi
+    autoload :CommitCommentsApi
     autoload :PullRequestsApi
     autoload :ReposApi
     autoload :RepoApi
