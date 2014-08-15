@@ -4,22 +4,24 @@ module Tinybucket
       module RepoHelper
         include ::Tinybucket::Api::Helper::ApiHelper
 
-        BASE_PATH = '/repositories'
-
         private
 
         def path_to_find
-          build_path(BASE_PATH,
-                     [repo_owner, 'repo_owner'],
-                     [repo_slug, 'repo_slug'])
+          base_path
         end
 
         def path_to_watchers
-          path_to_find + '/watchers'
+          build_path(base_path, '/watchers')
         end
 
         def path_to_forks
-          path_to_find + '/forks'
+          build_path(base_path, '/forks')
+        end
+
+        def base_path
+          build_path('/repositories',
+                     [repo_owner, 'repo_owner'],
+                     [repo_slug, 'repo_slug'])
         end
       end
     end

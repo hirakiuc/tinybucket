@@ -4,8 +4,6 @@ module Tinybucket
       module CommitsHelper
         include ::Tinybucket::Api::Helper::ApiHelper
 
-        BASE_PATH = '/repositories'
-
         private
 
         def path_to_list
@@ -19,7 +17,7 @@ module Tinybucket
         end
 
         def base_path
-          build_path(BASE_PATH,
+          build_path('/repositories',
                      [repo_owner, 'repo_owner'],
                      [repo_slug, 'repo_slug'])
         end
