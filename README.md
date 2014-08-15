@@ -132,10 +132,10 @@ commits = repo.commits(options)
 # [x] GET an individual commit
 commit = repo.commit('revision').find
 
-# [ ] GET a list of commit comments
+# [x] GET a list of commit comments
 comments = repo.commit('revision').comments
 
-# [ ] GET an individual commit comment
+# [x] GET an individual commit comment
 comment = repo.commit('revision').comment(comment_id)
 
 # [ ] POST a commit approval
