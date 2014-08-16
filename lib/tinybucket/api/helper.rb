@@ -7,6 +7,7 @@ module Tinybucket
       autoload :BranchRestrictionsHelper
       autoload :CommitsHelper
       autoload :CommitCommentsHelper
+      autoload :DiffHelper
       autoload :ReposHelper
       autoload :RepoHelper
       autoload :PullRequestsHelper

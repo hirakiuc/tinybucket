@@ -1,10 +1,9 @@
 module Tinybucket
   module Models
     class Repository < BaseModel
-      attr_accessor \
-        :scm, :has_wiki, :description, :links, :updated_on,
-        :fork_policy, :created_on, :owner, :size, :parent, :has_issues,
-        :is_private, :full_name, :name, :language
+      attr_accessor :scm, :has_wiki, :description, :links, :updated_on,
+                    :fork_policy, :created_on, :owner, :size, :parent,
+                    :has_issues, :is_private, :full_name, :name, :language
 
       def pull_requests(options = {})
         list = pull_requests_api(options).list(options)
@@ -42,6 +41,14 @@ module Tinybucket
       def branch_restriction(restriction_id, options = {})
         m = restrictions_api(options).find(restriction_id, options)
         inject_repository(m)
+      end
+
+      def diff(spec, options = {})
+        diff_api(options).find(spec, options)
+      end
+
+      def patch(spec, options = {})
+        diff_api(options).find_patch(spec, options)
       end
 
       def repo_owner
@@ -104,6 +111,16 @@ module Tinybucket
         @restrictions.repo_slug = repo_slug
 
         @restrictions
+      end
+
+      def diff_api(options)
+        return @diff if @diff
+
+        @diff = create_instance 'Diff', options
+        @diff.repo_owner = repo_owner
+        @diff.repo_slug = repo_slug
+
+        @diff
       end
 
       def inject_repository(result)

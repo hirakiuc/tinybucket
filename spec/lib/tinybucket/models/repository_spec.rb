@@ -15,8 +15,9 @@ RSpec.describe Tinybucket::Models::Repository do
     m
   end
   let(:request_path) { nil }
+  let(:stub_options) { {} }
 
-  before { stub_apiresponse(:get, request_path) if request_path }
+  before { stub_apiresponse(:get, request_path, stub_options) if request_path }
 
   describe '#pull_requests' do
     let(:request_path) do
@@ -77,11 +78,74 @@ RSpec.describe Tinybucket::Models::Repository do
     end
   end
 
+  describe '#diff' do
+    let(:diff_spec) { '1' }
+    let(:request_path) { "/repositories/#{owner}/#{slug}/diff/#{diff_spec}" }
+    let(:stub_options) { { content_type: 'text/plain' } }
+    subject { model.diff(diff_spec) }
+    it { expect(subject).to be_an_instance_of(String) }
+  end
+
+  describe '#patch' do
+    let(:patch_spec) { '1' }
+    let(:request_path) { "/repositories/#{owner}/#{slug}/patch/#{patch_spec}" }
+    let(:stub_options) { { content_type: 'text/plain' } }
+    subject { model.patch(patch_spec) }
+    it { expect(subject).to be_an_instance_of(String) }
+  end
+
   describe '#repo_owner' do
-    pending 'TODO add specs'
+    subject { model.repo_owner }
+
+    context 'when owner is nil' do
+      let(:owner) { nil }
+      let(:slug) { nil }
+      it { expect(subject).to be_nil }
+    end
+
+    context 'when owner is hash' do
+      let(:owner) { nil }
+      let(:slug) { nil }
+
+      before { model.owner = owner_hash }
+
+      context 'the hash does not contain \'username\' key' do
+        let(:owner_hash) { {} }
+        it { expect(subject).to be_nil }
+      end
+
+      context 'the hash contains \'username\' key' do
+        let(:owner) { 'test_owner' }
+        let(:owner_hash) { { 'username' => owner } }
+        it { expect(subject).to eq(owner) }
+      end
+    end
+
+    context 'when owner is a string' do
+      let(:owner) { 'test_owner' }
+      let(:slug) { nil }
+
+      before { model.owner = owner }
+      it { expect(subject).to eq(owner) }
+    end
   end
 
   describe '#repo_slug' do
-    pending 'TODO add specs'
+    subject { model.repo_slug }
+
+    context 'when full_name is blank' do
+      before { model.full_name = nil }
+      it { expect(subject).to be_nil }
+    end
+
+    context 'when full_name is invalid format' do
+      before { model.full_name = 'invalid full_name' }
+      it { expect(subject).to be_nil }
+    end
+
+    context 'when full_name is valid format' do
+      before { model.full_name = "#{owner}/#{slug}" }
+      it { expect(subject).to eq(slug) }
+    end
   end
 end

@@ -1,0 +1,29 @@
+# HG changeset patch
+# User Juan Borda <quiasmo.paprika@gmail.com>
+# Date 1384880449 18000
+# Node ID 6247bd81bdc2d254a6be8b00f28137aec7225cc2
+# Parent  68599fa0e4054272d09e2e69a0f3beb9af903192
+add churchill quote
+
+diff --git a/index.html b/index.html
+--- a/index.html
++++ b/index.html
+@@ -55,7 +55,17 @@
+ -->
+ <!-- Quotes Table Start -->
+
+-
++   <tr>
++       <td>
++           <img src="http://4.bp.blogspot.com/-rTLW1af50AE/TnMnzam0g9I/AAAAAAAAAtk/y85tikqkPYg/s1600/estrategia_winston_churchill_diplomacia.jpg"/>
++       </td>
++       <td>
++           <blockquote><p>"If you're going thru hell, keep going."</p>
++           <cite>Wiston Churchill</cite>
++           </blockquote>
++       </td>
++   </tr>
++
+    <tr>
+         <td>
+             <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Steve_Jobs_Headshot_2010-CROP.jpg/250px-Steve_Jobs_Headshot_2010-CROP.jpg"/>

@@ -1,13 +1,12 @@
 module ApiResponseMacros
-  def stub_apiresponse(method, path)
+  def stub_apiresponse(method, path, options = {})
+    response_headers = { content_type: 'application/json' }.merge(options)
+
     stub_request(method, 'https://bitbucket.org/api/2.0' + path)
       .to_return(
         status: 200,
         body: fixture_json(method, path),
-        headers: {
-          content_type: 'application/json'
-        }
-      )
+        headers: response_headers)
   end
 
   private
