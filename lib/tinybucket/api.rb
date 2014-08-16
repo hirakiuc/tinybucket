@@ -3,6 +3,7 @@ module Tinybucket
     extend ActiveSupport::Autoload
 
     autoload :BaseApi
+    autoload :BranchRestrictionsApi
     autoload :CommitsApi
     autoload :CommitCommentsApi
     autoload :PullRequestsApi

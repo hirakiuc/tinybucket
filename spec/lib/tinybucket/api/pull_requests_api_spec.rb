@@ -1,10 +1,15 @@
-require 'spec_helper.rb'
+require 'spec_helper'
 
 RSpec.describe Tinybucket::Api::PullRequestsApi do
   include ApiResponseMacros
 
   let(:api_config) { {} }
-  let(:api) { Tinybucket::Api::PullRequestsApi.new(api_config) }
+  let(:api) do
+    api = Tinybucket::Api::PullRequestsApi.new(api_config)
+    api.repo_owner = owner
+    api.repo_slug = slug
+    api
+  end
 
   let(:owner) { 'test_owner' }
   let(:slug) { 'test_repo' }
@@ -12,11 +17,7 @@ RSpec.describe Tinybucket::Api::PullRequestsApi do
 
   it { expect(api).to be_a_kind_of(Tinybucket::Api::BaseApi) }
 
-  before do
-    api.repo_owner = owner
-    api.repo_slug = slug
-    stub_apiresponse(:get, request_path) if request_path
-  end
+  before { stub_apiresponse(:get, request_path) if request_path }
 
   describe 'list' do
     let(:options) { {} }

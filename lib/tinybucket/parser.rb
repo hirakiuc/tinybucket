@@ -4,6 +4,8 @@ module Tinybucket
 
     autoload :AccountsParser
     autoload :BaseParser
+    autoload :BranchRestrictionParser
+    autoload :BranchRestrictionsParser
     autoload :CommitParser
     autoload :CommitsParser
     autoload :CommitCommentParser

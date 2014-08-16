@@ -60,6 +60,23 @@ RSpec.describe Tinybucket::Models::Repository do
     it { expect(subject).to be_an_instance_of(Tinybucket::Models::Commit) }
   end
 
+  describe '#branch_restrictions' do
+    let(:request_path) { "/repositories/#{owner}/#{slug}/branch-restrictions" }
+    subject { model.branch_restrictions }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
+  end
+
+  describe '#branch_restriction' do
+    let(:restriction_id) { '1' }
+    let(:request_path) do
+      "/repositories/#{owner}/#{slug}/branch-restrictions/#{restriction_id}"
+    end
+    subject { model.branch_restriction(restriction_id) }
+    it 'return BranchRestriction model' do
+      expect(subject).to be_an_instance_of(Tinybucket::Models::BranchRestriction)
+    end
+  end
+
   describe '#repo_owner' do
     pending 'TODO add specs'
   end

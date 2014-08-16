@@ -34,6 +34,16 @@ module Tinybucket
         inject_repository(m)
       end
 
+      def branch_restrictions(options = {})
+        list = restrictions_api(options).list(options)
+        inject_repository(list)
+      end
+
+      def branch_restriction(restriction_id, options = {})
+        m = restrictions_api(options).find(restriction_id, options)
+        inject_repository(m)
+      end
+
       def repo_owner
         case owner
         when Hash
@@ -84,6 +94,16 @@ module Tinybucket
         @commits.repo_slug = repo_slug
 
         @commits
+      end
+
+      def restrictions_api(options)
+        return @restrictions if @restrictions
+
+        @restrictions = create_instance 'BranchRestrictions', options
+        @restrictions.repo_owner = repo_owner
+        @restrictions.repo_slug = repo_slug
+
+        @restrictions
       end
 
       def inject_repository(result)
