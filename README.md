@@ -148,7 +148,7 @@ comment = repo.commit('revision').comment(comment_id)
 ##### branch-restrictions Resource
 
 ```
-repo = bucket.repo('someone' 'great_repo')
+repo = bucket.repo('someone', 'great_repo').find
 
 # [x] GET the branch-restrictions
 restrictions = repo.branch_restrictions
@@ -169,7 +169,14 @@ restriction = repo.branch_restriction(restriction_id)
 ##### diff Resource
 
 ```
-pending
+repo = bucket.repo('someone', 'great_repo').find
+COMMIT_ID = '7e968c5'
+
+# [x] GET a diff
+diff = repo.diff(COMMIT_ID)
+
+# [x] GET a patch
+patch = repo.patch(COMMIT_ID)
 ```
 
 #### teams Endpoint
