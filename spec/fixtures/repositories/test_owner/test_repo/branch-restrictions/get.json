@@ -1,0 +1,101 @@
+{
+    "page": 1,
+    "pagelen": 10,
+    "size": 3,
+    "values": [
+        {
+            "groups": [],
+            "id": 18,
+            "kind": "delete",
+            "links": [
+                {
+                    "href": "https://api.bitbucket.org/2.0/repositories/manthony/restrictiontest/branch-restrictions/18",
+                    "rel": "self"
+                },
+                {
+                    "href": "https://api.bitbucket.org/2.0/repositories/manthony/restrictiontest/branch-restrictions",
+                    "rel": "parent"
+                }
+            ],
+            "pattern": "*zebra",
+            "users": []
+        },
+        {
+            "groups": [],
+            "id": 32,
+            "kind": "force",
+            "links": [
+                {
+                    "href": "https://api.bitbucket.org/2.0/repositories/manthony/restrictiontest/branch-restrictions/32",
+                    "rel": "self"
+                },
+                {
+                    "href": "https://api.bitbucket.org/2.0/repositories/manthony/restrictiontest/branch-restrictions",
+                    "rel": "parent"
+                }
+            ],
+            "pattern": "master",
+            "users": []
+        },
+        {
+            "groups": [
+                {
+                    "full_slug": "bitbucket:developers",
+                    "links": [
+                        {
+                            "href": "/api/1.0/groups/bitbucket/developers",
+                            "rel": "self"
+                        }
+                    ],
+                    "name": "developers",
+                    "owner": {
+                        "avatar_url": "https://secure.gravatar.com/avatar/14a1dfcf20cb05fbb75ea0a163d34acc?d=https%3A%2F%2Fd2isvjwd3d60f6.cloudfront.net%2Fm%2F6d9c8176bfd0%2Fimg%2Fdefault_team_avatar%2F32%2Fteam_blue.png&s=32",
+                        "display_name": "Bitbucket",
+                        "links": [
+                            {
+                                "href": "https://api.bitbucket.org/1.0/users/bitbucket",
+                                "rel": "self"
+                            },
+                            {
+                                "href": "https://bitbucket.org/bitbucket",
+                                "rel": "html"
+                            }
+                        ],
+                        "username": "bitbucket"
+                    },
+                    "slug": "developers"
+                }
+            ],
+            "id": 33,
+            "kind": "push",
+            "links": [
+                {
+                    "href": "https://api.bitbucket.org/2.0/repositories/manthony/restrictiontest/branch-restrictions/33",
+                    "rel": "self"
+                },
+                {
+                    "href": "https://api.bitbucket.org/2.0/repositories/manthony/restrictiontest/branch-restrictions",
+                    "rel": "parent"
+                }
+            ],
+            "pattern": "master",
+            "users": [
+                {
+                    "avatar_url": "https://bitbucket-staging-assetroot.s3.amazonaws.com/c/photos/2013/Jul/31/erik-avatar-725122544-0_avatar.png",
+                    "display_name": "Erik van Z\u0133st",
+                    "links": [
+                        {
+                            "href": "https://api.bitbucket.org/1.0/users/erik",
+                            "rel": "self"
+                        },
+                        {
+                            "href": "https://bitbucket.org/erik",
+                            "rel": "html"
+                        }
+                    ],
+                    "username": "erik"
+                }
+            ]
+        }
+    ]
+}

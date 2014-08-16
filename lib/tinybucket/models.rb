@@ -4,6 +4,7 @@ module Tinybucket
 
     autoload :Account
     autoload :BaseModel
+    autoload :BranchRestriction
     autoload :Commit
     autoload :CommitComment
     autoload :ErrorResponse

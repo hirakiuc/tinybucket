@@ -4,6 +4,7 @@ module Tinybucket
       extend ActiveSupport::Autoload
 
       autoload :ApiHelper
+      autoload :BranchRestrictionsHelper
       autoload :CommitsHelper
       autoload :CommitCommentsHelper
       autoload :ReposHelper

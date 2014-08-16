@@ -148,7 +148,22 @@ comment = repo.commit('revision').comment(comment_id)
 ##### branch-restrictions Resource
 
 ```
-pending
+repo = bucket.repo('someone' 'great_repo')
+
+# [x] GET the branch-restrictions
+restrictions = repo.branch_restrictions
+
+# [ ] POST the branch-restrictions
+  repo.create_branch_restrictions(restrictions)
+
+# [x] GET a specific restriction
+restriction = repo.branch_restriction(restriction_id)
+
+# [ ] PUT a branch restriction update
+  repo.branch_restriction(restriction_id).update(params)
+
+# [ ] DELETE the branch restriction
+  repo.branch_restriction(restriction_id).destroy
 ```
 
 ##### diff Resource
