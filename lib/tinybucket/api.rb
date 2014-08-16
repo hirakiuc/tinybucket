@@ -6,6 +6,7 @@ module Tinybucket
     autoload :BranchRestrictionsApi
     autoload :CommitsApi
     autoload :CommitCommentsApi
+    autoload :DiffApi
     autoload :PullRequestsApi
     autoload :ReposApi
     autoload :RepoApi

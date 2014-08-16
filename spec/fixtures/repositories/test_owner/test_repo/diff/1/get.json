@@ -1,0 +1,21 @@
+diff --git a/index.html b/index.html
+--- a/index.html
++++ b/index.html
+@@ -82,7 +82,7 @@
+        </td>
+        <td>
+            <blockquote><p>“Here's to the crazy ones, the misfits, the rebels, the troublemakers, the round pegs in the square holes... the ones who see things differently -- they're not fond of rules... You can quote them, disagree with them, glorify or vilify them, but the only thing you can't do is ignore them because they change things... they push the human race forward, and while some may see them as the crazy ones, we see genius, because the ones who are crazy enough to think that they can change the world, are the ones who do.”</p>
+-           <cite>Steve Jobs, Founder Of Apple Inc.</cite>
++           <cite>Steve Jobs, Founder of Apple Inc.</cite>
+            </blockquote>
+         </td>
+     </tr>
+@@ -122,7 +122,7 @@
+         </td>
+         <td>
+             <blockquote><p>“No.”</p>
+-           <cite>Steve Jobs, Founder Of Apple Inc.</cite>
++           <cite>Steve Jobs, Founder of Apple Inc.</cite>
+             </blockquote>
+         </td>
+     </tr>
