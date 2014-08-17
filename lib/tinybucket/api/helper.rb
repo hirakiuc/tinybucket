@@ -3,16 +3,20 @@ module Tinybucket
     module Helper
       extend ActiveSupport::Autoload
 
-      autoload :ApiHelper
-      autoload :BranchRestrictionsHelper
-      autoload :CommitsHelper
-      autoload :CommitCommentsHelper
-      autoload :DiffHelper
-      autoload :ReposHelper
-      autoload :RepoHelper
-      autoload :PullRequestsHelper
-      autoload :TeamHelper
-      autoload :UserHelper
+      [
+        :ApiHelper,
+        :BranchRestrictionsHelper,
+        :CommitsHelper,
+        :CommitCommentsHelper,
+        :DiffHelper,
+        :ReposHelper,
+        :RepoHelper,
+        :PullRequestsHelper,
+        :TeamHelper,
+        :UserHelper
+      ].each do |klass_name|
+        autoload klass_name
+      end
     end
   end
 end

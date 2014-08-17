@@ -2,21 +2,25 @@ module Tinybucket
   module Parser
     extend ActiveSupport::Autoload
 
-    autoload :AccountsParser
-    autoload :BaseParser
-    autoload :BranchRestrictionParser
-    autoload :BranchRestrictionsParser
-    autoload :CommitParser
-    autoload :CommitsParser
-    autoload :CommitCommentParser
-    autoload :CommitCommentsParser
-    autoload :ProfileParser
-    autoload :ProfilesParser
-    autoload :PullRequestParser
-    autoload :PullRequestsParser
-    autoload :RepoParser
-    autoload :ReposParser
-    autoload :TeamParser
-    autoload :TeamsParser
+    [
+      :AccountsParser,
+      :BaseParser,
+      :BranchRestrictionParser,
+      :BranchRestrictionsParser,
+      :CommitParser,
+      :CommitsParser,
+      :CommitCommentParser,
+      :CommitCommentsParser,
+      :ProfileParser,
+      :ProfilesParser,
+      :PullRequestParser,
+      :PullRequestsParser,
+      :RepoParser,
+      :ReposParser,
+      :TeamParser,
+      :TeamsParser
+    ].each do |klass_name|
+      autoload klass_name
+    end
   end
 end

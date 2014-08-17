@@ -2,15 +2,19 @@ module Tinybucket
   module Api
     extend ActiveSupport::Autoload
 
-    autoload :BaseApi
-    autoload :BranchRestrictionsApi
-    autoload :CommitsApi
-    autoload :CommitCommentsApi
-    autoload :DiffApi
-    autoload :PullRequestsApi
-    autoload :ReposApi
-    autoload :RepoApi
-    autoload :TeamApi
-    autoload :UserApi
+    [
+      :BaseApi,
+      :BranchRestrictionsApi,
+      :CommitsApi,
+      :CommitCommentsApi,
+      :DiffApi,
+      :PullRequestsApi,
+      :ReposApi,
+      :RepoApi,
+      :TeamApi,
+      :UserApi
+    ].each do |klass_name|
+      autoload klass_name
+    end
   end
 end
