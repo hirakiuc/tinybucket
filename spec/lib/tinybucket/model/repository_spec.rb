@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Tinybucket::Models::Repository do
+RSpec.describe Tinybucket::Model::Repository do
   include ApiResponseMacros
 
   let(:owner) { 'test_owner' }
@@ -8,7 +8,7 @@ RSpec.describe Tinybucket::Models::Repository do
 
   let(:model_json) { JSON.load(File.read('spec/fixtures/repository.json')) }
   let(:model) do
-    m = Tinybucket::Models::Repository.new(model_json)
+    m = Tinybucket::Model::Repository.new(model_json)
     m.owner = owner
     m.full_name = "#{owner}/#{slug}"
 
@@ -26,45 +26,45 @@ RSpec.describe Tinybucket::Models::Repository do
 
     subject { model.pull_requests() }
 
-    it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
   end
 
   describe '#pull_request' do
     let(:prid) { 1 }
     let(:request_path) { "/repositories/#{owner}/#{slug}/pullrequests/#{prid}" }
     subject { model.pull_request(prid) }
-    it { expect(subject).to be_an_instance_of(Tinybucket::Models::PullRequest) }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Model::PullRequest) }
   end
 
   describe '#watchers' do
     let(:request_path) { "/repositories/#{owner}/#{slug}/watchers" }
     subject { model.watchers }
-    it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
   end
 
   describe '#forks' do
     let(:request_path) { "/repositories/#{owner}/#{slug}/forks" }
     subject { model.forks }
-    it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
   end
 
   describe '#commits' do
     let(:request_path) { "/repositories/#{owner}/#{slug}/commits" }
     subject { model.commits }
-    it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
   end
 
   describe '#commit' do
     let(:revision) { '1' }
     let(:request_path) { "/repositories/#{owner}/#{slug}/commit/#{revision}" }
     subject { model.commit(revision) }
-    it { expect(subject).to be_an_instance_of(Tinybucket::Models::Commit) }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Model::Commit) }
   end
 
   describe '#branch_restrictions' do
     let(:request_path) { "/repositories/#{owner}/#{slug}/branch-restrictions" }
     subject { model.branch_restrictions }
-    it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
   end
 
   describe '#branch_restriction' do
@@ -74,7 +74,7 @@ RSpec.describe Tinybucket::Models::Repository do
     end
     subject { model.branch_restriction(restriction_id) }
     it 'return BranchRestriction model' do
-      expect(subject).to be_an_instance_of(Tinybucket::Models::BranchRestriction)
+      expect(subject).to be_an_instance_of(Tinybucket::Model::BranchRestriction)
     end
   end
 

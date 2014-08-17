@@ -44,7 +44,7 @@ RSpec.describe Tinybucket::Api::PullRequestsApi do
 
     context 'with repo_owner and repo_slug' do
       let(:request_path) { "/repositories/#{owner}/#{slug}/pullrequests" }
-      it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
+      it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
     end
 
     context 'when request with state' do
@@ -55,17 +55,17 @@ RSpec.describe Tinybucket::Api::PullRequestsApi do
 
       context 'when state is OPEN' do
         let(:state) { 'open' }
-        it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
+        it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
       end
 
       context 'when state is DECLINED' do
         let(:state) { 'declined' }
-        it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
+        it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
       end
 
       context 'when state is MERGED' do
         let(:state) { 'merged' }
-        it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
+        it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
       end
     end
   end
@@ -96,7 +96,7 @@ RSpec.describe Tinybucket::Api::PullRequestsApi do
       end
 
       it 'return pull request model' do
-        expect(subject).to be_an_instance_of(Tinybucket::Models::PullRequest)
+        expect(subject).to be_an_instance_of(Tinybucket::Model::PullRequest)
       end
     end
   end
@@ -126,7 +126,7 @@ RSpec.describe Tinybucket::Api::PullRequestsApi do
         "/repositories/#{owner}/#{slug}/pullrequests/1/commits"
       end
       it 'return page model which contains commit models' do
-        expect(subject).to be_an_instance_of(Tinybucket::Models::Page)
+        expect(subject).to be_an_instance_of(Tinybucket::Model::Page)
       end
     end
   end

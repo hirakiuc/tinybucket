@@ -2,8 +2,8 @@ module Tinybucket
   module Parser
     class CommitCommentsParser < BaseParser
       def convert(json)
-        Tinybucket::Models::Page.new(
-          json, Tinybucket::Models::CommitComment)
+        Tinybucket::Model::Page.new(
+          json, Tinybucket::Model::CommitComment)
       end
     end
   end

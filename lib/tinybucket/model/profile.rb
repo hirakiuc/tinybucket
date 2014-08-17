@@ -1,6 +1,6 @@
 module Tinybucket
-  module Models
-    class Profile < BaseModel
+  module Model
+    class Profile < Base
       attr_accessor \
         :username, :kind, :website, :display_name,
         :links, :created_on, :location, :type

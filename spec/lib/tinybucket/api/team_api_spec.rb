@@ -26,7 +26,7 @@ RSpec.describe Tinybucket::Api::TeamApi do
 
     context 'when with teamname' do
       let(:request_path) { "/teams/#{teamname}" }
-      it { expect(subject).to be_an_instance_of(Tinybucket::Models::Team) }
+      it { expect(subject).to be_an_instance_of(Tinybucket::Model::Team) }
     end
   end
 
@@ -40,7 +40,7 @@ RSpec.describe Tinybucket::Api::TeamApi do
 
     context 'when with teamname' do
       let(:request_path) { "/teams/#{teamname}/members" }
-      it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
+      it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
     end
   end
 
@@ -54,7 +54,7 @@ RSpec.describe Tinybucket::Api::TeamApi do
 
     context 'when with teamname' do
       let(:request_path) { "/teams/#{teamname}/followers" }
-      it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
+      it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
     end
   end
 
@@ -68,7 +68,7 @@ RSpec.describe Tinybucket::Api::TeamApi do
 
     context 'when with teamname' do
       let(:request_path) { "/teams/#{teamname}/following" }
-      it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
+      it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
     end
   end
 
@@ -82,7 +82,7 @@ RSpec.describe Tinybucket::Api::TeamApi do
 
     context 'when with teamname' do
       let(:request_path) { "/teams/#{teamname}/repositories" }
-      it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
+      it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
     end
   end
 

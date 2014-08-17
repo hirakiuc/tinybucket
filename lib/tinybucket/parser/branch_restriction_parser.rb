@@ -2,7 +2,7 @@ module Tinybucket
   module Parser
     class BranchRestrictionParser < BaseParser
       def convert(json)
-        Tinybucket::Models::BranchRestriction.new(json)
+        Tinybucket::Model::BranchRestriction.new(json)
       end
     end
   end

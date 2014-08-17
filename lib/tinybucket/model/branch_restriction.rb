@@ -1,6 +1,6 @@
 module Tinybucket
-  module Models
-    class BranchRestriction < BaseModel
+  module Model
+    class BranchRestriction < Base
       attr_accessor :groups, :id, :kind, :links, :pattern, :users
 
       attr_accessor :repository

@@ -50,7 +50,7 @@ RSpec.describe Tinybucket::Api::CommitCommentsApi do
       let(:request_path) do
         "/repositories/#{owner}/#{slug}/commit/#{commit_hash}/comments"
       end
-      it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
+      it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
     end
   end
 
@@ -79,7 +79,7 @@ RSpec.describe Tinybucket::Api::CommitCommentsApi do
           + "/comments/#{comment_id}"
       end
       it 'return CommitComment model' do
-        expect(subject).to be_an_instance_of(Tinybucket::Models::CommitComment)
+        expect(subject).to be_an_instance_of(Tinybucket::Model::CommitComment)
       end
     end
   end

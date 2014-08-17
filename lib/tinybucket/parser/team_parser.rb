@@ -2,7 +2,7 @@ module Tinybucket
   module Parser
     class TeamParser < BaseParser
       def convert(json)
-        ::Tinybucket::Models::Team.new(json)
+        Tinybucket::Model::Team.new(json)
       end
     end
   end

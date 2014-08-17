@@ -1,6 +1,6 @@
 module Tinybucket
-  module Models
-    class CommitComment < BaseModel
+  module Model
+    class CommitComment < Base
       attr_accessor \
         :links, :id, :parent,  :filename, :content, :user, :inline, \
         :created_on, :updated_on

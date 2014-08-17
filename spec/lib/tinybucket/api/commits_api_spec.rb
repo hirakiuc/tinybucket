@@ -35,7 +35,7 @@ RSpec.describe Tinybucket::Api::CommitsApi do
 
     context 'with owner and slug' do
       let(:request_path) { "/repositories/#{owner}/#{slug}/commits" }
-      it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
+      it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
     end
   end
 
@@ -57,7 +57,7 @@ RSpec.describe Tinybucket::Api::CommitsApi do
       let(:request_path) do
         "/repositories/#{owner}/#{slug}/commit/#{revision}"
       end
-      it { expect(subject).to be_instance_of(Tinybucket::Models::Commit) }
+      it { expect(subject).to be_instance_of(Tinybucket::Model::Commit) }
     end
   end
 end

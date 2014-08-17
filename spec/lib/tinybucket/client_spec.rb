@@ -28,7 +28,7 @@ RSpec.describe Tinybucket::Client do
   describe 'repos' do
     subject { client.repos }
     before { stub_apiresponse(:get, '/repositories') }
-    it { expect(subject).to be_instance_of(Tinybucket::Models::Page) }
+    it { expect(subject).to be_instance_of(Tinybucket::Model::Page) }
   end
 
   describe 'repo' do

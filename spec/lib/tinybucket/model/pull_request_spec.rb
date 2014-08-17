@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Tinybucket::Models::PullRequest do
+RSpec.describe Tinybucket::Model::PullRequest do
   include ApiResponseMacros
 
   let(:model_json) { JSON.load(File.read('spec/fixtures/pull_request.json')) }
@@ -14,11 +14,11 @@ RSpec.describe Tinybucket::Models::PullRequest do
     end
 
     let(:model) do
-      repo = Tinybucket::Models::Repository.new({})
+      repo = Tinybucket::Model::Repository.new({})
       repo.owner = owner
       repo.full_name = "#{owner}/#{slug}"
 
-      pr = Tinybucket::Models::PullRequest.new(model_json)
+      pr = Tinybucket::Model::PullRequest.new(model_json)
       pr.repository = repo
       pr.id = 1
 
@@ -29,6 +29,6 @@ RSpec.describe Tinybucket::Models::PullRequest do
 
     before { stub_apiresponse(:get, request_path) }
 
-    it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
   end
 end

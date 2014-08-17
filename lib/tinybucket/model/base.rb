@@ -1,6 +1,6 @@
 module Tinybucket
-  module Models
-    class BaseModel
+  module Model
+    class Base
       include ::ActiveModel::Serializers::JSON
       attr_accessor :api_config
 

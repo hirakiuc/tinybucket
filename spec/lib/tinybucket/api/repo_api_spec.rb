@@ -40,7 +40,7 @@ RSpec.describe Tinybucket::Api::RepoApi do
 
     context 'when with repo_owner and repo_slug' do
       let(:request_path) { "/repositories/#{repo_owner}/#{repo_slug}" }
-      it { expect(subject).to be_an_instance_of(Tinybucket::Models::Repository) }
+      it { expect(subject).to be_an_instance_of(Tinybucket::Model::Repository) }
     end
   end
 
@@ -67,7 +67,7 @@ RSpec.describe Tinybucket::Api::RepoApi do
       let(:request_path) do
         "/repositories/#{repo_owner}/#{repo_slug}/watchers"
       end
-      it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
+      it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
     end
   end
 
@@ -94,7 +94,7 @@ RSpec.describe Tinybucket::Api::RepoApi do
       let(:request_path) do
         "/repositories/#{repo_owner}/#{repo_slug}/forks"
       end
-      it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
+      it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
     end
   end
 end

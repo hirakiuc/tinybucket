@@ -1,6 +1,6 @@
 module Tinybucket
-  module Models
-    class ErrorResponse < BaseModel
+  module Model
+    class ErrorResponse < Base
       attr_accessor :message, :fields, :detail, :id
     end
   end
