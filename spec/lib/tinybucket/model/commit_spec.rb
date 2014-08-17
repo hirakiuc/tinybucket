@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Tinybucket::Models::Commit do
+RSpec.describe Tinybucket::Model::Commit do
   include ApiResponseMacros
 
   let(:owner) { 'test_owner' }
@@ -8,7 +8,7 @@ RSpec.describe Tinybucket::Models::Commit do
 
   let(:repo) do
     json = JSON.load(File.read('spec/fixtures/repository.json'))
-    m = Tinybucket::Models::Repository.new(json)
+    m = Tinybucket::Model::Repository.new(json)
     m.owner = owner
     m.full_name = "#{owner}/#{slug}"
 
@@ -17,7 +17,7 @@ RSpec.describe Tinybucket::Models::Commit do
 
   let(:model) do
     json = JSON.load(File.read('spec/fixtures/commit.json'))
-    m = Tinybucket::Models::Commit.new(json)
+    m = Tinybucket::Model::Commit.new(json)
     m.repository = repo
     m.hash = '1'
 
@@ -33,7 +33,7 @@ RSpec.describe Tinybucket::Models::Commit do
       "/repositories/#{owner}/#{slug}/commit/1/comments"
     end
     subject { model.comments }
-    it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
   end
 
   describe '#comment' do
@@ -43,7 +43,7 @@ RSpec.describe Tinybucket::Models::Commit do
     end
     subject { model.comment(comment_id) }
     it 'return CommitComment' do
-      expect(subject).to be_an_instance_of(Tinybucket::Models::CommitComment)
+      expect(subject).to be_an_instance_of(Tinybucket::Model::CommitComment)
     end
   end
 end

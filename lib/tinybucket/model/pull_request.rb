@@ -1,6 +1,6 @@
 module Tinybucket
-  module Models
-    class PullRequest < BaseModel
+  module Model
+    class PullRequest < Base
       attr_accessor \
         :state, :description, :links, :title, :close_source_branch,
         :destination, :reason, :id, :source, :created_on, :author, :updated_on,

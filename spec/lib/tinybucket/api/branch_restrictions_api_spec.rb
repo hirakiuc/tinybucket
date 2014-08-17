@@ -42,7 +42,7 @@ RSpec.describe Tinybucket::Api::BranchRestrictionsApi do
       let(:request_path) do
         "/repositories/#{owner}/#{slug}/branch-restrictions"
       end
-      it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
+      it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
     end
   end
 
@@ -71,7 +71,7 @@ RSpec.describe Tinybucket::Api::BranchRestrictionsApi do
         "/repositories/#{owner}/#{slug}/branch-restrictions/#{restriction_id}"
       end
       it 'return BranchRestriction Model' do
-        expect(subject).to be_an_instance_of(Tinybucket::Models::BranchRestriction)
+        expect(subject).to be_an_instance_of(Tinybucket::Model::BranchRestriction)
       end
     end
   end

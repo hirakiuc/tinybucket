@@ -1,6 +1,6 @@
 module Tinybucket
-  module Models
-    class Repository < BaseModel
+  module Model
+    class Repository < Base
       attr_accessor :scm, :has_wiki, :description, :links, :updated_on,
                     :fork_policy, :created_on, :owner, :size, :parent,
                     :has_issues, :is_private, :full_name, :name, :language
@@ -125,9 +125,9 @@ module Tinybucket
 
       def inject_repository(result)
         case result
-        when Tinybucket::Models::Page
+        when Tinybucket::Model::Page
           result.map { |m| m.repository = self }
-        when Tinybucket::Models::BaseModel
+        when Tinybucket::Model::Base
           result.repository = self if result.respond_to?(:repository=)
         end
 

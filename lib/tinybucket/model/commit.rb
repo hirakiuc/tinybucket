@@ -1,6 +1,6 @@
 module Tinybucket
-  module Models
-    class Commit < BaseModel
+  module Model
+    class Commit < Base
       attr_accessor \
         :hash, :links, :repository, :author,
         :parents, :date, :message,

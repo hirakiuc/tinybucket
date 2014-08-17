@@ -26,7 +26,7 @@ RSpec.describe Tinybucket::Api::UserApi do
 
     context 'when with username' do
       let(:request_path) { "/users/#{user}" }
-      it { expect(subject).to be_an_instance_of(Tinybucket::Models::Profile) }
+      it { expect(subject).to be_an_instance_of(Tinybucket::Model::Profile) }
     end
   end
 
@@ -40,7 +40,7 @@ RSpec.describe Tinybucket::Api::UserApi do
 
     context 'when with username' do
       let(:request_path) { "/users/#{user}/followers" }
-      it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
+      it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
     end
   end
 
@@ -54,7 +54,7 @@ RSpec.describe Tinybucket::Api::UserApi do
 
     context 'when with username' do
       let(:request_path) { "/users/#{user}/following" }
-      it { expect(subject).to be_an_instance_of(Tinybucket::Models::Page) }
+      it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
     end
   end
 end

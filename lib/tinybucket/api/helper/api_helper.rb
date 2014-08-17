@@ -6,9 +6,9 @@ module Tinybucket
 
         def inject_api_config(result)
           case result
-          when Tinybucket::Models::Page
+          when Tinybucket::Model::Page
             result.map { |m| m.api_config = @config.dup }
-          when Tinybucket::Models::BaseModel
+          when Tinybucket::Model::Base
             result.api_config = @config.dup
           end
 

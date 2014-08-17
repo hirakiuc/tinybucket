@@ -1,6 +1,6 @@
 module Tinybucket
-  module Models
-    class Team < BaseModel
+  module Model
+    class Team < Base
       attr_accessor \
         :username, :kind, :website, :display_name,
         :links, :created_on, :location, :type

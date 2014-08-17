@@ -1,6 +1,6 @@
 module Tinybucket
-  module Models
-    class Account < BaseModel
+  module Model
+    class Account < Base
       attr_accessor :username, :display_name, :links
     end
   end

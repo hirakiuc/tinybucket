@@ -1,10 +1,10 @@
 module Tinybucket
-  module Models
+  module Model
     extend ActiveSupport::Autoload
 
     [
       :Account,
-      :BaseModel,
+      :Base,
       :BranchRestriction,
       :Commit,
       :CommitComment,

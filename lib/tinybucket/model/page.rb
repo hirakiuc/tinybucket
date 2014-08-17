@@ -1,5 +1,5 @@
 module Tinybucket
-  module Models
+  module Model
     class Page
       include Enumerable
       attr_reader :size, :page, :pagelen, :next, :previous
