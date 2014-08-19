@@ -10,6 +10,7 @@ module Tinybucket
                         options,
                         Tinybucket::Parser::PullRequestsParser)
 
+        list.next_proc = next_proc(:list, options)
         inject_api_config(list)
       end
 
@@ -26,6 +27,7 @@ module Tinybucket
                         options,
                         Tinybucket::Parser::CommitsParser)
 
+        list.next_proc = next_proc(:commits, options)
         inject_api_config(list)
       end
     end

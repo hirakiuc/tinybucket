@@ -4,10 +4,16 @@ module Tinybucket
       module ApiHelper
         private
 
+        def next_proc(method, options)
+          lambda do |next_page|
+            send(method, options.merge(page: next_page))
+          end
+        end
+
         def inject_api_config(result)
           case result
           when Tinybucket::Model::Page
-            result.map { |m| m.api_config = @config.dup }
+            result.items.map { |m| m.api_config = @config.dup }
           when Tinybucket::Model::Base
             result.api_config = @config.dup
           end

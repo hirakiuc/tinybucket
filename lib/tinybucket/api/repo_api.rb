@@ -18,6 +18,7 @@ module Tinybucket
                         options,
                         Tinybucket::Parser::AccountsParser)
 
+        list.next_proc = next_proc(:watchers, options)
         inject_api_config(list)
       end
 
@@ -26,6 +27,7 @@ module Tinybucket
                         options,
                         Tinybucket::Parser::ReposParser)
 
+        list.next_proc = next_proc(:forks, options)
         inject_api_config(list)
       end
     end

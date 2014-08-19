@@ -10,6 +10,7 @@ module Tinybucket
                         options,
                         Tinybucket::Parser::BranchRestrictionsParser)
 
+        list.next_proc = next_proc(:list, options)
         inject_api_config(list)
       end
 

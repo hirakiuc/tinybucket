@@ -6,31 +6,29 @@ module Tinybucket
         :links, :created_on, :location, :type
 
       def members(options = {})
-        @team ||= create_instance 'Team', options
-        @team.teamname = username
-
-        @team.members(options)
+        team_api(options).members(options)
       end
 
       def followers(options = {})
-        @team ||= create_instance 'Team', options
-        @team.teamname = username
-
-        @team.followers(options)
+        team_api(options).followers(options)
       end
 
       def following(options = {})
-        @team ||= create_instance 'Team', options
-        @team.teamname = username
-
-        @team.following(options)
+        team_api(options).following(options)
       end
 
       def repos(options = {})
-        @team ||= create_instance 'Team', options
-        @team.teamname = username
+        team_api(options).repos(options)
+      end
 
-        @team.repos(options)
+      private
+
+      def team_api(options)
+        return @team if @team
+
+        @team = create_instance 'Team', options
+        @team.teamname = username
+        @team
       end
     end
   end

@@ -9,14 +9,13 @@ module Tinybucket
       attr_accessor :repository
 
       def commits(options = {})
-        @pull_requests ||= create_instance 'PullRequests', options
+        fail ArgumentError, 'This method call require repository.' \
+          if repository.nil?
 
-        if repository.present?
-          @pull_requests.repo_owner = repository.repo_owner
-          @pull_requests.repo_slug  = repository.repo_slug
-        end
-
-        @pull_requests.commits(id, options)
+        api = pull_requests_api(repository.repo_owner,
+                                repository.repo_slug,
+                                options)
+        api.commits(id, options)
       end
     end
   end
