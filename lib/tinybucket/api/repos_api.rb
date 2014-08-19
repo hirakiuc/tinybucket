@@ -11,6 +11,7 @@ module Tinybucket
                         opts,
                         Tinybucket::Parser::ReposParser)
 
+        list.next_proc = next_proc(:list, options)
         inject_api_config(list)
       end
     end

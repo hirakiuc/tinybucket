@@ -2,9 +2,8 @@ module Tinybucket
   module Model
     class Commit < Base
       attr_accessor \
-        :hash, :links, :repository, :author,
-        :parents, :date, :message,
-        :participants
+        :hash, :links, :repository, :author, :parents, :date,
+        :message, :participants
 
       attr_accessor :repository
 
@@ -20,6 +19,9 @@ module Tinybucket
 
       def comments_api(options)
         return @comments if @comments.present?
+
+        fail ArgumentError, 'This method call require repository.' \
+          if repository.nil?
 
         @comments = create_instance 'CommitComments', options
         @comments.repo_owner = repository.repo_owner

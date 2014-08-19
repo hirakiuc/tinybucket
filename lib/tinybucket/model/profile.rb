@@ -6,24 +6,25 @@ module Tinybucket
         :links, :created_on, :location, :type
 
       def followers(options = {})
-        @user ||= create_instance 'User', options
-        @user.username = username
-
-        @user.followers(options)
+        user_api(options).followers(options)
       end
 
       def following(options = {})
-        @user ||= create_instance 'User', options
-        @user.username = username
-
-        @user.following(options)
+        user_api(options).following(options)
       end
 
       def repos(options = {})
-        @user ||= create_instance 'User', options
-        @user.username = username
+        user_api(options).repos(options)
+      end
 
-        @user.repos(options)
+      private
+
+      def user_api(options)
+        return @user if @user
+
+        @user = create_instance 'User', options
+        @user.username = username
+        @user
       end
     end
   end

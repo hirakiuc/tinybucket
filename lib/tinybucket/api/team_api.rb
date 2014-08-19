@@ -18,6 +18,7 @@ module Tinybucket
                         options,
                         Tinybucket::Parser::TeamsParser)
 
+        list.next_proc = next_proc(:members, options)
         inject_api_config(list)
       end
 
@@ -26,6 +27,7 @@ module Tinybucket
                         options,
                         Tinybucket::Parser::TeamsParser)
 
+        list.next_proc = next_proc(:followers, options)
         inject_api_config(list)
       end
 
@@ -34,6 +36,7 @@ module Tinybucket
                         options,
                         Tinybucket::Parser::TeamsParser)
 
+        list.next_proc = next_proc(:following, options)
         inject_api_config(list)
       end
 
@@ -42,6 +45,7 @@ module Tinybucket
                         options,
                         Tinybucket::Parser::ReposParser)
 
+        list.next_proc = next_proc(:repos, options)
         inject_api_config(list)
       end
     end
