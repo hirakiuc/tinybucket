@@ -19,6 +19,10 @@ module Tinybucket
                  end
       end
 
+      def size
+        @attrs[:size]
+      end
+
       def each(options = {})
         loop do
           start = (@attrs[:page] - 1) * @attrs[:pagelen]
