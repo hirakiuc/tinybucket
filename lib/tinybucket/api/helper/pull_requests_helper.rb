@@ -21,6 +21,12 @@ module Tinybucket
                      'commits')
         end
 
+        def path_to_approve(pr_id)
+          build_path(base_path,
+                     [pr_id, 'pullrequest_id'],
+                     'approve')
+        end
+
         def base_path
           build_path('/repositories',
                      [repo_owner, 'repo_owner'],

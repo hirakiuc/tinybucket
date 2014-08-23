@@ -30,6 +30,16 @@ module Tinybucket
         list.next_proc = next_proc(:commits, options)
         inject_api_config(list)
       end
+
+      def approve(pr_id, options = {})
+        result = post_path(path_to_approve(pr_id), options)
+        (result['approved'] == true)
+      end
+
+      def unapprove(pr_id, options = {})
+        result = delete_path(path_to_approve(pr_id), options)
+        (result['approved'] == false)
+      end
     end
   end
 end

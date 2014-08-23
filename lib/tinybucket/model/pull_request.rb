@@ -8,14 +8,25 @@ module Tinybucket
 
       attr_accessor :repository
 
-      def commits(options = {})
-        fail ArgumentError, 'This method call require repository.' \
-          if repository.nil?
+      def approve(options = {})
+        pullreq_api(options).approve(id, options)
+      end
 
-        api = pull_requests_api(repository.repo_owner,
-                                repository.repo_slug,
-                                options)
-        api.commits(id, options)
+      def unapprove(options = {})
+        pullreq_api(options).unapprove(id, options)
+      end
+
+      def commits(options = {})
+        pullreq_api(options).commits(id, options)
+      end
+
+      private
+
+      def pullreq_api(options)
+        fail ArgumentError,
+             'This method call require repository.' if repository.nil?
+
+        pull_requests_api(repository.repo_owner, repository.repo_slug, options)
       end
     end
   end

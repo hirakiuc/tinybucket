@@ -14,10 +14,11 @@ RSpec.describe Tinybucket::Api::PullRequestsApi do
   let(:owner) { 'test_owner' }
   let(:slug) { 'test_repo' }
   let(:request_path) { nil }
+  let(:request_method) { :get }
 
   it { expect(api).to be_a_kind_of(Tinybucket::Api::BaseApi) }
 
-  before { stub_apiresponse(:get, request_path) if request_path }
+  before { stub_apiresponse(request_method, request_path) if request_path }
 
   describe 'list' do
     let(:options) { {} }
@@ -128,6 +129,64 @@ RSpec.describe Tinybucket::Api::PullRequestsApi do
       it 'return page model which contains commit models' do
         expect(subject).to be_an_instance_of(Tinybucket::Model::Page)
       end
+    end
+  end
+
+  describe 'approve' do
+    let(:pr_id) { 1 }
+    let(:request_method) { :post }
+    subject { api.approve(pr_id) }
+
+    context 'when without repo_owner and repo_slug' do
+      let(:owner) { nil }
+      let(:slug) { nil }
+      it { expect { subject }.to raise_error(ArgumentError) }
+    end
+
+    context 'when without repo_owner' do
+      let(:owner) { nil }
+      it { expect { subject }.to raise_error(ArgumentError) }
+    end
+
+    context 'when without repo_slug' do
+      let(:slug) { nil }
+      it { expect { subject }.to raise_error(ArgumentError) }
+    end
+
+    context 'when with repo_owner and repo_slug' do
+      let(:request_path) do
+        "/repositories/#{owner}/#{slug}/pullrequests/1/approve"
+      end
+      it { expect(subject).to be_truthy }
+    end
+  end
+
+  describe 'unapprove' do
+    let(:pr_id) { 1 }
+    let(:request_method) { :delete }
+    subject { api.unapprove(pr_id) }
+
+    context 'when without repo_owner and repo_slug' do
+      let(:owner) { nil }
+      let(:slug) { nil }
+      it { expect { subject }.to raise_error(ArgumentError) }
+    end
+
+    context 'when without repo_owner' do
+      let(:owner) { nil }
+      it { expect { subject }.to raise_error(ArgumentError) }
+    end
+
+    context 'when without repo_slug' do
+      let(:slug) { nil }
+      it { expect { subject }.to raise_error(ArgumentError) }
+    end
+
+    context 'when with repo_owner and repo_slug' do
+      let(:request_path) do
+        "/repositories/#{owner}/#{slug}/pullrequests/1/approve"
+      end
+      it { expect(subject).to be_truthy }
     end
   end
 end
