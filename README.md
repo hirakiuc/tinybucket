@@ -92,10 +92,10 @@ pull_request   = repo.pull_request(pr_id).find
 # [x] GET the commits for a pull request
 commits = repo.pull_request(pr_id).commits
 
-# [ ] POST a pull request approval
+# [x] POST a pull request approval
                  repo.pull_request(pr_id).approve
 
-# [ ] DELETE a pull request approval
+# [x] DELETE a pull request approval
                  repo.pull_request(pr_id).unapprove
 
 # [ ] GET the diff for a pull request
