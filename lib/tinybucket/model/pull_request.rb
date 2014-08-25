@@ -9,24 +9,24 @@ module Tinybucket
       attr_accessor :repository
 
       def approve(options = {})
-        pullreq_api(options).approve(id, options)
+        pull_request_api(options).approve(id, options)
       end
 
       def unapprove(options = {})
-        pullreq_api(options).unapprove(id, options)
+        pull_request_api(options).unapprove(id, options)
       end
 
       def commits(options = {})
-        pullreq_api(options).commits(id, options)
+        pull_request_api(options).commits(id, options)
       end
 
       private
 
-      def pullreq_api(options)
+      def pull_request_api(options)
         fail ArgumentError,
              'This method call require repository.' if repository.nil?
 
-        pull_requests_api(repository.repo_owner, repository.repo_slug, options)
+        create_api('PullRequests', repository, options)
       end
     end
   end
