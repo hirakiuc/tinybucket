@@ -18,17 +18,12 @@ module Tinybucket
       private
 
       def comments_api(options)
-        return @comments if @comments.present?
-
         fail ArgumentError, 'This method call require repository.' \
           if repository.nil?
 
-        @comments = create_instance 'CommitComments', options
-        @comments.repo_owner = repository.repo_owner
-        @comments.repo_slug = repository.repo_slug
-        @comments.commit = self
-
-        @comments
+        api = create_api('CommitComments', repository, options)
+        api.commit = self
+        api
       end
     end
   end
