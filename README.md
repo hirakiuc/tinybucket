@@ -57,19 +57,23 @@ repos  = bucket.repos(owner: 'someone')
 
 ```
 # [x] GET a repository
-repo = bucket.repo('someone', 'great_repo').find
+repo = bucket.repo('someone', 'great_repo')
+
+# [x] Load a repository
+# (Load the repository attributes from Bitbucket WebAPI)
+repo.load
 
 # [ ] POST a new repository
-repo = bucket.repo('someone', 'great_repo').create(params)
+    repo.create(params)
 
 # [ ] DELETE a repository
-       bucket.repo('someone', 'great_repo').destroy
+    repo.destroy
 
 # [x] GET a list of watchers
-watchers = bucket.repo('someone', 'great_repo').watchers
+watchers = repo.watchers
 
 # [x] GET a list of forks
-repos = bucket.repo('someone', 'great_repo').forks
+repos = repo.forks
 ```
 
 ##### pullrequests Resource
@@ -80,44 +84,44 @@ repo = bucket.repo('someone', 'great_repo')
 # [x] GET a list of open pull requests
 pull_requests = repo.pull_requests(options)
 
+# [x] GET a specific pull request
+pull_request   = repo.pull_request(pr_id)
+
 # [ ] POST (create) a new pull request
-                repo.pull_request(params).create
+     repo.pull_request.create(params)
 
 # [ ] PUT a pull request update
-                repo.pull_request(pr_id).update(params)
-
-# [x] GET a specific pull request
-pull_request   = repo.pull_request(pr_id).find
+     repo.pull_request(pr_id).update(params)
 
 # [x] GET the commits for a pull request
-commits = repo.pull_request(pr_id).commits
+commits = pull_request.commits
 
 # [x] POST a pull request approval
-                 repo.pull_request(pr_id).approve
+          pull_request.approve
 
 # [x] DELETE a pull request approval
-                 repo.pull_request(pr_id).unapprove
+          pull_request.unapprove
 
 # [ ] GET the diff for a pull request
-diff = repo.pull_request(pr_id).diff
+diff = pull_request.diff
 
 # [ ] GET the log of all of a repository's pull request activity
 activities = repo.pull_requests_activities(options) # TODO: fix method name.
 
 # [ ] GET the activity for a pull request
-activities = repo.pull_request(pr_id).activities(options)
+activities = pull_request.activities(options)
 
 # [ ] Accept and merge a pull request
-             repo.pull_request(pr_id).merge(options)
+             pull_request.merge(options)
 
 # [ ] Decline or reject a pull request
-             repo.pull_request(pr_id).decline(options)
+             pull_request.decline(options)
 
 # [ ] GET a list of pull request comments
-comments = repo.pull_request(pr_id).comments
+comments = pull_request.comments
 
 # [ ] GET an individual pull request comment
-comment = repo.pull_request(pr_id).comment(comment_id)
+comment = pull_request.comment(comment_id)
 ```
 
 ##### commits or commit Resource
@@ -130,19 +134,19 @@ repo = bucket.repo('someone', 'great_repo')
 commits = repo.commits(options)
 
 # [x] GET an individual commit
-commit = repo.commit('revision').find
+commit = repo.commit('revision')
 
 # [x] GET a list of commit comments
-comments = repo.commit('revision').comments
+comments = commit.comments
 
 # [x] GET an individual commit comment
-comment = repo.commit('revision').comment(comment_id)
+comment = commit.comment(comment_id)
 
 # [ ] POST a commit approval
-  repo.commit('revision').approve
+  commit.approve
 
 # [ ] DELETE a commit approval
-  repo.commit('revision').unapprove
+  commit.unapprove
 ```
 
 ##### branch-restrictions Resource
@@ -160,10 +164,10 @@ restrictions = repo.branch_restrictions
 restriction = repo.branch_restriction(restriction_id)
 
 # [ ] PUT a branch restriction update
-  repo.branch_restriction(restriction_id).update(params)
+  restriction.update(params)
 
 # [ ] DELETE the branch restriction
-  repo.branch_restriction(restriction_id).destroy
+  restriction.destroy
 ```
 
 ##### diff Resource
@@ -183,35 +187,35 @@ patch = repo.patch(COMMIT_ID)
 
 ```
 # [x] GET the team profile
-profile = bucket.team('team name').profile
+team = bucket.team('team name')
 
 # [x] GET the team members
-members = bucket.team('team name').members
+members = team.members
 
 # [x] GET the team followers
-followers = bucket.team('team name').followers
+followers = team.followers
 
 # [x] GET a list of accounts the team is following
-following = bucket.team('team name').following
+following = team.following
 
 # [x] GET the team's repositories
-repos = bucket.team('team name').repos
+repos = team.repos
 ```
 
 #### users Endpoint
 
 ```
 # [x] GET the user profile
-profile = bucket.user('user name').profile
+user = bucket.user('user name')
 
 # [x] GET the list of followers
-followers = bucket.user('user name').followers
+followers = user.followers
 
 # [x] GET a list of accounts the user is following
-followings = bucket.user('user name').followings
+followings = user.followings
 
 # [x] GET the user's repositories
-repos = bucket.user('user name').repos
+repos = user.repos
 ```
 
 ## Contribution

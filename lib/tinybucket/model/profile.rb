@@ -1,6 +1,8 @@
 module Tinybucket
   module Model
     class Profile < Base
+      include Tinybucket::Model::Concerns::Reloadable
+
       attr_accessor \
         :username, :kind, :website, :display_name,
         :links, :created_on, :location, :type
@@ -25,6 +27,10 @@ module Tinybucket
         @user = create_instance 'User', options
         @user.username = username
         @user
+      end
+
+      def load_model
+        user_api({}).profile
       end
     end
   end

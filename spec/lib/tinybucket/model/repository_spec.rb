@@ -2,6 +2,7 @@ require 'spec_helper'
 
 RSpec.describe Tinybucket::Model::Repository do
   include ApiResponseMacros
+  include ModelMacros
 
   let(:owner) { 'test_owner' }
   let(:slug)  { 'test_repo' }
@@ -9,8 +10,8 @@ RSpec.describe Tinybucket::Model::Repository do
   let(:model_json) { JSON.load(File.read('spec/fixtures/repository.json')) }
   let(:model) do
     m = Tinybucket::Model::Repository.new(model_json)
-    m.owner = owner
-    m.full_name = "#{owner}/#{slug}"
+    m.repo_owner = owner
+    m.repo_slug  = slug
 
     m
   end
@@ -18,6 +19,25 @@ RSpec.describe Tinybucket::Model::Repository do
   let(:stub_options) { {} }
 
   before { stub_apiresponse(:get, request_path, stub_options) if request_path }
+
+  describe 'model can reloadable' do
+    let(:repo) do
+      m = Tinybucket::Model::Repository.new({})
+      m.repo_owner = owner
+      m.repo_slug  = slug
+      m
+    end
+    before { @model = repo }
+    it_behaves_like 'the model is reloadable'
+  end
+
+  describe '#create' do
+    pending 'TODO implement method'
+  end
+
+  describe '#destroy' do
+    pending 'TODO implement method'
+  end
 
   describe '#pull_requests' do
     let(:request_path) do
@@ -31,9 +51,24 @@ RSpec.describe Tinybucket::Model::Repository do
 
   describe '#pull_request' do
     let(:prid) { 1 }
-    let(:request_path) { "/repositories/#{owner}/#{slug}/pullrequests/#{prid}" }
-    subject { model.pull_request(prid) }
-    it { expect(subject).to be_an_instance_of(Tinybucket::Model::PullRequest) }
+
+    describe 'with pull_request_id' do
+      subject { model.pull_request(prid) }
+      let(:request_path) do
+        "/repositories/#{owner}/#{slug}/pullrequests/#{prid}"
+      end
+      it 'return the specific pull_request model' do
+        expect(subject).to be_an_instance_of(Tinybucket::Model::PullRequest)
+        expect(subject.id).to eq(prid)
+      end
+    end
+    describe 'without pull_request_id' do
+      subject { model.pull_request }
+      it 'return new pull_request model' do
+        expect(subject).to be_an_instance_of(Tinybucket::Model::PullRequest)
+        expect(subject.id).to be_nil
+      end
+    end
   end
 
   describe '#watchers' do
@@ -92,60 +127,5 @@ RSpec.describe Tinybucket::Model::Repository do
     let(:stub_options) { { content_type: 'text/plain' } }
     subject { model.patch(patch_spec) }
     it { expect(subject).to be_an_instance_of(String) }
-  end
-
-  describe '#repo_owner' do
-    subject { model.repo_owner }
-
-    context 'when owner is nil' do
-      let(:owner) { nil }
-      let(:slug) { nil }
-      it { expect(subject).to be_nil }
-    end
-
-    context 'when owner is hash' do
-      let(:owner) { nil }
-      let(:slug) { nil }
-
-      before { model.owner = owner_hash }
-
-      context 'the hash does not contain \'username\' key' do
-        let(:owner_hash) { {} }
-        it { expect(subject).to be_nil }
-      end
-
-      context 'the hash contains \'username\' key' do
-        let(:owner) { 'test_owner' }
-        let(:owner_hash) { { 'username' => owner } }
-        it { expect(subject).to eq(owner) }
-      end
-    end
-
-    context 'when owner is a string' do
-      let(:owner) { 'test_owner' }
-      let(:slug) { nil }
-
-      before { model.owner = owner }
-      it { expect(subject).to eq(owner) }
-    end
-  end
-
-  describe '#repo_slug' do
-    subject { model.repo_slug }
-
-    context 'when full_name is blank' do
-      before { model.full_name = nil }
-      it { expect(subject).to be_nil }
-    end
-
-    context 'when full_name is invalid format' do
-      before { model.full_name = 'invalid full_name' }
-      it { expect(subject).to be_nil }
-    end
-
-    context 'when full_name is valid format' do
-      before { model.full_name = "#{owner}/#{slug}" }
-      it { expect(subject).to eq(slug) }
-    end
   end
 end

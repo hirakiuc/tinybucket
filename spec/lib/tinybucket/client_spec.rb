@@ -38,7 +38,7 @@ RSpec.describe Tinybucket::Client do
     subject { client.repo(repo_owner, repo_slug) }
 
     it 'return RepoApi instance' do
-      expect(subject).to be_instance_of(Tinybucket::Api::RepoApi)
+      expect(subject).to be_instance_of(Tinybucket::Model::Repository)
       expect(subject.repo_owner).to eq(repo_owner)
       expect(subject.repo_slug).to eq(repo_slug)
     end
@@ -47,12 +47,12 @@ RSpec.describe Tinybucket::Client do
   describe 'team' do
     let(:team) { 'test_team' }
     subject { client.team(team) }
-    it { expect(subject).to be_instance_of(Tinybucket::Api::TeamApi) }
+    it { expect(subject).to be_instance_of(Tinybucket::Model::Team) }
   end
 
   describe 'user' do
     let(:user) { 'test_owner' }
     subject { client.user(user) }
-    it { expect(subject).to be_instance_of(Tinybucket::Api::UserApi) }
+    it { expect(subject).to be_instance_of(Tinybucket::Model::Profile) }
   end
 end

@@ -3,7 +3,6 @@ module Tinybucket
     extend ActiveSupport::Autoload
 
     [
-      :Account,
       :Base,
       :BranchRestriction,
       :Commit,

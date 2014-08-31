@@ -3,7 +3,6 @@ module Tinybucket
     extend ActiveSupport::Autoload
 
     [
-      :AccountsParser,
       :BaseParser,
       :BranchRestrictionParser,
       :BranchRestrictionsParser,

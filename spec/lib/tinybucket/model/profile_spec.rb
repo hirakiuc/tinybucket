@@ -2,6 +2,7 @@ require 'spec_helper'
 
 RSpec.describe Tinybucket::Model::Profile do
   include ApiResponseMacros
+  include ModelMacros
 
   let(:username) { 'test_owner' }
 
@@ -15,6 +16,16 @@ RSpec.describe Tinybucket::Model::Profile do
   let(:request_path) { nil }
 
   before { stub_apiresponse(:get, request_path) if request_path }
+
+  describe 'model can reloadable' do
+    let(:profile) do
+      m = Tinybucket::Model::Profile.new({})
+      m.username = username
+      m
+    end
+    before { @model = profile }
+    it_behaves_like 'the model is reloadable'
+  end
 
   describe 'followers' do
     let(:request_path) { "/users/#{username}/followers" }

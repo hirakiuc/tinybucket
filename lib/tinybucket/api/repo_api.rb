@@ -16,7 +16,7 @@ module Tinybucket
       def watchers(options = {})
         list = get_path(path_to_watchers,
                         options,
-                        Tinybucket::Parser::AccountsParser)
+                        Tinybucket::Parser::ProfilesParser)
 
         list.next_proc = next_proc(:watchers, options)
         inject_api_config(list)
