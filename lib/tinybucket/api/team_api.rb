@@ -3,18 +3,16 @@ module Tinybucket
     class TeamApi < BaseApi
       include Tinybucket::Api::Helper::TeamHelper
 
-      attr_accessor :teamname
-
-      def profile(options = {})
-        m = get_path(path_to_profile,
+      def find(name, options = {})
+        m = get_path(path_to_find(name),
                      options,
                      Tinybucket::Parser::TeamParser)
 
         inject_api_config(m)
       end
 
-      def members(options = {})
-        list = get_path(path_to_members,
+      def members(name, options = {})
+        list = get_path(path_to_members(name),
                         options,
                         Tinybucket::Parser::TeamsParser)
 
@@ -22,8 +20,8 @@ module Tinybucket
         inject_api_config(list)
       end
 
-      def followers(options = {})
-        list = get_path(path_to_followers,
+      def followers(name, options = {})
+        list = get_path(path_to_followers(name),
                         options,
                         Tinybucket::Parser::TeamsParser)
 
@@ -31,8 +29,8 @@ module Tinybucket
         inject_api_config(list)
       end
 
-      def following(options = {})
-        list = get_path(path_to_following,
+      def following(name, options = {})
+        list = get_path(path_to_following(name),
                         options,
                         Tinybucket::Parser::TeamsParser)
 
@@ -40,8 +38,8 @@ module Tinybucket
         inject_api_config(list)
       end
 
-      def repos(options = {})
-        list = get_path(path_to_repos,
+      def repos(name, options = {})
+        list = get_path(path_to_repos(name),
                         options,
                         Tinybucket::Parser::ReposParser)
 

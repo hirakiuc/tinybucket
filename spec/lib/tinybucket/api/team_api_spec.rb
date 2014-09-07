@@ -5,9 +5,7 @@ RSpec.describe Tinybucket::Api::TeamApi do
 
   let(:api_config) { {} }
   let(:api) do
-    api = Tinybucket::Api::TeamApi.new(api_config)
-    api.teamname = teamname
-    api
+    Tinybucket::Api::TeamApi.new(api_config)
   end
 
   let(:teamname) { 'test_team' }
@@ -17,7 +15,7 @@ RSpec.describe Tinybucket::Api::TeamApi do
   it { expect(api).to be_a_kind_of(Tinybucket::Api::BaseApi) }
 
   describe 'profile' do
-    subject { api.profile }
+    subject { api.find(teamname) }
 
     context 'when without teamname' do
       let(:teamname) { nil }
@@ -31,7 +29,7 @@ RSpec.describe Tinybucket::Api::TeamApi do
   end
 
   describe 'members' do
-    subject { api.members }
+    subject { api.members(teamname) }
 
     context 'when without teamname' do
       let(:teamname) { nil }
@@ -45,7 +43,7 @@ RSpec.describe Tinybucket::Api::TeamApi do
   end
 
   describe 'followers' do
-    subject { api.followers }
+    subject { api.followers(teamname) }
 
     context 'when without teamname' do
       let(:teamname) { nil }
@@ -59,7 +57,7 @@ RSpec.describe Tinybucket::Api::TeamApi do
   end
 
   describe 'following' do
-    subject { api.following }
+    subject { api.following(teamname) }
 
     context 'when without teamname' do
       let(:teamname) { nil }
@@ -73,7 +71,7 @@ RSpec.describe Tinybucket::Api::TeamApi do
   end
 
   describe 'repos' do
-    subject { api.repos }
+    subject { api.repos(teamname) }
 
     context 'when without teamname' do
       let(:teamname) { nil }

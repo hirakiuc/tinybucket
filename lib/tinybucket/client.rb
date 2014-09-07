@@ -15,27 +15,26 @@ module Tinybucket
       @repos.list(options)
     end
 
-    def repo(owner, repo_slug, options = {})
-      @repo ||= create_instance('Repo', options)
-
-      @repo.repo_owner = owner
-      @repo.repo_slug  = repo_slug
-
-      @repo
+    def repo(owner, repo_slug)
+      m = Tinybucket::Model::Repository.new({})
+      m.repo_owner = owner
+      m.repo_slug = repo_slug
+      m.api_config = config.dup
+      m
     end
 
-    def team(teamname, options = {})
-      @team ||= create_instance('Team', options)
-      @team.teamname = teamname
-
-      @team
+    def team(teamname)
+      m = Tinybucket::Model::Team.new({})
+      m.username = teamname
+      m.api_config = config.dup
+      m
     end
 
-    def user(username, options = {})
-      @user ||= create_instance('User', options)
-      @user.username = username
-
-      @user
+    def user(username)
+      m = Tinybucket::Model::Profile.new({})
+      m.username = username
+      m.api_config = config.dup
+      m
     end
 
     private
