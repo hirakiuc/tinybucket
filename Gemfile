@@ -13,6 +13,7 @@ group :development, :test do
   gem 'guard-spork'
 
   gem 'guard-rubocop'
+  gem 'gem-release'
 end
 
 group :test do
