@@ -49,8 +49,8 @@ end
 # [x] GET a list of all public repositories
 repos = bucket.repos
 
-# [x] GET a list of repositories for an account
-repos  = bucket.repos(owner: 'someone')
+# [x] GET a list of repositories owned by the account 'someone'
+repos  = bucket.repos('someone')
 ```
 
 ##### repository Resource
