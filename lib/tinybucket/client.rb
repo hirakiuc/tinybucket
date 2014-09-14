@@ -10,9 +10,40 @@ module Tinybucket
       yield(config) if block_given?
     end
 
-    def repos(options = {})
-      @repos ||= create_instance('Repos', options)
-      @repos.list(options)
+    # Get Repositories
+    #
+    # when you want to get repositories of the owner, call with owner, options.
+    # ex) repos('owner', options) or repos('owner')
+    #
+    # when you want to get public repositories of the owner, call with options.
+    # ex) repos(options) or repos
+    #
+    # @overload repos(owner, options)
+    #   get the repositories of the owner.
+    #   @param  owner   [String, Symbol] string or symbol to describe the owner.
+    #   @option options [Hash] a hash with options
+    # @overload repos(options)
+    #   get public repositories.
+    #   @option options [Hash] a hash with options
+    # @return Tinybucket::Model::Page model instance.
+    def repos(*args)
+      case args.size
+      when 0
+        public_repos(*args)
+      when 1
+        case args.first
+        when Hash
+          public_repos(*args)
+        when String, Symbol
+          owners_repos(*args)
+        else
+          fail ArgumentError
+        end
+      when 2
+        owners_repos(*args)
+      else
+        fail ArgumentError
+      end
     end
 
     def repo(owner, repo_slug)
@@ -38,6 +69,24 @@ module Tinybucket
     end
 
     private
+
+    def public_repos(*args)
+      options = (args.empty?) ? {} : args.first
+      fail ArgumentError unless options.is_a?(Hash)
+
+      @repos ||= create_instance('Repos', options)
+      @repos.list(options)
+    end
+
+    def owners_repos(*args)
+      owner = args.first
+      options = (args.size == 2) ? args[1] : {}
+      fail ArgumentError unless options.is_a?(Hash)
+
+      @user ||= create_instance('User', options)
+      @user.username = owner
+      @user.repos(options)
+    end
 
     def create_instance(name, options)
       ApiFactory.create_instance(name, config, options)

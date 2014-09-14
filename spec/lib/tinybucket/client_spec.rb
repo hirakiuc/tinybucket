@@ -26,9 +26,53 @@ RSpec.describe Tinybucket::Client do
   end
 
   describe 'repos' do
-    subject { client.repos }
-    before { stub_apiresponse(:get, '/repositories') }
-    it { expect(subject).to be_instance_of(Tinybucket::Model::Page) }
+    context 'when get public repositories' do
+      before { stub_apiresponse(:get, '/repositories') }
+
+      context 'without options' do
+        subject { client.repos }
+        it { expect(subject).to be_instance_of(Tinybucket::Model::Page) }
+      end
+      context 'with options' do
+        subject { client.repos(options) }
+        let(:options) { {} }
+        it { expect(subject).to be_instance_of(Tinybucket::Model::Page) }
+      end
+    end
+
+    context 'when get repositories of the owner' do
+      let(:owner) { 'test_owner' }
+      before { stub_apiresponse(:get, request_path) }
+
+      context 'without options' do
+        let(:request_path) { "/repositories/#{owner}" }
+        subject { client.repos(owner) }
+        it { expect(subject).to be_instance_of(Tinybucket::Model::Page) }
+      end
+      context 'with options' do
+        let(:request_path) { "/repositories/#{owner}" }
+        subject { client.repos(owner, options) }
+        let(:options) { {} }
+        it { expect(subject).to be_instance_of(Tinybucket::Model::Page) }
+      end
+    end
+
+    context 'when invalid argument passed' do
+      context 'with a integer' do
+        subject { client.repos(20) }
+        it { expect { subject }.to raise_error }
+      end
+
+      context 'with a string and string' do
+        subject { client.repos('test_owner', 'test_repository') }
+        it { expect { subject }.to raise_error }
+      end
+
+      context 'with three arguments' do
+        subject { client.repos('a', 'b', 'c') }
+        it { expect { subject }.to raise_error }
+      end
+    end
   end
 
   describe 'repo' do
