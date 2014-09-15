@@ -117,10 +117,10 @@ activities = pull_request.activities(options)
 # [ ] Decline or reject a pull request
              pull_request.decline(options)
 
-# [ ] GET a list of pull request comments
+# [x] GET a list of pull request comments
 comments = pull_request.comments
 
-# [ ] GET an individual pull request comment
+# [x] GET an individual pull request comment
 comment = pull_request.comment(comment_id)
 ```
 
