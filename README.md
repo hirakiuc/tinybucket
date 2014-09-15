@@ -30,6 +30,8 @@ Or install it yourself as:
 
 **WARNING** These specs will be changed at any time.
 
+NOTE: `x` mark means `Already implemented.`.
+
 ### init
 
 ```
