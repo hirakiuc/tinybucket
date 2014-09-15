@@ -139,7 +139,7 @@ commits = pull_request.commits
 # [x] DELETE a pull request approval
           pull_request.unapprove
 
-# [ ] GET the diff for a pull request
+# [x] GET the diff for a pull request
 diff = pull_request.diff
 
 # [ ] GET the log of all of a repository's pull request activity
