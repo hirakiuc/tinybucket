@@ -29,7 +29,21 @@ module Tinybucket
         pull_request_api(options).commits(id, options)
       end
 
+      def comments(options = {})
+        comment_api(options).list(options)
+      end
+
+      def comment(comment_id, options = {})
+        comment_api(options).find(comment_id, options)
+      end
+
       private
+
+      def comment_api(options)
+        api = create_api('Comments', repo_keys, options)
+        api.commented_to = self
+        api
+      end
 
       def pull_request_api(options)
         fail ArgumentError,

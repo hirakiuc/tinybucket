@@ -74,4 +74,32 @@ RSpec.describe Tinybucket::Model::PullRequest do
 
     it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
   end
+
+  describe 'comments' do
+    let(:request_path) do
+      "/repositories/#{owner}/#{slug}/pullrequests/1/comments"
+    end
+
+    subject { model.comments }
+
+    it 'return comment list' do
+      expect(subject).to be_an_instance_of(Tinybucket::Model::Page)
+      subject.items.each do |comment|
+        expect(comment.commented_to).to eq(model)
+      end
+    end
+  end
+
+  describe 'comment' do
+    let(:comment_id) { '1' }
+    let(:request_path) do
+      "/repositories/#{owner}/#{slug}/pullrequests/1/comments/#{comment_id}"
+    end
+    subject { model.comment(comment_id) }
+
+    it 'return the comment' do
+      expect(subject).to be_an_instance_of(Tinybucket::Model::Comment)
+      expect(subject.commented_to).to eq(model)
+    end
+  end
 end

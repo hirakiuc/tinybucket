@@ -1,0 +1,44 @@
+{
+    "pagelen": 1,
+    "next": "https://bitbucket.org/api/2.0/repositories/bitbucket/bitbucket/pullrequests/3767/comments?pagelen=1&page=2",
+    "values": [{
+        "parent": {
+            "id": 25334,
+            "links": {
+                "self": {
+                    "href": "https://bitbucket.org/api/2.0/repositories/bitbucket/bitbucket/pullrequests/3767/comments/25334"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://bitbucket.org/api/2.0/repositories/bitbucket/bitbucket/pullrequests/3767/comments/25337"
+            },
+            "html": {
+                "href": "https://bitbucket.org/bitbucket/bitbucket/pull-request/3767/_/diff#comment-25337"
+            }
+        },
+        "content": {
+            "raw": "If we are leaving the email attached to the team account, Gravatar should still work fine. The problem would be they can't change the Gravatar associated account then.",
+            "markup": "markdown",
+            "html": "<p>If we are leaving the email attached to the team account, Gravatar should still work fine. The problem would be they can't change the Gravatar associated account then.</p>"
+        },
+        "created_on": "2013-11-07T17:11:20.986517+00:00",
+        "user": {
+            "username": "mfrauenholtz",
+            "display_name": "Michael Frauenholtz",
+            "links": {
+                "self": {
+                    "href": "https://bitbucket.org/api/2.0/users/mfrauenholtz"
+                },
+                "avatar": {
+                    "href": "https://bitbucket-staging-assetroot.s3.amazonaws.com/c/photos/2013/Aug/24/mfrauenholtz-avatar-1858533797-5_avatar.png"
+                }
+            }
+        },
+        "updated_on": "2013-11-07T17:11:20.989028+00:00",
+        "id": 25337
+    }],
+    "page": 1,
+    "size": 4
+}
