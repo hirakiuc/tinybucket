@@ -55,6 +55,41 @@ repos = bucket.repos
 repos  = bucket.repos('someone')
 ```
 
+#### teams Endpoint
+
+```
+# [x] GET the team profile
+team = bucket.team('team name')
+
+# [x] GET the team members
+members = team.members
+
+# [x] GET the team followers
+followers = team.followers
+
+# [x] GET a list of accounts the team is following
+following = team.following
+
+# [x] GET the team's repositories
+repos = team.repos
+```
+
+#### users Endpoint
+
+```
+# [x] GET the user profile
+user = bucket.user('user name')
+
+# [x] GET the list of followers
+followers = user.followers
+
+# [x] GET a list of accounts the user is following
+followings = user.followings
+
+# [x] GET the user's repositories
+repos = user.repos
+```
+
 ##### repository Resource
 
 ```
@@ -183,41 +218,6 @@ diff = repo.diff(COMMIT_ID)
 
 # [x] GET a patch
 patch = repo.patch(COMMIT_ID)
-```
-
-#### teams Endpoint
-
-```
-# [x] GET the team profile
-team = bucket.team('team name')
-
-# [x] GET the team members
-members = team.members
-
-# [x] GET the team followers
-followers = team.followers
-
-# [x] GET a list of accounts the team is following
-following = team.following
-
-# [x] GET the team's repositories
-repos = team.repos
-```
-
-#### users Endpoint
-
-```
-# [x] GET the user profile
-user = bucket.user('user name')
-
-# [x] GET the list of followers
-followers = user.followers
-
-# [x] GET a list of accounts the user is following
-followings = user.followings
-
-# [x] GET the user's repositories
-repos = user.repos
 ```
 
 ## Contribution
