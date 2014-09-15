@@ -22,8 +22,8 @@ module Tinybucket
         fail ArgumentError,
              'This method call require repository keys.' unless repo_keys?
 
-        api = create_api('CommitComments', repo_keys, options)
-        api.commit = self
+        api = create_api('Comments', repo_keys, options)
+        api.commented_to = self
         api
       end
 

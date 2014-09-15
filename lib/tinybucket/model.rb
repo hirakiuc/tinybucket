@@ -6,7 +6,7 @@ module Tinybucket
       :Base,
       :BranchRestriction,
       :Commit,
-      :CommitComment,
+      :Comment,
       :ErrorResponse,
       :Page,
       :Profile,
