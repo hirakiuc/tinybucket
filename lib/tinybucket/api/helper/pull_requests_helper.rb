@@ -27,6 +27,11 @@ module Tinybucket
                      'approve')
         end
 
+        def path_to_diff(pr_id)
+          build_path(path_to_find(pr_id),
+                     'diff')
+        end
+
         def base_path
           build_path('/repositories',
                      [repo_owner, 'repo_owner'],

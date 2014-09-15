@@ -21,7 +21,14 @@ RSpec.describe Tinybucket::Model::PullRequest do
     pr
   end
 
-  before { stub_apiresponse(request_method, request_path) if request_path }
+  let(:stub_options) { nil }
+
+  before do
+    if request_path
+      opts = stub_options.present? ? stub_options : {}
+      stub_apiresponse(request_method, request_path, opts)
+    end
+  end
 
   describe 'model can reloadable' do
     let(:pr) do
@@ -101,5 +108,15 @@ RSpec.describe Tinybucket::Model::PullRequest do
       expect(subject).to be_an_instance_of(Tinybucket::Model::Comment)
       expect(subject.commented_to).to eq(model)
     end
+  end
+
+  describe 'diff' do
+    let(:stub_options) { { content_type: 'plain/text' } }
+    subject { model.diff }
+    let(:request_path) do
+      "/repositories/#{owner}/#{slug}/pullrequests/1/diff"
+    end
+    it { expect(subject).to be_instance_of(String) }
+
   end
 end

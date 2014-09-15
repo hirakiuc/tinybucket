@@ -15,10 +15,16 @@ RSpec.describe Tinybucket::Api::PullRequestsApi do
   let(:slug) { 'test_repo' }
   let(:request_path) { nil }
   let(:request_method) { :get }
+  let(:stub_options) { nil }
 
   it { expect(api).to be_a_kind_of(Tinybucket::Api::BaseApi) }
 
-  before { stub_apiresponse(request_method, request_path) if request_path }
+  before do
+    if request_path
+      opts = stub_options.present? ? stub_options : {}
+      stub_apiresponse(request_method, request_path, opts)
+    end
+  end
 
   describe 'list' do
     let(:options) { {} }
@@ -187,6 +193,37 @@ RSpec.describe Tinybucket::Api::PullRequestsApi do
         "/repositories/#{owner}/#{slug}/pullrequests/1/approve"
       end
       it { expect(subject).to be_truthy }
+    end
+  end
+
+  describe 'diff' do
+    let(:pr_id) { 1 }
+    subject { api.diff(pr_id) }
+
+    context 'when without repo_owner and repo_slug' do
+      let(:owner) { nil }
+      let(:slug) { nil }
+      it { expect { subject }.to raise_error(ArgumentError) }
+    end
+
+    context 'when without repo_owner' do
+      let(:owner) { nil }
+      it { expect { subject }.to raise_error(ArgumentError) }
+    end
+
+    context 'when without repo_slug' do
+      let(:slug) { nil }
+      it { expect { subject }.to raise_error(ArgumentError) }
+    end
+
+    context 'when with repo_owner and repo_slug' do
+      let(:stub_options) do
+        { content_type: 'plain/text' }
+      end
+      let(:request_path) do
+        "/repositories/#{owner}/#{slug}/pullrequests/1/diff"
+      end
+      it { expect(subject).to be_instance_of(String) }
     end
   end
 end
