@@ -45,16 +45,6 @@ bucket = Tinybucket.new do |config|
 end
 ```
 
-#### repositories Endpoint
-
-```
-# [x] GET a list of all public repositories
-repos = bucket.repos
-
-# [x] GET a list of repositories owned by the account 'someone'
-repos  = bucket.repos('someone')
-```
-
 #### teams Endpoint
 
 ```
@@ -88,6 +78,16 @@ followings = user.followings
 
 # [x] GET the user's repositories
 repos = user.repos
+```
+
+#### repositories Endpoint
+
+```
+# [x] GET a list of all public repositories
+repos = bucket.repos
+
+# [x] GET a list of repositories owned by the account 'someone'
+repos  = bucket.repos('someone')
 ```
 
 ##### repository Resource
