@@ -47,8 +47,8 @@ RSpec.describe Tinybucket::Model::Commit do
       "/repositories/#{owner}/#{slug}/commit/1/comments/#{comment_id}"
     end
     subject { model.comment(comment_id) }
-    it 'return CommitComment' do
-      expect(subject).to be_an_instance_of(Tinybucket::Model::CommitComment)
+    it 'return Comment' do
+      expect(subject).to be_an_instance_of(Tinybucket::Model::Comment)
     end
   end
 
