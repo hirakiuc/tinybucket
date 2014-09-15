@@ -37,6 +37,10 @@ module Tinybucket
         comment_api(options).find(comment_id, options)
       end
 
+      def diff(options = {})
+        pull_request_api(options).diff(id, options)
+      end
+
       private
 
       def comment_api(options)

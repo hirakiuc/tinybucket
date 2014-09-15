@@ -1,0 +1,13 @@
+diff --git a/apps/account/forms.py b/apps/account/forms.py
+index c2f3d2d..2c27220 100644
+--- a/apps/account/forms.py
++++ b/apps/account/forms.py
+@@ -553,6 +553,8 @@ class UsernameChangeForm(forms.Form):
+             raise TypeError("Keyword argument 'request' must be supplied")
+         super(UsernameChangeForm, self).__init__(*args, **kwargs)
+         self.request = request
++        if request.target_user.get_profile().is_team:
++            self.fields['username'].label = _('Team id')
+         if request.user == request.target_user:
+             self.fields['username'].help_text = _('You will need to log in '
+                                                   'again after making this '

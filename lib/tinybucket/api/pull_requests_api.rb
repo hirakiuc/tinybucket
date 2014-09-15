@@ -40,6 +40,10 @@ module Tinybucket
         result = delete_path(path_to_approve(pr_id), options)
         (result['approved'] == false)
       end
+
+      def diff(pr_id, options = {})
+        get_path(path_to_diff(pr_id), options)
+      end
     end
   end
 end
