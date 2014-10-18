@@ -12,6 +12,8 @@ This gem is inspired by [vongrippen/bitbucket](https://github.com/vongrippen/bit
 [![Code Climate](https://codeclimate.com/github/hirakiuc/tinybucket/badges/gpa.svg)](https://codeclimate.com/github/hirakiuc/tinybucket)
 [![Coverage Status](https://coveralls.io/repos/hirakiuc/tinybucket/badge.png?branch=master)](https://coveralls.io/r/hirakiuc/tinybucket?branch=master)
 
+[![tinybucket API Documentation](https://www.omniref.com/ruby/gems/tinybucket.png)](https://www.omniref.com/ruby/gems/tinybucket)
+
 ## Installation
 
 Add this line to your application's Gemfile:
