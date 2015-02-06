@@ -6,7 +6,7 @@ module Tinybucket
 
       attr_accessor \
         :links, :id, :parent,  :filename, :content, :user, :inline, \
-        :created_on, :updated_on
+        :created_on, :updated_on, :uuid
 
       attr_accessor :commented_to
 

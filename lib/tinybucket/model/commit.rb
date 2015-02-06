@@ -6,7 +6,7 @@ module Tinybucket
 
       attr_accessor \
         :hash, :links, :repository, :author, :parents, :date,
-        :message, :participants
+        :message, :participants, :uuid
 
       def comments(options = {})
         comments_api(options).list(options)
