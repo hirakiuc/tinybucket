@@ -28,6 +28,8 @@ require 'tinybucket/parser'
 require 'tinybucket/request'
 require 'tinybucket/response'
 
+require 'uri'
+
 require 'active_support/notifications'
 ActiveSupport::Notifications.subscribe('request.faraday') \
   do |_name, start_time, end_time, _, env|

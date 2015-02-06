@@ -53,7 +53,9 @@ module Tinybucket
       def load_next
         fail StopIteration if @attrs[:next].nil? || @next_proc.nil?
 
-        list = @next_proc.call(@attrs[:page] + 1)
+        unescaped_query = URI.unescape(URI.parse(@attrs[:next]).query)
+        query = Hash[*unescaped_query.split(/&|=/)]
+        list = @next_proc.call(query)
 
         fail StopIteration if list.items.size == 0
 
