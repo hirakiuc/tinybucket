@@ -4,7 +4,7 @@ module Tinybucket
       include Tinybucket::Model::Concerns::Reloadable
 
       attr_accessor \
-        :username, :kind, :website, :display_name,
+        :username, :kind, :website, :display_name, :uuid,
         :links, :created_on, :location, :type
 
       def members(options = {})
