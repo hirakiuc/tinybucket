@@ -5,8 +5,8 @@ module Tinybucket
         private
 
         def next_proc(method, options)
-          lambda do |next_page|
-            send(method, options.merge(page: next_page))
+          lambda do |next_options|
+            send(method, options.merge(next_options))
           end
         end
 

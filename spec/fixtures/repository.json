@@ -67,5 +67,6 @@
   "updated_on": "2013-08-26T18:13:07.514065+00:00",
   "size": 17657351,
   "is_private": false,
-  "name": "atlassian-connect-fork"
+  "name": "atlassian-connect-fork",
+  "uuid": "{XYZ}"
 }

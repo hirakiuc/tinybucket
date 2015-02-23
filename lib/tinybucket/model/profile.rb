@@ -5,7 +5,7 @@ module Tinybucket
 
       attr_accessor \
         :username, :kind, :website, :display_name,
-        :links, :created_on, :location, :type
+        :links, :created_on, :location, :type, :uuid
 
       def followers(options = {})
         user_api(options).followers(options)

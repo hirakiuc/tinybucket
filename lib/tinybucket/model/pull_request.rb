@@ -7,7 +7,7 @@ module Tinybucket
       attr_accessor \
         :state, :description, :links, :title, :close_source_branch,
         :destination, :reason, :id, :source, :created_on, :author, :updated_on,
-        :merge_commit, :closed_by, :reviewers, :participants
+        :merge_commit, :closed_by, :reviewers, :participants, :uuid
 
       def create(_params)
         fail NotImplementedError
