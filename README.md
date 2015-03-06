@@ -42,7 +42,7 @@ bucket = Tinybucket.new(oauth_key: 'key', oauth_secret: 'secret')
 
 ```
 bucket = Tinybucket.new do |config|
-  config.oauth_key    = 'key'
+  config.oauth_token  = 'key'
   config.oauth_secret = 'secret'
 end
 ```
