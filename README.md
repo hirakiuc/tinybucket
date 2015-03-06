@@ -37,7 +37,7 @@ NOTE: `x` mark means `Already implemented.`.
 ### init
 
 ```
-bucket = Tinybucket.new(oauth_key: 'key', oauth_secret: 'secret')
+bucket = Tinybucket.new(oauth_token: 'key', oauth_secret: 'secret')
 ```
 
 ```
