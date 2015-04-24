@@ -1,0 +1,116 @@
+{
+  "description": "",
+  "links": {
+    "decline": {
+      "href": "https://bitbucket.org/api/2.0/repositories/tutorials/tutorials.bitbucket.org/pullrequests/2820/decline"
+    },
+    "commits": {
+      "href": "https://bitbucket.org/api/2.0/repositories/tutorials/tutorials.bitbucket.org/pullrequests/2820/commits"
+    },
+    "self": {
+      "href": "https://bitbucket.org/api/2.0/repositories/tutorials/tutorials.bitbucket.org/pullrequests/2820"
+    },
+    "comments": {
+      "href": "https://bitbucket.org/api/2.0/repositories/tutorials/tutorials.bitbucket.org/pullrequests/2820/comments"
+    },
+    "merge": {
+      "href": "https://bitbucket.org/api/2.0/repositories/tutorials/tutorials.bitbucket.org/pullrequests/2820/merge"
+    },
+    "html": {
+      "href": "https://bitbucket.org/tutorials/tutorials.bitbucket.org/pull-request/2820"
+    },
+    "activity": {
+      "href": "https://bitbucket.org/api/2.0/repositories/tutorials/tutorials.bitbucket.org/pullrequests/2820/activity"
+    },
+    "diff": {
+      "href": "https://bitbucket.org/api/2.0/repositories/tutorials/tutorials.bitbucket.org/pullrequests/2820/diff"
+    },
+    "approve": {
+      "href": "https://bitbucket.org/api/2.0/repositories/tutorials/tutorials.bitbucket.org/pullrequests/2820/approve"
+    }
+  },
+  "title": "test",
+  "close_source_branch": false,
+  "reviewers": [],
+  "destination": {
+    "commit": {
+      "hash": "cd2506b7e620",
+      "links": {
+        "self": {
+          "href": "https://bitbucket.org/api/2.0/repositories/tutorials/tutorials.bitbucket.org/commit/cd2506b7e620"
+        }
+      }
+    },
+    "repository": {
+      "links": {
+        "self": {
+          "href": "https://bitbucket.org/api/2.0/repositories/tutorials/tutorials.bitbucket.org"
+        },
+        "avatar": {
+          "href": "https://bitbucket-assetroot.s3.amazonaws.com/c/photos/2012/Nov/28/tutorials.bitbucket.org-logo-1456883302-9_avatar.png"
+        }
+      },
+      "full_name": "tutorials/tutorials.bitbucket.org",
+      "name": "tutorials.bitbucket.org"
+    },
+    "branch": {
+      "name": "default"
+    }
+  },
+  "reason": "",
+  "closed_by": {
+    "username": "tutorials",
+    "display_name": "first name last",
+    "links": {
+      "self": {
+        "href": "https://bitbucket.org/api/2.0/users/tutorials"
+      },
+      "avatar": {
+        "href": "https://bitbucket-assetroot.s3.amazonaws.com/c/photos/2013/Jul/17/tutorials-avatar-1826704565-4_avatar.png"
+      }
+    }
+  },
+  "source": {
+    "commit": {
+      "hash": "067c283803a7",
+      "links": {
+        "self": {
+          "href": "https://bitbucket.org/api/2.0/repositories/tutorials/tutorials.bitbucket.org/commit/067c283803a7"
+        }
+      }
+    },
+    "repository": {
+      "links": {
+        "self": {
+          "href": "https://bitbucket.org/api/2.0/repositories/tutorials/tutorials.bitbucket.org"
+        },
+        "avatar": {
+          "href": "https://bitbucket-assetroot.s3.amazonaws.com/c/photos/2012/Nov/28/tutorials.bitbucket.org-logo-1456883302-9_avatar.png"
+        }
+      },
+      "full_name": "tutorials/tutorials.bitbucket.org",
+      "name": "tutorials.bitbucket.org"
+    },
+    "branch": {
+      "name": "againwithatest"
+    }
+  },
+  "state": "DECLINED",
+  "author": {
+    "username": "tutorials",
+    "display_name": "first name last",
+    "links": {
+      "self": {
+        "href": "https://bitbucket.org/api/2.0/users/tutorials"
+      },
+      "avatar": {
+        "href": "https://bitbucket-assetroot.s3.amazonaws.com/c/photos/2013/Jul/17/tutorials-avatar-1826704565-4_avatar.png"
+      }
+    }
+  },
+  "created_on": "2013-11-19T21:13:26.746009+00:00",
+  "participants": [],
+  "updated_on": "2013-11-19T21:14:04.620150+00:00",
+  "merge_commit": null,
+  "id": 2820
+}
