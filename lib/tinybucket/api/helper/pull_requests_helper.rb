@@ -32,6 +32,12 @@ module Tinybucket
                      'diff')
         end
 
+        def path_to_decline(pr_id)
+          build_path(base_path,
+                     [pr_id, 'pullrequest_id'],
+                     'decline')
+        end
+
         def base_path
           build_path('/repositories',
                      [repo_owner, 'repo_owner'],

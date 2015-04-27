@@ -17,6 +17,10 @@ module Tinybucket
         fail NotImplementedError
       end
 
+      def decline(options = {})
+        pull_request_api(options).decline(id, options)
+      end
+
       def approve(options = {})
         pull_request_api(options).approve(id, options)
       end
