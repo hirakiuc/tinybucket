@@ -36,6 +36,11 @@ module Tinybucket
         (result['approved'] == true)
       end
 
+      def decline(pr_id, options = {})
+        result = post_path(path_to_decline(pr_id), options)
+        (result['state'] == 'DECLINED')
+      end
+
       def unapprove(pr_id, options = {})
         result = delete_path(path_to_approve(pr_id), options)
         (result['approved'] == false)

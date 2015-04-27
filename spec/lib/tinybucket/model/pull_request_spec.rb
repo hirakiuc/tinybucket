@@ -72,6 +72,17 @@ RSpec.describe Tinybucket::Model::PullRequest do
     it { expect(subject).to be_truthy }
   end
 
+  describe 'decline' do
+    let(:request_method) { :post }
+    let(:request_path) do
+      "/repositories/#{owner}/#{slug}/pullrequests/1/decline"
+    end
+
+    subject { model.decline }
+
+    it { expect(subject).to be_truthy }
+  end
+
   describe 'commits' do
     let(:request_path) do
       "/repositories/#{owner}/#{slug}/pullrequests/1/commits"

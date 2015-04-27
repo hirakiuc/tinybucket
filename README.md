@@ -153,7 +153,7 @@ activities = pull_request.activities(options)
 # [ ] Accept and merge a pull request
              pull_request.merge(options)
 
-# [ ] Decline or reject a pull request
+# [x] Decline or reject a pull request
              pull_request.decline(options)
 
 # [x] GET a list of pull request comments
