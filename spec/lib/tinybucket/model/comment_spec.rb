@@ -4,6 +4,8 @@ RSpec.describe Tinybucket::Model::Comment do
   include ApiResponseMacros
   include ModelMacros
 
+  let(:model_json) { load_json_fixture('comment') }
+
   let(:owner) { 'test_owner' }
   let(:slug)  { 'test_repo' }
 
@@ -14,6 +16,10 @@ RSpec.describe Tinybucket::Model::Comment do
     m.hash = '1'
     m
   end
+
+  it_behaves_like 'model has acceptable_attributes',
+                  Tinybucket::Model::Comment,
+                  load_json_fixture('comment')
 
   describe 'model can reloadable' do
     let(:comment) do

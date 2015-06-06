@@ -4,10 +4,14 @@ RSpec.describe Tinybucket::Model::Repository do
   include ApiResponseMacros
   include ModelMacros
 
+  let(:model_json) { load_json_fixture('repository') }
+
+  let(:request_path) { nil }
+  let(:stub_options) { {} }
+
   let(:owner) { 'test_owner' }
   let(:slug)  { 'test_repo' }
 
-  let(:model_json) { JSON.load(File.read('spec/fixtures/repository.json')) }
   let(:model) do
     m = Tinybucket::Model::Repository.new(model_json)
     m.repo_owner = owner
@@ -15,10 +19,12 @@ RSpec.describe Tinybucket::Model::Repository do
 
     m
   end
-  let(:request_path) { nil }
-  let(:stub_options) { {} }
 
   before { stub_apiresponse(:get, request_path, stub_options) if request_path }
+
+  it_behaves_like 'model has acceptable_attributes',
+                  Tinybucket::Model::Repository,
+                  load_json_fixture('repository')
 
   describe 'model can reloadable' do
     let(:repo) do

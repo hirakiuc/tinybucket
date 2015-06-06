@@ -4,7 +4,7 @@ RSpec.describe Tinybucket::Model::PullRequest do
   include ApiResponseMacros
   include ModelMacros
 
-  let(:model_json) { JSON.load(File.read('spec/fixtures/pull_request.json')) }
+  let(:model_json) { load_json_fixture('pull_request') }
 
   let(:request_method) { :get }
   let(:request_path) { nil }
@@ -29,6 +29,10 @@ RSpec.describe Tinybucket::Model::PullRequest do
       stub_apiresponse(request_method, request_path, opts)
     end
   end
+
+  it_behaves_like 'model has acceptable_attributes',
+                  Tinybucket::Model::PullRequest,
+                  load_json_fixture('pull_request')
 
   describe 'model can reloadable' do
     let(:pr) do

@@ -1,0 +1,32 @@
+{
+    "username": "teamsinspace",
+    "website": null,
+    "display_name": "Teams In Space",
+    "uuid": "{61fc5cf6-d054-47d2-b4a9-061ccf858379}",
+    "links": {
+        "self": {
+            "href": "https://bitbucket.org/api/2.0/teams/teamsinspace"
+        },
+        "repositories": {
+            "href": "https://bitbucket.org/api/2.0/repositories/teamsinspace"
+        },
+        "html": {
+            "href": "https://bitbucket.org/teamsinspace"
+        },
+        "followers": {
+            "href": "https://bitbucket.org/api/2.0/teams/teamsinspace/followers"
+        },
+        "avatar": {
+            "href": "https://bitbucket-assetroot.s3.amazonaws.com/c/photos/2014/Sep/24/teamsinspace-avatar-3731530358-7_avatar.png"
+        },
+        "members": {
+            "href": "https://bitbucket.org/api/2.0/teams/teamsinspace/members"
+        },
+        "following": {
+            "href": "https://bitbucket.org/api/2.0/teams/teamsinspace/following"
+        }
+    },
+    "created_on": "2014-04-08T00:00:14.070969+00:00",
+    "location": null,
+    "type": "team"
+}

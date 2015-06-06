@@ -3,11 +3,13 @@ require 'spec_helper'
 RSpec.describe Tinybucket::Model::BranchRestriction do
   include ApiResponseMacros
 
+  let(:model_json) { load_json_fixture('branch_restriction') }
+
+  let(:request_method) { :get }
+  let(:request_path) { nil }
+
   let(:owner) { 'test_owner' }
   let(:slug)  { 'test_repo' }
-
-  # TODO: fix model_json
-  let(:model_json) { nil }
 
   let(:model) do
     m = Tinybucket::Model::BranchRestriction.new(model_json)
@@ -18,6 +20,10 @@ RSpec.describe Tinybucket::Model::BranchRestriction do
   end
 
   before { stub_apiresponse(:get, request_path, stub_options) if request_path }
+
+  it_behaves_like 'model has acceptable_attributes',
+                  Tinybucket::Model::BranchRestriction,
+                  load_json_fixture('branch_restriction')
 
   describe '#update' do
     pending 'TODO implement method'

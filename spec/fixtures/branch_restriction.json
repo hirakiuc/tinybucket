@@ -1,0 +1,17 @@
+{
+    "groups": [],
+    "id": 52,
+    "kind": "delete",
+    "links": [
+        {
+            "href": "https://api.bitbucket.org/2.0/repositories/manthony/restrictiontest/branch-restrictions/52",
+            "rel": "self"
+        },
+        {
+            "href": "https://api.bitbucket.org/2.0/repositories/manthony/restrictiontest/branch-restrictions",
+            "rel": "parent"
+        }
+    ],
+    "pattern": "foobar/*",
+    "users": []
+}

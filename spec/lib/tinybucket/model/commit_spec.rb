@@ -4,12 +4,15 @@ RSpec.describe Tinybucket::Model::Commit do
   include ApiResponseMacros
   include ModelMacros
 
+  let(:model_json) { load_json_fixture('commit') }
+
+  let(:request_path) { nil }
+
   let(:owner) { 'test_owner' }
   let(:slug) { 'test_repo' }
 
   let(:model) do
-    json = JSON.load(File.read('spec/fixtures/commit.json'))
-    m = Tinybucket::Model::Commit.new(json)
+    m = Tinybucket::Model::Commit.new(model_json)
     m.repo_owner = owner
     m.repo_slug  = slug
     m.hash = '1'
@@ -17,9 +20,11 @@ RSpec.describe Tinybucket::Model::Commit do
     m
   end
 
-  let(:request_path) { nil }
-
   before { stub_apiresponse(:get, request_path) if request_path }
+
+  it_behaves_like 'model has acceptable_attributes',
+                  Tinybucket::Model::Commit,
+                  load_json_fixture('commit')
 
   describe 'model can reloadable' do
     let(:commit) do

@@ -3,7 +3,7 @@ module Tinybucket
     class Team < Base
       include Tinybucket::Model::Concerns::Reloadable
 
-      attr_accessor \
+      acceptable_attributes \
         :username, :kind, :website, :display_name, :uuid,
         :links, :created_on, :location, :type
 
