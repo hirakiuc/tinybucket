@@ -4,6 +4,7 @@ module Tinybucket
       extend ActiveSupport::Autoload
 
       [
+        :AcceptableAttributes,
         :RepositoryKeys,
         :Reloadable
       ].each do |mod_name|

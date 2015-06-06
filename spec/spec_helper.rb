@@ -38,5 +38,7 @@ logger.level = Logger::DEBUG
 Tinybucket.logger = logger
 
 RSpec.configure do |config|
+  config.extend FixtureMacros
+  config.include FixtureMacros
   config.order = 'random'
 end

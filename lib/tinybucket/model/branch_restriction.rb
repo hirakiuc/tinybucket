@@ -3,7 +3,7 @@ module Tinybucket
     class BranchRestriction < Base
       include Tinybucket::Model::Concerns::RepositoryKeys
 
-      attr_accessor :groups, :id, :kind, :links, :pattern, :users, :uuid
+      acceptable_attributes :groups, :id, :kind, :links, :pattern, :users, :uuid
 
       def update(_params)
         fail NotImplementedError

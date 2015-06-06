@@ -1,0 +1,30 @@
+{
+  "links": {
+    "self": {
+      "href": "https://bitbucket.org/api/2.0/repositories/tutorials/tutorials.bitbucket.org/pullrequests/2821/comments/839163"
+    },
+    "html": {
+      "href": "https://bitbucket.org/tutorials/tutorials.bitbucket.org/pull-request/2821/_/diff#comment-839163"
+    }
+  },
+  "content": {
+    "raw": "this is my first comment",
+    "markup": "markdown",
+    "html": "<p>this is my first comment</p>"
+  },
+  "created_on": "2013-11-19T21:19:24.138375+00:00",
+  "user": {
+    "username": "tutorials",
+    "display_name": "first name last",
+    "links": {
+      "self": {
+        "href": "https://bitbucket.org/api/2.0/users/tutorials"
+      },
+      "avatar": {
+        "href": "https://bitbucket-assetroot.s3.amazonaws.com/c/photos/2013/Jul/17/tutorials-avatar-1826704565-4_avatar.png"
+      }
+    }
+  },
+  "updated_on": "2013-11-19T21:19:24.141013+00:00",
+  "id": 839163
+}

@@ -4,18 +4,23 @@ RSpec.describe Tinybucket::Model::Profile do
   include ApiResponseMacros
   include ModelMacros
 
+  let(:model_json) { load_json_fixture('profile') }
+
+  let(:request_path) { nil }
+
   let(:username) { 'test_owner' }
 
-  let(:model_json) { JSON.load(File.read('spec/fixtures/profile.json')) }
   let(:model) do
     m = Tinybucket::Model::Profile.new(model_json)
     m.username = username
     m
   end
 
-  let(:request_path) { nil }
-
   before { stub_apiresponse(:get, request_path) if request_path }
+
+  it_behaves_like 'model has acceptable_attributes',
+                  Tinybucket::Model::Profile,
+                  load_json_fixture('profile')
 
   describe 'model can reloadable' do
     let(:profile) do

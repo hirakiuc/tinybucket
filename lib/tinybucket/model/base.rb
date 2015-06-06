@@ -2,6 +2,7 @@ module Tinybucket
   module Model
     class Base
       include ::ActiveModel::Serializers::JSON
+      include Concerns::AcceptableAttributes
       attr_accessor :api_config
 
       def self.concern_included?(concern_name)
@@ -16,20 +17,18 @@ module Tinybucket
       end
 
       def attributes=(hash)
-        hash.each { |key, value| send("#{key}=", value) }
-      end
-
-      def attributes
-        instance_values.select do |key, _value|
-          case key
-          when /\A_.+\z/
-          when 'api_config', 'repo_owner', 'repo_slug'
-            false
+        hash.each do |key, value|
+          if acceptable_attribute?(key)
+            send("#{key}=", value)
           else
-            true
+            # rubocop:disable Metrics/LineLength
+            logger.warn("Ignored '#{key}' attribute (value: #{value}). [#{self.class}]")
+            # rubocop:enable Metrics/LineLength
           end
         end
       end
+
+      alias_method :attributes, :acceptable_attributes
 
       protected
 
@@ -48,6 +47,10 @@ module Tinybucket
 
       def create_instance(klass_name, options)
         ApiFactory.create_instance(klass_name, api_config, options)
+      end
+
+      def logger
+        Tinybucket.logger
       end
     end
   end

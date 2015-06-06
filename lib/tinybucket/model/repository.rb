@@ -4,9 +4,10 @@ module Tinybucket
       include Tinybucket::Model::Concerns::RepositoryKeys
       include Tinybucket::Model::Concerns::Reloadable
 
-      attr_accessor :scm, :has_wiki, :description, :links, :updated_on,
-                    :fork_policy, :created_on, :owner, :size, :parent, :uuid,
-                    :has_issues, :is_private, :full_name, :name, :language
+      acceptable_attributes \
+        :scm, :has_wiki, :description, :links, :updated_on,
+        :fork_policy, :created_on, :owner, :size, :parent, :uuid,
+        :has_issues, :is_private, :full_name, :name, :language
 
       def create(_params)
         fail NotImplementedError

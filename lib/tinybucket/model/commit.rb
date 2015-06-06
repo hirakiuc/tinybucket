@@ -4,7 +4,7 @@ module Tinybucket
       include Tinybucket::Model::Concerns::RepositoryKeys
       include Tinybucket::Model::Concerns::Reloadable
 
-      attr_accessor \
+      acceptable_attributes \
         :hash, :links, :repository, :author, :parents, :date,
         :message, :participants, :uuid
 
