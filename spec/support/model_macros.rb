@@ -1,4 +1,30 @@
 module ModelMacros
+  RSpec.shared_examples 'model has acceptable_attributes' do |cls, model_json|
+    describe '#attribute=' do
+      subject { cls.new(json) }
+
+      context 'json contains only expected attrs' do
+        let(:json) { model_json }
+        it { expect { subject }.not_to raise_error }
+        it 'receive each attributes' do
+          json.each_pair do |key, value|
+            expect(subject.send(key.intern)).to eq(value)
+          end
+        end
+      end
+
+      context 'json contains un-acceptable attrs' do
+        let(:json) { model_json.merge('_un_acceptable_key' => 'some_value') }
+        it { expect { subject }.not_to raise_error }
+        it 'receive each acceptable attributes' do
+          model_json.each_pair do |key, value|
+            expect(subject.send(key.intern)).to eq(value)
+          end
+        end
+      end
+    end
+  end
+
   RSpec.shared_examples 'the model is reloadable' do
     describe '#load' do
       before do

@@ -4,18 +4,23 @@ RSpec.describe Tinybucket::Model::Team do
   include ApiResponseMacros
   include ModelMacros
 
+  let(:model_json) { load_json_fixture('team') }
+
+  let(:request_path) { nil }
+
   let(:teamname) { 'test_team' }
 
-  let(:model_json) { JSON.load(File.read('spec/fixtures/profile.json')) }
   let(:model) do
     m = Tinybucket::Model::Team.new(model_json)
     m.username = teamname
     m
   end
 
-  let(:request_path) { nil }
-
   before { stub_apiresponse(:get, request_path) if request_path }
+
+  it_behaves_like 'model has acceptable_attributes',
+                  Tinybucket::Model::Team,
+                  load_json_fixture('team')
 
   describe 'model can reloadable' do
     let(:team) do

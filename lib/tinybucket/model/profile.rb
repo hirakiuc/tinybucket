@@ -3,7 +3,7 @@ module Tinybucket
     class Profile < Base
       include Tinybucket::Model::Concerns::Reloadable
 
-      attr_accessor \
+      acceptable_attributes \
         :username, :kind, :website, :display_name,
         :links, :created_on, :location, :type, :uuid
 
