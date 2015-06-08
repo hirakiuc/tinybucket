@@ -34,6 +34,23 @@ Or install it yourself as:
 
 NOTE: `x` mark means `Already implemented.`.
 
+### Configure
+
+#### Configure logger
+
+This gem use built-in null_logger in default.
+
+If you want to set your logger, configure like this.
+
+```
+logger = Logger.new($stdout)
+logger.level = Logger::WARN
+
+Tinybucket.configure do |config|
+  config.logger = logger
+end
+```
+
 ### init
 
 ```
