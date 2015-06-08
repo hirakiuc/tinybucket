@@ -15,6 +15,8 @@ require 'active_model'
 
 require 'logger'
 
+require 'tinybucket/config'
+require 'tinybucket/null_logger'
 require 'tinybucket/api'
 require 'tinybucket/api_factory'
 require 'tinybucket/api/helper'
@@ -52,12 +54,16 @@ module Tinybucket
       @api_client = Tinybucket::Client.new(options, &block)
     end
 
+    def configure
+      yield(config)
+    end
+
+    def config
+      @config ||= Tinybucket::Config.new
+    end
+
     def logger
-      @logger ||= begin
-                    logger = Logger.new($stdout)
-                    logger.level = Logger::DEBUG
-                    logger
-                  end
+      config.logger || Tinybucket::NullLogger.new
     end
   end
 end

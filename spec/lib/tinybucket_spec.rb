@@ -29,4 +29,28 @@ RSpec.describe Tinybucket do
       it_behaves_like 'return client which configured with options'
     end
   end
+
+  describe 'config' do
+    subject { Tinybucket.config }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Config) }
+  end
+
+  describe 'configure' do
+    subject(:config) { Tinybucket.config }
+    let(:logger) { Logger.new($stdout) }
+
+    it 'can configurable logger' do
+      expect(config.logger).to be_nil
+
+      expect do
+        Tinybucket.configure do |config|
+          config.logger = logger
+        end
+      end.not_to raise_error
+
+      expect(config.logger).to eq(logger)
+    end
+
+    after { Tinybucket.configure { |config| config.logger = nil } }
+  end
 end
