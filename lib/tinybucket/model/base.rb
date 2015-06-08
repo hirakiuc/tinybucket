@@ -17,9 +17,9 @@ module Tinybucket
       end
 
       def attributes=(hash)
-        hash.each do |key, value|
+        hash.each_pair do |key, value|
           if acceptable_attribute?(key)
-            send("#{key}=", value)
+            send("#{key}=".intern, value)
           else
             # rubocop:disable Metrics/LineLength
             logger.warn("Ignored '#{key}' attribute (value: #{value}). [#{self.class}]")
@@ -28,7 +28,11 @@ module Tinybucket
         end
       end
 
-      alias_method :attributes, :acceptable_attributes
+      def attributes
+        acceptable_attributes.map do |key|
+          { key => send(key.intern) }
+        end.reduce(&:merge)
+      end
 
       protected
 
