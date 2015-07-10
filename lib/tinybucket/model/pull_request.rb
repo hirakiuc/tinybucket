@@ -45,6 +45,10 @@ module Tinybucket
         pull_request_api(options).diff(id, options)
       end
 
+      def approvals
+        load_model.participants.find { |p| p['approved'] }
+      end
+
       private
 
       def comment_api(options)
