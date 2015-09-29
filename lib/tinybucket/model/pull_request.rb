@@ -45,6 +45,10 @@ module Tinybucket
         pull_request_api(options).diff(id, options)
       end
 
+      def merge(options = {})
+        pull_request_api(options).merge(id, options)
+      end
+
       private
 
       def comment_api(options)

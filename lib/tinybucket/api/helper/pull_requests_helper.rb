@@ -38,6 +38,12 @@ module Tinybucket
                      'decline')
         end
 
+        def path_to_merge(pr_id)
+          build_path(base_path,
+                     [pr_id, 'pullrequest_id'],
+                     'merge')
+        end
+
         def base_path
           build_path('/repositories',
                      [repo_owner, 'repo_owner'],
