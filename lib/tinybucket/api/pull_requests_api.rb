@@ -46,6 +46,11 @@ module Tinybucket
         (result['approved'] == false)
       end
 
+      def merge(pr_id, options = {})
+        result = post_path(path_to_merge(pr_id), options)
+        (result['state'] == 'MERGED')
+      end
+
       def diff(pr_id, options = {})
         get_path(path_to_diff(pr_id), options)
       end

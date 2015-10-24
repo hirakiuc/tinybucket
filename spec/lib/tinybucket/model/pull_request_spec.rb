@@ -134,4 +134,14 @@ RSpec.describe Tinybucket::Model::PullRequest do
     it { expect(subject).to be_instance_of(String) }
 
   end
+  describe 'merge' do
+    let(:request_method) { :post }
+    let(:request_path) do
+      "/repositories/#{owner}/#{slug}/pullrequests/1/merge"
+    end
+
+    subject { model.merge }
+
+    it { expect(subject).to be_truthy }
+  end
 end

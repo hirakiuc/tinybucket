@@ -167,7 +167,7 @@ activities = repo.pull_requests_activities(options) # TODO: fix method name.
 # [ ] GET the activity for a pull request
 activities = pull_request.activities(options)
 
-# [ ] Accept and merge a pull request
+# [x] Accept and merge a pull request
              pull_request.merge(options)
 
 # [x] Decline or reject a pull request
