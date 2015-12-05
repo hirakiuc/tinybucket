@@ -5,7 +5,7 @@ module Tinybucket
       include Tinybucket::Model::Concerns::Reloadable
 
       acceptable_attributes \
-        :links, :id, :parent,  :filename, :content, :user, :inline, \
+        :links, :id, :parent, :filename, :content, :user, :inline, \
         :created_on, :updated_on, :uuid
 
       attr_accessor :commented_to

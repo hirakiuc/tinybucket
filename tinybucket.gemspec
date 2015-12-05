@@ -24,13 +24,5 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'simple_oauth',       ['= 0.2.0']
   spec.add_runtime_dependency 'activemodel',        ['= 4.1.6']
 
-  spec.add_development_dependency 'bundler',     ['~> 1.6', '>= 1.6.2']
-  spec.add_development_dependency 'rake',        ['= 10.3.2']
-  spec.add_development_dependency 'rspec',       ['= 3.1.0']
-  spec.add_development_dependency 'rspec-mocks', ['= 3.1.0']
-  spec.add_development_dependency 'webmock',     ['= 1.18.0']
-  spec.add_development_dependency 'rubocop',     ['= 0.26.0']
-  spec.add_development_dependency 'simplecov',   ['= 0.9.0']
-  spec.add_development_dependency 'yard',        ['= 0.8.7.4']
-  spec.add_development_dependency 'yardstick',   ['= 0.9.9']
+  spec.add_development_dependency 'bundler',     '~> 1.10'
 end
