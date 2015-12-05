@@ -1,4 +1,6 @@
 language: ruby
+before_install:
+  - gem install bundler -v 1.10.6
 rvm: 2.1.2
 addons:
   code_climate:

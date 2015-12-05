@@ -36,7 +36,7 @@ module Tinybucket
 
       protected
 
-      def create_api(api_key, keys,  options)
+      def create_api(api_key, keys, options)
         key = ('@' + api_key.underscore).intern
         api = instance_variable_get(key)
         return api if api.present?

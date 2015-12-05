@@ -51,12 +51,13 @@ module FaradayMiddleware
 
     def include_body_params?(env)
       # see RFC 5849, section 3.4.1.3.1 for details
-      !(type = env[:request_headers][OAuth::CONTENT_TYPE]) or type == OAuth::TYPE_URLENCODED
+      !(type = env[:request_headers][OAuth::CONTENT_TYPE]) ||
+        type == OAuth::TYPE_URLENCODED
     end
 
     def signature_params(params)
-      params.empty? ? params :
-        params.reject { |_k, v| v.respond_to?(:content_type) }
+      return params if params.empty?
+      params.reject { |_k, v| v.respond_to?(:content_type) }
     end
   end
 

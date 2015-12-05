@@ -20,13 +20,9 @@ module Tinybucket
             @_loaded
           end
 
-          # rubocop: disable Style/TrivialAccessors
-
           def loaded?
             @_loaded
           end
-
-          # rubocop: enabled Style/TrivialAccessors
 
           def reload
             @_loaded = false

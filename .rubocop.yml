@@ -42,3 +42,6 @@ Style/AlignHash:
 
 Style/RaiseArgs:
   Enabled: false
+
+Metrics/AbcSize:
+  Max: 18

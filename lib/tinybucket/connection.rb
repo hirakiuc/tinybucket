@@ -14,7 +14,7 @@ module Tinybucket
 
       # TODO: cache connection for each (options, parser) pairs.
       Faraday.new(
-        conn_options.merge(builder: stack(options, parser)))
+        conn_options.merge(builder: stack(parser, options)))
     end
 
     private
@@ -49,7 +49,7 @@ module Tinybucket
       end
     end
 
-    def stack(options = {}, parser, &block)
+    def stack(parser, options = {}, &block)
       Faraday::RackBuilder.new(&block) and return if block_given?
 
       # TODO: cache stack for each (options, parser) pairs
