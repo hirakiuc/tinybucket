@@ -28,7 +28,7 @@ module Tinybucket
           when Tinybucket::Model::PullRequest
             pull_request_api({})
           else
-            fail ArgumentError, 'commented_to was invalid'
+            raise ArgumentError, 'commented_to was invalid'
           end
 
         api.commented_to = commented_ato

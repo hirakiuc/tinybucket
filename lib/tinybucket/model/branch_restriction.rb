@@ -6,11 +6,11 @@ module Tinybucket
       acceptable_attributes :groups, :id, :kind, :links, :pattern, :users, :uuid
 
       def update(_params)
-        fail NotImplementedError
+        raise NotImplementedError
       end
 
       def destroy
-        fail NotImplementedError
+        raise NotImplementedError
       end
     end
   end

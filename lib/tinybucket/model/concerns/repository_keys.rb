@@ -26,12 +26,12 @@ module Tinybucket
             case result
             when Tinybucket::Model::Page
               result.items.map do |m|
-                next unless (m.class).concern_included?(:RepositoryKeys)
+                next unless m.class.concern_included?(:RepositoryKeys)
                 m.repo_keys = repo_keys
               end
             when Tinybucket::Model::Base
               result.repo_keys = repo_keys \
-                if (result.class).concern_included?(:RepositoryKeys)
+                if result.class.concern_included?(:RepositoryKeys)
             end
 
             result

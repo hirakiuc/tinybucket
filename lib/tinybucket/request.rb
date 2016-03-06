@@ -37,7 +37,7 @@ module Tinybucket
           request.path = path
           request.body = extract_data_from_params(params) unless params.empty?
         else
-          fail ArgumentError, 'unknown http method: ' + method
+          raise ArgumentError, 'unknown http method: ' + method
         end
       end
 

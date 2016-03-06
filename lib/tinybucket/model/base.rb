@@ -13,7 +13,7 @@ module Tinybucket
       def initialize(json)
         self.attributes = json
         @api_config = {}
-        @_loaded = !(json.empty?)
+        @_loaded = !json.empty?
       end
 
       def attributes=(hash)

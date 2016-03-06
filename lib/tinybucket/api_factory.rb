@@ -7,7 +7,7 @@ module Tinybucket
         klass =
           begin
             name = "#{klass_name}Api".intern
-            (Tinybucket::Api).const_get name
+            Tinybucket::Api.const_get name
           rescue => e
             # TODO: log exception
             Tinybucket.logger.error e

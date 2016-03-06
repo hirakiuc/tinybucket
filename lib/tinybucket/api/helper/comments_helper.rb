@@ -22,7 +22,7 @@ module Tinybucket
           when Tinybucket::Model::PullRequest
             base_path_of_pullrequest
           else
-            fail ArgumentError, 'commented_to must be a pull_request or commit'
+            raise ArgumentError, 'commented_to must be a pull_request or commit'
           end
         end
 
