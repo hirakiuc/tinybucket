@@ -3,6 +3,7 @@ module Tinybucket
     class Commit < Base
       include Tinybucket::Model::Concerns::RepositoryKeys
       include Tinybucket::Model::Concerns::Reloadable
+      include Tinybucket::Constants
 
       acceptable_attributes \
         :hash, :links, :repository, :author, :parents, :date,
@@ -19,8 +20,7 @@ module Tinybucket
       private
 
       def comments_api(options)
-        fail ArgumentError,
-             'This method call require repository keys.' unless repo_keys?
+        raise ArgumentError, MISSING_REPOSITORY_KEY unless repo_keys?
 
         api = create_api('Comments', repo_keys, options)
         api.commented_to = self

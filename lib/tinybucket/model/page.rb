@@ -31,7 +31,7 @@ module Tinybucket
             pos = start + i
             yield(m, pos)
 
-            fail StopIteration if \
+            raise StopIteration if \
               (!options[:limit].nil? && pos == (options[:limit] - 1))
           end
 
@@ -51,13 +51,13 @@ module Tinybucket
       end
 
       def load_next
-        fail StopIteration if @attrs[:next].nil? || @next_proc.nil?
+        raise StopIteration if @attrs[:next].nil? || @next_proc.nil?
 
         unescaped_query = URI.unescape(URI.parse(@attrs[:next]).query)
         query = Hash[*unescaped_query.split(/&|=/)]
         list = @next_proc.call(query)
 
-        fail StopIteration if list.items.size == 0
+        raise StopIteration if list.items.empty?
 
         @attrs = list.attrs
         @items = list.items

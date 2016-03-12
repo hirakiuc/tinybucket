@@ -3,6 +3,7 @@ module Tinybucket
     class PullRequest < Base
       include Tinybucket::Model::Concerns::RepositoryKeys
       include Tinybucket::Model::Concerns::Reloadable
+      include Tinybucket::Constants
 
       acceptable_attributes \
         :state, :description, :links, :title, :close_source_branch,
@@ -10,11 +11,11 @@ module Tinybucket
         :merge_commit, :closed_by, :reviewers, :participants, :uuid
 
       def create(_params)
-        fail NotImplementedError
+        raise NotImplementedError
       end
 
       def update(_params)
-        fail NotImplementedError
+        raise NotImplementedError
       end
 
       def decline(options = {})
@@ -58,8 +59,7 @@ module Tinybucket
       end
 
       def pull_request_api(options)
-        fail ArgumentError,
-             'This method call require repository keys.' unless repo_keys?
+        raise ArgumentError, MISSING_REPOSITORY_KEY unless repo_keys?
 
         create_api('PullRequests', repo_keys, options)
       end

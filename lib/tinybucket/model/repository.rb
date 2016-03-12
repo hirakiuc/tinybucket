@@ -10,11 +10,11 @@ module Tinybucket
         :has_issues, :is_private, :full_name, :name, :language
 
       def create(_params)
-        fail NotImplementedError
+        raise NotImplementedError
       end
 
       def destroy
-        fail NotImplementedError
+        raise NotImplementedError
       end
 
       def pull_requests(options = {})

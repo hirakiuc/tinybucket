@@ -32,7 +32,7 @@ module Tinybucket
           private
 
           def load_model
-            fail NotImplementedError
+            raise NotImplementedError
           end
         end
       end

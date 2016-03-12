@@ -7,7 +7,7 @@ module Tinybucket
         return if status_code < 400
 
         Tinybucket.logger.error "Invalid response code:#{status_code}"
-        fail Tinybucket::Error::ServiceError.new(env)
+        raise Tinybucket::Error::ServiceError.new(env)
       end
     end
   end

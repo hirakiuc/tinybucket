@@ -37,12 +37,12 @@ module Tinybucket
         when String, Symbol
           owners_repos(*args)
         else
-          fail ArgumentError
+          raise ArgumentError
         end
       when 2
         owners_repos(*args)
       else
-        fail ArgumentError
+        raise ArgumentError
       end
     end
 
@@ -71,8 +71,8 @@ module Tinybucket
     private
 
     def public_repos(*args)
-      options = (args.empty?) ? {} : args.first
-      fail ArgumentError unless options.is_a?(Hash)
+      options = args.empty? ? {} : args.first
+      raise ArgumentError unless options.is_a?(Hash)
 
       @repos ||= create_instance('Repos', options)
       @repos.list(options)
@@ -81,7 +81,7 @@ module Tinybucket
     def owners_repos(*args)
       owner = args.first
       options = (args.size == 2) ? args[1] : {}
-      fail ArgumentError unless options.is_a?(Hash)
+      raise ArgumentError unless options.is_a?(Hash)
 
       @user ||= create_instance('User', options)
       @user.username = owner

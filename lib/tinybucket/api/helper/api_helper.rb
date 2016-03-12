@@ -24,7 +24,7 @@ module Tinybucket
         def urlencode(v, key)
           if v.blank? || (escaped = CGI.escape(v.to_s)).blank?
             msg = "Invalid #{key} parameter. (#{v})"
-            fail ArgumentError, msg
+            raise ArgumentError, msg
           end
 
           escaped

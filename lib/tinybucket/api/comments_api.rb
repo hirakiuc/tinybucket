@@ -36,7 +36,7 @@ module Tinybucket
         when Tinybucket::Model::Page
           result.items.map { |m| m.commented_to = commented_to }
         else
-          fail ArgumentError, "Invalid result: #{result.inspect}"
+          raise ArgumentError, "Invalid result: #{result.inspect}"
         end
 
         result
