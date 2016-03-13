@@ -1,15 +1,5 @@
 module Tinybucket
   class Client
-    include ActiveSupport::Configurable
-
-    def initialize(options = {})
-      options.each_pair do |key, value|
-        config.send("#{key}=", value)
-      end
-
-      yield(config) if block_given?
-    end
-
     # Get Repositories
     #
     # when you want to get repositories of the owner, call with owner, options.
@@ -50,21 +40,18 @@ module Tinybucket
       m = Tinybucket::Model::Repository.new({})
       m.repo_owner = owner
       m.repo_slug = repo_slug
-      m.api_config = config.dup
       m
     end
 
     def team(teamname)
       m = Tinybucket::Model::Team.new({})
       m.username = teamname
-      m.api_config = config.dup
       m
     end
 
     def user(username)
       m = Tinybucket::Model::Profile.new({})
       m.username = username
-      m.api_config = config.dup
       m
     end
 
@@ -89,7 +76,7 @@ module Tinybucket
     end
 
     def create_instance(name, options)
-      ApiFactory.create_instance(name, config, options)
+      ApiFactory.create_instance(name, options)
     end
   end
 end

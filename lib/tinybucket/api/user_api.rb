@@ -6,11 +6,11 @@ module Tinybucket
       attr_accessor :username
 
       def profile(options = {})
-        m = get_path(path_to_find,
-                     options,
-                     Tinybucket::Parser::ProfileParser)
-
-        inject_api_config(m)
+        get_path(
+          path_to_find,
+          options,
+          Tinybucket::Parser::ProfileParser
+        )
       end
 
       def followers(options = {})
@@ -19,7 +19,7 @@ module Tinybucket
                         Tinybucket::Parser::ProfilesParser)
 
         list.next_proc = next_proc(:followers, options)
-        inject_api_config(list)
+        list
       end
 
       def following(options = {})
@@ -28,7 +28,7 @@ module Tinybucket
                         Tinybucket::Parser::ProfilesParser)
 
         list.next_proc = next_proc(:following, options)
-        inject_api_config(list)
+        list
       end
 
       def repos(options = {})
@@ -37,7 +37,7 @@ module Tinybucket
                         Tinybucket::Parser::ReposParser)
 
         list.next_proc = next_proc(:repos, options)
-        inject_api_config(list)
+        list
       end
     end
   end

@@ -11,15 +11,15 @@ module Tinybucket
                         Tinybucket::Parser::CommitsParser)
 
         list.next_proc = next_proc(:list, options)
-        inject_api_config(list)
+        list
       end
 
       def find(revision, options = {})
-        m = get_path(path_to_find(revision),
-                     options,
-                     Tinybucket::Parser::CommitParser)
-
-        inject_api_config(m)
+        get_path(
+          path_to_find(revision),
+          options,
+          Tinybucket::Parser::CommitParser
+        )
       end
     end
   end

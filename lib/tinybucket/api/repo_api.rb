@@ -6,11 +6,11 @@ module Tinybucket
       attr_accessor :repo_owner, :repo_slug
 
       def find(options = {})
-        repo = get_path(path_to_find,
-                        options,
-                        Tinybucket::Parser::RepoParser)
-
-        inject_api_config(repo)
+        get_path(
+          path_to_find,
+          options,
+          Tinybucket::Parser::RepoParser
+        )
       end
 
       def watchers(options = {})
@@ -19,7 +19,7 @@ module Tinybucket
                         Tinybucket::Parser::ProfilesParser)
 
         list.next_proc = next_proc(:watchers, options)
-        inject_api_config(list)
+        list
       end
 
       def forks(options = {})
@@ -28,7 +28,7 @@ module Tinybucket
                         Tinybucket::Parser::ReposParser)
 
         list.next_proc = next_proc(:forks, options)
-        inject_api_config(list)
+        list
       end
     end
   end

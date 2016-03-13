@@ -15,7 +15,7 @@ module Tinybucket
         list.next_proc = next_proc(:list, options)
 
         associate_with_target(list)
-        inject_api_config(list)
+        list
       end
 
       def find(comment_id, options = {})
@@ -24,7 +24,7 @@ module Tinybucket
                            Tinybucket::Parser::CommentParser)
 
         associate_with_target(comment)
-        inject_api_config(comment)
+        comment
       end
 
       private

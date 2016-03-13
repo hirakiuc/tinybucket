@@ -50,8 +50,8 @@ module Tinybucket
     include ActiveSupport::Configurable
     attr_accessor :logger, :api_client
 
-    def new(options = {}, &block)
-      @api_client = Tinybucket::Client.new(options, &block)
+    def new
+      @api_client = Tinybucket::Client.new
     end
 
     def configure

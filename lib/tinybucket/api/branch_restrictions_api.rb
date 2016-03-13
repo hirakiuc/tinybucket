@@ -11,15 +11,15 @@ module Tinybucket
                         Tinybucket::Parser::BranchRestrictionsParser)
 
         list.next_proc = next_proc(:list, options)
-        inject_api_config(list)
+        list
       end
 
       def find(restriction_id, options = {})
-        m = get_path(path_to_find(restriction_id),
-                     options,
-                     Tinybucket::Parser::BranchRestrictionParser)
-
-        inject_api_config(m)
+        get_path(
+          path_to_find(restriction_id),
+          options,
+          Tinybucket::Parser::BranchRestrictionParser
+        )
       end
     end
   end

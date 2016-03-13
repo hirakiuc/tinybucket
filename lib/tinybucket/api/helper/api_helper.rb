@@ -10,17 +10,6 @@ module Tinybucket
           end
         end
 
-        def inject_api_config(result)
-          case result
-          when Tinybucket::Model::Page
-            result.items.map { |m| m.api_config = @config.dup }
-          when Tinybucket::Model::Base
-            result.api_config = @config.dup
-          end
-
-          result
-        end
-
         def urlencode(v, key)
           if v.blank? || (escaped = CGI.escape(v.to_s)).blank?
             msg = "Invalid #{key} parameter. (#{v})"

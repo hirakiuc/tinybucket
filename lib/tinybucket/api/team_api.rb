@@ -4,11 +4,11 @@ module Tinybucket
       include Tinybucket::Api::Helper::TeamHelper
 
       def find(name, options = {})
-        m = get_path(path_to_find(name),
-                     options,
-                     Tinybucket::Parser::TeamParser)
-
-        inject_api_config(m)
+        get_path(
+          path_to_find(name),
+          options,
+          Tinybucket::Parser::TeamParser
+        )
       end
 
       def members(name, options = {})
@@ -17,7 +17,7 @@ module Tinybucket
                         Tinybucket::Parser::TeamsParser)
 
         list.next_proc = next_proc(:members, options)
-        inject_api_config(list)
+        list
       end
 
       def followers(name, options = {})
@@ -26,7 +26,7 @@ module Tinybucket
                         Tinybucket::Parser::TeamsParser)
 
         list.next_proc = next_proc(:followers, options)
-        inject_api_config(list)
+        list
       end
 
       def following(name, options = {})
@@ -35,7 +35,7 @@ module Tinybucket
                         Tinybucket::Parser::TeamsParser)
 
         list.next_proc = next_proc(:following, options)
-        inject_api_config(list)
+        list
       end
 
       def repos(name, options = {})
@@ -44,7 +44,7 @@ module Tinybucket
                         Tinybucket::Parser::ReposParser)
 
         list.next_proc = next_proc(:repos, options)
-        inject_api_config(list)
+        list
       end
     end
   end
