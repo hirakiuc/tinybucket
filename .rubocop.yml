@@ -6,7 +6,7 @@ AllCops:
     - 'spec/**/*'
     - 'test/**/*'
 
-Style/ClassLength:
+Metrics/ClassLength:
   Max: 150
 
 MethodLength:
