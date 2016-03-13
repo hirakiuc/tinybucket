@@ -8,19 +8,39 @@ module Tinybucket
         :links, :created_on, :location, :type
 
       def members(options = {})
-        team_api.members(username, options)
+        enumerator(
+          team_api,
+          :members,
+          username,
+          options
+        ) { |m| block_given? ? yield(m) : m }
       end
 
       def followers(options = {})
-        team_api.followers(username, options)
+        enumerator(
+          team_api,
+          :followers,
+          username,
+          options
+        ) { |m| block_given? ? yield(m) : m }
       end
 
       def following(options = {})
-        team_api.following(username, options)
+        enumerator(
+          team_api,
+          :following,
+          username,
+          options
+        ) { |m| block_given? ? yield(m) : m }
       end
 
       def repos(options = {})
-        team_api.repos(username, options)
+        enumerator(
+          team_api,
+          :repos,
+          username,
+          options
+        ) { |m| block_given? ? yield(m) : m }
       end
 
       private

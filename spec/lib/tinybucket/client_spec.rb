@@ -16,12 +16,12 @@ RSpec.describe Tinybucket::Client do
 
       context 'without options' do
         subject { client.repos }
-        it { expect(subject).to be_instance_of(Tinybucket::Model::Page) }
+        it { expect(subject).to be_instance_of(Tinybucket::Enumerator) }
       end
       context 'with options' do
         subject { client.repos(options) }
         let(:options) { {} }
-        it { expect(subject).to be_instance_of(Tinybucket::Model::Page) }
+        it { expect(subject).to be_instance_of(Tinybucket::Enumerator) }
       end
     end
 
@@ -32,13 +32,13 @@ RSpec.describe Tinybucket::Client do
       context 'without options' do
         let(:request_path) { "/repositories/#{owner}" }
         subject { client.repos(owner) }
-        it { expect(subject).to be_instance_of(Tinybucket::Model::Page) }
+        it { expect(subject).to be_instance_of(Tinybucket::Enumerator) }
       end
       context 'with options' do
         let(:request_path) { "/repositories/#{owner}" }
         subject { client.repos(owner, options) }
         let(:options) { {} }
-        it { expect(subject).to be_instance_of(Tinybucket::Model::Page) }
+        it { expect(subject).to be_instance_of(Tinybucket::Enumerator) }
       end
     end
 

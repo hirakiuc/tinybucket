@@ -3,6 +3,7 @@ module Tinybucket
     class Base
       include ::ActiveModel::Serializers::JSON
       include Concerns::AcceptableAttributes
+      include Concerns::Enumerable
 
       def self.concern_included?(concern_name)
         mod_name = "Tinybucket::Model::Concerns::#{concern_name}".constantize

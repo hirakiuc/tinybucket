@@ -6,12 +6,11 @@ module Tinybucket
       attr_accessor :repo_owner, :repo_slug
 
       def list(options = {})
-        list = get_path(path_to_list,
-                        options,
-                        Tinybucket::Parser::PullRequestsParser)
-
-        list.next_proc = next_proc(:list, options)
-        list
+        get_path(
+          path_to_list,
+          options,
+          Tinybucket::Parser::PullRequestsParser
+        )
       end
 
       def find(pr_id, options = {})
@@ -23,12 +22,11 @@ module Tinybucket
       end
 
       def commits(pr_id, options = {})
-        list = get_path(path_to_commits(pr_id),
-                        options,
-                        Tinybucket::Parser::CommitsParser)
-
-        list.next_proc = next_proc(:commits, options)
-        list
+        get_path(
+          path_to_commits(pr_id),
+          options,
+          Tinybucket::Parser::CommitsParser
+        )
       end
 
       def approve(pr_id, options = {})

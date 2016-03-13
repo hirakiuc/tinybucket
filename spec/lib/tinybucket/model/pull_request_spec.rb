@@ -94,7 +94,7 @@ RSpec.describe Tinybucket::Model::PullRequest do
 
     subject { model.commits() }
 
-    it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Enumerator) }
   end
 
   describe 'comments' do
@@ -104,9 +104,15 @@ RSpec.describe Tinybucket::Model::PullRequest do
 
     subject { model.comments }
 
-    it 'return comment list' do
-      expect(subject).to be_an_instance_of(Tinybucket::Model::Page)
-      subject.items.each do |comment|
+    it { expect(subject).to be_an_instance_of(Tinybucket::Enumerator) }
+    it 'return comments which associate with this pull request' do
+      # extract iterator from enumerator.
+      iterator = subject.instance_variable_get(:@iterator)
+      # extract values from iterator.
+      values = iterator.instance_variable_get(:@values)
+
+      values.each do |comment|
+        expect(comment).to be_an_instance_of(Tinybucket::Model::Comment)
         expect(comment.commented_to).to eq(model)
       end
     end

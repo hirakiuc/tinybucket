@@ -14,21 +14,19 @@ module Tinybucket
       end
 
       def watchers(options = {})
-        list = get_path(path_to_watchers,
-                        options,
-                        Tinybucket::Parser::ProfilesParser)
-
-        list.next_proc = next_proc(:watchers, options)
-        list
+        get_path(
+          path_to_watchers,
+          options,
+          Tinybucket::Parser::ProfilesParser
+        )
       end
 
       def forks(options = {})
-        list = get_path(path_to_forks,
-                        options,
-                        Tinybucket::Parser::ReposParser)
-
-        list.next_proc = next_proc(:forks, options)
-        list
+        get_path(
+          path_to_forks,
+          options,
+          Tinybucket::Parser::ReposParser
+        )
       end
     end
   end

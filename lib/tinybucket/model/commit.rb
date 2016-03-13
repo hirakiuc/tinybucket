@@ -10,7 +10,11 @@ module Tinybucket
         :message, :participants, :uuid
 
       def comments(options = {})
-        comments_api.list(options)
+        enumerator(
+          comments_api,
+          :list,
+          options
+        ) { |m| block_given? ? yield(m) : m }
       end
 
       def comment(comment_id, options = {})

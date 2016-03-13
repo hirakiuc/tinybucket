@@ -56,4 +56,18 @@ RSpec.describe Tinybucket::Api::UserApi do
       it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
     end
   end
+
+  describe 'repos' do
+    subject { api.repos }
+
+    context 'when without username' do
+      let(:user) { nil }
+      it { expect { subject }.to raise_error(ArgumentError) }
+    end
+
+    context 'when with username' do
+      let(:request_path) { "/repositories/#{user}" }
+      it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
+    end
+  end
 end

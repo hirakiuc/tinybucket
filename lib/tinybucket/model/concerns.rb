@@ -5,6 +5,7 @@ module Tinybucket
 
       [
         :AcceptableAttributes,
+        :Enumerable,
         :RepositoryKeys,
         :Reloadable
       ].each do |mod_name|

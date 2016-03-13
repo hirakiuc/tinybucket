@@ -14,13 +14,16 @@ require 'faraday_middleware/follow_oauth_redirects'
 require 'active_model'
 
 require 'logger'
+require 'uri'
+
+require 'tinybucket/enumerator'
+require 'tinybucket/iterator'
 
 require 'tinybucket/config'
 require 'tinybucket/null_logger'
 require 'tinybucket/api'
 require 'tinybucket/api_factory'
 require 'tinybucket/api/helper'
-require 'tinybucket/client'
 require 'tinybucket/connection'
 require 'tinybucket/constants'
 require 'tinybucket/error'
@@ -30,7 +33,7 @@ require 'tinybucket/parser'
 require 'tinybucket/request'
 require 'tinybucket/response'
 
-require 'uri'
+require 'tinybucket/client'
 
 require 'active_support/notifications'
 ActiveSupport::Notifications.subscribe('request.faraday') \

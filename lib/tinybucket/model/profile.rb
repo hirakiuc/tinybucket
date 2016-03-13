@@ -8,15 +8,27 @@ module Tinybucket
         :links, :created_on, :location, :type, :uuid
 
       def followers(options = {})
-        user_api.followers(options)
+        enumerator(
+          user_api,
+          :followers,
+          options
+        ) { |m| block_given? ? yield(m) : m }
       end
 
       def following(options = {})
-        user_api.following(options)
+        enumerator(
+          user_api,
+          :following,
+          options
+        ) { |m| block_given? ? yield(m) : m }
       end
 
       def repos(options = {})
-        user_api.repos(options)
+        enumerator(
+          user_api,
+          :repos,
+          options
+        ) { |m| block_given? ? yield(m) : m }
       end
 
       private

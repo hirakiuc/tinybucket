@@ -31,11 +31,20 @@ module Tinybucket
       end
 
       def commits(options = {})
-        pull_request_api.commits(id, options)
+        enumerator(
+          pull_request_api,
+          :commits,
+          id,
+          options
+        ) { |m| block_given? ? yield(m) : m }
       end
 
       def comments(options = {})
-        comment_api.list(options)
+        enumerator(
+          comment_api,
+          :list,
+          options
+        ) { |m| block_given? ? yield(m) : m }
       end
 
       def comment(comment_id, options = {})
