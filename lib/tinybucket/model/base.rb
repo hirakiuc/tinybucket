@@ -3,7 +3,6 @@ module Tinybucket
     class Base
       include ::ActiveModel::Serializers::JSON
       include Concerns::AcceptableAttributes
-      attr_accessor :api_config
 
       def self.concern_included?(concern_name)
         mod_name = "Tinybucket::Model::Concerns::#{concern_name}".constantize
@@ -12,7 +11,6 @@ module Tinybucket
 
       def initialize(json)
         self.attributes = json
-        @api_config = {}
         @_loaded = !json.empty?
       end
 
@@ -50,7 +48,7 @@ module Tinybucket
       end
 
       def create_instance(klass_name, options)
-        ApiFactory.create_instance(klass_name, api_config, options)
+        ApiFactory.create_instance(klass_name, options)
       end
 
       def logger

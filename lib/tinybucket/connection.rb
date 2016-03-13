@@ -32,8 +32,8 @@ module Tinybucket
     def default_middleware(_options)
       proc do |conn|
         oauth_secrets = {
-          consumer_key: config(:oauth_token),
-          consumer_secret: config(:oauth_secret)
+          consumer_key:    Tinybucket.config.oauth_token,
+          consumer_secret: Tinybucket.config.oauth_secret
         }
 
         conn.request :multipart

@@ -48,20 +48,17 @@ logger.level = Logger::WARN
 
 Tinybucket.configure do |config|
   config.logger = logger
+
+  # configure oauth_token/oauth_secret
+  config.oauth_token = 'key'
+  config.oauth_secret = 'secret'
 end
 ```
 
 ### init
 
 ```
-bucket = Tinybucket.new(oauth_token: 'key', oauth_secret: 'secret')
-```
-
-```
-bucket = Tinybucket.new do |config|
-  config.oauth_token  = 'key'
-  config.oauth_secret = 'secret'
-end
+bucket = Tinybucket.new
 ```
 
 #### teams Endpoint

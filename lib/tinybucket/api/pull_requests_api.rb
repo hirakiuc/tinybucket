@@ -11,15 +11,15 @@ module Tinybucket
                         Tinybucket::Parser::PullRequestsParser)
 
         list.next_proc = next_proc(:list, options)
-        inject_api_config(list)
+        list
       end
 
       def find(pr_id, options = {})
-        m = get_path(path_to_find(pr_id),
-                     options,
-                     Tinybucket::Parser::PullRequestParser)
-
-        inject_api_config(m)
+        get_path(
+          path_to_find(pr_id),
+          options,
+          Tinybucket::Parser::PullRequestParser
+        )
       end
 
       def commits(pr_id, options = {})
@@ -28,7 +28,7 @@ module Tinybucket
                         Tinybucket::Parser::CommitsParser)
 
         list.next_proc = next_proc(:commits, options)
-        inject_api_config(list)
+        list
       end
 
       def approve(pr_id, options = {})
