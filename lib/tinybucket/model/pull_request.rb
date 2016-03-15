@@ -19,53 +19,53 @@ module Tinybucket
       end
 
       def decline(options = {})
-        pull_request_api(options).decline(id, options)
+        pull_request_api.decline(id, options)
       end
 
       def approve(options = {})
-        pull_request_api(options).approve(id, options)
+        pull_request_api.approve(id, options)
       end
 
       def unapprove(options = {})
-        pull_request_api(options).unapprove(id, options)
+        pull_request_api.unapprove(id, options)
       end
 
       def commits(options = {})
-        pull_request_api(options).commits(id, options)
+        pull_request_api.commits(id, options)
       end
 
       def comments(options = {})
-        comment_api(options).list(options)
+        comment_api.list(options)
       end
 
       def comment(comment_id, options = {})
-        comment_api(options).find(comment_id, options)
+        comment_api.find(comment_id, options)
       end
 
       def diff(options = {})
-        pull_request_api(options).diff(id, options)
+        pull_request_api.diff(id, options)
       end
 
       def merge(options = {})
-        pull_request_api(options).merge(id, options)
+        pull_request_api.merge(id, options)
       end
 
       private
 
-      def comment_api(options)
-        api = create_api('Comments', repo_keys, options)
+      def comment_api
+        api = create_api('Comments', repo_keys)
         api.commented_to = self
         api
       end
 
-      def pull_request_api(options)
+      def pull_request_api
         raise ArgumentError, MISSING_REPOSITORY_KEY unless repo_keys?
 
-        create_api('PullRequests', repo_keys, options)
+        create_api('PullRequests', repo_keys)
       end
 
       def load_model
-        pull_request_api({}).find(id)
+        pull_request_api.find(id)
       end
     end
   end

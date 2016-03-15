@@ -7,9 +7,8 @@ RSpec.describe Tinybucket::Api::BranchRestrictionsApi do
   let(:slug) { 'test_repo' }
   let(:request_path) { nil }
 
-  let(:api_config) { {} }
   let(:api) do
-    api = Tinybucket::Api::BranchRestrictionsApi.new(api_config)
+    api = Tinybucket::Api::BranchRestrictionsApi.new
     api.repo_owner = owner
     api.repo_slug = slug
     api

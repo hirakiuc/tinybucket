@@ -8,31 +8,30 @@ module Tinybucket
         :links, :created_on, :location, :type
 
       def members(options = {})
-        team_api(options).members(username, options)
+        team_api.members(username, options)
       end
 
       def followers(options = {})
-        team_api(options).followers(username, options)
+        team_api.followers(username, options)
       end
 
       def following(options = {})
-        team_api(options).following(username, options)
+        team_api.following(username, options)
       end
 
       def repos(options = {})
-        team_api(options).repos(username, options)
+        team_api.repos(username, options)
       end
 
       private
 
-      def team_api(options)
+      def team_api
         return @team if @team
-
-        @team = create_instance 'Team', options
+        @team = create_instance('Team')
       end
 
       def load_model
-        team_api({}).find(username)
+        team_api.find(username)
       end
     end
   end

@@ -18,13 +18,13 @@ module Tinybucket
       end
 
       def pull_requests(options = {})
-        list = pull_requests_api(options).list(options)
+        list = pull_requests_api.list(options)
         inject_repo_keys(list)
       end
 
       def pull_request(pullrequest_id = nil, options = {})
         m = if pullrequest_id.present?
-              pull_requests_api(options).find(pullrequest_id, options)
+              pull_requests_api.find(pullrequest_id, options)
             else
               Tinybucket::Model::PullRequest.new({})
             end
@@ -32,65 +32,65 @@ module Tinybucket
       end
 
       def watchers(options = {})
-        repo_api(options).watchers(options)
+        repo_api.watchers(options)
       end
 
       def forks(options = {})
-        repo_api(options).forks(options)
+        repo_api.forks(options)
       end
 
       def commits(options = {})
-        list = commits_api(options).list(options)
+        list = commits_api.list(options)
         inject_repo_keys(list)
       end
 
       def commit(revision, options = {})
-        m = commits_api(options).find(revision, options)
+        m = commits_api.find(revision, options)
         inject_repo_keys(m)
       end
 
       def branch_restrictions(options = {})
-        list = restrictions_api(options).list(options)
+        list = restrictions_api.list(options)
         inject_repo_keys(list)
       end
 
       def branch_restriction(restriction_id, options = {})
-        m = restrictions_api(options).find(restriction_id, options)
+        m = restrictions_api.find(restriction_id, options)
         inject_repo_keys(m)
       end
 
       def diff(spec, options = {})
-        diff_api(options).find(spec, options)
+        diff_api.find(spec, options)
       end
 
       def patch(spec, options = {})
-        diff_api(options).find_patch(spec, options)
+        diff_api.find_patch(spec, options)
       end
 
       private
 
-      def pull_requests_api(options)
-        create_api('PullRequests', repo_keys, options)
+      def pull_requests_api
+        create_api('PullRequests', repo_keys)
       end
 
-      def repo_api(options)
-        create_api('Repo', repo_keys, options)
+      def repo_api
+        create_api('Repo', repo_keys)
       end
 
-      def commits_api(options)
-        create_api('Commits', repo_keys, options)
+      def commits_api
+        create_api('Commits', repo_keys)
       end
 
-      def restrictions_api(options)
-        create_api('BranchRestrictions', repo_keys, options)
+      def restrictions_api
+        create_api('BranchRestrictions', repo_keys)
       end
 
-      def diff_api(options)
-        create_api('Diff', repo_keys, options)
+      def diff_api
+        create_api('Diff', repo_keys)
       end
 
       def load_model
-        repo_api({}).find()
+        repo_api.find()
       end
     end
   end

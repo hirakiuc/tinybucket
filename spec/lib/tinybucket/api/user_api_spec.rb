@@ -3,9 +3,8 @@ require 'spec_helper'
 RSpec.describe Tinybucket::Api::UserApi do
   include ApiResponseMacros
 
-  let(:api_config) { {} }
   let(:api) do
-    api = Tinybucket::Api::UserApi.new(api_config)
+    api = Tinybucket::Api::UserApi.new
     api.username = user
     api
   end
