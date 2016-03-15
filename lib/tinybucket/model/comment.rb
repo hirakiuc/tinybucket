@@ -13,20 +13,20 @@ module Tinybucket
       private
 
       def commit_api
-        create_api('Comments', repo_keys, options)
+        create_api('Comments', repo_keys)
       end
 
-      def pull_request_api(options)
-        create_api('PullRequests', repo_keys, options)
+      def pull_request_api
+        create_api('PullRequests', repo_keys)
       end
 
       def load_model
         api =
           case commented_to
           when Tinybucket::Model::Commit
-            commit_api({})
+            commit_api
           when Tinybucket::Model::PullRequest
-            pull_request_api({})
+            pull_request_api
           else
             raise ArgumentError, 'commented_to was invalid'
           end

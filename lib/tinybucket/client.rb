@@ -61,7 +61,7 @@ module Tinybucket
       options = args.empty? ? {} : args.first
       raise ArgumentError unless options.is_a?(Hash)
 
-      @repos ||= create_instance('Repos', options)
+      @repos ||= create_instance('Repos')
       @repos.list(options)
     end
 
@@ -70,13 +70,13 @@ module Tinybucket
       options = (args.size == 2) ? args[1] : {}
       raise ArgumentError unless options.is_a?(Hash)
 
-      @user ||= create_instance('User', options)
+      @user ||= create_instance('User')
       @user.username = owner
       @user.repos(options)
     end
 
-    def create_instance(name, options)
-      ApiFactory.create_instance(name, options)
+    def create_instance(name)
+      ApiFactory.create_instance(name)
     end
   end
 end

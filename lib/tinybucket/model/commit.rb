@@ -10,29 +10,29 @@ module Tinybucket
         :message, :participants, :uuid
 
       def comments(options = {})
-        comments_api(options).list(options)
+        comments_api.list(options)
       end
 
       def comment(comment_id, options = {})
-        comments_api(options).find(comment_id, options)
+        comments_api.find(comment_id, options)
       end
 
       private
 
-      def comments_api(options)
+      def comments_api
         raise ArgumentError, MISSING_REPOSITORY_KEY unless repo_keys?
 
-        api = create_api('Comments', repo_keys, options)
+        api = create_api('Comments', repo_keys)
         api.commented_to = self
         api
       end
 
-      def commit_api(options)
-        create_api 'Commits', repo_keys, options
+      def commit_api
+        create_api('Commits', repo_keys)
       end
 
       def load_model
-        commit_api({}).find(hash)
+        commit_api.find(hash)
       end
     end
   end

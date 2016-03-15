@@ -3,11 +3,7 @@ require 'spec_helper'
 RSpec.describe Tinybucket::ApiFactory do
 
   describe 'create_instance' do
-    let(:options) { {} }
-
-    subject do
-      Tinybucket::ApiFactory.create_instance(klass_name, options)
-    end
+    subject { Tinybucket::ApiFactory.create_instance(klass_name) }
 
     context 'with valid klass_name' do
       let(:klass_name) { 'PullRequests' }

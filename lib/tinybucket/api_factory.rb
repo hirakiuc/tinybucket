@@ -1,9 +1,7 @@
 module Tinybucket
   class ApiFactory
     class << self
-      def create_instance(klass_name, options)
-        options.symbolize_keys!
-
+      def create_instance(klass_name)
         klass =
           begin
             name = "#{klass_name}Api".intern
@@ -14,7 +12,7 @@ module Tinybucket
             raise ArgumentError, 'must provide klass to be instantiated'
           end
 
-        klass.new options
+        klass.new
       end
     end
   end
