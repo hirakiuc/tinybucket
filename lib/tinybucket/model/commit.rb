@@ -23,13 +23,15 @@ module Tinybucket
     #   @return [Array]
     # @!attribute [rw] uuid
     #   @return [NillClass]
+    # @!attribute [rw] type
+    #   @return [String]
     class Commit < Base
       include Tinybucket::Model::Concerns::RepositoryKeys
       include Tinybucket::Constants
 
       acceptable_attributes \
         :hash, :links, :repository, :author, :parents, :date,
-        :message, :participants, :uuid
+        :message, :participants, :uuid, :type
 
       # Get comments which associate with this commit.
       #

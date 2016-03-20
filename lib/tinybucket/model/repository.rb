@@ -37,13 +37,18 @@ module Tinybucket
     #   @return [String]
     # @!attribute [rw] language
     #   @return [String]
+    # @!attribute [rw] website
+    #   @return [String]
+    # @!attribute [rw] type
+    #   @return [String]
     class Repository < Base
       include Tinybucket::Model::Concerns::RepositoryKeys
 
       acceptable_attributes \
         :scm, :has_wiki, :description, :links, :updated_on,
         :fork_policy, :created_on, :owner, :size, :parent, :uuid,
-        :has_issues, :is_private, :full_name, :name, :language
+        :has_issues, :is_private, :full_name, :name, :language,
+        :website, :type
 
       # Create a new repository.
       #
