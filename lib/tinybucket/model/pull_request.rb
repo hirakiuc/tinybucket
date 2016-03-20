@@ -13,6 +13,10 @@ module Tinybucket
     #   @return [Hash]
     # @!attribute [rw] title
     #   @return [String]
+    # @!attribute [rw] task_count
+    #   @return [Fixnum]
+    # @!attribute [rw] comment_count
+    #   @return [Fixnum]
     # @!attribute [rw] close_source_branch
     #   @return [true, false]
     # @!attribute [rw] destination
@@ -39,14 +43,17 @@ module Tinybucket
     #   @return [Array]
     # @!attribute [rw] uuid
     #   @return [NillClass]
+    # @!attribute [rw] type
+    #   @return [String]
     class PullRequest < Base
       include Tinybucket::Model::Concerns::RepositoryKeys
       include Tinybucket::Constants
 
       acceptable_attributes \
-        :state, :description, :links, :title, :close_source_branch,
-        :destination, :reason, :id, :source, :created_on, :author, :updated_on,
-        :merge_commit, :closed_by, :reviewers, :participants, :uuid
+        :state, :description, :links, :title, :task_count, :comment_count,
+        :close_source_branch, :destination, :reason, :id, :source,
+        :created_on, :author, :updated_on, :merge_commit, :closed_by,
+        :reviewers, :participants, :uuid, :type
 
       # Create a new pull request.
       #
