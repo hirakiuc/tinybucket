@@ -17,7 +17,8 @@ module Tinybucket
     # @overload repos(options)
     #   get public repositories.
     #   @option options [Hash] a hash with options
-    # @return Tinybucket::Model::Page model instance.
+    # @return [Tinybucket::Enumerator] enumerator to enumerate repositories
+    #   as [Tinybucket::Model::Repository]
     def repos(*args)
       case args.size
       when 0
@@ -38,6 +39,12 @@ module Tinybucket
       end
     end
 
+    # Get the repository
+    #
+    # @param owner [String] repository owner name.
+    # @param repo_slug [String] repository slug. (about {https://confluence.atlassian.com/bitbucket/repositories-endpoint-423626330.html#repositoriesEndpoint-Overview
+    #     repo_slug})
+    # @return [Tinybucket::Model::Repository]
     def repo(owner, repo_slug)
       m = Tinybucket::Model::Repository.new({})
       m.repo_owner = owner
@@ -45,12 +52,20 @@ module Tinybucket
       m
     end
 
+    # Get the team
+    #
+    # @param teamname [String] the team name.
+    # @return [Tinybucket::Model::Team]
     def team(teamname)
       m = Tinybucket::Model::Team.new({})
       m.username = teamname
       m
     end
 
+    # Get the user profile
+    #
+    # @param username [String] the user name.
+    # @return [Tinybucket::Model::Profile]
     def user(username)
       m = Tinybucket::Model::Profile.new({})
       m.username = username

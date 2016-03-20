@@ -1,8 +1,17 @@
 module Tinybucket
   module Api
+    # Team Api client
+    #
+    # @see https://confluence.atlassian.com/bitbucket/teams-endpoint-423626335.html
+    #   teams Endpoint
     class TeamApi < BaseApi
       include Tinybucket::Api::Helper::TeamHelper
 
+      # Send 'GET the team profile' request
+      #
+      # @param name [String] The team's name
+      # @param options [Hash]
+      # @return [Tinybucket::Model::Team]
       def find(name, options = {})
         get_path(
           path_to_find(name),
@@ -11,6 +20,11 @@ module Tinybucket
         )
       end
 
+      # Send 'GET the team members' request
+      #
+      # @param name [String] The team's name
+      # @param options [Hash]
+      # @return [Tinybucket::Model::Page]
       def members(name, options = {})
         get_path(
           path_to_members(name),
@@ -19,6 +33,11 @@ module Tinybucket
         )
       end
 
+      # Send 'GET the list of followers' request
+      #
+      # @param name [String] The team's name
+      # @param options [Hash]
+      # @return [Tinybucket::Model::Page]
       def followers(name, options = {})
         get_path(
           path_to_followers(name),
@@ -27,6 +46,11 @@ module Tinybucket
         )
       end
 
+      # Send 'GET a lisf of accounts the tema is following' request
+      #
+      # @param name [String] The team's name
+      # @param options [Hash]
+      # @return [Tinybucket::Model::Page]
       def following(name, options = {})
         get_path(
           path_to_following(name),
@@ -35,6 +59,11 @@ module Tinybucket
         )
       end
 
+      # Send 'GET the team's repositories' request
+      #
+      # @param name [String] The team's name
+      # @param options [Hash]
+      # @return [Tinybucket::Model::Page]
       def repos(name, options = {})
         get_path(
           path_to_repos(name),

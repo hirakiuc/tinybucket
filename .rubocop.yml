@@ -4,6 +4,7 @@ AllCops:
   Exclude:
     - 'app.rb'
     - 'spec/**/*'
+    - 'features/**/*'
     - 'test/**/*'
 
 Metrics/ClassLength:
