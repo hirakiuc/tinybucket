@@ -6,12 +6,11 @@ module Tinybucket
       attr_accessor :repo_owner, :repo_slug
 
       def list(options = {})
-        list = get_path(path_to_list,
-                        options,
-                        Tinybucket::Parser::CommitsParser)
-
-        list.next_proc = next_proc(:list, options)
-        list
+        get_path(
+          path_to_list,
+          options,
+          Tinybucket::Parser::CommitsParser
+        )
       end
 
       def find(revision, options = {})

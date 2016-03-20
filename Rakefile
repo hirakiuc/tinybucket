@@ -14,6 +14,13 @@ require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new(:spec)
 task :test => :spec
 
+if Dir.exist?('./features')
+  RSpec::Core::RakeTask.new(:features) do |t|
+    t.pattern = './features/**/*_spec.rb'
+    t.rspec_opts = '-I ./features'
+  end
+end
+
 begin
   require 'rubocop/rake_task'
   RuboCop::RakeTask.new

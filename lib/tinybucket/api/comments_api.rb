@@ -12,8 +12,6 @@ module Tinybucket
                         options,
                         Tinybucket::Parser::CommentsParser)
 
-        list.next_proc = next_proc(:list, options)
-
         associate_with_target(list)
         list
       end

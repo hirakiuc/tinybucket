@@ -79,5 +79,4 @@ RSpec.describe Tinybucket::Api::TeamApi do
       it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
     end
   end
-
 end

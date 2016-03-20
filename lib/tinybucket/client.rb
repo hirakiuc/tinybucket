@@ -1,5 +1,7 @@
 module Tinybucket
   class Client
+    include ::Tinybucket::Model::Concerns::Enumerable
+
     # Get Repositories
     #
     # when you want to get repositories of the owner, call with owner, options.
@@ -61,8 +63,11 @@ module Tinybucket
       options = args.empty? ? {} : args.first
       raise ArgumentError unless options.is_a?(Hash)
 
-      @repos ||= create_instance('Repos')
-      @repos.list(options)
+      enumerator(
+        repos_api,
+        :list,
+        options
+      )
     end
 
     def owners_repos(*args)
@@ -70,9 +75,21 @@ module Tinybucket
       options = (args.size == 2) ? args[1] : {}
       raise ArgumentError unless options.is_a?(Hash)
 
-      @user ||= create_instance('User')
-      @user.username = owner
-      @user.repos(options)
+      enumerator(
+        user_api(owner),
+        :repos,
+        options
+      )
+    end
+
+    def repos_api
+      create_instance('Repos')
+    end
+
+    def user_api(owner)
+      api = create_instance('User')
+      api.username = owner
+      api
     end
 
     def create_instance(name)

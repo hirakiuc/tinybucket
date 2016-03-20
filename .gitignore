@@ -11,6 +11,9 @@ app.rb
 log/
 *.swp
 
+features
+.envrc
+
 ## from github ignore.
 
 /.config

@@ -7,12 +7,11 @@ module Tinybucket
         opts = options.clone
         opts.delete(:owner)
 
-        list = get_path(path_to_list(options),
-                        opts,
-                        Tinybucket::Parser::ReposParser)
-
-        list.next_proc = next_proc(:list, options)
-        list
+        get_path(
+          path_to_list(options),
+          opts,
+          Tinybucket::Parser::ReposParser
+        )
       end
     end
   end

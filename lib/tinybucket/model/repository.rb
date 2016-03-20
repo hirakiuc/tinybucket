@@ -18,8 +18,14 @@ module Tinybucket
       end
 
       def pull_requests(options = {})
-        list = pull_requests_api.list(options)
-        inject_repo_keys(list)
+        enumerator(
+          pull_requests_api,
+          :list,
+          options
+        ) do |m|
+          inject_repo_keys(m)
+          block_given? ? yield(m) : m
+        end
       end
 
       def pull_request(pullrequest_id = nil, options = {})
@@ -32,16 +38,36 @@ module Tinybucket
       end
 
       def watchers(options = {})
-        repo_api.watchers(options)
+        enumerator(
+          repo_api,
+          :watchers,
+          options
+        ) do |m|
+          inject_repo_keys(m)
+          block_given? ? yield(m) : m
+        end
       end
 
       def forks(options = {})
-        repo_api.forks(options)
+        enumerator(
+          repo_api,
+          :forks,
+          options
+        ) do |m|
+          inject_repo_keys(m)
+          block_given? ? yield(m) : m
+        end
       end
 
       def commits(options = {})
-        list = commits_api.list(options)
-        inject_repo_keys(list)
+        enumerator(
+          commits_api,
+          :list,
+          options
+        ) do |m|
+          inject_repo_keys(m)
+          block_given? ? yield(m) : m
+        end
       end
 
       def commit(revision, options = {})
@@ -50,8 +76,14 @@ module Tinybucket
       end
 
       def branch_restrictions(options = {})
-        list = restrictions_api.list(options)
-        inject_repo_keys(list)
+        enumerator(
+          restrictions_api,
+          :list,
+          options
+        ) do |m|
+          inject_repo_keys(m)
+          block_given? ? yield(m) : m
+        end
       end
 
       def branch_restriction(restriction_id, options = {})
