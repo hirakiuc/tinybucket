@@ -15,7 +15,7 @@ module Tinybucket
     #   @return [String]
     # @!attribute [rw] uuid
     #   @return [NillClass]
-    class ErrorResponse < Base
+    class ErrorResponse
       acceptable_attributes :message, :fields, :detail, :id, :uuid
     end
   end

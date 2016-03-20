@@ -39,7 +39,6 @@ module Tinybucket
     #   @return [String]
     class Repository < Base
       include Tinybucket::Model::Concerns::RepositoryKeys
-      include Tinybucket::Model::Concerns::Reloadable
 
       acceptable_attributes \
         :scm, :has_wiki, :description, :links, :updated_on,

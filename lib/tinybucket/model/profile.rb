@@ -24,8 +24,6 @@ module Tinybucket
     # @!attribute [rw] uuid
     #   @return [String]
     class Profile < Base
-      include Tinybucket::Model::Concerns::Reloadable
-
       acceptable_attributes \
         :username, :kind, :website, :display_name,
         :links, :created_on, :location, :type, :uuid

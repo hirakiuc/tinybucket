@@ -27,7 +27,6 @@ module Tinybucket
     #   @return [NillClass]
     class Comment < Base
       include Tinybucket::Model::Concerns::RepositoryKeys
-      include Tinybucket::Model::Concerns::Reloadable
 
       acceptable_attributes \
         :links, :id, :parent, :filename, :content, :user, :inline, \

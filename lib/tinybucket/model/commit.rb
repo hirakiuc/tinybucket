@@ -25,7 +25,6 @@ module Tinybucket
     #   @return [NillClass]
     class Commit < Base
       include Tinybucket::Model::Concerns::RepositoryKeys
-      include Tinybucket::Model::Concerns::Reloadable
       include Tinybucket::Constants
 
       acceptable_attributes \
