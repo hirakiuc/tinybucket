@@ -1,5 +1,7 @@
 module Tinybucket
   module Request
+    protected
+
     def get_path(path, params = {}, parser = nil, options = {})
       request(:get, path, params, parser, options)
     end
