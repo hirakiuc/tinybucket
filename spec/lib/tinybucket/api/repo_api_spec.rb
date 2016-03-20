@@ -7,9 +7,8 @@ RSpec.describe Tinybucket::Api::RepoApi do
   let(:repo_slug) { 'test_repo' }
   let(:request_path) { nil }
 
-  let(:api_config) { {} }
   let(:api) do
-    api = Tinybucket::Api::RepoApi.new(api_config)
+    api = Tinybucket::Api::RepoApi.new
     api.repo_owner = repo_owner
     api.repo_slug  = repo_slug
     api

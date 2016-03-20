@@ -3,9 +3,8 @@ require 'spec_helper'
 RSpec.describe Tinybucket::Api::PullRequestsApi do
   include ApiResponseMacros
 
-  let(:api_config) { {} }
   let(:api) do
-    api = Tinybucket::Api::PullRequestsApi.new(api_config)
+    api = Tinybucket::Api::PullRequestsApi.new
     api.repo_owner = owner
     api.repo_slug = slug
     api

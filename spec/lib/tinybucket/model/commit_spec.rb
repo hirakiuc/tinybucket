@@ -43,7 +43,7 @@ RSpec.describe Tinybucket::Model::Commit do
       "/repositories/#{owner}/#{slug}/commit/1/comments"
     end
     subject { model.comments }
-    it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Enumerator) }
   end
 
   describe '#comment' do

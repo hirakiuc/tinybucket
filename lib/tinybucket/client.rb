@@ -1,14 +1,6 @@
 module Tinybucket
   class Client
-    include ActiveSupport::Configurable
-
-    def initialize(options = {})
-      options.each_pair do |key, value|
-        config.send("#{key}=", value)
-      end
-
-      yield(config) if block_given?
-    end
+    include ::Tinybucket::Model::Concerns::Enumerable
 
     # Get Repositories
     #
@@ -25,7 +17,8 @@ module Tinybucket
     # @overload repos(options)
     #   get public repositories.
     #   @option options [Hash] a hash with options
-    # @return Tinybucket::Model::Page model instance.
+    # @return [Tinybucket::Enumerator] enumerator to enumerate repositories
+    #   as [Tinybucket::Model::Repository]
     def repos(*args)
       case args.size
       when 0
@@ -46,25 +39,36 @@ module Tinybucket
       end
     end
 
+    # Get the repository
+    #
+    # @param owner [String] repository owner name.
+    # @param repo_slug [String] repository slug. (about {https://confluence.atlassian.com/bitbucket/repositories-endpoint-423626330.html#repositoriesEndpoint-Overview
+    #     repo_slug})
+    # @return [Tinybucket::Model::Repository]
     def repo(owner, repo_slug)
       m = Tinybucket::Model::Repository.new({})
       m.repo_owner = owner
       m.repo_slug = repo_slug
-      m.api_config = config.dup
       m
     end
 
+    # Get the team
+    #
+    # @param teamname [String] the team name.
+    # @return [Tinybucket::Model::Team]
     def team(teamname)
       m = Tinybucket::Model::Team.new({})
       m.username = teamname
-      m.api_config = config.dup
       m
     end
 
+    # Get the user profile
+    #
+    # @param username [String] the user name.
+    # @return [Tinybucket::Model::Profile]
     def user(username)
       m = Tinybucket::Model::Profile.new({})
       m.username = username
-      m.api_config = config.dup
       m
     end
 
@@ -74,8 +78,11 @@ module Tinybucket
       options = args.empty? ? {} : args.first
       raise ArgumentError unless options.is_a?(Hash)
 
-      @repos ||= create_instance('Repos', options)
-      @repos.list(options)
+      enumerator(
+        repos_api,
+        :list,
+        options
+      )
     end
 
     def owners_repos(*args)
@@ -83,13 +90,25 @@ module Tinybucket
       options = (args.size == 2) ? args[1] : {}
       raise ArgumentError unless options.is_a?(Hash)
 
-      @user ||= create_instance('User', options)
-      @user.username = owner
-      @user.repos(options)
+      enumerator(
+        user_api(owner),
+        :repos,
+        options
+      )
     end
 
-    def create_instance(name, options)
-      ApiFactory.create_instance(name, config, options)
+    def repos_api
+      create_instance('Repos')
+    end
+
+    def user_api(owner)
+      api = create_instance('User')
+      api.username = owner
+      api
+    end
+
+    def create_instance(name)
+      ApiFactory.create_instance(name)
     end
   end
 end

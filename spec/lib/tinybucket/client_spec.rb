@@ -3,26 +3,11 @@ require 'spec_helper.rb'
 RSpec.describe Tinybucket::Client do
   include ApiResponseMacros
 
-  let(:client) { Tinybucket::Client.new({}) }
+  let(:client) { Tinybucket::Client.new }
 
   describe 'new' do
-    let(:options) { {} }
-
-    context 'without block' do
-      subject { Tinybucket::Client.new(options) }
-      it { expect(subject.config).to eq(options) }
-    end
-
-    context 'with block' do
-      subject do
-        Tinybucket::Client.new do |config|
-          options.each_pair do |key, value|
-            config.send("#{key}=", value)
-          end
-        end
-      end
-      it { expect(subject.config).to eq(options) }
-    end
+    subject { Tinybucket::Client.new }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Client) }
   end
 
   describe 'repos' do
@@ -31,12 +16,12 @@ RSpec.describe Tinybucket::Client do
 
       context 'without options' do
         subject { client.repos }
-        it { expect(subject).to be_instance_of(Tinybucket::Model::Page) }
+        it { expect(subject).to be_instance_of(Tinybucket::Enumerator) }
       end
       context 'with options' do
         subject { client.repos(options) }
         let(:options) { {} }
-        it { expect(subject).to be_instance_of(Tinybucket::Model::Page) }
+        it { expect(subject).to be_instance_of(Tinybucket::Enumerator) }
       end
     end
 
@@ -47,30 +32,30 @@ RSpec.describe Tinybucket::Client do
       context 'without options' do
         let(:request_path) { "/repositories/#{owner}" }
         subject { client.repos(owner) }
-        it { expect(subject).to be_instance_of(Tinybucket::Model::Page) }
+        it { expect(subject).to be_instance_of(Tinybucket::Enumerator) }
       end
       context 'with options' do
         let(:request_path) { "/repositories/#{owner}" }
         subject { client.repos(owner, options) }
         let(:options) { {} }
-        it { expect(subject).to be_instance_of(Tinybucket::Model::Page) }
+        it { expect(subject).to be_instance_of(Tinybucket::Enumerator) }
       end
     end
 
     context 'when invalid argument passed' do
       context 'with a integer' do
         subject { client.repos(20) }
-        it { expect { subject }.to raise_error }
+        it { expect { subject }.to raise_error(ArgumentError) }
       end
 
       context 'with a string and string' do
         subject { client.repos('test_owner', 'test_repository') }
-        it { expect { subject }.to raise_error }
+        it { expect { subject }.to raise_error(ArgumentError) }
       end
 
       context 'with three arguments' do
         subject { client.repos('a', 'b', 'c') }
-        it { expect { subject }.to raise_error }
+        it { expect { subject }.to raise_error(ArgumentError) }
       end
     end
   end

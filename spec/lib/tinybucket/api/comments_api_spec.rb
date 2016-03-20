@@ -27,9 +27,8 @@ RSpec.describe Tinybucket::Api::CommentsApi do
   end
 
   let(:commented_to) { nil }
-  let(:api_config) { {} }
   let(:api) do
-    api = Tinybucket::Api::CommentsApi.new(api_config)
+    api = Tinybucket::Api::CommentsApi.new
     api.repo_owner = owner
     api.repo_slug = slug
     api.commented_to = commented_to if commented_to.present?

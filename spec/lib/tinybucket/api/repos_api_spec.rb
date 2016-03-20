@@ -3,8 +3,7 @@ require 'spec_helper.rb'
 RSpec.describe Tinybucket::Api::ReposApi do
   include ApiResponseMacros
 
-  let(:api_config) { {} }
-  let(:api) { Tinybucket::Api::ReposApi.new(api_config) }
+  let(:api) { Tinybucket::Api::ReposApi.new }
 
   it { expect(api).to be_a_kind_of(Tinybucket::Api::BaseApi) }
 

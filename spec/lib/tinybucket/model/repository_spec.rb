@@ -52,7 +52,7 @@ RSpec.describe Tinybucket::Model::Repository do
 
     subject { model.pull_requests() }
 
-    it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Enumerator) }
   end
 
   describe '#pull_request' do
@@ -80,19 +80,19 @@ RSpec.describe Tinybucket::Model::Repository do
   describe '#watchers' do
     let(:request_path) { "/repositories/#{owner}/#{slug}/watchers" }
     subject { model.watchers }
-    it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Enumerator) }
   end
 
   describe '#forks' do
     let(:request_path) { "/repositories/#{owner}/#{slug}/forks" }
     subject { model.forks }
-    it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Enumerator) }
   end
 
   describe '#commits' do
     let(:request_path) { "/repositories/#{owner}/#{slug}/commits" }
     subject { model.commits }
-    it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Enumerator) }
   end
 
   describe '#commit' do
@@ -105,7 +105,7 @@ RSpec.describe Tinybucket::Model::Repository do
   describe '#branch_restrictions' do
     let(:request_path) { "/repositories/#{owner}/#{slug}/branch-restrictions" }
     subject { model.branch_restrictions }
-    it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Enumerator) }
   end
 
   describe '#branch_restriction' do

@@ -35,18 +35,18 @@ RSpec.describe Tinybucket::Model::Profile do
   describe 'followers' do
     let(:request_path) { "/users/#{username}/followers" }
     subject { model.followers() }
-    it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Enumerator) }
   end
 
   describe 'following' do
     let(:request_path) { "/users/#{username}/following" }
     subject { model.following }
-    it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Enumerator) }
   end
 
   describe 'repos' do
     let(:request_path) { "/repositories/#{username}" }
     subject { model.repos }
-    it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Enumerator) }
   end
 end

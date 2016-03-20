@@ -1,43 +1,63 @@
 module Tinybucket
   module Api
+    # User Api client
+    #
+    # @see https://confluence.atlassian.com/bitbucket/users-endpoint-423626336.html
+    #   users Endpoint
+    #
+    # @!attribute [rw] username
+    #   @return [String]
     class UserApi < BaseApi
       include Tinybucket::Api::Helper::UserHelper
 
       attr_accessor :username
 
+      # Send 'GET the user profile' request
+      #
+      # @param options [Hash]
+      # @return [Tinybucket::Model::Profile]
       def profile(options = {})
-        m = get_path(path_to_find,
-                     options,
-                     Tinybucket::Parser::ProfileParser)
-
-        inject_api_config(m)
+        get_path(
+          path_to_find,
+          options,
+          Tinybucket::Parser::ProfileParser
+        )
       end
 
+      # Send 'GET the list of followers' request
+      #
+      # @param options [Hash]
+      # @return [Tinybucket::Model::Page]
       def followers(options = {})
-        list = get_path(path_to_followers,
-                        options,
-                        Tinybucket::Parser::ProfilesParser)
-
-        list.next_proc = next_proc(:followers, options)
-        inject_api_config(list)
+        get_path(
+          path_to_followers,
+          options,
+          Tinybucket::Parser::ProfilesParser
+        )
       end
 
+      # Send 'GET a list of accounts the user is following' request
+      #
+      # @param options [Hash]
+      # @return [Tinybucket::Model::Page]
       def following(options = {})
-        list = get_path(path_to_following,
-                        options,
-                        Tinybucket::Parser::ProfilesParser)
-
-        list.next_proc = next_proc(:following, options)
-        inject_api_config(list)
+        get_path(
+          path_to_following,
+          options,
+          Tinybucket::Parser::ProfilesParser
+        )
       end
 
+      # Send 'GET the user's repositories' request
+      #
+      # @param options [Hash]
+      # @return [Tinybucket::Model::Page]
       def repos(options = {})
-        list = get_path(path_to_repos,
-                        options,
-                        Tinybucket::Parser::ReposParser)
-
-        list.next_proc = next_proc(:repos, options)
-        inject_api_config(list)
+        get_path(
+          path_to_repos,
+          options,
+          Tinybucket::Parser::ReposParser
+        )
       end
     end
   end

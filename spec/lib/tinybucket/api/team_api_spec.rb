@@ -3,11 +3,7 @@ require 'spec_helper'
 RSpec.describe Tinybucket::Api::TeamApi do
   include ApiResponseMacros
 
-  let(:api_config) { {} }
-  let(:api) do
-    Tinybucket::Api::TeamApi.new(api_config)
-  end
-
+  let(:api) { Tinybucket::Api::TeamApi.new }
   let(:teamname) { 'test_team' }
   let(:request_path) { nil }
   before { stub_apiresponse(:get, request_path) if request_path }
@@ -83,5 +79,4 @@ RSpec.describe Tinybucket::Api::TeamApi do
       it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
     end
   end
-
 end

@@ -8,9 +8,8 @@ RSpec.describe Tinybucket::Api::CommitsApi do
   let(:slug)  { 'test_repo' }
   let(:options) { {} }
 
-  let(:api_config) { {} }
   let(:api) do
-    api = Tinybucket::Api::CommitsApi.new(api_config)
+    api = Tinybucket::Api::CommitsApi.new
     api.repo_owner = owner
     api.repo_slug  = slug
     api

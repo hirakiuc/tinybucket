@@ -4,9 +4,10 @@ AllCops:
   Exclude:
     - 'app.rb'
     - 'spec/**/*'
+    - 'features/**/*'
     - 'test/**/*'
 
-Style/ClassLength:
+Metrics/ClassLength:
   Max: 150
 
 MethodLength:
