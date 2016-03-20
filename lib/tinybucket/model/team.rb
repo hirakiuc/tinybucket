@@ -24,8 +24,6 @@ module Tinybucket
     # @!attribute [rw] type
     #   @return [String]
     class Team < Base
-      include Tinybucket::Model::Concerns::Reloadable
-
       acceptable_attributes \
         :username, :kind, :website, :display_name, :uuid,
         :links, :created_on, :location, :type
