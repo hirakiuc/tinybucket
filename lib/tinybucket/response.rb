@@ -2,6 +2,6 @@ module Tinybucket
   module Response
     extend ActiveSupport::Autoload
 
-    autoload :ErrorHandler
+    autoload :Handler
   end
 end

@@ -4,5 +4,7 @@ module Tinybucket
 
     autoload :BaseError
     autoload :ServiceError
+    autoload :Conflict
+    autoload :NotFound
   end
 end
