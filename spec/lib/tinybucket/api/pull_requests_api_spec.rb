@@ -162,7 +162,20 @@ RSpec.describe Tinybucket::Api::PullRequestsApi do
       let(:request_path) do
         "/repositories/#{owner}/#{slug}/pullrequests/1/approve"
       end
-      it { expect(subject).to be_truthy }
+      context 'when pull request is not yet approved.' do
+        it { expect(subject).to be_truthy }
+      end
+      context 'when pull request is already approved.' do
+        let(:stub_options) do
+          {
+            status_code: 409,
+            message: JSON.generate(
+              error: { message: 'You already approved this pull request.' }
+            )
+          }
+        end
+        it { expect(subject).to be_truthy }
+      end
     end
   end
 
@@ -191,7 +204,25 @@ RSpec.describe Tinybucket::Api::PullRequestsApi do
       let(:request_path) do
         "/repositories/#{owner}/#{slug}/pullrequests/1/approve"
       end
-      it { expect(subject).to be_truthy }
+
+      context 'when pull request is approved' do
+        # In this case, bitbucket api respond '204 No content'.
+        let(:stub_options) { { status_code: 204, message: '' } }
+        it { expect(subject).to be_truthy }
+      end
+
+      context 'when pull request is not approved yet.' do
+        # In this case, bitbucket api respond '404 NotFound'.
+        let(:stub_options) do
+          {
+            status_code: 404,
+            message: JSON.generate(
+              error: { message: 'You haven\'t approve this pull request.' }
+            )
+          }
+        end
+        it { expect(subject).to be_truthy }
+      end
     end
   end
 

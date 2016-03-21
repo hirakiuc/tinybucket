@@ -10,8 +10,8 @@ module ApiResponseMacros
 
     stub_request(method, 'https://bitbucket.org/api/2.0' + path)
       .to_return(
-        status: 200,
-        body: fixture_json(method, path, ext),
+        status: (options[:status_code] || 200),
+        body: (options[:message] || fixture_json(method, path, ext)),
         headers: response_headers)
   end
 

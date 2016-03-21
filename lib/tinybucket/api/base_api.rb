@@ -3,6 +3,12 @@ module Tinybucket
     class BaseApi
       include Tinybucket::Connection
       include Tinybucket::Request
+
+      private
+
+      def logger
+        Tinybucket.logger
+      end
     end
   end
 end

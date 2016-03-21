@@ -55,12 +55,32 @@ module Tinybucket
 
       # Send 'POST a pull request approval' request
       #
+      # @note This method return true if this pull request already approved.
+      #
       # @param pr_id [String] The pull request identifier
       # @param options [Hash]
       # @return [true, false]
       def approve(pr_id, options = {})
         result = post_path(path_to_approve(pr_id), options)
         (result['approved'] == true)
+      rescue Tinybucket::Error::Conflict => e
+        logger.debug 'Already approved: ' + e.inspect
+        true
+      end
+
+      # Send 'DELETE a pull request approval' request
+      #
+      # @note This method return true if this pull request is not approved yet.
+      #
+      # @param pr_id [String] The pull request identifier
+      # @param options [Hash]
+      # @return [true]
+      def unapprove(pr_id, options = {})
+        delete_path(path_to_approve(pr_id), options)
+        true
+      rescue Tinybucket::Error::NotFound => e
+        logger.debug 'Already unapproved: ' + e.inspect
+        true
       end
 
       # Send 'Decline or reject a pull request' request
@@ -71,16 +91,6 @@ module Tinybucket
       def decline(pr_id, options = {})
         result = post_path(path_to_decline(pr_id), options)
         (result['state'] == 'DECLINED')
-      end
-
-      # Send 'DELETE a pull request approval' request
-      #
-      # @param pr_id [String] The pull request identifier
-      # @param options [Hash]
-      # @return [true, false]
-      def unapprove(pr_id, options = {})
-        result = delete_path(path_to_approve(pr_id), options)
-        (result['approved'] == false)
       end
 
       # Send 'Accept and merge a pull request' request

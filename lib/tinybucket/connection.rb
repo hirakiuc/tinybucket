@@ -42,7 +42,7 @@ module Tinybucket
 
         conn.response :follow_oauth_redirects, oauth_secrets
         conn.response :json, content_type: /\bjson$/
-        conn.use Tinybucket::Response::ErrorHandler
+        conn.use Tinybucket::Response::Handler
         conn.use :instrumentation
 
         conn.adapter Faraday.default_adapter
