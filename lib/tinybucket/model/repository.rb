@@ -50,6 +50,14 @@ module Tinybucket
         :has_issues, :is_private, :full_name, :name, :language,
         :website, :type
 
+      def initialize(json)
+        super(json)
+
+        if full_name && full_name.split('/').size == 2
+          @repo_owner, @repo_slug = full_name.split('/')
+        end
+      end
+
       # Create a new repository.
       #
       # @todo to be implemented.
