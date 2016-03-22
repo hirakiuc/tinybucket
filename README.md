@@ -58,8 +58,6 @@ end
 
 ### Pagination
 
-Bitbucket Cloud REST API supports [Paging through object collections](https://confluence.atlassian.com/bitbucket/version-2-423626329.html#Version2-Pagingthroughobjectcollections).
-
 After v1.0.0, tinybucket gem support [lazy enumerator](http://ruby-doc.org/core-2.2.0/Enumerator/Lazy.html) !
 
 This feature make your code more rubyish, like this.
@@ -74,15 +72,17 @@ repos = repos('my_name').select do |repo|
 end.map(&:full_name)
 ```
 
+This enumerable feature depends on [Paging through object collections](https://confluence.atlassian.com/bitbucket/version-2-423626329.html#Version2-Pagingthroughobjectcollections) at Bitbucket Cloud REST API.
+
 #### NOTE: About `size` attribute
 
-Bitbucket Cloud REST API support size attributes in [object collections wrapper](https://confluence.atlassian.com/bitbucket/version-2-423626329.html#Version2-Pagingthroughobjectcollections).
+[object collections wrapper](https://confluence.atlassian.com/bitbucket/version-2-423626329.html#Version2-Pagingthroughobjectcollections) has `size` attribute at Bitbucket Cloud REST API.
 
-In the document, `size` attribute is described that `an optional element that is not provided in all responses, as it can be expensive to compute.`.
+The `size` attribute describe as `optional` attribute.
 
-In tinybucket gem, collection size depend on [object collections wrapper](https://confluence.atlassian.com/bitbucket/version-2-423626329.html#Version2-Pagingthroughobjectcollections) in Bitbucket Cloud REST API.
+In tinybucket gem, collection size depend on `side` attribute of [object collections wrapper](https://confluence.atlassian.com/bitbucket/version-2-423626329.html#Version2-Pagingthroughobjectcollections) in Bitbucket Cloud REST API.
 
-So enumerator's `size` attribute return `nil`.
+So enumerator's `size` attribute may return `nil`.
 
 ### init
 
