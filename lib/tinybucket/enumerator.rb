@@ -1,5 +1,13 @@
 module Tinybucket
   class Enumerator < ::Enumerator
+    # Constructor
+    #
+    # This method create a enumerator to enumerate each items of iterator.
+    #
+    # @note This method return Lazy Enumerator if run on ruby 2.0.0 later.
+    #
+    # @param iterator [Tinybucket::Iterator] iterator instance.
+    # @param block [Proc] a proc object to handle each item.
     def initialize(iterator, block)
       @iterator = iterator
 
@@ -14,6 +22,11 @@ module Tinybucket
       lazy if lazy_enumerable?
     end
 
+    # Get collection size.
+    #
+    # @see Tinybucket::Iterator#size
+    #
+    # @return [Fixnum, NillClass] collection size.
     def size
       @iterator.size
     end

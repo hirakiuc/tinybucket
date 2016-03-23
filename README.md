@@ -56,11 +56,41 @@ Tinybucket.configure do |config|
 end
 ```
 
+### Pagination
+
+After v1.0.0, tinybucket gem support [lazy enumerator](http://ruby-doc.org/core-2.2.0/Enumerator/Lazy.html) !
+
+This feature make your code more rubyish, like this.
+
+```
+# get enumerator to enumerate repositories.
+repos = bucket.repos('myname')
+
+# Select repositories which has 2 pull requests to be reviewed.
+repos = repos('my_name').select do |repo|
+  repo.pull_requests.size > 2
+end.map(&:full_name)
+```
+
+This enumerable feature depends on [Paging through object collections](https://confluence.atlassian.com/bitbucket/version-2-423626329.html#Version2-Pagingthroughobjectcollections) at Bitbucket Cloud REST API.
+
+#### NOTE: About `size` attribute
+
+[object collections wrapper](https://confluence.atlassian.com/bitbucket/version-2-423626329.html#Version2-Pagingthroughobjectcollections) has `size` attribute at Bitbucket Cloud REST API.
+
+The `size` attribute describe as `optional` attribute.
+
+In tinybucket gem, collection size depend on `side` attribute of [object collections wrapper](https://confluence.atlassian.com/bitbucket/version-2-423626329.html#Version2-Pagingthroughobjectcollections) in Bitbucket Cloud REST API.
+
+So enumerator's `size` attribute may return `nil`.
+
 ### init
 
 ```
 bucket = Tinybucket.new
 ```
+
+### Endpoints
 
 #### teams Endpoint
 
