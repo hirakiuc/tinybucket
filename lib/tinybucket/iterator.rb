@@ -1,5 +1,14 @@
 module Tinybucket
+  # Iterator
+  #
+  # This iterator iterate items by sending request ot Bitbucket Cloud REST API.
   class Iterator
+    # Constructor
+    #
+    # @param api_client [Tinybucket::Api::Base] an instance of Api Client class.
+    # @param method [Symbol] method name to invoke api_client method.
+    # @param args [Array<Object>] arguments to pass method call of
+    #   api_client as arguments.
     def initialize(api_client, method, *args)
       @client = api_client
       @method = method
@@ -14,6 +23,16 @@ module Tinybucket
       next_value
     end
 
+    # Get collection size.
+    #
+    # @note This method return {https://confluence.atlassian.com/bitbucket/version-2-423626329.html#Version2-Pagingthroughobjectcollections
+    #   size attribute of object collection wrapper}.
+    #   So this method may return nil.
+    #
+    # @see https://confluence.atlassian.com/bitbucket/version-2-423626329.html#Version2-Pagingthroughobjectcollections
+    #   Paging through object collections
+    #
+    # @return [Fixnum, NillClas] collection size.
     def size
       load_next if next?
       @attrs[:size]
