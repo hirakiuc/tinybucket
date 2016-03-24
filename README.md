@@ -226,10 +226,10 @@ comments = commit.comments
 # [x] GET an individual commit comment
 comment = commit.comment(comment_id)
 
-# [ ] POST a commit approval
+# [x] POST a commit approval
   commit.approve
 
-# [ ] DELETE a commit approval
+# [x] DELETE a commit approval
   commit.unapprove
 ```
 

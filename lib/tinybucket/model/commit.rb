@@ -55,6 +55,22 @@ module Tinybucket
         comments_api.find(comment_id, options)
       end
 
+      # Give approval on this commit.
+      #
+      # @param options [Hash]
+      # @return [true, false]
+      def approve(options = {})
+        commit_api.approve(hash, options)
+      end
+
+      # Revoke approval on this commit.
+      #
+      # @param options [Hash]
+      # @return [true, false]
+      def unapprove(options = {})
+        commit_api.unapprove(hash, options)
+      end
+
       private
 
       def comments_api

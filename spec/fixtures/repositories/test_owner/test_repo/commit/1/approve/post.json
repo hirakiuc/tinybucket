@@ -1,0 +1,16 @@
+{
+    "role": "PARTICIPANT",
+    "user": {
+        "username": "evzijst",
+        "display_name": "Erik van Zijst",
+        "links": {
+            "self": {
+                "href": "https://api.bitbucket.org/2.0/users/evzijst"
+            },
+            "avatar": {
+                "href": "https://bitbucket-staging-assetroot.s3.amazonaws.com/c/photos/2013/Oct/28/evzijst-avatar-3454044670-3_avatar.png"
+            }
+        }
+    },
+    "approved": true
+}

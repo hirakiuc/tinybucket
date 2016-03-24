@@ -45,6 +45,32 @@ module Tinybucket
           Tinybucket::Parser::CommitParser
         )
       end
+
+      # Send 'POST a commit approval' request
+      #
+      # @param revision [String]
+      # @param options [Hash]
+      # @return [true, false]
+      def approve(revision, options = {})
+        result = post_path(path_to_approve(revision), options)
+        (result['approved'] == true)
+      rescue Tinybucket::Error::Conflict => e
+        logger.debug 'Already approved: ' + e.inspect
+        true
+      end
+
+      # Send 'DELETE a commit approval' request
+      #
+      # @param revision [String]
+      # @param options [Hash]
+      # @return [true, false]
+      def unapprove(revision, options = {})
+        delete_path(path_to_approve(revision), options)
+        true
+      rescue Tinybucket::Error::NotFound => e
+        logger.debug 'Already unapproved: ' + e.inspect
+        true
+      end
     end
   end
 end
