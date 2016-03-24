@@ -20,7 +20,15 @@ RSpec.describe Tinybucket::Model::Commit do
     m
   end
 
-  before { stub_apiresponse(:get, request_path) if request_path }
+  let(:request_method) { :get }
+  let(:stub_options) { nil }
+
+  before do
+    if request_path
+      opts = stub_options.present? ? stub_options : {}
+      stub_apiresponse(request_method, request_path, opts)
+    end
+  end
 
   it_behaves_like 'model has acceptable_attributes',
                   Tinybucket::Model::Commit,
@@ -58,10 +66,25 @@ RSpec.describe Tinybucket::Model::Commit do
   end
 
   describe '#approve' do
-    pending 'TODO implement method'
+    let(:request_method) { :post }
+    let(:request_path) do
+      "/repositories/#{owner}/#{slug}/commit/1/approve"
+    end
+
+    subject { model.approve }
+
+    it { expect(subject).to be_truthy }
   end
 
   describe '#unapprove' do
-    pending 'TODO implement method'
+    let(:request_method) { :delete }
+    let(:request_path) do
+      "/repositories/#{owner}/#{slug}/commit/1/approve"
+    end
+    let(:stub_options) { { status_code: 204, message: '' } }
+
+    subject { model.unapprove }
+
+    it { expect(subject).to be_truthy }
   end
 end
