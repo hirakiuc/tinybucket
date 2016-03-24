@@ -43,7 +43,7 @@ This gem use built-in null_logger in default.
 
 If you want to set your logger, configure like this.
 
-```
+```ruby
 logger = Logger.new($stdout)
 logger.level = Logger::WARN
 
@@ -62,7 +62,7 @@ After v1.0.0, tinybucket gem support [lazy enumerator](http://ruby-doc.org/core-
 
 This feature make your code more rubyish, like this.
 
-```
+```ruby
 # get enumerator to enumerate repositories.
 repos = bucket.repos('myname')
 
@@ -86,7 +86,7 @@ So enumerator's `size` attribute may return `nil`.
 
 ### init
 
-```
+```ruby
 bucket = Tinybucket.new
 ```
 
@@ -94,7 +94,7 @@ bucket = Tinybucket.new
 
 #### teams Endpoint
 
-```
+```ruby
 # [x] GET the team profile
 team = bucket.team('team name')
 
@@ -113,7 +113,7 @@ repos = team.repos
 
 #### users Endpoint
 
-```
+```ruby
 # [x] GET the user profile
 user = bucket.user('user name')
 
@@ -129,7 +129,7 @@ repos = user.repos
 
 #### repositories Endpoint
 
-```
+```ruby
 # [x] GET a list of all public repositories
 repos = bucket.repos
 
@@ -139,7 +139,7 @@ repos  = bucket.repos('someone')
 
 ##### repository Resource
 
-```
+```ruby
 # [x] GET a repository
 repo = bucket.repo('someone', 'great_repo')
 
@@ -162,7 +162,7 @@ repos = repo.forks
 
 ##### pullrequests Resource
 
-```
+```ruby
 repo = bucket.repo('someone', 'great_repo')
 
 # [x] GET a list of open pull requests
@@ -210,7 +210,7 @@ comment = pull_request.comment(comment_id)
 
 ##### commits or commit Resource
 
-```
+```ruby
 repo = bucket.repo('someone', 'great_repo')
 
 # [x] GET a commits list for a repository or compare commits across branches
@@ -235,7 +235,7 @@ comment = commit.comment(comment_id)
 
 ##### branch-restrictions Resource
 
-```
+```ruby
 repo = bucket.repo('someone', 'great_repo').find
 
 # [x] GET the branch-restrictions
@@ -256,7 +256,7 @@ restriction = repo.branch_restriction(restriction_id)
 
 ##### diff Resource
 
-```
+```ruby
 repo = bucket.repo('someone', 'great_repo').find
 COMMIT_ID = '7e968c5'
 
