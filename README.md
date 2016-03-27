@@ -37,17 +37,12 @@ NOTE: `x` mark means `Already implemented.`.
 
 ### Configure
 
-#### Configure logger
-
-This gem use built-in null_logger in default.
-
-If you want to set your logger, configure like this.
-
 ```ruby
 logger = Logger.new($stdout)
 logger.level = Logger::WARN
 
 Tinybucket.configure do |config|
+  # set your logger if you want.
   config.logger = logger
 
   # configure oauth_token/oauth_secret
