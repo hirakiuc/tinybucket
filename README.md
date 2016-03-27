@@ -10,7 +10,7 @@ This gem is inspired by [vongrippen/bitbucket](https://github.com/vongrippen/bit
 [![Gem Version](https://badge.fury.io/rb/tinybucket.svg)](https://badge.fury.io/rb/tinybucket)
 [![Build Status](https://travis-ci.org/hirakiuc/tinybucket.svg?branch=master)](https://travis-ci.org/hirakiuc/tinybucket)
 [![Code Climate](https://codeclimate.com/github/hirakiuc/tinybucket/badges/gpa.svg)](https://codeclimate.com/github/hirakiuc/tinybucket)
-[![Coverage Status](https://coveralls.io/repos/hirakiuc/tinybucket/badge.png?branch=master)](https://coveralls.io/r/hirakiuc/tinybucket?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/hirakiuc/tinybucket/badge.svg?branch=master)](https://coveralls.io/github/hirakiuc/tinybucket?branch=master)
 [![Inline docs](http://inch-ci.org/github/hirakiuc/tinybucket.svg?branch=master)](http://inch-ci.org/github/hirakiuc/tinybucket)
 
 [yard doc](http://www.rubydoc.info/github/hirakiuc/tinybucket/master) (master branch)
