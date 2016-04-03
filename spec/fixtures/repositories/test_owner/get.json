@@ -74,5 +74,5 @@
     }
   ],
   "page": 1,
-  "next": "https://api.bitbucket.org/2.0/repositories?pagelen=1&after=2013-09-26T23%3A01%3A01.638828%2B00%3A00&page=2"
+  "next": "https://api.bitbucket.org/2.0/repositories/test_owner?pagelen=1&after=2013-09-26T23%3A01%3A01.638828%2B00%3A00&page=2"
 }

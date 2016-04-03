@@ -5,6 +5,7 @@ module Tinybucket
 
       [
         :AcceptableAttributes,
+        :ApiCallable,
         :Enumerable,
         :RepositoryKeys,
         :Reloadable

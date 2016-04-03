@@ -55,14 +55,6 @@ module Tinybucket
         :created_on, :author, :updated_on, :merge_commit, :closed_by,
         :reviewers, :participants, :uuid, :type
 
-      # Create a new pull request.
-      #
-      # @todo to be implemented.
-      # @raise [NotImplementedError] to be implemented.
-      def create(_params)
-        raise NotImplementedError
-      end
-
       # Update this pull request.
       #
       # @todo to be implemented.
@@ -98,36 +90,26 @@ module Tinybucket
       # Get commits associated with this pull request.
       #
       # @param options [Hash]
-      # @return [Tinybucket::Enumerator] enumerator to enumerate commits
-      #   as {Tinybucket::Model::Commit} instance.
+      # @return [Tinybucket::Resource::PullRequest::Commits]
       def commits(options = {})
-        enumerator(
-          pull_request_api,
-          :commits,
-          id,
-          options
-        ) { |m| block_given? ? yield(m) : m }
+        commits_resource(options)
       end
 
       # Get comments on this pull request.
       #
       # @param options [Hash]
-      # @return [Tinybucket::Enumerator] enumerator to enumerate comments
-      #   as {Tinybucket::Model::Comment} instance.
+      # @return [Tinybucket::Resource::PullRequest::Comments]
       def comments(options = {})
-        enumerator(
-          comment_api,
-          :list,
-          options
-        ) { |m| block_given? ? yield(m) : m }
+        comments_resource(options)
       end
 
       # Get the specific comment on this pull request.
       #
+      # @param comment_id [String]
       # @param options [Hash]
       # @return [Tinybucket::Model::Comment]
       def comment(comment_id, options = {})
-        comment_api.find(comment_id, options)
+        comments_resource.find(comment_id, options)
       end
 
       # Get the diff for this pull request.
@@ -146,12 +128,20 @@ module Tinybucket
         pull_request_api.merge(id, options)
       end
 
+      # Get activities on this pull requests.
+      #
+      def activities(_options = {})
+        raise NotImplementedError
+      end
+
       private
 
-      def comment_api
-        api = create_api('Comments', repo_keys)
-        api.commented_to = self
-        api
+      def commits_resource(options = {})
+        Tinybucket::Resource::PullRequest::Commits.new(self, options)
+      end
+
+      def comments_resource(options = {})
+        Tinybucket::Resource::PullRequest::Comments.new(self, options)
       end
 
       def pull_request_api

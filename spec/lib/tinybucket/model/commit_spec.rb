@@ -51,7 +51,9 @@ RSpec.describe Tinybucket::Model::Commit do
       "/repositories/#{owner}/#{slug}/commit/1/comments"
     end
     subject { model.comments }
-    it { expect(subject).to be_an_instance_of(Tinybucket::Enumerator) }
+    it 'return resource' do
+      expect(subject).to be_an_instance_of(Tinybucket::Resource::Commit::Comments)
+    end
   end
 
   describe '#comment' do

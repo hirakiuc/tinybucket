@@ -52,47 +52,38 @@ RSpec.describe Tinybucket::Model::Repository do
 
     subject { model.pull_requests() }
 
-    it { expect(subject).to be_an_instance_of(Tinybucket::Enumerator) }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Resource::PullRequests) }
   end
 
   describe '#pull_request' do
     let(:prid) { 1 }
 
-    describe 'with pull_request_id' do
-      subject { model.pull_request(prid) }
-      let(:request_path) do
-        "/repositories/#{owner}/#{slug}/pullrequests/#{prid}"
-      end
-      it 'return the specific pull_request model' do
-        expect(subject).to be_an_instance_of(Tinybucket::Model::PullRequest)
-        expect(subject.id).to eq(prid)
-      end
+    subject { model.pull_request(prid) }
+    let(:request_path) do
+      "/repositories/#{owner}/#{slug}/pullrequests/#{prid}"
     end
-    describe 'without pull_request_id' do
-      subject { model.pull_request }
-      it 'return new pull_request model' do
-        expect(subject).to be_an_instance_of(Tinybucket::Model::PullRequest)
-        expect(subject.id).to be_nil
-      end
+    it 'return the specific pull_request model' do
+      expect(subject).to be_an_instance_of(Tinybucket::Model::PullRequest)
+      expect(subject.id).to eq(prid)
     end
   end
 
   describe '#watchers' do
     let(:request_path) { "/repositories/#{owner}/#{slug}/watchers" }
     subject { model.watchers }
-    it { expect(subject).to be_an_instance_of(Tinybucket::Enumerator) }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Resource::Watchers) }
   end
 
   describe '#forks' do
     let(:request_path) { "/repositories/#{owner}/#{slug}/forks" }
     subject { model.forks }
-    it { expect(subject).to be_an_instance_of(Tinybucket::Enumerator) }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Resource::Forks) }
   end
 
   describe '#commits' do
     let(:request_path) { "/repositories/#{owner}/#{slug}/commits" }
     subject { model.commits }
-    it { expect(subject).to be_an_instance_of(Tinybucket::Enumerator) }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Resource::Commits) }
   end
 
   describe '#commit' do
@@ -105,7 +96,10 @@ RSpec.describe Tinybucket::Model::Repository do
   describe '#branch_restrictions' do
     let(:request_path) { "/repositories/#{owner}/#{slug}/branch-restrictions" }
     subject { model.branch_restrictions }
-    it { expect(subject).to be_an_instance_of(Tinybucket::Enumerator) }
+    it 'return resource model' do
+      expect(subject).to be_an_instance_of(
+        Tinybucket::Resource::BranchRestrictions)
+    end
   end
 
   describe '#branch_restriction' do

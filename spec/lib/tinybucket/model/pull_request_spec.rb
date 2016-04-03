@@ -94,7 +94,7 @@ RSpec.describe Tinybucket::Model::PullRequest do
 
     subject { model.commits() }
 
-    it { expect(subject).to be_an_instance_of(Tinybucket::Enumerator) }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Resource::PullRequest::Commits) }
   end
 
   describe 'comments' do
@@ -103,19 +103,7 @@ RSpec.describe Tinybucket::Model::PullRequest do
     end
 
     subject { model.comments }
-
-    it { expect(subject).to be_an_instance_of(Tinybucket::Enumerator) }
-    it 'return comments which associate with this pull request' do
-      # extract iterator from enumerator.
-      iterator = subject.instance_variable_get(:@iterator)
-      # extract values from iterator.
-      values = iterator.instance_variable_get(:@values)
-
-      values.each do |comment|
-        expect(comment).to be_an_instance_of(Tinybucket::Model::Comment)
-        expect(comment.commented_to).to eq(model)
-      end
-    end
+    it { expect(subject).to be_an_instance_of(Tinybucket::Resource::PullRequest::Comments) }
   end
 
   describe 'comment' do
@@ -138,8 +126,8 @@ RSpec.describe Tinybucket::Model::PullRequest do
       "/repositories/#{owner}/#{slug}/pullrequests/1/diff"
     end
     it { expect(subject).to be_instance_of(String) }
-
   end
+
   describe 'merge' do
     let(:request_method) { :post }
     let(:request_path) do

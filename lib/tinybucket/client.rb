@@ -17,23 +17,22 @@ module Tinybucket
     # @overload repos(options)
     #   get public repositories.
     #   @option options [Hash] a hash with options
-    # @return [Tinybucket::Enumerator] enumerator to enumerate repositories
-    #   as [Tinybucket::Model::Repository]
+    # @return [Tinybucket::Resource::Repos] repository resource
     def repos(*args)
       case args.size
       when 0
-        public_repos(*args)
+        public_repos
       when 1
         case args.first
         when Hash
-          public_repos(*args)
+          public_repos(args.first)
         when String, Symbol
-          owners_repos(*args)
+          owners_repos(args.first)
         else
           raise ArgumentError
         end
       when 2
-        owners_repos(*args)
+        owners_repos(args[0], args[1])
       else
         raise ArgumentError
       end
@@ -46,10 +45,10 @@ module Tinybucket
     #     repo_slug})
     # @return [Tinybucket::Model::Repository]
     def repo(owner, repo_slug)
-      m = Tinybucket::Model::Repository.new({})
-      m.repo_owner = owner
-      m.repo_slug = repo_slug
-      m
+      Tinybucket::Model::Repository.new({}).tap do |m|
+        m.repo_owner = owner
+        m.repo_slug = repo_slug
+      end
     end
 
     # Get the team
@@ -57,9 +56,9 @@ module Tinybucket
     # @param teamname [String] the team name.
     # @return [Tinybucket::Model::Team]
     def team(teamname)
-      m = Tinybucket::Model::Team.new({})
-      m.username = teamname
-      m
+      Tinybucket::Model::Team.new({}).tap do |m|
+        m.username = teamname
+      end
     end
 
     # Get the user profile
@@ -67,48 +66,32 @@ module Tinybucket
     # @param username [String] the user name.
     # @return [Tinybucket::Model::Profile]
     def user(username)
-      m = Tinybucket::Model::Profile.new({})
-      m.username = username
-      m
+      Tinybucket::Model::Profile.new({}).tap do |m|
+        m.username = username
+      end
     end
 
     private
 
-    def public_repos(*args)
-      options = args.empty? ? {} : args.first
+    # Get public repositories
+    #
+    # @param options [Hash]
+    # @return [Tinybucket::Resource::Repos]
+    def public_repos(options = {})
       raise ArgumentError unless options.is_a?(Hash)
 
-      enumerator(
-        repos_api,
-        :list,
-        options
-      )
+      Tinybucket::Resource::Repos.new(nil, options)
     end
 
-    def owners_repos(*args)
-      owner = args.first
-      options = (args.size == 2) ? args[1] : {}
+    # Get Owner's repositories
+    #
+    # @param owner [String]
+    # @param options [Hash]
+    # @return [Tinybucket::Resource::Repos]
+    def owners_repos(owner, options = {})
       raise ArgumentError unless options.is_a?(Hash)
 
-      enumerator(
-        user_api(owner),
-        :repos,
-        options
-      )
-    end
-
-    def repos_api
-      create_instance('Repos')
-    end
-
-    def user_api(owner)
-      api = create_instance('User')
-      api.username = owner
-      api
-    end
-
-    def create_instance(name)
-      ApiFactory.create_instance(name)
+      Tinybucket::Resource::Repos.new(owner, options)
     end
   end
 end

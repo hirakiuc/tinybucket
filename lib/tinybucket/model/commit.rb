@@ -39,11 +39,7 @@ module Tinybucket
       # @return [Tinybucket::Enumerator] enumerator to enumerate comments
       #   as {Tinybucket::Model::Comment} instance.
       def comments(options = {})
-        enumerator(
-          comments_api,
-          :list,
-          options
-        ) { |m| block_given? ? yield(m) : m }
+        comments_resource(options)
       end
 
       # Get the specific commit comment which associate with this commit.
@@ -52,7 +48,7 @@ module Tinybucket
       # @param options [Hash]
       # @return [Tinybucket::Model::Comment]
       def comment(comment_id, options = {})
-        comments_api.find(comment_id, options)
+        comments_resource.find(comment_id, options)
       end
 
       # Give approval on this commit.
@@ -73,12 +69,8 @@ module Tinybucket
 
       private
 
-      def comments_api
-        raise ArgumentError, MISSING_REPOSITORY_KEY unless repo_keys?
-
-        api = create_api('Comments', repo_keys)
-        api.commented_to = self
-        api
+      def comments_resource(options = {})
+        Tinybucket::Resource::Commit::Comments.new(self, options)
       end
 
       def commit_api

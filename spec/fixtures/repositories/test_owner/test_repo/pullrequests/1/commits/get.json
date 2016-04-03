@@ -1,6 +1,6 @@
 {
     "pagelen": 1,
-    "next": "https://api.bitbucket.org/2.0/repositories/bitbucket/bitbucket/pullrequests/3764/commits?pagelen=1&page=2",
+    "next": "https://api.bitbucket.org/2.0/repositories/test_owner/test_repo/pullrequests/1/commits?pagelen=1&page=2",
     "values": [{
         "hash": "ad758aeba36fa4b9d258ac1667f55cfb811e6df3",
         "links": {

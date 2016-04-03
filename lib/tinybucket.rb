@@ -31,6 +31,7 @@ require 'tinybucket/model/concerns'
 require 'tinybucket/model'
 require 'tinybucket/parser'
 require 'tinybucket/request'
+require 'tinybucket/resource'
 require 'tinybucket/response'
 
 require 'tinybucket/client'

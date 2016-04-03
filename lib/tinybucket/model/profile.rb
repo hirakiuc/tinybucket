@@ -31,50 +31,33 @@ module Tinybucket
       # Get this user's followers
       #
       # @param options [Hash]
-      # @return [Tinybucket::Enumerator] enumerator to enumerate followers
-      #   as {Tinybucket::Model::Profile} instance.
+      # @return [Tinybucket::Resource::User::Followers]
       def followers(options = {})
-        enumerator(
-          user_api,
-          :followers,
-          options
-        ) { |m| block_given? ? yield(m) : m }
+        Tinybucket::Resource::User::Followers.new(username, options)
       end
 
       # Get users which this user is following
       #
       # @param options [Hash]
-      # @return [Tinybucket::Enumerator] an enumerator to enumerate followings
-      #   as {Tinybucket::Model::Profile} instance.
+      # @return [Tinybucket::Resource::User::Following]
       def following(options = {})
-        enumerator(
-          user_api,
-          :following,
-          options
-        ) { |m| block_given? ? yield(m) : m }
+        Tinybucket::Resource::User::Following.new(username, options)
       end
 
       # Get this user's repositories
       #
       # @param options [Hash]
-      # @return [Tinybucket::Enumerator] an enumerator to enumerate repositories
-      #   as {Tinybucket::Model::Repository} instance.
+      # @return [Tinybucket::Resource::User::Repos]
       def repos(options = {})
-        enumerator(
-          user_api,
-          :repos,
-          options
-        ) { |m| block_given? ? yield(m) : m }
+        Tinybucket::Resource::User::Repos.new(username, options)
       end
 
       private
 
       def user_api
-        return @user if @user
-
-        @user = create_instance('User')
-        @user.username = username
-        @user
+        create_api('User').tap do |api|
+          api.username = username
+        end
       end
 
       def load_model

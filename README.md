@@ -134,6 +134,17 @@ repos  = bucket.repos('someone')
 
 ##### repository Resource
 
+###### Collection Methods
+
+```ruby
+repos = bucket.repos('myname')
+
+# [ ] POST a new repository
+repos.create(params)
+```
+
+###### Object Methods
+
 ```ruby
 # [x] GET a repository
 repo = bucket.repo('someone', 'great_repo')
@@ -142,11 +153,8 @@ repo = bucket.repo('someone', 'great_repo')
 # (Load the repository attributes from Bitbucket WebAPI)
 repo.load
 
-# [ ] POST a new repository
-    repo.create(params)
-
 # [ ] DELETE a repository
-    repo.destroy
+repo.destroy
 
 # [x] GET a list of watchers
 watchers = repo.watchers
@@ -157,44 +165,52 @@ repos = repo.forks
 
 ##### pullrequests Resource
 
+###### Collection Methods
+
 ```ruby
 repo = bucket.repo('someone', 'great_repo')
 
-# [x] GET a list of open pull requests
+# [x ] GET a list of pull requests
 pull_requests = repo.pull_requests(options)
 
-# [x] GET a specific pull request
-pull_request   = repo.pull_request(pr_id)
-
 # [ ] POST (create) a new pull request
-     repo.pull_request.create(params)
+pull_requests.create(params)
+
+# [ ] GET the log of all of a repository's pull request activity
+activities = pull_requests.activities(options)
+```
+
+###### Object Methods
+
+```ruby
+repo = bucket.repo('someone', 'great_repo')
+
+# [x] GET a specific pull request
+pull_request = repo.pull_request(pr_id)
 
 # [ ] PUT a pull request update
-     repo.pull_request(pr_id).update(params)
+pull_request.update(params)
 
 # [x] GET the commits for a pull request
 commits = pull_request.commits
 
 # [x] POST a pull request approval
-          pull_request.approve
+pull_request.approve
 
 # [x] DELETE a pull request approval
-          pull_request.unapprove
+pull_request.unapprove
 
 # [x] GET the diff for a pull request
 diff = pull_request.diff
-
-# [ ] GET the log of all of a repository's pull request activity
-activities = repo.pull_requests_activities(options) # TODO: fix method name.
 
 # [ ] GET the activity for a pull request
 activities = pull_request.activities(options)
 
 # [x] Accept and merge a pull request
-             pull_request.merge(options)
+pull_request.merge(options)
 
 # [x] Decline or reject a pull request
-             pull_request.decline(options)
+pull_request.decline(options)
 
 # [x] GET a list of pull request comments
 comments = pull_request.comments
@@ -205,12 +221,20 @@ comment = pull_request.comment(comment_id)
 
 ##### commits or commit Resource
 
+###### Collection Methods
+
 ```ruby
 repo = bucket.repo('someone', 'great_repo')
 
 # [x] GET a commits list for a repository or compare commits across branches
 # branchortag, include, exclude options
 commits = repo.commits(options)
+```
+
+###### Object Methods
+
+```ruby
+repo = bucket.repo('someone', 'great_repo')
 
 # [x] GET an individual commit
 commit = repo.commit('revision')
@@ -222,13 +246,15 @@ comments = commit.comments
 comment = commit.comment(comment_id)
 
 # [x] POST a commit approval
-  commit.approve
+commit.approve
 
 # [x] DELETE a commit approval
-  commit.unapprove
+commit.unapprove
 ```
 
 ##### branch-restrictions Resource
+
+###### Collection Methods
 
 ```ruby
 repo = bucket.repo('someone', 'great_repo').find
@@ -237,16 +263,22 @@ repo = bucket.repo('someone', 'great_repo').find
 restrictions = repo.branch_restrictions
 
 # [ ] POST the branch-restrictions
-  repo.create_branch_restrictions(restrictions)
+new_restriction = restrictions.create(params)
+```
+
+###### Object Methods
+
+```ruby
+repo = bucket.repo('someone', 'great_repo').find
 
 # [x] GET a specific restriction
 restriction = repo.branch_restriction(restriction_id)
 
 # [ ] PUT a branch restriction update
-  restriction.update(params)
+restriction.update(params)
 
 # [ ] DELETE the branch restriction
-  restriction.destroy
+restriction.destroy
 ```
 
 ##### diff Resource
