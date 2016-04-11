@@ -1,6 +1,6 @@
 {
   "pagelen": 2,
-  "next": "https://bitbucket.org/api/2.0/repositories/tutorials/tutorials.bitbucket.org/watchers?pagelen=2&page=2",
+  "next": "https://api.bitbucket.org/2.0/repositories/tutorials/tutorials.bitbucket.org/watchers?pagelen=2&page=2",
   "values": [
     {
       "username": "tutorials",

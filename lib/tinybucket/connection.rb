@@ -25,7 +25,7 @@ module Tinybucket
           USER_AGENT: 'test client' # TODO: fix this !
         },
         ssl: { verify: false },
-        url: 'https://bitbucket.org/api/2.0'.freeze
+        url: 'https://api.bitbucket.org/2.0'.freeze
       }
     end
 
