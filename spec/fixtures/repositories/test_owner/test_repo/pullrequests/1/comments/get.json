@@ -1,6 +1,6 @@
 {
     "pagelen": 1,
-    "next": "https://bitbucket.org/api/2.0/repositories/bitbucket/bitbucket/pullrequests/3767/comments?pagelen=1&page=2",
+    "next": "https://api.bitbucket.org/2.0/repositories/bitbucket/bitbucket/pullrequests/3767/comments?pagelen=1&page=2",
     "values": [{
         "parent": {
             "id": 25334,
