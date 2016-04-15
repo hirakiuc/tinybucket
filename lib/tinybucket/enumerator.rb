@@ -10,12 +10,13 @@ module Tinybucket
     # @param block [Proc] a proc object to handle each item.
     def initialize(iterator, block)
       @iterator = iterator
+      @block = block
 
       super() do |y|
         loop do
-          m = y.yield(@iterator.next)
-          m = block.call(m) if block
-          m
+          v = @iterator.next
+          m = @block ? @block.call(v) : v
+          y.yield(m)
         end
       end
 

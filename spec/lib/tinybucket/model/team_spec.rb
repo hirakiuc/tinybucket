@@ -35,24 +35,36 @@ RSpec.describe Tinybucket::Model::Team do
   describe '#members' do
     let(:request_path) { "/teams/#{teamname}/members" }
     subject { model.members }
-    it { expect(subject).to be_an_instance_of(Tinybucket::Enumerator) }
+    it 'return resource' do
+      expect(subject).to be_an_instance_of(
+        Tinybucket::Resource::Team::Members)
+    end
   end
 
   describe '#followers' do
     let(:request_path) { "/teams/#{teamname}/followers" }
     subject { model.followers() }
-    it { expect(subject).to be_an_instance_of(Tinybucket::Enumerator) }
+    it 'return resource' do
+      expect(subject).to be_an_instance_of(
+        Tinybucket::Resource::Team::Followers)
+    end
   end
 
   describe '#following' do
     let(:request_path) { "/teams/#{teamname}/following" }
     subject { model.following }
-    it { expect(subject).to be_an_instance_of(Tinybucket::Enumerator) }
+    it 'return resource' do
+      expect(subject).to be_an_instance_of(
+        Tinybucket::Resource::Team::Following)
+    end
   end
 
   describe '#repos' do
     let(:request_path) { "/teams/#{teamname}/repositories" }
     subject { model.repos }
-    it { expect(subject).to be_an_instance_of(Tinybucket::Enumerator) }
+    it 'return resource' do
+      expect(subject).to be_an_instance_of(
+        Tinybucket::Resource::Team::Repos)
+    end
   end
 end

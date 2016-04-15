@@ -1,6 +1,6 @@
 {
     "pagelen": 1,
-    "next": "https://api.bitbucket.org/2.0/repositories/bitbucket/bitbucket/pullrequests?pagelen=1&page=2",
+    "next": "https://api.bitbucket.org/2.0/repositories/test_owner/test_repo/pullrequests?pagelen=1&page=2",
     "values": [{
         "description": "![img](https://cloudup.com/c7ZJtChLw9J+)\r\n\r\n## Removing:\r\n\r\n* Notifications\r\n* Email\r\n* Change password\r\n* Sessions\r\n\r\n## Renaming: \r\n\r\n* Change username\r\n* Delete account (rename to delete team)\r\n\r\n",
         "links": {

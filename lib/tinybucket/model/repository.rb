@@ -58,14 +58,6 @@ module Tinybucket
         end
       end
 
-      # Create a new repository.
-      #
-      # @todo to be implemented.
-      # @raise [NotImplementedError] to be implemented.
-      def create(_params)
-        raise NotImplementedError
-      end
-
       # Remove this repository
       #
       # @todo to be implemented.
@@ -80,14 +72,7 @@ module Tinybucket
       # @return [Tinybucket::Enumerator] an enumerator to enumerate
       #   pull requests as {Tinybucket::Model::PullRequest} instance.
       def pull_requests(options = {})
-        enumerator(
-          pull_requests_api,
-          :list,
-          options
-        ) do |m|
-          inject_repo_keys(m)
-          block_given? ? yield(m) : m
-        end
+        pull_requests_resource(options)
       end
 
       # Get the specific pull request on this repository.
@@ -95,61 +80,32 @@ module Tinybucket
       # @param pullrequest_id [String]
       # @param options [Hash]
       # @return [Tinybucket::Model::PullRequest]
-      def pull_request(pullrequest_id = nil, options = {})
-        m = if pullrequest_id.present?
-              pull_requests_api.find(pullrequest_id, options)
-            else
-              Tinybucket::Model::PullRequest.new({})
-            end
-        inject_repo_keys(m)
+      def pull_request(pullrequest_id, options = {})
+        pull_requests_resource.find(pullrequest_id, options)
       end
 
       # Get watchers on this repository.
       #
       # @param options [Hash]
-      # @return [Tinybucket::Enumerator] an enumerator to enumerate watchers
-      #   as {Tinybucket::Model::Profile} instance.
+      # @return [Tinybucket::Resource::Watchers]
       def watchers(options = {})
-        enumerator(
-          repo_api,
-          :watchers,
-          options
-        ) do |m|
-          inject_repo_keys(m)
-          block_given? ? yield(m) : m
-        end
+        watchers_resource(options)
       end
 
       # Get repository forks.
       #
       # @param options [Hash]
-      # @return [Tinybucket::Enumerator] an enumerator to enumerate forks
-      #   as {Tinybucket::Model::Repository} instance.
+      # @return [Tinybucket::Resource::Forks]
       def forks(options = {})
-        enumerator(
-          repo_api,
-          :forks,
-          options
-        ) do |m|
-          inject_repo_keys(m)
-          block_given? ? yield(m) : m
-        end
+        forks_resource(options)
       end
 
       # Get commits on this repository.
       #
       # @param options [Hash]
-      # @return [Tinybucket::Enumerator] an enumerator to enumerate commits
-      #   as {Tinybucket::Model::Commit} instance.
+      # @return [Tinybucket::Resource::Commits]
       def commits(options = {})
-        enumerator(
-          commits_api,
-          :list,
-          options
-        ) do |m|
-          inject_repo_keys(m)
-          block_given? ? yield(m) : m
-        end
+        commits_resource(options)
       end
 
       # Get the specific commit on this repository.
@@ -158,25 +114,15 @@ module Tinybucket
       # @param options [Hash]
       # @return [Tinybucket::Model::Commit]
       def commit(revision, options = {})
-        m = commits_api.find(revision, options)
-        inject_repo_keys(m)
+        commits_resource.find(revision, options)
       end
 
       # Get the branch restriction information associated with this repository.
       #
       # @param options [Hash]
-      # @return [Tinybucket::Enumerator] an enumerator to enumerate
-      #   branch restriction information as
-      #   {Tinybucket::Model::BranchRestriction} instance.
+      # @return [Tinybucket::Resource::BranchRestrictions]
       def branch_restrictions(options = {})
-        enumerator(
-          restrictions_api,
-          :list,
-          options
-        ) do |m|
-          inject_repo_keys(m)
-          block_given? ? yield(m) : m
-        end
+        branch_restrictions_resource(options)
       end
 
       # Get the specific branch restriction information on this repository.
@@ -185,8 +131,7 @@ module Tinybucket
       # @param options [Hash]
       # @return [Tinybucket::Model::BranchRestriction]
       def branch_restriction(restriction_id, options = {})
-        m = restrictions_api.find(restriction_id, options)
-        inject_repo_keys(m)
+        branch_restrictions_resource.find(restriction_id, options)
       end
 
       # Get the diff for this repository.
@@ -210,20 +155,28 @@ module Tinybucket
 
       private
 
-      def pull_requests_api
-        create_api('PullRequests', repo_keys)
+      def branch_restrictions_resource(options = {})
+        Tinybucket::Resource::BranchRestrictions.new(self, options)
+      end
+
+      def commits_resource(options = {})
+        Tinybucket::Resource::Commits.new(self, options)
+      end
+
+      def pull_requests_resource(options = {})
+        Tinybucket::Resource::PullRequests.new(self, options)
+      end
+
+      def watchers_resource(options = {})
+        Tinybucket::Resource::Watchers.new(self, options)
+      end
+
+      def forks_resource(options = {})
+        Tinybucket::Resource::Forks.new(self, options)
       end
 
       def repo_api
         create_api('Repo', repo_keys)
-      end
-
-      def commits_api
-        create_api('Commits', repo_keys)
-      end
-
-      def restrictions_api
-        create_api('BranchRestrictions', repo_keys)
       end
 
       def diff_api

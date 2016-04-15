@@ -31,64 +31,39 @@ module Tinybucket
       # Get this team's members.
       #
       # @param options [Hash]
-      # @return [Tinybucket::Enumerator] an enumerator to enumerate members
-      #   as {Tinybucket::Model::Team} instance.
+      # @return [Tinybucket::Resource::Team::Members]
       def members(options = {})
-        enumerator(
-          team_api,
-          :members,
-          username,
-          options
-        ) { |m| block_given? ? yield(m) : m }
+        Tinybucket::Resource::Team::Members.new(username, options)
       end
 
       # Get this team's followers.
       #
       # @param options [Hash]
-      # @return [Tinybucket::Enumerator] an enumerator to enumerate followers
-      #   as {Tinybucket::Model::Team} instance.
+      # @return [Tinybucket::Resource::Team::Followers]
       def followers(options = {})
-        enumerator(
-          team_api,
-          :followers,
-          username,
-          options
-        ) { |m| block_given? ? yield(m) : m }
+        Tinybucket::Resource::Team::Followers.new(username, options)
       end
 
       # Get users which this team is following.
       #
       # @param options [Hash]
-      # @return [Tinybucket::Enumerator] an enumerator to enumerate followings
-      #   as {Tinybucket::Model::Team} instance.
+      # @return [Tinybucket::Resource::Team::Following]
       def following(options = {})
-        enumerator(
-          team_api,
-          :following,
-          username,
-          options
-        ) { |m| block_given? ? yield(m) : m }
+        Tinybucket::Resource::Team::Following.new(username, options)
       end
 
       # Get this team's repositories.
       #
       # @param options [Hash]
-      # @return [Tinybucket::Enumerator] an enumerator to enumerate repositories
-      #   as {Tinybucket::Model::Repository} instance.
+      # @return [Tinybucket::Resource::Team::Repos]
       def repos(options = {})
-        enumerator(
-          team_api,
-          :repos,
-          username,
-          options
-        ) { |m| block_given? ? yield(m) : m }
+        Tinybucket::Resource::Team::Repos.new(username, options)
       end
 
       private
 
       def team_api
-        return @team if @team
-        @team = create_instance('Team')
+        create_api('Team')
       end
 
       def load_model
