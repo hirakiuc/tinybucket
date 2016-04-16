@@ -36,8 +36,7 @@ module Tinybucket
       # Get comments which associate with this commit.
       #
       # @param options [Hash]
-      # @return [Tinybucket::Enumerator] enumerator to enumerate comments
-      #   as {Tinybucket::Model::Comment} instance.
+      # @return [Tinybucket::Resource::Commit::Comments]
       def comments(options = {})
         comments_resource(options)
       end
@@ -54,7 +53,8 @@ module Tinybucket
       # Give approval on this commit.
       #
       # @param options [Hash]
-      # @return [true, false]
+      # @return [true]
+      # @return [false]
       def approve(options = {})
         commit_api.approve(hash, options)
       end
@@ -62,15 +62,40 @@ module Tinybucket
       # Revoke approval on this commit.
       #
       # @param options [Hash]
-      # @return [true, false]
+      # @return [true]
+      # @return [false]
       def unapprove(options = {})
         commit_api.unapprove(hash, options)
+      end
+
+      # Get build status resource
+      #
+      # @param options [Hash]
+      # @return [Tinybucket::Resource::Commit::BuildStatuses]
+      def build_statuses(options = {})
+        build_statuses_resource(options)
+      end
+
+      # Get the specific build status which associate with key.
+      #
+      # @param key [String]
+      # @param options [Hash]
+      # @return [Tinybucket::Model::BuildStatus]
+      # @return [nil] when build_status does not found.
+      def build_status(key, options = {})
+        build_statuses_resource.find(key, options)
+      rescue Tinybucket::Error::NotFound
+        nil
       end
 
       private
 
       def comments_resource(options = {})
         Tinybucket::Resource::Commit::Comments.new(self, options)
+      end
+
+      def build_statuses_resource(options = {})
+        Tinybucket::Resource::Commit::BuildStatuses.new(self, options)
       end
 
       def commit_api

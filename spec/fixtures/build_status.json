@@ -1,0 +1,16 @@
+{
+    "state": "SUCCESSFUL",
+    "type": "build",
+    "key": "test_status",
+    "name": "Build #34",
+    "url": "https://example.com/path/to/build",
+    "description": "Changes by John Doe",
+    "links": {
+        "self": {
+            "href": "https://api.bitbucket.org/2.0/repositories/emmap1/MyRepo/commits/61d9e64348f9da407e62f64726337fd3bb24b466/statuses/build/BAMBOO-PROJECT-X"
+        },
+        "commit": {
+            "href": "https://api.bitbucket.org/2.0/repositories/emmap1/MyRepo/commits/61d9e64348f9da407e62f64726337fd3bb24b466"
+        }
+    }
+}

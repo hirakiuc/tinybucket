@@ -5,6 +5,7 @@ module Tinybucket
     [
       :Base,
       :BranchRestriction,
+      :BuildStatus,
       :Comment,
       :Commit,
       :ErrorResponse,

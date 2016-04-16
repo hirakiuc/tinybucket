@@ -20,7 +20,8 @@ module Tinybucket
 
       # Find the BranchRestriction on the repository.
       #
-      # @param _options [Hash]
+      # @param restriction_id [String]
+      # @param options [Hash]
       # @return [Tinybucket::Model::BranchRestriction]
       def find(restriction_id, options = {})
         restrictions_api.find(restriction_id, options).tap do |m|
