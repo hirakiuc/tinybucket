@@ -60,8 +60,8 @@ module Tinybucket
 
       [
         :Base,
-        :Comments,
-        :Commits
+        :BuildStatuses,
+        :Comments
       ].each do |klass_name|
         autoload klass_name
       end

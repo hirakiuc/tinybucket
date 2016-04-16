@@ -257,7 +257,7 @@ commit.unapprove
 ###### Collection Methods
 
 ```ruby
-repo = bucket.repo('someone', 'great_repo').find
+repo = bucket.repo('someone', 'great_repo')
 
 # [x] GET the branch-restrictions
 restrictions = repo.branch_restrictions
@@ -284,7 +284,7 @@ restriction.destroy
 ##### diff Resource
 
 ```ruby
-repo = bucket.repo('someone', 'great_repo').find
+repo = bucket.repo('someone', 'great_repo')
 COMMIT_ID = '7e968c5'
 
 # [x] GET a diff
@@ -292,6 +292,50 @@ diff = repo.diff(COMMIT_ID)
 
 # [x] GET a patch
 patch = repo.patch(COMMIT_ID)
+```
+
+##### statuses/build Resource
+
+###### Collection Methods
+
+```ruby
+repo = bucket.repo('someone', 'great_repo')
+
+COMMIT_ID = '7e968c5'
+commit = repo.commit(COMMIT_ID)
+
+BUILD_STATUS_KEY = 'tinybucket'
+
+# [x] POST a build status for a commit
+commit.build_statuses.create(
+  key: BUILD_STATUS_KEY,
+  state: 'INPROGRESS',
+  name: 'Name of build',
+  url: 'link to the build result',
+  description: 'about build'
+)
+```
+
+###### Object Methods
+
+```
+repo = bucket.repo('someone', 'great_repo')
+
+COMMIT_ID = '7e968c5'
+commit = repo.commit(COMMIT_ID)
+
+BUILD_STATUS_KEY = 'tinybucket'
+
+# [x] GET the build status for a commit
+status = commit.build_status(BUILD_STATUS_KEY)
+
+# [x] PUT a build status for a commit
+status.update(
+  state: 'SUCCESSFUL',
+  name: 'Name of build',
+  url: 'link to the build result',
+  description: 'about build'
+)
 ```
 
 ## Contribution

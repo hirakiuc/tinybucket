@@ -89,4 +89,20 @@ RSpec.describe Tinybucket::Model::Commit do
 
     it { expect(subject).to be_truthy }
   end
+
+  describe '#build_statuses' do
+    subject { model.build_statuses }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Resource::Commit::BuildStatuses) }
+  end
+
+  describe '#build_status' do
+    let(:status_key) { 'test_status' }
+    let(:request_method) { :get }
+    let(:request_path) do
+      "/repositories/#{owner}/#{slug}/commit/1/statuses/build/#{status_key}"
+    end
+
+    subject { model.build_status(status_key) }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Model::BuildStatus) }
+  end
 end
