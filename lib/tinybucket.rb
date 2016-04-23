@@ -10,6 +10,7 @@ require 'faraday'
 require 'faraday_middleware'
 require 'faraday_middleware/response_middleware'
 require 'faraday_middleware/follow_oauth_redirects'
+require 'faraday-http-cache'
 
 require 'active_model'
 

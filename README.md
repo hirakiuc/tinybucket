@@ -42,10 +42,19 @@ logger = Logger.new($stdout)
 logger.level = Logger::WARN
 
 Tinybucket.configure do |config|
-  # set your logger if you want.
+  # Configure logger if you want.
+  #
+  # optional, default: nil (no logging)
   config.logger = logger
 
-  # configure oauth_token/oauth_secret
+  # Configure cache_store options if you need.
+  #
+  # see https://github.com/plataformatec/faraday-http-cache
+  #
+  # optional, default: nil (disable request cache)
+  config.cache_store_options = { store: Rails.cache, logger: logger }
+
+  # Configure oauth_token/oauth_secret
   config.oauth_token = 'key'
   config.oauth_secret = 'secret'
 end

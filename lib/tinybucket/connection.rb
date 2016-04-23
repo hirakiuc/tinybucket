@@ -36,6 +36,8 @@ module Tinybucket
           consumer_secret: Tinybucket.config.oauth_secret
         }
 
+        configure_response_cache(conn)
+
         conn.request :multipart
         conn.request :url_encoded
         conn.request :oauth, oauth_secrets
@@ -47,6 +49,12 @@ module Tinybucket
 
         conn.adapter Faraday.default_adapter
       end
+    end
+
+    def configure_response_cache(conn)
+      return unless Tinybucket.config.cache_store_options
+
+      conn.use :http_cache, Tinybucket.config.cache_store_options
     end
 
     def stack(parser, options = {}, &block)
