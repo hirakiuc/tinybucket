@@ -29,20 +29,29 @@ RSpec.describe Tinybucket::Client do
 
     context 'when get repositories of the owner' do
       let(:owner) { 'test_owner' }
+      let(:request_path) { "/repositories/#{owner}" }
       before { stub_apiresponse(:get, request_path) }
 
       context 'without options' do
-        let(:request_path) { "/repositories/#{owner}" }
         subject { client.repos(owner) }
         it { expect(subject).to be_instance_of(Tinybucket::Resource::Repos) }
         it { expect(subject.instance_variable_get(:@owner)).to eq(owner) }
       end
       context 'with options' do
-        let(:request_path) { "/repositories/#{owner}" }
+        let(:options) { { page: 1 } }
         subject { client.repos(owner, options) }
-        let(:options) { {} }
         it { expect(subject).to be_instance_of(Tinybucket::Resource::Repos) }
         it { expect(subject.instance_variable_get(:@owner)).to eq(owner) }
+      end
+      context 'with invalid options' do
+        subject { client.repos(owner, 'invalid options') }
+        it { expect { subject }.to raise_error(ArgumentError) }
+      end
+      context 'with invalid owner and options' do
+        let(:invalid_owner) { 200 }
+        let(:options) { { page: 1 } }
+        subject { client.repos(invalid_owner, options) }
+        it { expect { subject }.to raise_error(ArgumentError) }
       end
     end
 
