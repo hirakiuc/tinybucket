@@ -24,15 +24,15 @@ module Tinybucket
         public_repos
       when 1
         case args.first
-        when Hash
-          public_repos(args.first)
-        when String, Symbol
-          owners_repos(args.first)
-        else
-          raise ArgumentError
+        when Hash           then public_repos(args.first)
+        when String, Symbol then owners_repos(args.first)
+        else                     raise ArgumentError
         end
       when 2
-        owners_repos(args[0], args[1])
+        case args.first
+        when String, Symbol then owners_repos(args[0], args[1])
+        else                     raise ArgumentError
+        end
       else
         raise ArgumentError
       end
