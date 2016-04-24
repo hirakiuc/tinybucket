@@ -38,11 +38,19 @@ module ModelMacros
       end
 
       context 'when load failed' do
+        let(:env) do
+          {
+            htt_method: :get,
+            request_url: 'https://localhost/path/to/resource',
+            status_code: 404,
+            response_body: 'not found'
+          }
+        end
         before do
-          allow(@model).to receive(:load_model).and_raise(ArgumentError)
+          @model.stub(:load_model) { raise Tinybucket::Error::NotFound.new(env) }
         end
 
-        it { expect(subject).to be_falsey }
+        it { expect { subject }.to raise_error(Tinybucket::Error::NotFound) }
       end
     end
 
@@ -76,11 +84,19 @@ module ModelMacros
       end
 
       context 'when load failed' do
+        let(:env) do
+          {
+            htt_method: :get,
+            request_url: 'https://localhost/path/to/resource',
+            status_code: 404,
+            response_body: 'not found'
+          }
+        end
         before do
-          allow(@model).to receive(:load_model).and_raise(ArgumentError)
+          @model.stub(:load_model) { raise Tinybucket::Error::NotFound.new(env) }
         end
 
-        it { expect(subject).to be_falsey }
+        it { expect { subject }.to raise_error(Tinybucket::Error::NotFound) }
       end
     end
   end

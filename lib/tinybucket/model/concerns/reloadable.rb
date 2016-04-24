@@ -8,16 +8,12 @@ module Tinybucket
           def load
             return true if @_loaded
 
-            @_loaded = \
-              begin
-                self.attributes = load_model.attributes
-                true
-              rescue => e
-                Tinybucket.logger.error e
-                false
-              end
-
-            @_loaded
+            self.attributes = load_model.attributes
+            @_loaded = true
+          rescue => e
+            @_loaded = false
+            Tinybucket.logger.error e
+            raise e
           end
 
           def loaded?
@@ -26,7 +22,9 @@ module Tinybucket
 
           def reload
             @_loaded = false
-            load
+            # rubocop:disable all
+            self.load
+            # rubocop:enable all
           end
 
           private
