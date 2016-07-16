@@ -3,7 +3,8 @@ module Tinybucket
     class PullRequestsParser < BaseParser
       def convert(json)
         Tinybucket::Model::Page.new(
-          json, Tinybucket::Model::PullRequest)
+          json, Tinybucket::Model::PullRequest
+        )
       end
     end
   end
