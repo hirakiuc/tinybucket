@@ -7,7 +7,7 @@ gem 'rake', '~> 10.4'
 gem 'rspec', '~> 3.4'
 gem 'rspec-mocks', '~> 3.4'
 gem 'webmock', '~> 1.24'
-gem 'rubocop', '~> 0.38'
+gem 'rubocop', '~> 0.41'
 
 gem 'yard', '~> 0.8.7'
 gem 'yardstick', '~> 0.9'

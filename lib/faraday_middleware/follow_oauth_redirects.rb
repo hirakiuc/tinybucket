@@ -27,7 +27,7 @@ module FaradayMiddleware
     end
 
     def oauth_signed_request?(env)
-      env[:request].fetch(:oauth, nil).present?
+      env[:request].oauth
     end
 
     def oauth_options(env)

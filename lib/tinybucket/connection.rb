@@ -14,7 +14,8 @@ module Tinybucket
 
       # TODO: cache connection for each (options, parser) pairs.
       Faraday.new(
-        conn_options.merge(builder: stack(parser, options)))
+        conn_options.merge(builder: stack(parser, options))
+      )
     end
 
     private
