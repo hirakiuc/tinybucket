@@ -97,9 +97,4 @@ RSpec.describe Tinybucket::Client do
     subject { client.user(user) }
     it { expect(subject).to be_instance_of(Tinybucket::Model::Profile) }
   end
-
-  describe 'emails' do
-    subject { client.emails }
-    it { expect(subject).to be_instance_of(Tinybucket::Resource::Emails) }
-  end
 end

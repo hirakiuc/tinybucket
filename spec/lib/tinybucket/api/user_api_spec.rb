@@ -9,6 +9,7 @@ RSpec.describe Tinybucket::Api::UserApi do
     api
   end
 
+  let(:email) { 'email@somedomain.com' }
   let(:user) { 'test_owner' }
   let(:request_path) { nil }
   before { stub_apiresponse(:get, request_path) if request_path }
@@ -26,6 +27,26 @@ RSpec.describe Tinybucket::Api::UserApi do
     context 'when with username' do
       let(:request_path) { "/users/#{user}" }
       it { expect(subject).to be_an_instance_of(Tinybucket::Model::Profile) }
+    end
+  end
+
+  describe 'emails' do
+    subject { api.emails }
+    context "when requesting emails" do
+      let(:request_path) { "/user/emails" }
+      it { expect(subject).to be_instance_of(Tinybucket::Resource::Emails) }
+    end
+  end
+
+  describe 'email' do
+    context "when without email" do
+      let(:request_path) { "/user/emails/#{email}" }
+      it { expect { api.email(nil) }.to raise_error(ArgumentError) }
+    end
+
+    context "when with email" do
+      let(:request_path) { "/user/emails/#{email}" }
+      it { expect( api.email(email) ).to be_instance_of(Tinybucket::Model::Email) }
     end
   end
 

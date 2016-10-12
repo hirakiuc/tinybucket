@@ -59,6 +59,28 @@ module Tinybucket
           Tinybucket::Parser::ReposParser
         )
       end
+
+      # Get Owner's email addresses
+      #
+      # @return [Tinybucket::Resource::Page]
+      def emails
+        emails_resource
+      end
+
+      # Get a single email address model that belongs to the owner
+      #
+      # @param email [String]
+      # @return [Tinybucket::Resource::Page]
+      def email(email)
+        emails_resource.find(email)
+      end
+
+      private
+
+      def emails_resource
+        Tinybucket::Resource::Emails.new
+      end
+
     end
   end
 end
