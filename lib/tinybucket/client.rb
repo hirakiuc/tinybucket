@@ -71,6 +71,15 @@ module Tinybucket
       end
     end
 
+    # Get Owner's repositories
+    #
+    # @param owner [String]
+    # @param options [Hash]
+    # @return [Tinybucket::Resource::Repos]
+    def emails
+      Tinybucket::Resource::Emails.new
+    end
+
     private
 
     # Get public repositories

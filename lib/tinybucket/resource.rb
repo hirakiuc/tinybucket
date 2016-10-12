@@ -6,6 +6,7 @@ module Tinybucket
       :Base,
       :BranchRestrictions,
       :Commits,
+      :Emails,
       :Forks,
       :OwnersRepos,
       :PublicRepos,

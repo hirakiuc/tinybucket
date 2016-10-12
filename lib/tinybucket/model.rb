@@ -8,6 +8,7 @@ module Tinybucket
       :BuildStatus,
       :Comment,
       :Commit,
+      :Email,
       :ErrorResponse,
       :Page,
       :Profile,

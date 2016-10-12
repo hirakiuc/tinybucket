@@ -8,6 +8,7 @@ module Tinybucket
       :BuildStatusApi,
       :CommitsApi,
       :CommentsApi,
+      :EmailsApi,
       :DiffApi,
       :PullRequestsApi,
       :ReposApi,
