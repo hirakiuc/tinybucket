@@ -26,7 +26,7 @@ module Tinybucket
       end
 
       def load_model
-        email_api.find
+        email_api.find(email)
       end
     end
   end

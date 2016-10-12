@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Tinybucket::Model::Team do
+RSpec.describe Tinybucket::Model::Email do
   include ApiResponseMacros
   include ModelMacros
 

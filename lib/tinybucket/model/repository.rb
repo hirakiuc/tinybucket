@@ -117,6 +117,23 @@ module Tinybucket
         commits_resource.find(revision, options)
       end
 
+      # Get branches on this repository
+      #
+      # @param options [Hash]
+      # @return [Tinybucket::Resource::Branches]
+      def branches(options = {})
+        branches_resource(options)
+      end
+
+      # Get the specific branch on this repository.
+      #
+      # @param branch [String]
+      # @param options [Hash]
+      # @return [Tinybucket::Model::Branches]
+      def branch(branch, options = {})
+        branches_resource.find(branch, options)
+      end
+
       # Get the branch restriction information associated with this repository.
       #
       # @param options [Hash]
@@ -157,6 +174,10 @@ module Tinybucket
 
       def branch_restrictions_resource(options = {})
         Tinybucket::Resource::BranchRestrictions.new(self, options)
+      end
+
+      def branches_resource(options = {})
+        Tinybucket::Resource::Branches.new(self, options)
       end
 
       def commits_resource(options = {})
