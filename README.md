@@ -129,6 +129,12 @@ followings = user.followings
 
 # [x] GET the user's repositories
 repos = user.repos
+
+# [x] GET the list of emails for the user
+emails = user.emails
+
+# [x] GET a specific email
+emails = user.email('email@domain.com')
 ```
 
 #### repositories Endpoint
@@ -261,6 +267,25 @@ commit.approve
 commit.unapprove
 ```
 
+##### branches Resource
+
+###### Collection Methods
+
+```ruby
+repo = bucket.repo('someone', 'great_repo')
+
+# [x ] GET a list of branches
+branches = repo.branches(options)
+```
+
+###### Object Methods
+```ruby
+repo = bucket.repo('someone', 'great_repo')
+
+# [x] GET a specific branch
+branch = repo.branch(branch_name)
+```
+
 ##### branch-restrictions Resource
 
 ###### Collection Methods
@@ -302,6 +327,32 @@ diff = repo.diff(COMMIT_ID)
 # [x] GET a patch
 patch = repo.patch(COMMIT_ID)
 ```
+
+##### hooks Resource
+
+###### Collection Methods
+
+```ruby
+repo = bucket.repo('someone', 'great_repo')
+
+# [x ] GET a list of hooks
+hooks = repo.hooks(options)
+
+# [ ] POST a specific hook
+hook = repo.hooks.create(params)
+```
+
+###### Object Methods
+```ruby
+repo = bucket.repo('someone', 'great_repo')
+
+# [x] GET a specific hook
+hook = repo.hook(hook_uuid)
+
+# [x] DELETE a specific hook
+hook.destroy
+```
+
 
 ##### statuses/build Resource
 

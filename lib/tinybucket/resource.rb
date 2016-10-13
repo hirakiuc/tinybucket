@@ -9,6 +9,7 @@ module Tinybucket
       :Commits,
       :Emails,
       :Forks,
+      :Hooks,
       :OwnersRepos,
       :PublicRepos,
       :PullRequests,

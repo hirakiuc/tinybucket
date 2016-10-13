@@ -7,12 +7,11 @@ module Tinybucket
         private
 
         def path_to_list
-          build_path(base_path, 'branches')
+          build_path(base_path)
         end
 
         def path_to_find(branch)
           build_path(base_path,
-                     'branches',
                      [branch, 'branch'])
         end
 
@@ -20,7 +19,8 @@ module Tinybucket
           build_path('/repositories',
                      [repo_owner, 'repo_owner'],
                      [repo_slug, 'repo_slug'],
-                     'refs')
+                     'refs',
+                    'branches')
         end
       end
     end

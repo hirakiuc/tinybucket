@@ -1,7 +1,7 @@
 module Tinybucket
   module Resource
     class Emails < Tinybucket::Resource::Base
-      # Find the commit
+      # Find the email
       #
       # @param email [String]
       # @param options [Hash]
@@ -11,6 +11,7 @@ module Tinybucket
       end
 
       private
+
       def emails_api
         create_api('Emails')
       end

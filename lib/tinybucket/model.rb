@@ -11,6 +11,7 @@ module Tinybucket
       :Commit,
       :Email,
       :ErrorResponse,
+      :Hook,
       :Page,
       :Profile,
       :PullRequest,
