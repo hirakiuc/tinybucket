@@ -6,7 +6,7 @@ module Tinybucket
         @args = [options]
       end
 
-      # Find the commit
+      # Find the branch
       #
       # @param branch [String]
       # @param options [Hash]

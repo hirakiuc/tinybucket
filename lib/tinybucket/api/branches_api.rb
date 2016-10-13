@@ -1,6 +1,6 @@
 module Tinybucket
   module Api
-    # Commits Api client
+    # Branches Api client
     #
     # @!attribute [rw] repo_owner
     #   @return [String] repository owner name.
@@ -26,17 +26,17 @@ module Tinybucket
         )
       end
 
-      # Send 'GET an individual commit' request
+      # Send 'GET an individual branch' request
       #
       # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/refs/branches/%7Bname%7D#get
-      #   GET an individual commit
+      #   GET an individual branch
       #
-      # @param revision [String] A SHA1 value for the commit.
+      # @param name [String] The branch name
       # @param options [Hash]
-      # @return [Tinybucket::Model::Commit]
-      def find(revision, options = {})
+      # @return [Tinybucket::Model::Branch]
+      def find(name, options = {})
         get_path(
-          path_to_find(revision),
+          path_to_find(name),
           options,
           Tinybucket::Parser::BranchParser
         )

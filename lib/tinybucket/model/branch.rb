@@ -26,10 +26,6 @@ module Tinybucket
         create_api('Branches', repo_keys)
       end
 
-      def pull_request_api
-        create_api('PullRequests', repo_keys)
-      end
-
       def load_model
         branches_api.find(name, {})
       end
