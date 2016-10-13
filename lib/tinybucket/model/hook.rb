@@ -2,7 +2,7 @@ module Tinybucket
   module Model
     # Profile
     #
-    # @see https://confluence.atlassian.com/bitbucket/users-endpoint-423626336.html#usersEndpoint-GETtheuserprofile
+    # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/hooks
     #   users Endpoint - Bitbucket Cloud REST API document
     #
     # @!attribute [rw] read_only

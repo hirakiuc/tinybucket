@@ -2,7 +2,7 @@ module Tinybucket
   module Model
     # Repository
     #
-    # @see https://confluence.atlassian.com/bitbucket/repositories-endpoint-423626330.html#repositoriesEndpoint-Overview
+    # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories
     #   Repository Endpoint - Bitbucket Cloud REST API document
     #
     # @!attribute [rw] scm

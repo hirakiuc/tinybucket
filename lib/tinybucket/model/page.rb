@@ -2,7 +2,7 @@ module Tinybucket
   module Model
     # Page
     #
-    # @see https://confluence.atlassian.com/bitbucket/version-2-423626329.html#Version2-Pagingthroughobjectcollections
+    # @seehttps://developer.atlassian.com/bitbucket/api/2/reference/meta/pagination
     #   Paging through object collections - Bitbucket Cloud REST API document
     #
     # @!attribute [r] attrs

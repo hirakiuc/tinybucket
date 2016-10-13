@@ -5,8 +5,7 @@ module Tinybucket
     # @!attribute [rw] repo_owner
     #   @return [String] repository owner name.
     # @!attribute [rw] repo_slug
-    #   @return [String] repository slug. (about {https://confluence.atlassian.com/bitbucket/repositories-endpoint-423626330.html#repositoriesEndpoint-Overview
-    #     repo_slug})
+    #   @return [String] repository slug. (about {https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D
     class HooksApi < BaseApi
       include Tinybucket::Api::Helper::HooksHelper
 
@@ -14,7 +13,7 @@ module Tinybucket
 
       # Send 'GET a Hooks list for a repository' request
       #
-      # @see https://confluence.atlassian.com/bitbucket/Hooks-or-Hook-resource-389775478.html#HooksorHookResource-GETaHookslistforarepositoryorcompareHooksacrossHooks
+      # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/hooks#get
       #   GET a Hooks list for a repository
       #
       # @param options [Hash]
@@ -29,7 +28,7 @@ module Tinybucket
 
       # Send 'GET an individual Hook' request
       #
-      # @see https://confluence.atlassian.com/bitbucket/Hooks-or-Hook-resource-389775478.html#HooksorHookResource-GETanindividualHook
+      # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/hooks/%7Buid%7D#get
       #   GET an individual Hook
       #
       # @param hook [String] A UUID for the Hook.
@@ -45,6 +44,7 @@ module Tinybucket
 
 
       # Send 'POST a hook for a repository' request
+      # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/hooks#post
       #
       # @param url [String]
       # @param events [Array]
@@ -66,6 +66,7 @@ module Tinybucket
       end
 
       # Send 'PUT a hook for a repository' request
+      # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/hooks/%7Buid%7D#put
       #
       # @param options [Hash] The attributes to update
       # @return [Tinybucket::Model::Hook]
@@ -77,6 +78,7 @@ module Tinybucket
       end
 
       # Send 'DELETE a hook for a repository' request
+      # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/hooks/%7Buid%7D#delete
       #
       # @param options [Hash] The attributes to update
       # @return [Boolean]

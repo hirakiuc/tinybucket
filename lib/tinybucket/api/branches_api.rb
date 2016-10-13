@@ -5,8 +5,7 @@ module Tinybucket
     # @!attribute [rw] repo_owner
     #   @return [String] repository owner name.
     # @!attribute [rw] repo_slug
-    #   @return [String] repository slug. (about {https://confluence.atlassian.com/bitbucket/repositories-endpoint-423626330.html#repositoriesEndpoint-Overview
-    #     repo_slug})
+    #   @return [String] repository slug. (about {https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D
     class BranchesApi < BaseApi
       include Tinybucket::Api::Helper::BranchesHelper
 
@@ -14,7 +13,7 @@ module Tinybucket
 
       # Send 'GET a branches list for a repository' request
       #
-      # @see https://confluence.atlassian.com/bitbucket/branches-or-commit-resource-389775478.html#branchesorcommitResource-GETabrancheslistforarepositoryorcomparebranchesacrossbranches
+      # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/refs/branches#get
       #   GET a branches list for a repository
       #
       # @param options [Hash]
@@ -29,7 +28,7 @@ module Tinybucket
 
       # Send 'GET an individual commit' request
       #
-      # @see https://confluence.atlassian.com/bitbucket/commits-or-commit-resource-389775478.html#commitsorcommitResource-GETanindividualcommit
+      # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/refs/branches/%7Bname%7D#get
       #   GET an individual commit
       #
       # @param revision [String] A SHA1 value for the commit.

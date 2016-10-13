@@ -2,7 +2,7 @@ module Tinybucket
   module Api
     # Emails Api client
     #
-    # @see https://confluence.atlassian.com/bitbucket/teams-endpoint-423626335.html
+    # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/teams
     #   teams Endpoint
     class EmailsApi < BaseApi
       include Tinybucket::Api::Helper::EmailsHelper

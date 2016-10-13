@@ -2,7 +2,7 @@ module Tinybucket
   module Api
     # User Api client
     #
-    # @see https://confluence.atlassian.com/bitbucket/users-endpoint-423626336.html
+    # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/users/%7Busername%7D
     #   users Endpoint
     #
     # @!attribute [rw] username
@@ -61,6 +61,7 @@ module Tinybucket
       end
 
       # Get Owner's email addresses
+      # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/user/emails
       #
       # @return [Tinybucket::Resource::Page]
       def emails
@@ -68,6 +69,7 @@ module Tinybucket
       end
 
       # Get a single email address model that belongs to the owner
+      # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/user/emails/%7Bemail%7D
       #
       # @param email [String]
       # @return [Tinybucket::Resource::Page]
