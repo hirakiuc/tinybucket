@@ -1,6 +1,6 @@
 module Tinybucket
   module Connection
-    DEFAULT_USER_AGENT = "Tinybucket Ruby Bitbucket REST client".freeze
+    DEFAULT_USER_AGENT = 'Tinybucket Ruby Bitbucket REST client'.freeze
 
     def clear_cache
       @connection = nil
