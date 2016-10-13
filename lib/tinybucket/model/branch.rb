@@ -1,9 +1,9 @@
 module Tinybucket
   module Model
-    # Comment
+    # Branch
     #
     # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/refs/branches
-    #   Comment resource - Bitbucket Cloud REST API document
+    #   Branch resource - Bitbucket Cloud REST API document
     #
     # @!attribute [rw] links
     #   @return [Hash]

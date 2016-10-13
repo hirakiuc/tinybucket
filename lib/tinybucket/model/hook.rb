@@ -1,9 +1,9 @@
 module Tinybucket
   module Model
-    # Profile
+    # Hook
     #
     # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/hooks
-    #   users Endpoint - Bitbucket Cloud REST API document
+    #   hooks Endpoint - Bitbucket Cloud REST API document
     #
     # @!attribute [rw] read_only
     #   @return [Boolean]

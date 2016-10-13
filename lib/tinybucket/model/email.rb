@@ -1,6 +1,6 @@
 module Tinybucket
   module Model
-    # Profile
+    # Email
     #
     # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/user/emails
     #   emails Endpoint - Bitbucket Cloud REST API document
