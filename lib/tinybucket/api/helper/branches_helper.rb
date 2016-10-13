@@ -19,8 +19,7 @@ module Tinybucket
           build_path('/repositories',
                      [repo_owner, 'repo_owner'],
                      [repo_slug, 'repo_slug'],
-                     'refs',
-                    'branches')
+                     'refs', 'branches')
         end
       end
     end

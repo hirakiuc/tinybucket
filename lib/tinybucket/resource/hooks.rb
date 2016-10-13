@@ -25,7 +25,7 @@ module Tinybucket
       # @param description [Boolean]
       # @param options [Hash]
       # @return [Tinybucket::Model::Hook]
-      def create(url, events, description="", active=true, options={})
+      def create(url, events, description = "", active = true, options={})
         hooks_api.post(url, events, description, active, options).tap do |m|
           m.repo_keys = @commit.repo_keys
         end

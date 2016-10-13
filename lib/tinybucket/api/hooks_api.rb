@@ -52,16 +52,16 @@ module Tinybucket
       # @param description [Boolean]
       # @param options [Hash]
       # @return [Tinybucket::Model::Hook]
-      def post(url, events, description="", active=true, options={})
+      def post(url, events, description = '', active = true, options = {})
         post_path(
           path_to_post,
-          options.merge({
-            :url => url,
-            :events => events,
-            :description => description,
-            :active => active
-          }),
-          Tinybucket::Parser::HookParser,
+          options.merge(
+            url: url,
+            events: events,
+            description: description,
+            active: active
+          ),
+          Tinybucket::Parser::HookParser
         )
       end
 
@@ -70,10 +70,11 @@ module Tinybucket
       #
       # @param options [Hash] The attributes to update
       # @return [Tinybucket::Model::Hook]
-      def update(hook, options={})
+      def update(hook, options = {})
         put_path(
           path_to_put(hook),
-          options)
+          options
+        )
         true
       end
 
@@ -82,10 +83,11 @@ module Tinybucket
       #
       # @param options [Hash] The attributes to update
       # @return [Boolean]
-      def delete(hook, options={})
+      def delete(hook, options = {})
         delete_path(
           path_to_delete(hook),
-          options)
+          options
+        )
         true
       end
 

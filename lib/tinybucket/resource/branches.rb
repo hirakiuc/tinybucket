@@ -18,6 +18,7 @@ module Tinybucket
       end
 
       private
+
       def branches_api
         create_api('Branches', @repo.repo_keys)
       end
