@@ -117,6 +117,22 @@ module Tinybucket
         commits_resource.find(revision, options)
       end
 
+      # Get the list of hooks on this repository.
+      #
+      # @param options [Hash]
+      # @return [Tinybucket::Resource::Hooks]
+      def hooks(options = {})
+        hooks_resource(options)
+      end
+
+      # Get a specific hook on this repository.
+      #
+      # @param options [Hash]
+      # @return [Tinybucket::Resource::Hooks]
+      def hook(uuid, options = {})
+        hooks_resource.find(uuid, options)
+      end
+
       # Get branches on this repository
       #
       # @param options [Hash]
@@ -182,6 +198,10 @@ module Tinybucket
 
       def commits_resource(options = {})
         Tinybucket::Resource::Commits.new(self, options)
+      end
+
+      def hooks_resource(options = {})
+        Tinybucket::Resource::Hooks.new(self, options)
       end
 
       def pull_requests_resource(options = {})
