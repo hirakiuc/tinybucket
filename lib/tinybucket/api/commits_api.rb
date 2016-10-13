@@ -72,6 +72,22 @@ module Tinybucket
         logger.debug 'Already unapproved: ' + e.inspect
         true
       end
+
+      # Send 'GET commits for a branch' request
+      #
+      # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/commits
+      #   GET an individual commit
+      #
+      # @param revision [String] A SHA1 value for the commit.
+      # @param options [Hash]
+      # @return [Tinybucket::Model::Commit]
+      def branch(name, options = {})
+        get_path(
+          path_to_branch(name),
+          options,
+          Tinybucket::Parser::CommitsParser
+        )
+      end
     end
   end
 end

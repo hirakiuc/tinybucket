@@ -20,7 +20,15 @@ module Tinybucket
 
       acceptable_attributes :links, :type, :name, :repository, :target
 
+      def commits
+        commits_api.branch(name)
+      end
+
       private
+
+      def commits_api
+        create_api('Commits', repo_keys)
+      end
 
       def branches_api
         create_api('Branches', repo_keys)

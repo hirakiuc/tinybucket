@@ -16,6 +16,12 @@ module Tinybucket
                      [revision, 'revision'])
         end
 
+        def path_to_branch(branch)
+          build_path(base_path,
+                    'commits',
+                    [branch, 'branch'])
+        end
+
         def path_to_approve(revision)
           build_path(base_path,
                      'commit',

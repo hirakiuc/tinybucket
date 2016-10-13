@@ -37,4 +37,10 @@ RSpec.describe Tinybucket::Model::Branch do
     before { @model = branch }
     it_behaves_like 'the model is reloadable'
   end
+
+  describe 'commits' do
+    let(:request_path) { "/repositories/#{owner}/#{slug}/commits/#{model.name}" }
+    subject { model.commits }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
+  end
 end
