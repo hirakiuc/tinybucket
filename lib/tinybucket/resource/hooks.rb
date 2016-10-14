@@ -38,7 +38,9 @@ module Tinybucket
       end
 
       def enumerator
-        create_enumerator(hooks_api, :list, {})
+        create_enumerator(hooks_api, :list, *@args) do |m|
+          inject_repo_keys(m, @repo.repo_keys)
+        end
       end
     end
   end
