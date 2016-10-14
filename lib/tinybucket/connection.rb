@@ -41,8 +41,7 @@ module Tinybucket
 
         configure_response_cache(conn)
 
-        conn.request :multipart
-        conn.request :url_encoded
+        conn.request :json
         conn.request :oauth, oauth_secrets
 
         conn.response :follow_oauth_redirects, oauth_secrets
