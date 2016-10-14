@@ -39,7 +39,6 @@ RSpec.describe Tinybucket::Resource::Hooks do
     it { expect(subject).to be_an_instance_of(Tinybucket::Model::Hook) }
   end
 
-
   describe 'Enumerable Methods' do
     let(:request_path) { "/repositories/#{owner}/#{slug}/hooks" }
     before { stub_enum_response(:get, request_path) }

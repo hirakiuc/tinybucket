@@ -11,6 +11,15 @@ RSpec.describe Tinybucket::Model::Hook do
   let(:owner) { 'test_owner' }
   let(:slug) { 'test_repo' }
 
+  let(:hook_payload)  do
+    {
+      :url => "https://mywebapp.com/bitbucket/hook",
+      :description => "Here's my description",
+      :events => ['issue:created', 'issue:updated', 'issue:comment_created'],
+      :active => true,
+    }
+  end
+
   let(:model) do
     m = Tinybucket::Model::Hook.new(model_json)
     m.repo_owner = owner
@@ -37,4 +46,19 @@ RSpec.describe Tinybucket::Model::Hook do
     before { @model = hook }
     it_behaves_like 'the model is reloadable'
   end
+
+  describe 'hook can be updated' do
+    let(:request_path) { "/repositories/#{owner}/#{slug}/hooks/#{model.uuid}" }
+    let(:request_method) { :put }
+    subject { model.update(hook_payload) }
+    it { expect(subject).to be_truthy }
+  end
+
+  describe 'hook can be deleted' do
+    let(:request_path) { "/repositories/#{owner}/#{slug}/hooks/#{model.uuid}" }
+    let(:request_method) { :delete }
+    subject { model.destroy }
+    it { expect(subject).to be_truthy }
+  end
+
 end
