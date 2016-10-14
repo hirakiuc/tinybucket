@@ -32,6 +32,8 @@ module Tinybucket
     # @!attribute [rw] uuid
     #   @return [String]
     class Hook < Base
+      include Tinybucket::Model::Concerns::RepositoryKeys
+
       acceptable_attributes \
         :read_only, :description, :links, :url, \
         :created_at, :skip_cert_verification, :source, \
@@ -48,7 +50,7 @@ module Tinybucket
       private
 
       def hook_api
-        create_api('Hooks')
+        create_api('Hooks', repo_keys)
       end
 
       def load_model

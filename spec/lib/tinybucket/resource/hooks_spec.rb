@@ -6,6 +6,14 @@ RSpec.describe Tinybucket::Resource::Hooks do
   let(:hook) { "{ABC-321-ABC-456}" }
   let(:owner) { 'test_owner' }
   let(:slug) { 'test_repo' }
+  let(:hook_payload)  do
+    {
+      :url => "https://mywebapp.com/bitbucket/hook",
+      :description => "Here's my description",
+      :events => ['issue:created', 'issue:updated', 'issue:comment_created'],
+      :active => true,
+    }
+  end
 
   let(:repo) do
     Tinybucket::Model::Repository.new({}).tap do |m|
@@ -23,6 +31,14 @@ RSpec.describe Tinybucket::Resource::Hooks do
     subject { resource.find(hook) }
     it { expect(subject).to be_an_instance_of(Tinybucket::Model::Hook) }
   end
+
+  describe '#create' do
+    let(:request_path) { "/repositories/#{owner}/#{slug}/hooks" }
+    before { stub_apiresponse(:post, request_path) }
+    subject { resource.create(hook_payload[:url], hook_payload[:events], hook_payload[:description], hook_payload[:active]) }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Model::Hook) }
+  end
+
 
   describe 'Enumerable Methods' do
     let(:request_path) { "/repositories/#{owner}/#{slug}/hooks" }
