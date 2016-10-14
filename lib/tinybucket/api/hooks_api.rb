@@ -61,10 +61,7 @@ module Tinybucket
             description: description,
             active: active
           ),
-          Tinybucket::Parser::HookParser,
-          {
-            headers: {"Content-Type": "application/json"}
-          }
+          Tinybucket::Parser::HookParser
         )
       end
 
