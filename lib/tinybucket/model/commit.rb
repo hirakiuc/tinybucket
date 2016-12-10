@@ -4,7 +4,8 @@ module Tinybucket
   module Model
     # Commit Resource
     #
-    # @see https://confluence.atlassian.com/bitbucket/commits-or-commit-resource-389775478.html
+    # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/commit
+    #      https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/commits
     #   Commit Resource - Bitbucket Cloud REST API document
     #
     # @!attribute [rw] hash

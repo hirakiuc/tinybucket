@@ -68,6 +68,28 @@ RSpec.describe Tinybucket::Api::CommitsApi do
     end
   end
 
+  describe 'branch' do
+    let(:branch_name) { 'master' }
+    subject { api.branch(branch_name, options) }
+
+    context 'without owner' do
+      let(:owner) { nil }
+      it { expect { subject }.to raise_error(ArgumentError) }
+    end
+
+    context 'without slug' do
+      let(:slug) { nil }
+      it { expect { subject }.to raise_error(ArgumentError) }
+    end
+
+    context 'with owner and slug' do
+      let(:request_path) do
+        "/repositories/#{owner}/#{slug}/commits/#{branch_name}"
+      end
+      it { expect(subject).to be_instance_of(Tinybucket::Model::Page) }
+    end
+  end
+
   describe 'approve' do
     let(:revision) { '1' }
     let(:request_method) { :post }
