@@ -46,3 +46,6 @@ Style/RaiseArgs:
 
 Metrics/AbcSize:
   Max: 18
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
