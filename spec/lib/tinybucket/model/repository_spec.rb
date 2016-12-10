@@ -11,6 +11,7 @@ RSpec.describe Tinybucket::Model::Repository do
 
   let(:owner) { 'test_owner' }
   let(:slug)  { 'test_repo' }
+  let(:branch) { "master" }
 
   let(:model) do
     m = Tinybucket::Model::Repository.new(model_json)
@@ -91,6 +92,31 @@ RSpec.describe Tinybucket::Model::Repository do
     let(:request_path) { "/repositories/#{owner}/#{slug}/commit/#{revision}" }
     subject { model.commit(revision) }
     it { expect(subject).to be_an_instance_of(Tinybucket::Model::Commit) }
+  end
+
+  describe '#hooks' do
+    let(:request_path) { "/repositories/#{owner}/#{slug}/hooks" }
+    subject { model.hooks }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Resource::Hooks) }
+  end
+
+  describe '#hook' do
+    let(:hook) { "{ABC-321-ABC-456}" }
+    let(:request_path) { "/repositories/#{owner}/#{slug}/hooks/#{hook}" }
+    subject { model.hook(hook) }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Model::Hook) }
+  end
+
+  describe '#branches' do
+    let(:request_path) { "/repositories/#{owner}/#{slug}/refs/branches" }
+    subject { model.branches }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Resource::Branches) }
+  end
+
+  describe '#branch' do
+    let(:request_path) { "/repositories/#{owner}/#{slug}/refs/branches/#{branch}" }
+    subject { model.branch(branch) }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Model::Branch) }
   end
 
   describe '#branch_restrictions' do

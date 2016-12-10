@@ -5,8 +5,7 @@ module Tinybucket
     # @!attribute [rw] repo_owner
     #   @return [String] repository owner name.
     # @!attribute [rw] repo_slug
-    #   @return [String] repository slug. (about {https://confluence.atlassian.com/bitbucket/repositories-endpoint-423626330.html#repositoriesEndpoint-Overview
-    #     repo_slug})
+    #   @return [String] repository slug. (about {https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D
     class CommitsApi < BaseApi
       include Tinybucket::Api::Helper::CommitsHelper
 
@@ -14,7 +13,7 @@ module Tinybucket
 
       # Send 'GET a commits list for a repository' request
       #
-      # @see https://confluence.atlassian.com/bitbucket/commits-or-commit-resource-389775478.html#commitsorcommitResource-GETacommitslistforarepositoryorcomparecommitsacrossbranches
+      # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/commits#get
       #   GET a commits list for a repository
       #
       # @note This method does not support 'compare commits across branches'
@@ -32,7 +31,7 @@ module Tinybucket
 
       # Send 'GET an individual commit' request
       #
-      # @see https://confluence.atlassian.com/bitbucket/commits-or-commit-resource-389775478.html#commitsorcommitResource-GETanindividualcommit
+      # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/commits/%7Brevision%7D#get
       #   GET an individual commit
       #
       # @param revision [String] A SHA1 value for the commit.
@@ -47,6 +46,7 @@ module Tinybucket
       end
 
       # Send 'POST a commit approval' request
+      # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/approve#post
       #
       # @param revision [String]
       # @param options [Hash]
@@ -60,6 +60,7 @@ module Tinybucket
       end
 
       # Send 'DELETE a commit approval' request
+      # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/approve#delete
       #
       # @param revision [String]
       # @param options [Hash]
@@ -70,6 +71,22 @@ module Tinybucket
       rescue Tinybucket::Error::NotFound => e
         logger.debug 'Already unapproved: ' + e.inspect
         true
+      end
+
+      # Send 'GET commits for a branch' request
+      #
+      # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/commits
+      #   GET an individual commit
+      #
+      # @param revision [String] A SHA1 value for the commit.
+      # @param options [Hash]
+      # @return [Tinybucket::Model::Commit]
+      def branch(name, options = {})
+        get_path(
+          path_to_branch(name),
+          options,
+          Tinybucket::Parser::CommitsParser
+        )
       end
     end
   end

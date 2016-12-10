@@ -4,11 +4,14 @@ module Tinybucket
 
     [
       :Base,
+      :Branch,
       :BranchRestriction,
       :BuildStatus,
       :Comment,
       :Commit,
+      :Email,
       :ErrorResponse,
+      :Hook,
       :Page,
       :Profile,
       :PullRequest,

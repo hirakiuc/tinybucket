@@ -76,15 +76,15 @@ repos = repos('my_name').select do |repo|
 end.map(&:full_name)
 ```
 
-This enumerable feature depends on [Paging through object collections](https://confluence.atlassian.com/bitbucket/version-2-423626329.html#Version2-Pagingthroughobjectcollections) at Bitbucket Cloud REST API.
+This enumerable feature depends on [Paging through object collections](https://developer.atlassian.com/bitbucket/api/2/reference/meta/pagination) at Bitbucket Cloud REST API.
 
 #### NOTE: About `size` attribute
 
-[object collections wrapper](https://confluence.atlassian.com/bitbucket/version-2-423626329.html#Version2-Pagingthroughobjectcollections) has `size` attribute at Bitbucket Cloud REST API.
+[object collections wrapper](https://developer.atlassian.com/bitbucket/api/2/reference/meta/pagination) has `size` attribute at Bitbucket Cloud REST API.
 
 The `size` attribute describe as `optional` attribute.
 
-In tinybucket gem, collection size depend on `side` attribute of [object collections wrapper](https://confluence.atlassian.com/bitbucket/version-2-423626329.html#Version2-Pagingthroughobjectcollections) in Bitbucket Cloud REST API.
+In tinybucket gem, collection size depend on `side` attribute of [object collections wrapper](https://developer.atlassian.com/bitbucket/api/2/reference/meta/pagination) in Bitbucket Cloud REST API.
 
 So enumerator's `size` attribute may return `nil`.
 
@@ -129,6 +129,12 @@ followings = user.followings
 
 # [x] GET the user's repositories
 repos = user.repos
+
+# [x] GET the list of emails for the user
+emails = user.emails
+
+# [x] GET a specific email
+emails = user.email('email@domain.com')
 ```
 
 #### repositories Endpoint
@@ -261,6 +267,25 @@ commit.approve
 commit.unapprove
 ```
 
+##### branches Resource
+
+###### Collection Methods
+
+```ruby
+repo = bucket.repo('someone', 'great_repo')
+
+# [x ] GET a list of branches
+branches = repo.branches(options)
+```
+
+###### Object Methods
+```ruby
+repo = bucket.repo('someone', 'great_repo')
+
+# [x] GET a specific branch
+branch = repo.branch(branch_name)
+```
+
 ##### branch-restrictions Resource
 
 ###### Collection Methods
@@ -302,6 +327,32 @@ diff = repo.diff(COMMIT_ID)
 # [x] GET a patch
 patch = repo.patch(COMMIT_ID)
 ```
+
+##### hooks Resource
+
+###### Collection Methods
+
+```ruby
+repo = bucket.repo('someone', 'great_repo')
+
+# [x ] GET a list of hooks
+hooks = repo.hooks(options)
+
+# [ ] POST a specific hook
+hook = repo.hooks.create(params)
+```
+
+###### Object Methods
+```ruby
+repo = bucket.repo('someone', 'great_repo')
+
+# [x] GET a specific hook
+hook = repo.hook(hook_uuid)
+
+# [x] DELETE a specific hook
+hook.destroy
+```
+
 
 ##### statuses/build Resource
 

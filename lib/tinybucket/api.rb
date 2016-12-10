@@ -5,10 +5,13 @@ module Tinybucket
     [
       :BaseApi,
       :BranchRestrictionsApi,
+      :BranchesApi,
       :BuildStatusApi,
       :CommitsApi,
       :CommentsApi,
       :DiffApi,
+      :EmailsApi,
+      :HooksApi,
       :PullRequestsApi,
       :ReposApi,
       :RepoApi,

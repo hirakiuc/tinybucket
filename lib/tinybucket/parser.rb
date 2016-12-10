@@ -4,6 +4,8 @@ module Tinybucket
 
     [
       :BaseParser,
+      :BranchParser,
+      :BranchesParser,
       :BranchRestrictionParser,
       :BranchRestrictionsParser,
       :BuildStatusParser,
@@ -11,6 +13,10 @@ module Tinybucket
       :CommitsParser,
       :CommentParser,
       :CommentsParser,
+      :EmailParser,
+      :EmailsParser,
+      :HookParser,
+      :HooksParser,
       :ProfileParser,
       :ProfilesParser,
       :PullRequestParser,

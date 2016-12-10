@@ -15,6 +15,10 @@ module Tinybucket
           end
         end
 
+        def email_api
+          create_api('Email')
+        end
+
         def create_user_enumerator(method)
           create_enumerator(user_api, method, *@args)
         end

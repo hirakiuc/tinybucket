@@ -2,7 +2,7 @@ module Tinybucket
   module Model
     # Profile
     #
-    # @see https://confluence.atlassian.com/bitbucket/users-endpoint-423626336.html#usersEndpoint-GETtheuserprofile
+    # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/users/%7Busername%7D
     #   users Endpoint - Bitbucket Cloud REST API document
     #
     # @!attribute [rw] username
@@ -27,6 +27,13 @@ module Tinybucket
       acceptable_attributes \
         :username, :kind, :website, :display_name,
         :links, :created_on, :location, :type, :uuid
+
+      # Get this user's email addresses
+      #
+      # @return [Tinybucket::Resource::Emails]
+      def emails
+        Tinybucket::Resource::Emails.new
+      end
 
       # Get this user's followers
       #

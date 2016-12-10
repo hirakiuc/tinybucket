@@ -4,9 +4,12 @@ module Tinybucket
 
     [
       :Base,
+      :Branches,
       :BranchRestrictions,
       :Commits,
+      :Emails,
       :Forks,
+      :Hooks,
       :OwnersRepos,
       :PublicRepos,
       :PullRequests,

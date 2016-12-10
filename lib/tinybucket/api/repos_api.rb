@@ -6,7 +6,7 @@ module Tinybucket
 
       # Send 'GET a list of repositories for an account' request
       #
-      # @see https://confluence.atlassian.com/bitbucket/repositories-endpoint-423626330.html#repositoriesEndpoint-GETalistofrepositoriesforanaccount
+      # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories
       #   GET a list of repositories for an account
       #
       # @param options [Hash]

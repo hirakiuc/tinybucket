@@ -2,7 +2,7 @@ module Tinybucket
   module Model
     # Build Status
     #
-    # @see https://confluence.atlassian.com/bitbucket/statuses-build-resource-779295267.html
+    # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build
     #   statuses/build Resource
     #
     # @!attribute [rw] state

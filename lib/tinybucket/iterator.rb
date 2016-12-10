@@ -25,11 +25,11 @@ module Tinybucket
 
     # Get collection size.
     #
-    # @note This method return {https://confluence.atlassian.com/bitbucket/version-2-423626329.html#Version2-Pagingthroughobjectcollections
+    # @note This method return {https://developer.atlassian.com/bitbucket/api/2/reference/meta/pagination
     #   size attribute of object collection wrapper}.
     #   So this method may return nil.
     #
-    # @see https://confluence.atlassian.com/bitbucket/version-2-423626329.html#Version2-Pagingthroughobjectcollections
+    # @see https://developer.atlassian.com/bitbucket/api/2/reference/meta/pagination
     #   Paging through object collections
     #
     # @return [Fixnum, NillClas] collection size.

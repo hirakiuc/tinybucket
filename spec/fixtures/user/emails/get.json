@@ -1,0 +1,18 @@
+{
+  "pagelen": 10,
+  "values": [
+    {
+      "is_primary": true,
+      "is_confirmed": true,
+      "type": "email",
+      "email": "email@somedomain.com",
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/user/emails/email@somedomain.com"
+        }
+      }
+    }
+  ],
+  "page": 1,
+  "size": 1
+}
