@@ -44,5 +44,8 @@ Style/AlignHash:
 Style/RaiseArgs:
   Enabled: false
 
+Style/RedundantFreeze:
+  Enabled: false
+
 Metrics/AbcSize:
   Max: 18
