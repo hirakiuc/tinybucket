@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Tinybucket
   module Api
     # Hooks Api client
@@ -41,7 +43,6 @@ module Tinybucket
           Tinybucket::Parser::HookParser
         )
       end
-
 
       # Send 'POST a hook for a repository' request
       # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/hooks#post
@@ -90,7 +91,6 @@ module Tinybucket
         )
         true
       end
-
     end
   end
 end

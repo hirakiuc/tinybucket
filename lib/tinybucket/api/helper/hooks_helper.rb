@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Tinybucket
   module Api
     module Helper
@@ -31,7 +33,6 @@ module Tinybucket
                      [repo_owner, 'repo_owner'],
                      [repo_slug, 'repo_slug'],
                      'hooks')
-
         end
       end
     end
