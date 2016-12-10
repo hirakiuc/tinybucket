@@ -28,5 +28,5 @@ end
 group :test do
   gem 'simplecov', '~> 0.11', require: false
   gem 'coveralls', '~> 0.8', require: false
-  gem 'codeclimate-test-reporter', require: nil
+  gem 'codeclimate-test-reporter', '~> 1.0.0', require: nil
 end
