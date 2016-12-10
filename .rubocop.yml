@@ -2,7 +2,7 @@ AllCops:
   Include:
     - 'lib/**/*.rb'
   Exclude:
-    - 'app.rb'
+    - '*.rb'
     - 'spec/**/*'
     - 'features/**/*'
     - 'test/**/*'
@@ -44,8 +44,8 @@ Style/AlignHash:
 Style/RaiseArgs:
   Enabled: false
 
+Style/RedundantFreeze:
+  Enabled: false
+
 Metrics/AbcSize:
   Max: 18
-
-Style/FrozenStringLiteralComment:
-  Enabled: false

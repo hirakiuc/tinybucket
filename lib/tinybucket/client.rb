@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Tinybucket
   class Client
     include ::Tinybucket::Model::Concerns::Enumerable

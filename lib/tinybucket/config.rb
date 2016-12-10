@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Tinybucket
   class Config
     include ActiveSupport::Configurable

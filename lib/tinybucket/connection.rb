@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Tinybucket
   module Connection
     def clear_cache

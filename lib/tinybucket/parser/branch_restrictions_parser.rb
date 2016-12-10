@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Tinybucket
   module Parser
     class BranchRestrictionsParser < BaseParser

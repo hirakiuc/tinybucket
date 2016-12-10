@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'tinybucket/version'
 
 require 'active_support/dependencies/autoload'
