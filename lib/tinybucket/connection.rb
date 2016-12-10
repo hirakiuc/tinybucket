@@ -2,6 +2,8 @@
 
 module Tinybucket
   module Connection
+    DEFAULT_USER_AGENT = 'Tinybucket Ruby Bitbucket REST client'.freeze
+
     def clear_cache
       @connection = nil
     end
@@ -25,7 +27,7 @@ module Tinybucket
     def default_options(_options)
       {
         headers: {
-          USER_AGENT: 'test client' # TODO: fix this !
+          USER_AGENT: Tinybucket.config.user_agent || DEFAULT_USER_AGENT
         },
         ssl: { verify: false },
         url: 'https://api.bitbucket.org/2.0'.freeze
@@ -41,8 +43,7 @@ module Tinybucket
 
         configure_response_cache(conn)
 
-        conn.request :multipart
-        conn.request :url_encoded
+        conn.request :json
         conn.request :oauth, oauth_secrets
 
         conn.response :follow_oauth_redirects, oauth_secrets
