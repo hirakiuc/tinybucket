@@ -4,7 +4,7 @@ module Tinybucket
   module Api
     # Team Api client
     #
-    # @see https://confluence.atlassian.com/bitbucket/teams-endpoint-423626335.html
+    # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/teams
     #   teams Endpoint
     class TeamApi < BaseApi
       include Tinybucket::Api::Helper::TeamHelper
@@ -48,7 +48,7 @@ module Tinybucket
         )
       end
 
-      # Send 'GET a lisf of accounts the tema is following' request
+      # Send 'GET a lisf of accounts the team is following' request
       #
       # @param name [String] The team's name
       # @param options [Hash]

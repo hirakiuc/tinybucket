@@ -4,7 +4,7 @@ module Tinybucket
   module Model
     # ErrorResponse
     #
-    # @see https://confluence.atlassian.com/bitbucket/version-2-423626329.html#Version2-Standardizederrorresponses
+    # @see https://developer.atlassian.com/bitbucket/api/2/reference/meta/uri-uuid#stand-error
     #   Standardized error responses - Bitbucket Cloud REST API document
     #
     # @!attribute [rw] message
