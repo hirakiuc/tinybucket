@@ -30,6 +30,13 @@ module Tinybucket
         :username, :kind, :website, :display_name,
         :links, :created_on, :location, :type, :uuid
 
+      # Get this user's email addresses
+      #
+      # @return [Tinybucket::Resource::Emails]
+      def emails
+        Tinybucket::Resource::Emails.new
+      end
+
       # Get this user's followers
       #
       # @param options [Hash]
