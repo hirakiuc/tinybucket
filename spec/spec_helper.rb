@@ -20,12 +20,6 @@ SimpleCov.start do
   add_filter 'features'
 end
 
-if ENV['CODECLIMATE_REPORT']
-  WebMock.disable_net_connect!(allow: 'codeclimate.com')
-  require 'codeclimate-test-reporter'
-  CodeClimate::TestReporter.start
-end
-
 require 'tinybucket'
 
 path = Pathname.new(Dir.pwd)

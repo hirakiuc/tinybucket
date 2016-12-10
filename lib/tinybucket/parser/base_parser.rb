@@ -10,8 +10,7 @@ module Tinybucket
       end
 
       # override on subclass
-      def convert(_json)
-      end
+      def convert(_json); end
     end
   end
 end

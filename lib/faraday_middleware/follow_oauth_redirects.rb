@@ -13,8 +13,9 @@ module FaradayMiddleware
       env = super(env, request_body, response)
 
       # update Authentication Header
-      env[:request_headers][OAuth::AUTH_HEADER] = \
-        oauth_header(env).to_s if oauth_signed_request?(env)
+      if oauth_signed_request?(env)
+        env[:request_headers][OAuth::AUTH_HEADER] = oauth_header(env).to_s
+      end
 
       env
     end
