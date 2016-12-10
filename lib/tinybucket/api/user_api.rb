@@ -84,7 +84,6 @@ module Tinybucket
       def emails_resource
         Tinybucket::Resource::Emails.new
       end
-
     end
   end
 end
