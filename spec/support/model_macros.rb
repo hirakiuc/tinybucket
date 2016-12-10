@@ -47,7 +47,7 @@ module ModelMacros
           }
         end
         before do
-          @model.stub(:load_model) { raise Tinybucket::Error::NotFound.new(env) }
+          allow(@model).to receive(:load_model).and_raise(Tinybucket::Error::NotFound.new(env));
         end
 
         it { expect { subject }.to raise_error(Tinybucket::Error::NotFound) }
@@ -93,7 +93,7 @@ module ModelMacros
           }
         end
         before do
-          @model.stub(:load_model) { raise Tinybucket::Error::NotFound.new(env) }
+          allow(@model).to receive(:load_model).and_raise(Tinybucket::Error::NotFound.new(env))
         end
 
         it { expect { subject }.to raise_error(Tinybucket::Error::NotFound) }
