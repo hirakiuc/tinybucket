@@ -4,7 +4,7 @@ module Tinybucket
   module Model
     # Repository
     #
-    # @see https://confluence.atlassian.com/bitbucket/repositories-endpoint-423626330.html#repositoriesEndpoint-Overview
+    # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories
     #   Repository Endpoint - Bitbucket Cloud REST API document
     #
     # @!attribute [rw] scm
@@ -118,6 +118,22 @@ module Tinybucket
         commits_resource.find(revision, options)
       end
 
+      # Get the list of hooks on this repository.
+      #
+      # @param options [Hash]
+      # @return [Tinybucket::Resource::Hooks]
+      def hooks(options = {})
+        hooks_resource(options)
+      end
+
+      # Get a specific hook on this repository.
+      #
+      # @param options [Hash]
+      # @return [Tinybucket::Resource::Hooks]
+      def hook(uuid, options = {})
+        hooks_resource.find(uuid, options)
+      end
+
       # Get the branch restriction information associated with this repository.
       #
       # @param options [Hash]
@@ -160,8 +176,16 @@ module Tinybucket
         Tinybucket::Resource::BranchRestrictions.new(self, options)
       end
 
+      def branches_resource(options = {})
+        Tinybucket::Resource::Branches.new(self, options)
+      end
+
       def commits_resource(options = {})
         Tinybucket::Resource::Commits.new(self, options)
+      end
+
+      def hooks_resource(options = {})
+        Tinybucket::Resource::Hooks.new(self, options)
       end
 
       def pull_requests_resource(options = {})

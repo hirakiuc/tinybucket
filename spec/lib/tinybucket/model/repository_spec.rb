@@ -93,6 +93,19 @@ RSpec.describe Tinybucket::Model::Repository do
     it { expect(subject).to be_an_instance_of(Tinybucket::Model::Commit) }
   end
 
+  describe '#hooks' do
+    let(:request_path) { "/repositories/#{owner}/#{slug}/hooks" }
+    subject { model.hooks }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Resource::Hooks) }
+  end
+
+  describe '#hook' do
+    let(:hook) { "{ABC-321-ABC-456}" }
+    let(:request_path) { "/repositories/#{owner}/#{slug}/hooks/#{hook}" }
+    subject { model.hook(hook) }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Model::Hook) }
+  end
+
   describe '#branch_restrictions' do
     let(:request_path) { "/repositories/#{owner}/#{slug}/branch-restrictions" }
     subject { model.branch_restrictions }
