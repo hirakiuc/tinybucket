@@ -7,6 +7,7 @@ desc 'cleanup rcov, doc directories'
 task :clean do
   rm_rf 'coverage'
   rm_rf 'doc'
+  rm_rf 'measurement'
 end
 
 # https://github.com/sferik/twitter/blob/master/Rakefile
