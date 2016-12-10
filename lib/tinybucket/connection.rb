@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Tinybucket
   module Connection
     def clear_cache
@@ -26,7 +28,7 @@ module Tinybucket
           USER_AGENT: 'test client' # TODO: fix this !
         },
         ssl: { verify: false },
-        url: 'https://api.bitbucket.org/2.0'.freeze
+        url: 'https://api.bitbucket.org/2.0'
       }
     end
 

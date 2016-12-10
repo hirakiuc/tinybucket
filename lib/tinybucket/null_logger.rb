@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Tinybucket
   class NullLogger
     attr_accessor :level
