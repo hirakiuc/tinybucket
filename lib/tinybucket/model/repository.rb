@@ -53,9 +53,8 @@ module Tinybucket
       def initialize(json)
         super(json)
 
-        if full_name && full_name.split('/').size == 2
-          @repo_owner, @repo_slug = full_name.split('/')
-        end
+        return unless full_name && full_name.split('/').size == 2
+        @repo_owner, @repo_slug = full_name.split('/')
       end
 
       # Remove this repository
