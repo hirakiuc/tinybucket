@@ -34,18 +34,23 @@ module Tinybucket
 
     def default_middleware(_options)
       proc do |conn|
-        oauth_secrets = {
-          consumer_key:    Tinybucket.config.oauth_token,
-          consumer_secret: Tinybucket.config.oauth_secret
-        }
-
         configure_response_cache(conn)
 
         conn.request :multipart
         conn.request :url_encoded
-        conn.request :oauth, oauth_secrets
 
-        conn.response :follow_oauth_redirects, oauth_secrets
+        if Tinybucket.config.access_token
+          conn.request :oauth2, Tinybucket.config.access_token
+        else
+          oauth_secrets = {
+            consumer_key:    Tinybucket.config.oauth_token,
+            consumer_secret: Tinybucket.config.oauth_secret
+          }
+
+          conn.request :oauth, oauth_secrets
+          conn.response :follow_oauth_redirects, oauth_secrets
+        end
+
         conn.response :json, content_type: /\bjson$/
         conn.use Tinybucket::Response::Handler
         conn.use :instrumentation
