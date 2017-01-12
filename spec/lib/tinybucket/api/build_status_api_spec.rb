@@ -13,10 +13,21 @@ RSpec.describe Tinybucket::Api::BuildStatusApi do
     Tinybucket::Api::BuildStatusApi.new.tap do |api|
       api.repo_owner = owner
       api.repo_slug = slug
+      api.revision = revision
     end
   end
 
   it { expect(api).to be_a_kind_of(Tinybucket::Api::BaseApi) }
+
+  describe 'list' do
+    subject { api.list(options) }
+
+    context 'with owner and slug' do
+      let(:request_path) { "/repositories/#{owner}/#{slug}/commit/#{revision}/statuses" }
+      before { stub_apiresponse(:get, request_path) }
+      it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
+    end
+  end
 
   describe '#find' do
     let(:request_path) do
