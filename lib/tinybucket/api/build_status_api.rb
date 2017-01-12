@@ -9,7 +9,19 @@ module Tinybucket
     class BuildStatusApi < BaseApi
       include Tinybucket::Api::Helper::BuildStatusHelper
 
-      attr_accessor :repo_owner, :repo_slug
+      attr_accessor :revision, :repo_owner, :repo_slug
+
+      # Send 'GET a builds list for a commit' request
+      #
+      # @param options [Hash]
+      # @return [Tinybucket::Model::Page]
+      def list(options = {})
+        get_path(
+          path_to_list,
+          options,
+          Tinybucket::Parser::BuildsParser
+        )
+      end
 
       # Send 'GET the build status for a commit' request
       #

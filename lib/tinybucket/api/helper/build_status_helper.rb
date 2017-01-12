@@ -8,6 +8,15 @@ module Tinybucket
 
         private
 
+        def path_to_list
+          build_path('/repositories',
+                     [repo_owner, 'repo_owner'],
+                     [repo_slug,  'repo_slug'],
+                     'commit',
+                     [revision, 'revision'],
+                     'statuses')
+        end
+
         def path_to_find(revision, key)
           build_path(base_path(revision),
                      [key, 'key'])
