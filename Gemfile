@@ -3,12 +3,7 @@ source 'https://rubygems.org'
 # Specify your gem's dependencies in bitbucket.gemspec
 gemspec
 
-gem 'rake', '~> 10.4'
-gem 'rspec', '~> 3.4'
-gem 'rspec-mocks', '~> 3.4'
-gem 'webmock', '~> 1.24'
-gem 'rubocop', '~> 0.46.0'
-
+gem 'simple-auth', '~> 0.3.1'
 gem 'yard', '~> 0.8.7'
 gem 'yardstick', '~> 0.9'
 
@@ -23,6 +18,12 @@ group :development, :test do
 
   gem 'guard-rubocop'
   gem 'gem-release'
+
+  gem 'rake', '~> 10.4'
+  gem 'rspec', '~> 3.4'
+  gem 'rspec-mocks', '~> 3.4'
+  gem 'webmock', '~> 1.24'
+  gem 'rubocop', '~> 0.46.0'
 end
 
 group :test do

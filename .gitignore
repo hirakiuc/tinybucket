@@ -13,6 +13,7 @@ log/
 
 features
 .envrc
+.byebug_history
 
 ## from github ignore.
 
