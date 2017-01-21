@@ -1,7 +1,6 @@
 *.gem
 *.rbc
 .bundle
-Gemfile.lock
 *.bundle
 *.so
 *.o
