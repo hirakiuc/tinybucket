@@ -54,7 +54,11 @@ Tinybucket.configure do |config|
   # optional, default: nil (disable request cache)
   config.cache_store_options = { store: Rails.cache, logger: logger }
 
-  # Configure oauth_token/oauth_secret
+  # Configure access_token if you can prepare OAuth2 access_token.
+  config.access_token = 'your_access_token'
+
+  # Configure oauth_token/oauth_secret if you want to use OAuth1.0 authentication.
+  # (This config will be ignored if you configure OAuth2 access_token.)
   config.oauth_token = 'key'
   config.oauth_secret = 'secret'
 end

@@ -11,6 +11,7 @@ module Tinybucket
       :BranchRestrictionParser,
       :BranchRestrictionsParser,
       :BuildStatusParser,
+      :BuildsParser,
       :CommitParser,
       :CommitsParser,
       :CommentParser,
