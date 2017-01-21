@@ -22,14 +22,18 @@ module Tinybucket
 
       acceptable_attributes :links, :type, :name, :repository, :target
 
-      def commits
-        commits_api.branch(name)
+      # Returns the commits available for the specific branch
+      #
+      # @param options [Hash]
+      # @return [Tinybucket::Resource::Commits]
+      def commits(options = {})
+        commits_resource.branch(name, options)
       end
 
       private
 
-      def commits_api
-        create_api('Commits', repo_keys)
+      def commits_resource(options = {})
+        Tinybucket::Resource::Commits.new(self, options)
       end
 
       def branches_api

@@ -41,6 +41,7 @@ RSpec.describe Tinybucket::Model::Branch do
   describe 'commits' do
     let(:request_path) { "/repositories/#{owner}/#{slug}/commits/#{model.name}" }
     subject { model.commits }
-    it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Enumerator) }
+    it { expect(subject).to all( be_an_instance_of Tinybucket::Model::Commit) }
   end
 end

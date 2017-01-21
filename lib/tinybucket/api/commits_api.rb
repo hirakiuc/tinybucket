@@ -7,7 +7,7 @@ module Tinybucket
     # @!attribute [rw] repo_owner
     #   @return [String] repository owner name.
     # @!attribute [rw] repo_slug
-    #   @return [String] repository slug. (about {https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D
+    #   @return [String] repository slug. (about {https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D repo_slug})
     class CommitsApi < BaseApi
       include Tinybucket::Api::Helper::CommitsHelper
 
@@ -49,6 +49,7 @@ module Tinybucket
 
       # Send 'POST a commit approval' request
       # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/approve#post
+      #   POST a commit approval request
       #
       # @param revision [String]
       # @param options [Hash]
@@ -63,6 +64,7 @@ module Tinybucket
 
       # Send 'DELETE a commit approval' request
       # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/approve#delete
+      #   DELETE a commit approval (unapprove the commit)
       #
       # @param revision [String]
       # @param options [Hash]
@@ -80,7 +82,7 @@ module Tinybucket
       # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/commits
       #   GET an individual commit
       #
-      # @param revision [String] A SHA1 value for the commit.
+      # @param name [String] The branch name or a SHA1 value for the commit.
       # @param options [Hash]
       # @return [Tinybucket::Model::Commit]
       def branch(name, options = {})
