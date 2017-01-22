@@ -69,6 +69,7 @@ module Tinybucket
       # Send 'PUT a hook for a repository' request
       # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/hooks/%7Buid%7D#put
       #
+      # @param hook [String] A UUID for the Hook
       # @param options [Hash] The attributes to update
       # @return [Tinybucket::Model::Hook]
       def update(hook, options = {})
@@ -82,6 +83,7 @@ module Tinybucket
       # Send 'DELETE a hook for a repository' request
       # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/hooks/%7Buid%7D#delete
       #
+      # @param hook [String] A UUID for the Hook
       # @param options [Hash] The attributes to update
       # @return [Boolean]
       def delete(hook, options = {})

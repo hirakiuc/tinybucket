@@ -10,11 +10,11 @@ module Tinybucket
 
       # Find the hook
       #
-      # @param branch [String]
+      # @param hook [String]
       # @param options [Hash]
       # @return [Tinybucket::Model::Hook]
-      def find(branch, options = {})
-        hooks_api.find(branch, options).tap do |m|
+      def find(hook, options = {})
+        hooks_api.find(hook, options).tap do |m|
           inject_repo_keys(m, @repo.repo_keys)
         end
       end
