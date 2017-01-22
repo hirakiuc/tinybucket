@@ -13,6 +13,7 @@ log/
 
 features
 .envrc
+.byebug_history
 
 ## from github ignore.
 
@@ -31,3 +32,4 @@ features
 ## Environment normalisation:
 /.bundle/
 /lib/bundler/man/
+/vendor/

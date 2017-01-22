@@ -6,6 +6,7 @@ module Tinybucket
 
     [
       :Base,
+      :Branches,
       :BranchRestrictions,
       :Commits,
       :Forks,

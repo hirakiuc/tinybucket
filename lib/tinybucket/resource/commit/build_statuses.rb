@@ -36,12 +36,13 @@ module Tinybucket
         private
 
         def build_status_api
-          create_api('BuildStatus', @commit.repo_keys)
+          create_api('BuildStatus', @commit.repo_keys).tap do |api|
+            api.revision = @commit.hash
+          end
         end
 
-        # FIXME: raise NoMethodError on method_missing.
         def enumerator
-          nil
+          create_enumerator(build_status_api, :list, *@args)
         end
       end
     end

@@ -7,6 +7,7 @@ module Tinybucket
 
       [
         :ApiHelper,
+        :BranchesHelper,
         :BranchRestrictionsHelper,
         :BuildStatusHelper,
         :CommitsHelper,

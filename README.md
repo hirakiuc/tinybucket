@@ -54,7 +54,11 @@ Tinybucket.configure do |config|
   # optional, default: nil (disable request cache)
   config.cache_store_options = { store: Rails.cache, logger: logger }
 
-  # Configure oauth_token/oauth_secret
+  # Configure access_token if you can prepare OAuth2 access_token.
+  config.access_token = 'your_access_token'
+
+  # Configure oauth_token/oauth_secret if you want to use OAuth1.0 authentication.
+  # (This config will be ignored if you configure OAuth2 access_token.)
   config.oauth_token = 'key'
   config.oauth_secret = 'secret'
 end
@@ -76,15 +80,15 @@ repos = repos('my_name').select do |repo|
 end.map(&:full_name)
 ```
 
-This enumerable feature depends on [Paging through object collections](https://confluence.atlassian.com/bitbucket/version-2-423626329.html#Version2-Pagingthroughobjectcollections) at Bitbucket Cloud REST API.
+This enumerable feature depends on [Paging through object collections](https://developer.atlassian.com/bitbucket/api/2/reference/meta/pagination) at Bitbucket Cloud REST API.
 
 #### NOTE: About `size` attribute
 
-[object collections wrapper](https://confluence.atlassian.com/bitbucket/version-2-423626329.html#Version2-Pagingthroughobjectcollections) has `size` attribute at Bitbucket Cloud REST API.
+[object collections wrapper](https://developer.atlassian.com/bitbucket/api/2/reference/meta/pagination) has `size` attribute at Bitbucket Cloud REST API.
 
 The `size` attribute describe as `optional` attribute.
 
-In tinybucket gem, collection size depend on `side` attribute of [object collections wrapper](https://confluence.atlassian.com/bitbucket/version-2-423626329.html#Version2-Pagingthroughobjectcollections) in Bitbucket Cloud REST API.
+In tinybucket gem, collection size depend on `side` attribute of [object collections wrapper](https://developer.atlassian.com/bitbucket/api/2/reference/meta/pagination) in Bitbucket Cloud REST API.
 
 So enumerator's `size` attribute may return `nil`.
 
@@ -259,6 +263,25 @@ commit.approve
 
 # [x] DELETE a commit approval
 commit.unapprove
+```
+
+##### branches Resource
+
+###### Collection Methods
+
+```ruby
+repo = bucket.repo('someone', 'great_repo')
+
+# [x ] GET a list of branches
+branches = repo.branches(options)
+```
+
+###### Object Methods
+```ruby
+repo = bucket.repo('someone', 'great_repo')
+
+# [x] GET a specific branch
+branch = repo.branch(branch_name)
 ```
 
 ##### branch-restrictions Resource
