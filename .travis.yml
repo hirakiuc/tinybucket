@@ -1,7 +1,7 @@
 sudo: false
 language: ruby
 before_install:
-  - gem install bundler -v 1.13.6
+  - gem install bundler -v 1.13.7
 rvm: 2.3.3
 addons:
   code_climate:
