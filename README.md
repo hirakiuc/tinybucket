@@ -27,7 +27,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install bitbucket
+    $ gem install tinybucket
 
 ## Usage
 
