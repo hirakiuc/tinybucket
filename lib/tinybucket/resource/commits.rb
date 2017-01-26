@@ -25,7 +25,7 @@ module Tinybucket
       # @param options [Hash]
       # @return [Tinybucket::Iterator]
       def branch(name, options = {})
-        create_enumerator(commits_api, :branch, *[name, options]) do |m|
+        create_enumerator(commits_api, :branch, name, options) do |m|
           inject_repo_keys(m, @repo.repo_keys)
         end
       end

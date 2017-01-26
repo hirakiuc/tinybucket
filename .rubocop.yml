@@ -49,3 +49,9 @@ Style/RedundantFreeze:
 
 Metrics/AbcSize:
   Max: 18
+
+Metrics/LineLength:
+  Max: 100
+  IgnoredPatterns: [
+    '^\s*#'
+  ]
