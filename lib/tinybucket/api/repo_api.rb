@@ -4,14 +4,13 @@ module Tinybucket
   module Api
     # Repo Api client
     #
-    # @see https://confluence.atlassian.com/bitbucket/repository-resource-423626331.html
+    # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories
     #   repository Resource
     #
     # @!attribute [rw] repo_owner
     #   @return [String] repository owner name.
     # @!attribute [rw] repo_slug
-    #   @return [String] repository slug. (about {https://confluence.atlassian.com/bitbucket/repositories-endpoint-423626330.html#repositoriesEndpoint-Overview
-    #     repo_slug})
+    #   @return [String] repository slug. (about {https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D
     class RepoApi < BaseApi
       include Tinybucket::Api::Helper::RepoHelper
 

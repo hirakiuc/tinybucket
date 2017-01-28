@@ -43,8 +43,7 @@ module Tinybucket
     # Get the repository
     #
     # @param owner [String] repository owner name.
-    # @param repo_slug [String] repository slug. (about {https://confluence.atlassian.com/bitbucket/repositories-endpoint-423626330.html#repositoriesEndpoint-Overview
-    #     repo_slug})
+    # @param repo_slug [String] repository slug. (about {https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D
     # @return [Tinybucket::Model::Repository]
     def repo(owner, repo_slug)
       Tinybucket::Model::Repository.new({}).tap do |m|

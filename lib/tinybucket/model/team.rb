@@ -4,7 +4,7 @@ module Tinybucket
   module Model
     # Team
     #
-    # @see https://confluence.atlassian.com/bitbucket/teams-endpoint-423626335.html#teamsEndpoint-Overview
+    # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/teams
     #   teams Endpoint - Bitbucket Cloud REST API document
     #
     # @!attribute [rw] username

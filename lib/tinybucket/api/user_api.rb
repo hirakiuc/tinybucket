@@ -4,7 +4,7 @@ module Tinybucket
   module Api
     # User Api client
     #
-    # @see https://confluence.atlassian.com/bitbucket/users-endpoint-423626336.html
+    # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/users/%7Busername%7D
     #   users Endpoint
     #
     # @!attribute [rw] username
