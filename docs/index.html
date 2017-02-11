@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="description" content="Tinybucket : A Ruby client library for Bitbucket REST API v2 with OAuth Authentication.">
+
+  <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+  <title>Tinybucket</title>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-53880523-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <div id="header_wrap" class="outer">
+      <header class="inner">
+        <a id="forkme_banner" href="https://github.com/hirakiuc/tinybucket">View on GitHub</a>
+
+        <h1 id="project_title">Tinybucket</h1>
+        <h2 id="project_tagline">A Ruby client library for Bitbucket REST API v2 with OAuth Authentication.</h2>
+
+          <section id="downloads">
+            <a class="zip_download_link" href="https://github.com/hirakiuc/tinybucket/zipball/master">Download this project as a .zip file</a>
+            <a class="tar_download_link" href="https://github.com/hirakiuc/tinybucket/tarball/master">Download this project as a tar.gz file</a>
+          </section>
+      </header>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div id="main_content_wrap" class="outer">
+    <section id="main_content" class="inner">
+      <h3>
+        <a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Introduction
+      </h3>
+
+      <p>Tinybucket is a ruby wrapper library to use Bitbucket REST API v2 with OAuth Authentication. </p>
+      <p>This gem is inspired by <a href='https://github.com/vongrippen/bitbucket'>vongrippen/bitbucket</a></p>
+
+      <hr width='100%' />
+
+      <h3>
+        <a name='note' class='anchor' href='#note'><span class='octicon octicon-link'></span></a>
+        WARNING
+      </h3>
+
+      <p style='color: red;'>This gem is under development. SourceCodes are may be changed at any time.</p>
+
+      <hr width='100%' />
+
+      <h3>
+        <a name='features' class='anchor' href='#features'><span class='octicon octicon-link'></span></a>
+        Features
+      </h3>
+
+      <p>
+        This gem has these features.
+        See the <a href='https://github.com/hirakiuc/tinybucket'>README.md</a> about detail.
+      </p>
+
+      <h4>
+        <a name='features-oauth' class='anchor' href='#features-oauth'><span class='octicon octicon-link'></span></a>
+        Authentication
+      </h4>
+
+      See <a href='https://github.com/hirakiuc/tinybucket#init'>sample code</a>.
+
+      <ul>
+        <li>OAuth Authentication only</li>
+      </ul>
+
+      <hr width='80%' />
+
+      <h4>
+        <a name='features-teams' class='anchor' href='#features-teams'><span class='octicon octicon-link'></span></a>
+        Teams
+      </h4>
+
+      See <a href='https://github.com/hirakiuc/tinybucket/blob/master/README.md#teams-endpoint'>sample code</a>.
+
+      <ul>
+        <li>Get the team.</li>
+        <li>Iterate members of the team.</li>
+        <li>Iterate followers of the team.</li>
+        <li>Iterate following of the team.</li>
+        <li>Iterate repositories of the team.</li>
+      </ul>
+
+      <hr width='80%' />
+
+      <h4>
+        <a name='features-users' class='anchor' href='#features-users'><span class='octicon octicon-link'></span></a>
+        Users
+      </h4>
+
+      See <a href='https://github.com/hirakiuc/tinybucket/blob/master/README.md#users-endpoint'>sample code</a>.
+
+      <ul>
+        <li>Get the user.</li>
+        <li>Iterate followers of the user.</li>
+        <li>Iterate following of the user.</li>
+        <li>Iterate repositories of the user.</li>
+      </ul>
+
+      <hr width='80%' />
+
+      <h4>
+        <a name='features-repositories' class='anchor' href='#features-repositories'><span class='octicon octicon-link'></span></a>
+        Repositories
+      </h4>
+
+      See <a href='https://github.com/hirakiuc/tinybucket#repositories-endpoint'>sample code</a>.
+
+      <ul>
+        <li>Iterate public Repositories</li>
+        <li>Iterate the repositories owned by the specified owner</li>
+      </ul>
+
+      <hr width='80%' />
+
+      <h4>
+        <a name='features-repository' class='anchor' href='#features-repository'><span class='octicon octicon-link'></span></a>
+        Repository
+      </h4>
+
+      See <a href='https://github.com/hirakiuc/tinybucket#repository-resource'>sample code</a>.
+
+      <ul>
+        <li>Get the repository.</li>
+        <li>Get watchers of the repository.</li>
+        <li>Get forks of the repository.</li>
+      </ul>
+
+      <h4>
+        <a name='features-pullrequest' class='anchor' href='#features-pullrequest'><span class='octicon octicon-link'></span></a>
+        PullRequest
+      </h4>
+
+      See <a href='https://github.com/hirakiuc/tinybucket#pullrequests-resource'>sample code</a>.
+
+      <ul>
+        <li>Iterate PullRequests of the repository.</li>
+        <li>Get the PullRequest of the repository.</li>
+        <li>Iterate Commits of the PullRequest.</li>
+        <li>Approve the PullRequest.</li>
+        <li>Unapprove the PullRequest.</li>
+        <li>Get diff text of the PullRequest.</li>
+        <li>Iterate Comments on the PullRequest.</li>
+        <li>Get the Comment on the PullRequest.</li>
+      </ul>
+
+      <h4>
+        <a name='features-commits' class='anchor' href='#features-commits'><span class='octicon octicon-link'></span></a>
+        Commits
+      </h4>
+
+      See <a href='https://github.com/hirakiuc/tinybucket#commits-or-commit-resource'>sample code</a>.
+
+      <ul>
+        <li>Iterate Commits of the repository.</li>
+        <li>Get the Commit of the repository.</li>
+        <li>Iterate Commit Comments of the commit.</li>
+        <li>Get the Commit comment of the commit.</li>
+      </ul>
+
+      <h4>
+        <a name='features-branch-restrictions' class='anchor' href='#features-branch-restrictions'><span class='octicon octicon-link'></span></a>
+        Branch Restrictions
+      </h4>
+
+      See <a href='https://github.com/hirakiuc/tinybucket#branch-restrictions-resource'>sample code</a>.
+
+      <ul>
+        <li>Iterate Branch Restrictions of the repository.</li>
+        <li>Get the branch restriction of the repository.</li>
+      </ul>
+
+      <h4>
+        <a name='features-diff' class='anchor' href='#features-diff'><span class='octicon octicon-link'></span></a>
+        diff
+      </h4>
+
+      See <a href='https://github.com/hirakiuc/tinybucket#diff-resource'>sample code</a>.
+
+      <ul>
+        <li>Get a diff text of the commit or branch.</li>
+        <li>Get a patch text of the commit or branch.</li>
+      </ul>
+
+      <hr width='100%' />
+
+      <h3>
+        <a name="license" class="anchor" href="#license">
+          <span class="octicon octicon-link"></span>
+        </a>
+        License
+      </h3>
+
+      <p><a href='https://github.com/hirakiuc/tinybucket/blob/master/LICENSE'>MIT License (MIT)</a></p>
+
+      <h3>
+        <a name="authors-and-contributors" class="anchor" href="#authors-and-contributors">
+          <span class="octicon octicon-link"></span>
+        </a>
+        Authors and Contributors
+      </h3>
+
+      <ul>
+        <li><a href='https://github.com/hirakiuc' class='user-mention'>@hirakiuc</a></li>
+      </ul>
+  </div>
+
+  <!-- FOOTER  -->
+  <div id="footer_wrap" class="outer">
+    <footer class="inner">
+      <p class="copyright">Tinybucket maintained by <a href="https://github.com/hirakiuc">hirakiuc</a></p>
+      <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+    </footer>
+  </div>
+
+</body>
+</html>
