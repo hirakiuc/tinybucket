@@ -17,7 +17,7 @@ module Tinybucket
       end
 
       def respond_to_missing?(symbol, include_all)
-        enum.respond_to_missing?(symbol, include_all) || super
+        enumerator.respond_to?(symbol, include_all)
       end
 
       def create_enumerator(api_client, method, *args, &block)
