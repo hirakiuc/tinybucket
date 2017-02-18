@@ -5,9 +5,9 @@ module Tinybucket
     # Commit Resource
     #
     # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/commit
-    #   Commit Resource - Bitbucket Cloud REST API document
+    #   Commit Resource
     # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/commits
-    #   Commits resource - Bitbucket Cloud REST API document
+    #   Commits Resource
     #
     # @!attribute [rw] hash
     #   @return [String]

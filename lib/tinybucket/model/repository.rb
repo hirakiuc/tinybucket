@@ -5,7 +5,7 @@ module Tinybucket
     # Repository
     #
     # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories
-    #   Repository Endpoint - Bitbucket Cloud REST API document
+    #   Repository Endpoint
     #
     # @!attribute [rw] scm
     #   @return [String]

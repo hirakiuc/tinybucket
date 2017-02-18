@@ -5,7 +5,7 @@ module Tinybucket
     # Comment
     #
     # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/commit/%7Bsha%7D/comments
-    #   Comment resource - Bitbucket Cloud REST API document
+    #   Comment Resource
     #
     # @!attribute [rw] links
     #   @return [Hash]

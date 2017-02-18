@@ -4,8 +4,8 @@ module Tinybucket
   module Model
     # Page
     #
-    # @seehttps://developer.atlassian.com/bitbucket/api/2/reference/meta/pagination
-    #   Paging through object collections - Bitbucket Cloud REST API document
+    # @see https://developer.atlassian.com/bitbucket/api/2/reference/meta/pagination
+    #   Paging through object collections
     #
     # @!attribute [r] attrs
     #   This attribute is a Hash object which contains
