@@ -10,8 +10,7 @@ module Tinybucket
     # @!attribute [rw] repo_owner
     #   @return [String] repository owner name.
     # @!attribute [rw] repo_slug
-    #   @return [String] repository slug. (about {https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/
-    #     %7Busername%7D/%7Brepo_slug%7D})
+    #   @return [String] {https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D repository slug}.
     class BranchRestrictionsApi < BaseApi
       include Tinybucket::Api::Helper::BranchRestrictionsHelper
 

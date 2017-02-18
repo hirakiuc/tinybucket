@@ -5,7 +5,7 @@ module Tinybucket
     # Profile
     #
     # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/users/%7Busername%7D
-    #   users Endpoint - Bitbucket Cloud REST API document
+    #   users Endpoint
     #
     # @!attribute [rw] username
     #   @return [String]

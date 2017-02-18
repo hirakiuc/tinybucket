@@ -5,7 +5,7 @@ module Tinybucket
     # ErrorResponse
     #
     # @see https://developer.atlassian.com/bitbucket/api/2/reference/meta/uri-uuid#stand-error
-    #   Standardized error responses - Bitbucket Cloud REST API document
+    #   Standardized error responses
     #
     # @!attribute [rw] message
     #   @return [String]

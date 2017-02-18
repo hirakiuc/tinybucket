@@ -5,7 +5,7 @@ module Tinybucket
     # Team
     #
     # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/teams
-    #   teams Endpoint - Bitbucket Cloud REST API document
+    #   teams Endpoint
     #
     # @!attribute [rw] username
     #   @return [String]
