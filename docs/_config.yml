@@ -1,0 +1,5 @@
+encoding: utf-8
+title: tinybucket - A ruby client library for Bitbucket Cloud REST APIs
+highlighter: rouge
+markdown: kramdown
+theme: jekyll-theme-cayman
