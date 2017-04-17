@@ -136,6 +136,10 @@ module Tinybucket
         raise NotImplementedError
       end
 
+      def approvals
+        load_model.participants.find { |p| p['approved'] }
+      end
+
       private
 
       def commits_resource(options = {})
