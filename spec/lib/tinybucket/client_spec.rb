@@ -86,6 +86,13 @@ RSpec.describe Tinybucket::Client do
     end
   end
 
+  describe 'tesma' do
+    subject { client.teams(role_name) }
+
+    let(:role_name) { "admin" }
+    it { expect(subject).to be_instance_of(Tinybucket::Resource::Teams) }
+  end
+
   describe 'team' do
     let(:team) { 'test_team' }
     subject { client.team(team) }

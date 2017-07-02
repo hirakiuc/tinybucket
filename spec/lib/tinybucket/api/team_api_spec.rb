@@ -10,6 +10,14 @@ RSpec.describe Tinybucket::Api::TeamApi do
 
   it { expect(api).to be_a_kind_of(Tinybucket::Api::BaseApi) }
 
+  describe 'list' do
+    subject { api.list(role_name) }
+
+    let(:role_name) { "admin" }
+    let(:request_path) { "/teams?role=admin" }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Model::Page) }
+  end
+
   describe 'profile' do
     subject { api.find(teamname) }
 

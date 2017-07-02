@@ -9,6 +9,19 @@ module Tinybucket
     class TeamApi < BaseApi
       include Tinybucket::Api::Helper::TeamHelper
 
+      # Send 'GET teams' request
+      #
+      # @param role_name [String] role name
+      # @param options [Hash]
+      # @return [Tinybucket::Model::Page]
+      def list(role_name, options = {})
+        get_path(
+          path_to_list,
+          { role: role_name }.merge(options),
+          Tinybucket::Parser::TeamsParser
+        )
+      end
+
       # Send 'GET the team profile' request
       #
       # @param name [String] The team's name

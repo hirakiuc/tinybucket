@@ -1,0 +1,48 @@
+{
+	"pagelen": 10,
+	"values": [
+		{
+			"username": "test_team",
+			"website": null,
+			"display_name": "test tesm",
+			"uuid": "{e0f17982-effb-43cb-8589-7bacabb37cab}",
+			"links": {
+				"hooks": {
+					"href": "https://api.bitbucket.org/2.0/teams/test_team/hooks"
+				},
+				"self": {
+					"href": "https://api.bitbucket.org/2.0/teams/test_team"
+				},
+				"repositories": {
+					"href": "https://api.bitbucket.org/2.0/repositories/test_team"
+				},
+				"html": {
+					"href": "https://bitbucket.org/test_team/"
+				},
+				"followers": {
+					"href": "https://api.bitbucket.org/2.0/teams/test_team/followers"
+				},
+				"avatar": {
+					"href": "https://bitbucket.org/account/test_team/avatar/32/"
+				},
+				"members": {
+					"href": "https://api.bitbucket.org/2.0/teams/test_team/members"
+				},
+				"following": {
+					"href": "https://api.bitbucket.org/2.0/teams/test_team/following"
+				},
+				"projects": {
+					"href": "https://api.bitbucket.org/2.0/teams/test_team/projects/"
+				},
+				"snippets": {
+					"href": "https://api.bitbucket.org/2.0/snippets/test_team"
+				}
+			},
+			"created_on": "2014-08-05T15:17:01.717714+00:00",
+			"location": null,
+			"type": "team"
+		}
+	],
+	"page": 1,
+	"size": 1
+}
