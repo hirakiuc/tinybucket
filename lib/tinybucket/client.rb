@@ -52,6 +52,15 @@ module Tinybucket
       end
     end
 
+    # Get teams
+    #
+    # @param role_name [String] role name (one of "admin", "contributor", or "member")
+    # @param options
+    # @return [Tinybucket::Resource::Teams]
+    def teams(role_name, options = {})
+      Tinybucket::Resource::Teams.new(role_name, options)
+    end
+
     # Get the team
     #
     # @param teamname [String] the team name.
