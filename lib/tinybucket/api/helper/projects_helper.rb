@@ -19,8 +19,8 @@ module Tinybucket
 
         def base_path(owner)
           build_path('/teams',
-                    [owner, 'owner'],
-                    'projects')
+                     [owner, 'owner'],
+                     'projects')
         end
       end
     end

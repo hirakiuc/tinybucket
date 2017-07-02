@@ -2,7 +2,7 @@
 
 module Tinybucket
   module Model
-    module Project < Base
+    class Project < Base
       acceptable_attributes \
         :description, :links, :uuid, :created_on,
         :key, :updated_on, :is_private, :name
