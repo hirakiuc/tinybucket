@@ -17,7 +17,7 @@ module Tinybucket
       def list(role_name, options = {})
         get_path(
           path_to_list,
-          {role: role_name}.merge(options),
+          { role: role_name }.merge(options),
           Tinybucket::Parser::TeamsParser
         )
       end
