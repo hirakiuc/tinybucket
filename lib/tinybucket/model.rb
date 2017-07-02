@@ -14,6 +14,7 @@ module Tinybucket
       :ErrorResponse,
       :Page,
       :Profile,
+      :Project,
       :PullRequest,
       :Repository,
       :Team

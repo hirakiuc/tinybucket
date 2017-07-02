@@ -54,6 +54,14 @@ module Tinybucket
         Tinybucket::Resource::Team::Following.new(username, options)
       end
 
+      # Get projects
+      #
+      # @param options [Hash]
+      # @return [Tinybucket::Resource::Team::Project]
+      def projects(options = {})
+        Tinybucket::Resource::Team::Projects.new(username, options)
+      end
+
       # Get this team's repositories.
       #
       # @param options [Hash]
