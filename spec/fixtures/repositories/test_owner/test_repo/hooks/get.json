@@ -1,0 +1,49 @@
+{
+  "pagelen": 10,
+  "values": [
+    {
+      "read_only": null,
+      "description": "Notification Hook",
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/repositories/test_owner/test_hook/hooks/%7B89d63269-4dc2-4114-89ae-acf57de0e162%7D"
+        }
+      },
+      "url": "https://www.ezploy.com/hooks/bitbucket",
+      "created_at": "2016-10-11T11:58:09.696427Z",
+      "skip_cert_verification": false,
+      "source": null,
+      "active": true,
+      "subject": {
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/repositories/test_owner/test_hook"
+          },
+          "html": {
+            "href": "https://bitbucket.org/test_owner/test_hook"
+          },
+          "avatar": {
+            "href": "https://bitbucket.org/test_owner/test_hook/avatar/32/"
+          }
+        },
+        "type": "repository",
+        "name": "test_hook",
+        "full_name": "test_owner/test_hook",
+        "uuid": "{ABC-123-ABC}"
+      },
+      "type": "webhook_subscription",
+      "events": [
+        "repo:push",
+        "pullrequest:updated",
+        "pullrequest:fulfilled",
+        "pullrequest:created",
+        "issue:comment_created",
+        "issue:updated",
+        "issue:created"
+      ],
+      "uuid": "{ABC-321-ABC-456}"
+    }
+  ],
+  "page": 1,
+  "size": 1
+}

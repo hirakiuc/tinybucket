@@ -326,6 +326,20 @@ diff = repo.diff(COMMIT_ID)
 patch = repo.patch(COMMIT_ID)
 ```
 
+##### hooks Resource
+
+###### Collection Methods
+
+```ruby
+repo = bucket.repo('someone', 'great_repo')
+
+# [x ] GET a list of hooks
+hooks = repo.hooks(options)
+
+# [ ] POST a specific hook
+hook = repo.hooks.create(params)
+```
+
 ##### statuses/build Resource
 
 ###### Collection Methods
