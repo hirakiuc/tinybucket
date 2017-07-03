@@ -16,6 +16,8 @@ module Tinybucket
       :CommitsParser,
       :CommentParser,
       :CommentsParser,
+      :EmailParser,
+      :EmailsParser,
       :ProfileParser,
       :ProfilesParser,
       :PullRequestParser,

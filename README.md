@@ -133,6 +133,12 @@ followings = user.followings
 
 # [x] GET the user's repositories
 repos = user.repos
+
+# [x] GET the list of emails for the user
+emails = user.emails
+
+# [x] GET a specific email
+emails = user.email('email@domain.com')
 ```
 
 #### repositories Endpoint

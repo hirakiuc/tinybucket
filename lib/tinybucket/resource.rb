@@ -9,6 +9,7 @@ module Tinybucket
       :Branches,
       :BranchRestrictions,
       :Commits,
+      :Emails,
       :Forks,
       :OwnersRepos,
       :PublicRepos,
