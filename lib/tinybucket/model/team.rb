@@ -59,7 +59,15 @@ module Tinybucket
       # @param options [Hash]
       # @return [Tinybucket::Resource::Team::Project]
       def projects(options = {})
-        Tinybucket::Resource::Team::Projects.new(username, options)
+        projects_resource(options)
+      end
+
+      # Get the project
+      #
+      # @param project_key [String]
+      # @return [Tinybucket::Model::Project]
+      def project(project_key, options = {})
+        projects_resource().find(project_key, options)
       end
 
       # Get this team's repositories.
@@ -71,6 +79,10 @@ module Tinybucket
       end
 
       private
+
+      def projects_resource(options = {})
+        Tinybucket::Resource::Projects.new(username, options)
+      end
 
       def team_api
         create_api('Team')

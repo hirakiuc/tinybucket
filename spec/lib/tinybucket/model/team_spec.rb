@@ -11,9 +11,9 @@ RSpec.describe Tinybucket::Model::Team do
   let(:teamname) { 'test_team' }
 
   let(:model) do
-    m = Tinybucket::Model::Team.new(model_json)
-    m.username = teamname
-    m
+    Tinybucket::Model::Team.new(model_json).tap do |m|
+      m.username = teamname
+    end
   end
 
   before { stub_apiresponse(:get, request_path) if request_path }
@@ -65,6 +65,25 @@ RSpec.describe Tinybucket::Model::Team do
     it 'return resource' do
       expect(subject).to be_an_instance_of(
         Tinybucket::Resource::Team::Repos)
+    end
+  end
+
+  describe '#projects' do
+    let(:request_path) { "/teams/#{teamname}/projects/" }
+    subject { model.projects }
+    it 'return resource' do
+      expect(subject).to be_an_instance_of(
+        Tinybucket::Resource::Projects)
+    end
+  end
+
+  describe '#project' do
+    let(:project_key) { 'myprj' }
+    let(:request_path) { "/teams/#{teamname}/projects/#{project_key}" }
+    subject { model.project(project_key) }
+    it 'return Project model' do
+      expect(subject).to be_an_instance_of(
+        Tinybucket::Model::Project)
     end
   end
 end

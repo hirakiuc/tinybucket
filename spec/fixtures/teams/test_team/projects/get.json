@@ -1,0 +1,89 @@
+{
+  "pagelen": 10,
+  "values": [
+    {
+      "uuid": "{45d24c3d-efa0-4c2a-be4e-78c1b30a30d0}",
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/teams/test_team/projects/TEST"
+        },
+        "html": {
+          "href": "https://bitbucket.org/account/user/test_team/projects/TEST"
+        },
+        "repositories": {
+          "href": "https://api.bitbucket.org/2.0/repositories/test_team?q='project.key=\"TEST\"'"
+        },
+        "avatar": {
+          "href": "https://bitbucket.org/account/user/test_team/projects/TEST/avatar/32"
+        }
+      },
+      "description": null,
+      "created_on": "2016-03-19T03:34:27.792230+00:00",
+      "key": "TEST",
+      "owner": {
+        "username": "test_team",
+        "display_name": "test team",
+        "type": "team",
+        "uuid": "{e0f17982-effb-43eb-8589-7bacabb37cab}",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/teams/test_team"
+          },
+          "html": {
+            "href": "https://bitbucket.org/test_team/"
+          },
+          "avatar": {
+            "href": "https://bitbucket.org/account/test_team/avatar/32/"
+          }
+        }
+      },
+      "updated_on": "2016-03-19T03:34:27.792256+00:00",
+      "type": "project",
+      "is_private": false,
+      "name": "test"
+    },
+    {
+      "uuid": "{59278b96-1238-4418-a2b9-8f438234ae45}",
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/teams/test_team/projects/PROJ"
+        },
+        "html": {
+          "href": "https://bitbucket.org/account/user/test_team/projects/PROJ"
+        },
+        "repositories": {
+          "href": "https://api.bitbucket.org/2.0/repositories/test_team?q='project.key=\"PROJ\"'"
+        },
+        "avatar": {
+          "href": "https://bitbucket.org/account/user/test_team/projects/PROJ/avatar/32"
+        }
+      },
+      "description": "Project created by Bitbucket for test",
+      "created_on": "2015-12-04T02:27:25.909083+00:00",
+      "key": "PROJ",
+      "owner": {
+        "username": "test_team",
+        "display_name": "test team",
+        "type": "team",
+        "uuid": "{e0f17982-effb-41cb-8589-7bacabb37cab}",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/teams/test_team"
+          },
+          "html": {
+            "href": "https://bitbucket.org/test_team/"
+          },
+          "avatar": {
+            "href": "https://bitbucket.org/account/test_team/avatar/32/"
+          }
+        }
+      },
+      "updated_on": "2015-12-04T02:27:25.909123+00:00",
+      "type": "project",
+      "is_private": false,
+      "name": "Untitled project"
+    }
+  ],
+  "page": 1,
+  "size": 2
+}
