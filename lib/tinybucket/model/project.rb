@@ -21,6 +21,24 @@ module Tinybucket
       def destroy
         raise NotImplementedError
       end
+
+      # Get repositories
+      #
+      # @return [Tinybucket::Resource::Repos]
+      def repos
+        repos_resource
+      end
+
+      private
+
+      def owner_name
+        raise 'This project is not loaded yet.' if (owner.nil? || owner['username'].nil?)
+        owner['username']
+      end
+
+      def repos_resource
+        Tinybucket::Resource::Repos.new(owner_name, q: %(project.key="#{key}"))
+      end
     end
   end
 end

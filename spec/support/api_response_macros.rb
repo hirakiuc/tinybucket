@@ -55,7 +55,7 @@ module ApiResponseMacros
 
     path = 'spec/fixtures' + parts[0]
     fname = method.to_s
-    fname += '_' + parts[1].gsub(/[\/??&=]/, '_') if parts[1].present?
+    fname += '_' + parts[1].gsub(/[\/??&=]/, '_').gsub('\'', '_') if parts[1].present?
     fname += '.' + ext
 
     File.read(path + '/' + fname)
