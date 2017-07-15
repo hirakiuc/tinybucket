@@ -27,9 +27,9 @@ module Tinybucket
       #
       # NOTE: Not Implemented yet.
       #
-      # @param params [Hash]
+      # @param _params [Hash]
       # @raise [NotImplementedError] to be implemented
-      def create(params)
+      def create(_params)
         raise NotImplementedError
       end
 
