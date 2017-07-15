@@ -1,0 +1,105 @@
+{
+  "pagelen": 10,
+  "values": [
+    {
+      "scm": "git",
+      "website": "",
+      "has_wiki": false,
+      "name": "on-untitled-prj-repo",
+      "links": {
+        "watchers": {
+          "href": "https://api.bitbucket.org/2.0/repositories/altabjpworks/on-untitled-prj-repo/watchers"
+        },
+        "branches": {
+          "href": "https://api.bitbucket.org/2.0/repositories/altabjpworks/on-untitled-prj-repo/refs/branches"
+        },
+        "tags": {
+          "href": "https://api.bitbucket.org/2.0/repositories/altabjpworks/on-untitled-prj-repo/refs/tags"
+        },
+        "commits": {
+          "href": "https://api.bitbucket.org/2.0/repositories/altabjpworks/on-untitled-prj-repo/commits"
+        },
+        "clone": [
+          {
+            "href": "https://hirakiuc@bitbucket.org/altabjpworks/on-untitled-prj-repo.git",
+            "name": "https"
+          },
+          {
+            "href": "ssh://git@bitbucket.org/altabjpworks/on-untitled-prj-repo.git",
+            "name": "ssh"
+          }
+        ],
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/repositories/altabjpworks/on-untitled-prj-repo"
+        },
+        "html": {
+          "href": "https://bitbucket.org/altabjpworks/on-untitled-prj-repo"
+        },
+        "avatar": {
+          "href": "https://bitbucket.org/altabjpworks/on-untitled-prj-repo/avatar/32/"
+        },
+        "hooks": {
+          "href": "https://api.bitbucket.org/2.0/repositories/altabjpworks/on-untitled-prj-repo/hooks"
+        },
+        "forks": {
+          "href": "https://api.bitbucket.org/2.0/repositories/altabjpworks/on-untitled-prj-repo/forks"
+        },
+        "downloads": {
+          "href": "https://api.bitbucket.org/2.0/repositories/altabjpworks/on-untitled-prj-repo/downloads"
+        },
+        "pullrequests": {
+          "href": "https://api.bitbucket.org/2.0/repositories/altabjpworks/on-untitled-prj-repo/pullrequests"
+        }
+      },
+      "fork_policy": "no_public_forks",
+      "uuid": "{008ecb58-7c56-4173-a7c4-3e95ae9f93a4}",
+      "project": {
+        "key": "PROJ",
+        "type": "project",
+        "uuid": "{59278b96-1038-4418-a2b9-8f438234ae45}",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/teams/altabjpworks/projects/PROJ"
+          },
+          "html": {
+            "href": "https://bitbucket.org/account/user/altabjpworks/projects/PROJ"
+          },
+          "avatar": {
+            "href": "https://bitbucket.org/account/user/altabjpworks/projects/PROJ/avatar/32"
+          }
+        },
+        "name": "Untitled project"
+      },
+      "language": "",
+      "created_on": "2017-07-15T06:38:34.642737+00:00",
+      "mainbranch": null,
+      "full_name": "altabjpworks/on-untitled-prj-repo",
+      "has_issues": false,
+      "owner": {
+        "username": "altabjpworks",
+        "display_name": "altab.jp works",
+        "type": "team",
+        "uuid": "{e0f17982-effb-43cb-8589-7bacabb37cab}",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/teams/altabjpworks"
+          },
+          "html": {
+            "href": "https://bitbucket.org/altabjpworks/"
+          },
+          "avatar": {
+            "href": "https://bitbucket.org/account/altabjpworks/avatar/32/"
+          }
+        }
+      },
+      "updated_on": "2017-07-15T06:38:34.687554+00:00",
+      "size": 33348,
+      "type": "repository",
+      "slug": "on-untitled-prj-repo",
+      "is_private": true,
+      "description": ""
+    }
+  ],
+  "page": 1,
+  "size": 1
+}
