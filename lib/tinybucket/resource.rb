@@ -11,6 +11,7 @@ module Tinybucket
       :Commits,
       :Forks,
       :OwnersRepos,
+      :Projects,
       :PublicRepos,
       :PullRequests,
       :Repos,

@@ -12,6 +12,7 @@ module Tinybucket
       :CommitsApi,
       :CommentsApi,
       :DiffApi,
+      :ProjectsApi,
       :PullRequestsApi,
       :ReposApi,
       :RepoApi,
