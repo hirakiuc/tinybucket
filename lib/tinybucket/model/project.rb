@@ -37,7 +37,7 @@ module Tinybucket
       end
 
       def repos_resource
-        Tinybucket::Resource::Repos.new(owner_name, q: %|project.key="#{key}"|)
+        Tinybucket::Resource::Repos.new(owner_name, q: %(project.key="#{key}"))
       end
     end
   end
