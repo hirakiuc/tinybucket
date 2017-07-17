@@ -68,8 +68,8 @@ module Tinybucket
         if @attrs.empty?
           {}
         else
-          queryParams = URI.parse(@attrs[:next]).query
-          Hash[*queryParams.split(/&|=/).map{|v| URI.unescape(v)}]
+          query = URI.parse(@attrs[:next]).query
+          Hash[*query.split(/&|=/).map { |v| URI.unescape(v) }]
         end
 
       @args[-1].merge!(params)
