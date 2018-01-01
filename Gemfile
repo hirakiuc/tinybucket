@@ -4,8 +4,8 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'simple-auth', '~> 0.3.1'
-gem 'yard', '~> 0.8.7'
-gem 'yardstick', '~> 0.9'
+gem 'yard', '~> 0.9.12'
+gem 'yardstick', '~> 0.9.9'
 
 group :development, :test do
   gem 'pry'
