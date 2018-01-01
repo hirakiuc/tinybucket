@@ -69,7 +69,7 @@ module Tinybucket
           {}
         else
           query = URI.parse(@attrs[:next]).query
-          Hash[*query.split(/&|=/).map { |v| URI.unescape(v) }]
+          Hash[*query.split(/&|=/).map { |v| CGI.unescape(v) }]
         end
 
       @args[-1].merge!(params)
