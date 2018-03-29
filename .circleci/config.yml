@@ -19,11 +19,19 @@ jobs:
             - .bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
       - run:
+          name: fetch coverage reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+      - run:
           name: lint
           command: bundle exec rake rubocop
       - run:
           name: test
-          command: bundle exec rake spec
+          command: |
+            ./cc-test-reporter before-build
+            bundle exec rake spec
+            ./cc-test-reporter after-build --exit-code $?
 
 workflows:
   version: 2
