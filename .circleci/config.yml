@@ -1,0 +1,32 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/app
+    docker:
+      - image: circleci/ruby:2.4.1
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - v1-dependencies-
+      - run:
+          name: install dependencies
+          command: |
+            bundle install --jobs=4 --retry=3 --path .bundle
+      - save_cache:
+          paths:
+            - .bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      - run:
+          name: lint
+          command: bundle exec rake rubocop
+      - run:
+          name: test
+          command: bundle exec rake spec
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build

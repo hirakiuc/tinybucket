@@ -6,14 +6,7 @@ require 'webmock/rspec'
 
 require 'pry'
 
-require 'coveralls'
 require 'simplecov'
-Coveralls.wear!
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-])
 SimpleCov.start do
   add_filter '.bundle/'
   add_filter 'spec'
