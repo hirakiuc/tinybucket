@@ -27,7 +27,6 @@ group :development, :test do
 end
 
 group :test do
-  gem 'simplecov', '~> 0.11', require: false
-  gem 'coveralls', '~> 0.8', require: false
-  gem 'codeclimate-test-reporter', '~> 1.0.0', require: nil
+  gem 'simplecov', '~> 0.13.0', require: false
+  gem 'codeclimate-test-reporter', '~> 1.0.8', require: nil
 end
