@@ -22,7 +22,7 @@ module Tinybucket
         get_path(
           path_to_find,
           options,
-          Tinybucket::Parser::ProfileParser
+          get_parser(:object, Tinybucket::Model::Profile)
         )
       end
 
@@ -34,7 +34,7 @@ module Tinybucket
         get_path(
           path_to_followers,
           options,
-          Tinybucket::Parser::ProfilesParser
+          get_parser(:collection, Tinybucket::Model::Profile)
         )
       end
 
@@ -46,7 +46,7 @@ module Tinybucket
         get_path(
           path_to_following,
           options,
-          Tinybucket::Parser::ProfilesParser
+          get_parser(:collection, Tinybucket::Model::Profile)
         )
       end
 
@@ -58,7 +58,7 @@ module Tinybucket
         get_path(
           path_to_repos,
           options,
-          Tinybucket::Parser::ReposParser
+          get_parser(:collection, Tinybucket::Model::Repository)
         )
       end
     end

@@ -33,7 +33,7 @@ module Tinybucket
       def list(options = {})
         list = get_path(path_to_list,
                         options,
-                        Tinybucket::Parser::CommentsParser)
+                        get_parser(:collection, Tinybucket::Model::Comment))
 
         associate_with_target(list)
         list
@@ -56,7 +56,7 @@ module Tinybucket
       def find(comment_id, options = {})
         comment = get_path(path_to_find(comment_id),
                            options,
-                           Tinybucket::Parser::CommentParser)
+                           get_parser(:object, Tinybucket::Model::Comment))
 
         associate_with_target(comment)
         comment

@@ -24,7 +24,7 @@ module Tinybucket
         get_path(
           path_to_list,
           options,
-          Tinybucket::Parser::BranchesParser
+          get_parser(:collection, Tinybucket::Model::Branch)
         )
       end
 
@@ -40,7 +40,7 @@ module Tinybucket
         get_path(
           path_to_find(name),
           options,
-          Tinybucket::Parser::BranchParser
+          get_parser(:object, Tinybucket::Model::Branch)
         )
       end
     end
