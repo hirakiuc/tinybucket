@@ -9,7 +9,7 @@ module Tinybucket
         private
 
         def path_to_list(owner)
-          base_path(owner)
+          build_path(base_path(owner), '/')
         end
 
         def path_to_find(owner, project_key)
@@ -20,8 +20,7 @@ module Tinybucket
         def base_path(owner)
           build_path('/teams',
                      [owner, 'owner'],
-                     'projects',
-                     '/')
+                     'projects')
         end
       end
     end
