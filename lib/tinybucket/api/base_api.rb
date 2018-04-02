@@ -14,7 +14,7 @@ module Tinybucket
           end
 
         @type = parser_class
-        @options = {model_class: model_class}
+        @options = { model_class: model_class }
       end
     end
 

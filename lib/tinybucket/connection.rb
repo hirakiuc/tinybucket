@@ -76,7 +76,7 @@ module Tinybucket
 
       # TODO: cache stack for each (options, parser) pairs
       Faraday::RackBuilder.new do |conn|
-        conn.use parser.type, {parser_options: parser.options} if parser.present?
+        conn.use parser.type,  parser_options: parser.options if parser.present?
         default_middleware(options).call(conn)
       end
     end
