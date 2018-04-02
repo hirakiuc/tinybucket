@@ -8,6 +8,10 @@ module Tinybucket
         throw 'model_class option does not provided' unless cls
         cls.new(hash)
       end
+
+      def parse_response?(env)
+        env[:body].is_a? Hash
+      end
     end
   end
 end
