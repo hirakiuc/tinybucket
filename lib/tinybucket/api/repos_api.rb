@@ -20,7 +20,7 @@ module Tinybucket
         get_path(
           path_to_list(options),
           opts,
-          Tinybucket::Parser::ReposParser
+          get_parser(:collection, Tinybucket::Model::Repository)
         )
       end
     end

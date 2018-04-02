@@ -19,7 +19,7 @@ module Tinybucket
         get_path(
           path_to_list,
           options,
-          Tinybucket::Parser::BuildsParser
+          get_parser(:collection, Tinybucket::Model::BuildStatus)
         )
       end
 
@@ -33,7 +33,7 @@ module Tinybucket
         get_path(
           path_to_find(revision, key),
           options,
-          Tinybucket::Parser::BuildStatusParser
+          get_parser(:object, Tinybucket::Model::BuildStatus)
         )
       end
 
@@ -47,7 +47,7 @@ module Tinybucket
         post_path(
           path_to_post(revision),
           options.merge(key: key),
-          Tinybucket::Parser::BuildStatusParser
+          get_parser(:object, Tinybucket::Model::BuildStatus)
         )
       end
 
@@ -61,7 +61,7 @@ module Tinybucket
         put_path(
           path_to_put(revision, key),
           options,
-          Tinybucket::Parser::BuildStatusParser
+          get_parser(:object, Tinybucket::Model::BuildStatus)
         )
       end
     end

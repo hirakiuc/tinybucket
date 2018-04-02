@@ -27,7 +27,7 @@ module Tinybucket
         get_path(
           path_to_list,
           options,
-          Tinybucket::Parser::BranchRestrictionsParser
+          get_parser(:collection, Tinybucket::Model::BranchRestriction)
         )
       end
 
@@ -43,7 +43,7 @@ module Tinybucket
         get_path(
           path_to_find(restriction_id),
           options,
-          Tinybucket::Parser::BranchRestrictionParser
+          get_parser(:object, Tinybucket::Model::BranchRestriction)
         )
       end
     end

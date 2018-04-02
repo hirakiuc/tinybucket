@@ -24,7 +24,7 @@ module Tinybucket
         get_path(
           path_to_list,
           options,
-          Tinybucket::Parser::PullRequestsParser
+          get_parser(:collection, Tinybucket::Model::PullRequest)
         )
       end
 
@@ -37,7 +37,7 @@ module Tinybucket
         get_path(
           path_to_find(pr_id),
           options,
-          Tinybucket::Parser::PullRequestParser
+          get_parser(:object, Tinybucket::Model::PullRequest)
         )
       end
 
@@ -50,7 +50,7 @@ module Tinybucket
         get_path(
           path_to_commits(pr_id),
           options,
-          Tinybucket::Parser::CommitsParser
+          get_parser(:collection, Tinybucket::Model::Commit)
         )
       end
 

@@ -18,7 +18,7 @@ module Tinybucket
         get_path(
           path_to_list,
           { role: role_name }.merge(options),
-          Tinybucket::Parser::TeamsParser
+          get_parser(:collection, Tinybucket::Model::Team)
         )
       end
 
@@ -31,7 +31,7 @@ module Tinybucket
         get_path(
           path_to_find(name),
           options,
-          Tinybucket::Parser::TeamParser
+          get_parser(:object, Tinybucket::Model::Team)
         )
       end
 
@@ -44,7 +44,7 @@ module Tinybucket
         get_path(
           path_to_members(name),
           options,
-          Tinybucket::Parser::TeamsParser
+          get_parser(:collection, Tinybucket::Model::Team)
         )
       end
 
@@ -57,7 +57,7 @@ module Tinybucket
         get_path(
           path_to_followers(name),
           options,
-          Tinybucket::Parser::TeamsParser
+          get_parser(:collection, Tinybucket::Model::Team)
         )
       end
 
@@ -70,7 +70,7 @@ module Tinybucket
         get_path(
           path_to_following(name),
           options,
-          Tinybucket::Parser::TeamsParser
+          get_parser(:collection, Tinybucket::Model::Team)
         )
       end
 
@@ -83,7 +83,7 @@ module Tinybucket
         get_path(
           path_to_repos(name),
           options,
-          Tinybucket::Parser::ReposParser
+          get_parser(:collection, Tinybucket::Model::Repository)
         )
       end
     end

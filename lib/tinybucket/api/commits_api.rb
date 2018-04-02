@@ -27,7 +27,7 @@ module Tinybucket
         get_path(
           path_to_list,
           options,
-          Tinybucket::Parser::CommitsParser
+          get_parser(:collection, Tinybucket::Model::Commit)
         )
       end
 
@@ -43,7 +43,7 @@ module Tinybucket
         get_path(
           path_to_find(revision),
           options,
-          Tinybucket::Parser::CommitParser
+          get_parser(:object, Tinybucket::Model::Commit)
         )
       end
 
@@ -89,7 +89,7 @@ module Tinybucket
         get_path(
           path_to_branch(name),
           options,
-          Tinybucket::Parser::CommitsParser
+          get_parser(:collection, Tinybucket::Model::Commit)
         )
       end
     end

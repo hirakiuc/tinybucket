@@ -24,7 +24,7 @@ module Tinybucket
         get_path(
           path_to_find,
           options,
-          Tinybucket::Parser::RepoParser
+          get_parser(:object, Tinybucket::Model::Repository)
         )
       end
 
@@ -36,7 +36,7 @@ module Tinybucket
         get_path(
           path_to_watchers,
           options,
-          Tinybucket::Parser::ProfilesParser
+          get_parser(:collection, Tinybucket::Model::Profile)
         )
       end
 
@@ -48,7 +48,7 @@ module Tinybucket
         get_path(
           path_to_forks,
           options,
-          Tinybucket::Parser::ReposParser
+          get_parser(:collection, Tinybucket::Model::Repository)
         )
       end
     end

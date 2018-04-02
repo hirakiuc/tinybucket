@@ -27,7 +27,7 @@ module Tinybucket
     private
 
     def request(method, path, params, parser, options)
-      conn = connection(options, parser)
+      conn = connection(parser, options)
 
       path = (conn.path_prefix + path).gsub(%r{//}, '/') \
         if conn.path_prefix != '/'

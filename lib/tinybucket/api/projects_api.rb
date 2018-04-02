@@ -10,7 +10,7 @@ module Tinybucket
         get_path(
           path_to_list(owner),
           options,
-          Tinybucket::Parser::ProjectsParser
+          get_parser(:collection, Tinybucket::Model::Project)
         )
       end
 
@@ -18,7 +18,7 @@ module Tinybucket
         get_path(
           path_to_find(owner, project_key),
           options,
-          Tinybucket::Parser::ProjectParser
+          get_parser(:object, Tinybucket::Model::Project)
         )
       end
     end
