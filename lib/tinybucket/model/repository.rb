@@ -43,7 +43,7 @@ module Tinybucket
     #   @return [String]
     # @!attribute [rw] type
     #   @return [String]
-    # # @!attribute [rw] project
+    # @!attribute [rw] project
     #   @return [Hash]
     class Repository < Base
       include Tinybucket::Model::Concerns::RepositoryKeys
