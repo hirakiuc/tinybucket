@@ -64,6 +64,23 @@
       }
     }
   },
+  "project": {
+    "key": "TEST",
+    "type": "project",
+    "uuid": "{ABC}",
+    "links": {
+      "self": {
+        "href": "https://api.bitbucket.org/2.0/teams/evzijst/projects/TEST"
+      },
+      "html": {
+        "href": "https://bitbucket.org/account/user/evzijst/projects/TEST"
+      },
+      "avatar": {
+        "href": "https://bitbucket.org/account/user/evzijst/projects/TEST/avatar/123"
+      }
+    },
+    "name": "My Project"
+  },
   "updated_on": "2013-08-26T18:13:07.514065+00:00",
   "size": 17657351,
   "is_private": false,
