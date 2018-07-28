@@ -34,3 +34,4 @@ features
 /.bundle/
 /lib/bundler/man/
 /vendor/
+*.iml
