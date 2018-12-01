@@ -137,7 +137,6 @@ module Tinybucket
         branches_resource.find(branch, options)
       end
 
-      puts "test"
       # Get tags on this repository
       #
       # @param options [Hash]
