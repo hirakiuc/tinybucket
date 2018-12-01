@@ -7,6 +7,7 @@ module Tinybucket
     [
       :BaseApi,
       :BranchesApi,
+      :TagsApi,
       :BranchRestrictionsApi,
       :BuildStatusApi,
       :CommitsApi,
