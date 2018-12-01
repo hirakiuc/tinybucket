@@ -92,6 +92,22 @@ module Tinybucket
           get_parser(:collection, Tinybucket::Model::Commit)
         )
       end
+
+      # Send 'GET commits for a tag' request
+      #
+      # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/commits
+      #   GET an individual commit
+      #
+      # @param name [String] The branch name or a SHA1 value for the commit.
+      # @param options [Hash]
+      # @return [Tinybucket::Model::Commit]
+      def tag(name, options = {})
+        get_path(
+          path_to_tag(name),
+          options,
+          get_parser(:collection, Tinybucket::Model::Commit)
+        )
+      end
     end
   end
 end

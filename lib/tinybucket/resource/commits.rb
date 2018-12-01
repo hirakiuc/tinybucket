@@ -30,6 +30,17 @@ module Tinybucket
         end
       end
 
+      # Returns the commits for a specific tag
+      #
+      # @param name [String]
+      # @param options [Hash]
+      # @return [Tinybucket::Iterator]
+      def tag(name, options = {})
+        create_enumerator(commits_api, :tag, name, options) do |m|
+          inject_repo_keys(m, @repo.repo_keys)
+        end
+      end
+
       private
 
       def commits_api
