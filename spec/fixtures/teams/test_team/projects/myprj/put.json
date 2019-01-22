@@ -1,0 +1,41 @@
+{
+  "uuid": "{45234c3d-efa0-4c2a-be4e-78c1b30a30d0}",
+  "links": {
+    "self": {
+      "href": "https://api.bitbucket.org/2.0/teams/test_team/projects/myprj"
+    },
+    "html": {
+      "href": "https://bitbucket.org/account/user/test_team/projects/myprj"
+    },
+    "repositories": {
+      "href": "https://api.bitbucket.org/2.0/repositories/test_team?q='project.key=\"myprj\"'"
+    },
+    "avatar": {
+      "href": "https://bitbucket.org/account/user/test_team/projects/myprj/avatar/32"
+    }
+  },
+  "description": null,
+  "created_on": "2016-03-19T03:34:27.792230+00:00",
+  "key": "myprj",
+  "owner": {
+    "username": "test_team",
+    "display_name": "test team",
+    "type": "team",
+    "uuid": "{e0f17982-efab-43cb-8589-7bacabb37cab}",
+    "links": {
+      "self": {
+        "href": "https://api.bitbucket.org/2.0/teams/test_team"
+      },
+      "html": {
+        "href": "https://bitbucket.org/test_team/"
+      },
+      "avatar": {
+        "href": "https://bitbucket.org/account/test_team/avatar/32/"
+      }
+    }
+  },
+  "updated_on": "2016-03-19T03:34:27.792256+00:00",
+  "type": "project",
+  "is_private": false,
+  "name": "New project name"
+}
