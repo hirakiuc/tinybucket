@@ -129,7 +129,7 @@ projects = bucket.team('team name').projects
 project = projects.find('project key')
 
 # [x] POST (create) a new team project
-projects.create(key: 'project key', name: 'project name', is_private: true ...)
+projects.create(key: 'project key', name: 'project name', description: '...', is_private: true ...)
 
 # [x] PUT (update) a team project
 project.update(description: 'New description'...)
