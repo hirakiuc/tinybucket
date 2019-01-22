@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'byebug'
 
 module Tinybucket
   module Request
@@ -39,7 +40,8 @@ module Tinybucket
           request.url(path, params)
         when :post, :put, :patch
           request.path = path
-          request.body = extract_data_from_params(params) unless params.empty?
+          request.body = extract_data_from_params(params).to_json unless params.empty?
+          request.headers['Content-Type'] = 'application/json'
         else
           raise ArgumentError, 'unknown http method: ' + method
         end
