@@ -16,7 +16,7 @@ module Tinybucket
       # @param owner [String] The name of the account
       # @param options [Hash] Configuration options for the request
       # @return [Tinybucket::Model::Page]
-      def list(owner=nil, options = {})
+      def list(owner = nil, options = {})
         get_path(
           path_to_list(owner, options),
           options,
