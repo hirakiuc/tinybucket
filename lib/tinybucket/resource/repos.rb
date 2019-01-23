@@ -3,9 +3,13 @@
 module Tinybucket
   module Resource
     class Repos < Base
-      def initialize(owner, options)
+      def initialize(owner = nil, options = {})
         @owner = owner
         @args = [options]
+      end
+
+      def list(options = {})
+        repos_api.list(@owner, options)
       end
 
       def create(_options)
