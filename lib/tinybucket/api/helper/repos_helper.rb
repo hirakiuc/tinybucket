@@ -8,7 +8,7 @@ module Tinybucket
 
         private
 
-        def path_to_list(owner = nil, options)
+        def path_to_list(owner = nil, options = {})
           return base_path if owner.blank?
           build_path(base_path, [owner, 'owner'])
         end
