@@ -17,6 +17,18 @@ module Tinybucket
                      [project_key, 'project_key'])
         end
 
+        def path_to_post(owner)
+          build_path(base_path(owner), '/')
+        end
+
+        def path_to_put(owner, project_key)
+          build_path(base_path(owner), [project_key, 'project_key'])
+        end
+
+        def path_to_delete(owner, project_key)
+          build_path(base_path(owner), [project_key, 'project_key'])
+        end
+
         def base_path(owner)
           build_path('/teams',
                      [owner, 'owner'],

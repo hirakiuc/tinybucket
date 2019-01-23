@@ -25,12 +25,10 @@ module Tinybucket
 
       # Create a new project
       #
-      # NOTE: Not Implemented yet.
-      #
-      # @param _params [Hash]
-      # @raise [NotImplementedError] to be implemented
-      def create(_params)
-        raise NotImplementedError
+      # @param options [Hash]
+      # @return [Tinybucket::Model::Project]
+      def create(options)
+        projects_api.post(options)
       end
 
       private

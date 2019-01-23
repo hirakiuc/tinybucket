@@ -17,9 +17,12 @@ RSpec.describe Tinybucket::Resource::Projects do
   end
 
   describe '#create' do
-    let(:params) { {} }
-    subject { resource.create(params) }
-    it { expect { subject }.to raise_error(NotImplementedError) }
+    let(:options) { { key: 'myprj', name: 'My project' } }
+    let(:request_path) { "/teams/#{owner}/projects/" }
+    before { stub_apiresponse(:post, request_path) }
+
+    subject { resource.create(options) }
+    it { expect(subject).to be_an_instance_of(Tinybucket::Model::Project) }
   end
 
   describe 'Enumerable Methods' do
