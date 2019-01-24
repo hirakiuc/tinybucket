@@ -16,6 +16,17 @@ module Tinybucket
 
       attr_accessor :repo_owner, :repo_slug
 
+      # Send 'GET a repository' request
+      #
+      # @param options [Hash]
+      # @return [Tinybucket::Model::Repository]
+      def find(options = {})
+        get_path(
+          path_to_find,
+          options,
+          get_parser(:object, Tinybucket::Model::Repository)
+        )
+      end
 
       # Send 'PUT (update) an existing repository' request
       #
