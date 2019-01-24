@@ -61,12 +61,22 @@ module Tinybucket
         @repo_owner, @repo_slug = full_name.split('/')
       end
 
-      # Remove this repository
+
+      # Update this repository (remotely and the current instance)
       #
-      # @todo to be implemented.
-      # @raise [NotImplementedError] to be implemented.
+      # @param options [Hash] Attributes to be updated for current repository
+      # @return [Tinybucket::Model::Repository] The updated repository
+      def update(options)
+        self.attributes = repo_api.put(options).attributes
+        @repo_owner, @repo_slug = full_name.split('/')
+        self
+      end
+
+      # Destroy this repository
+      #
+      # @return [NilClass]
       def destroy
-        raise NotImplementedError
+        repo_api.delete
       end
 
       # Get pull requests on thie repository.
