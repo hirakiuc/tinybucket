@@ -8,8 +8,16 @@ module Tinybucket
 
         private
 
-        def path_to_find
-          base_path
+        def path_to_put
+          build_path('/repositories',
+                     [repo_owner, 'repo_owner'],
+                     [repo_slug, 'repo_slug'])
+        end
+
+        def path_to_delete
+          build_path('/repositories',
+                     [repo_owner, 'repo_owner'],
+                     [repo_slug, 'repo_slug'])
         end
 
         def path_to_watchers
