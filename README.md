@@ -153,7 +153,7 @@ repos  = bucket.repos('someone')
 repos = bucket.repos('myname')
 
 # [x] POST (create) a new repository
-repos.create(params)
+repos.create('repo-slug', params)
 
 # [x] GET a repository
 repos.find('repo_slug', params)
