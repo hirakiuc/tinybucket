@@ -8,6 +8,12 @@ module Tinybucket
 
         private
 
+        def path_to_find
+          build_path('/repositories',
+                     [repo_owner, 'repo_owner'],
+                     [repo_slug, 'repo_slug'])
+        end
+
         def path_to_put
           build_path('/repositories',
                      [repo_owner, 'repo_owner'],
