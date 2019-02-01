@@ -56,7 +56,7 @@ RSpec.describe Tinybucket::Api::PullRequestsApi do
     context 'when request with state' do
       let(:options) { { state: state } }
       let(:request_path) do
-        "/repositories/#{owner}/#{slug}/pullrequests?state=#{state}"
+        "/repositories/#{owner}/#{slug}/pullrequests?q=state=\"#{state}\""
       end
 
       context 'when state is OPEN' do
