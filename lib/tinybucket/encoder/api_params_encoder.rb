@@ -1,101 +1,93 @@
 module Tinybucket
   module Encoder
     class ApiParamsEncoder
-      include Faraday::FlatParamsEncoder
-
       def self.encode(params = {})
         return nil if params.nil?
-        unless params.respond_to?(:to_hash)
-          raise TypeError,
-                "Can't convert #{params.class} into Hash."
-        end
-
-        encoded_params = sort_params(params).map do |key, value|
-          encode_param(key, value)
-        end.join('&')
-
-        encoded_params.empty? ? '' : 'q=' + encoded_params
+        params = sort_parameters(params)
+        query_params = params.delete(:q)
+        encoded_query_params = encode_query_parameters(query_params) if query_params
+        params_encoded = Faraday::FlatParamsEncoder.encode(params) unless params.empty?
+        [params_encoded, encoded_query_params].compact.join('&')
       end
 
       def self.decode(query)
         return nil if query.nil?
-        query = query.gsub(/^q=/, '')
+        decoded_params = Faraday::FlatParamsEncoder.decode(query)
+        encoded_query_params = decoded_params.delete('q') || ''
+        decoded_query_params = decode_query_parameters(encoded_query_params)
+        decoded_params.merge(decoded_query_params).symbolize_keys
+      end
 
-        splitted_query = (query.split('&').map do |pair|
-          pair.split('=', 2) if pair && !pair.empty?
-        end).compact
+      def self.sort_parameters(parameters)
+        parameters.sort_by { |key, _value| key }.to_h
+      end
 
-        params_array = splitted_query.map do |encoded_key, encoded_value|
-          decode_param(encoded_key, encoded_value)
+      def self.encode_query_parameters(query_parameters)
+        formatted_parameters = query_parameters.map do |key, value|
+          while value.is_a?(Hash)
+            next_level = value.first
+            key = key.to_s + '.' + next_level.first.to_s
+            value = next_level.last
+          end
+
+          encoded_value = encode_query_value(value)
+          [key, encoded_value]
         end
-
-        Hash[params_array]
+        'q=' + Faraday::FlatParamsEncoder.encode(formatted_parameters)
       end
+      private_class_method :encode_query_parameters
 
-      def self.decode_param(encoded_key, encoded_value)
-        decoded_value = decode_value(encoded_value)
+      def self.decode_query_parameters(encoded_parameters)
+        decoded_parameters = Faraday::FlatParamsEncoder.decode(encoded_parameters)
+        formatted_parameters = decoded_parameters.map do |key, value|
+          multileveled_keys = key.split('.').reverse
+          key = multileveled_keys.pop
+          decoded_value = decode_query_value(value)
+          final_value = decoded_value
+          until multileveled_keys.count.zero?
+            final_value = Hash[[[multileveled_keys.pop.to_sym, final_value]]]
+          end
 
-        # Build the Hash structure in case it exists
-        multileveled_keys = encoded_key.split('.').reverse
-        key = multileveled_keys.pop
-        final_value = decoded_value
-        until multileveled_keys.count.zero?
-          final_value = Hash[[[multileveled_keys.pop.to_sym, final_value]]]
+          [key, final_value]
         end
-
-        [key.to_sym, final_value]
+        formatted_parameters.empty? ? {} : { q: formatted_parameters.to_h.symbolize_keys }
       end
+      private_class_method :decode_query_parameters
 
-      def self.encode_param(key, value)
-        # Objects to nested params
-        while value.is_a? Hash
-          next_level = value.first
-          key = key.to_s + '.' + next_level.first.to_s
-          value = next_level.last
-        end
-
-        # Encode the value to the format the API is expecting
-        encoded_value = encode_value(value)
-
-        "#{key}=#{encoded_value}"
-      end
-
-      def self.sort_params(params)
-        params.sort_by { |key, _value| key }
-      end
-      private_class_method :sort_params
-
-      def self.encode_value(value)
+      def self.encode_query_value(value)
         if value.is_a? String
           "\"#{value}\""
-        elsif  value.nil?
+        elsif value.nil?
           'null'
         else
-          value.to_s
+          value
         end
       end
-      private_class_method :encode_value
+      private_class_method :encode_query_value
 
-      def self.decode_value(encoded_value)
-        case encoded_value
+      def self.decode_query_value(value)
+        case value
         when /^".*"$/
-          encoded_value.delete('"')
-        when nil
-          true
-        when 'true' || 'false'
-          encoded_value == 'true'
+          value.gsub(/^"/, '').gsub(/"$/, '')
         when 'null'
           nil
+        when nil
+          true
+        when 'true', 'false', true, false
+          value.to_s == 'true'
+        when /^[0-9]+$/
+          value.to_i
+        when /^[0-9]+\.[0-9]+$/
+          value.to_f
         else
           begin
-            Time.parse encoded_value
+            Time.parse value
           rescue ArgumentError
-            # Numeric
-            encoded_value.to_f
+            value
           end
         end
       end
-      private_class_method :decode_value
+      private_class_method :decode_query_value
     end
   end
 end
