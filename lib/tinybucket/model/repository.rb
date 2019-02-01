@@ -61,7 +61,6 @@ module Tinybucket
         @repo_owner, @repo_slug = full_name.split('/')
       end
 
-
       # Update this repository (remotely and the current instance)
       #
       # @param options [Hash] Attributes to be updated for current repository
