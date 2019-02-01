@@ -5,7 +5,7 @@ module Tinybucket
     # Repos Api client
     class ReposApi < BaseApi
       include Tinybucket::Api::Helper::ReposHelper
-    
+
       #
       # GET a list of repositories for an account or public ones if none specified
       #
