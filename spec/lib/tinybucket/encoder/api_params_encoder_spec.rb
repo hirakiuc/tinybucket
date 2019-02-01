@@ -116,6 +116,11 @@ RSpec.describe Tinybucket::Encoder::ApiParamsEncoder do
         query = "q=a=1"
         expect(subject.decode(query)).to eq({q: {a: 1}})
       end
+
+      it "should interpret properly the float encoded parameters" do
+        query = "q=a=1.0"
+        expect(subject.decode(query)).to eq({q: {a: 1.0}})
+      end
   
       it "should interpret properly the date_time encoded parameters" do
         now = Time.now
@@ -126,6 +131,16 @@ RSpec.describe Tinybucket::Encoder::ApiParamsEncoder do
       it "should interpret properly the nil encoded parameters" do
         query = "q=a=null"
         expect(subject.decode(query)).to eq({q: {a: nil}})
+      end
+
+      it "should interpret properly the hidden parameters" do
+        query = "q=a"
+        expect(subject.decode(query)).to eq({q: {a: true}})
+      end
+
+      it "should interpret properly the unknown parameters" do
+        query = "q=a=1.0fa"
+        expect(subject.decode(query)).to eq({q: {a: '1.0fa'}})
       end
 
     end

@@ -107,8 +107,6 @@ module Tinybucket
           value.gsub(/^"/, '').gsub(/"$/, '')
         when 'null'
           nil
-        when nil
-          true
         when 'true', 'false', true, false
           value.to_s == 'true'
         when /^[0-9]+$/
