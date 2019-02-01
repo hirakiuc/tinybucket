@@ -59,7 +59,7 @@ RSpec.describe Tinybucket::Encoder::ApiParamsEncoder do
     end
 
     it "should interpret properly the date_time parameters" do
-      now = DateTime.now
+      now = Time.now
       input = { a: now }
       expect(subject.encode(input)).to include("a=#{now.to_s}")
     end
@@ -123,7 +123,7 @@ RSpec.describe Tinybucket::Encoder::ApiParamsEncoder do
     end
 
     it "should interpret properly the date_time encoded parameters" do
-      now = DateTime.now
+      now = Time.now
       query = "q=a=#{now.to_s}"
       expect(subject.decode(query)[:a].to_i).to eq(now.to_i)
     end
