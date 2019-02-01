@@ -1,5 +1,4 @@
 require 'spec_helper.rb'
-require 'byebug'
 
 RSpec.describe Tinybucket::Encoder::ApiParamsEncoder do
 
