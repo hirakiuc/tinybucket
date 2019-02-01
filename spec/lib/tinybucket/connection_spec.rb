@@ -28,6 +28,18 @@ RSpec.describe Tinybucket::Connection do
     end
   end
 
+  describe 'default_options' do 
+    subject{ mock_api.connection }
+
+    it 'should set a Encoder to the connection' do 
+      expect(subject.options[:params_encoder]).not_to be_nil
+    end
+
+    it 'should include the ApiParamsEncoder as default params_encoder' do
+      expect(subject.options[:params_encoder]).to be(Tinybucket::Encoder::ApiParamsEncoder)
+    end
+  end
+
   describe 'configure_auth' do
     subject(:handlers) { mock_api.connection.builder.handlers }
 
@@ -56,3 +68,17 @@ RSpec.describe Tinybucket::Connection do
     end
   end
 end
+
+
+# def default_options(_options)
+#   {
+#     headers: {
+#       USER_AGENT: Tinybucket.config.user_agent || DEFAULT_USER_AGENT
+#     },
+#     ssl: { verify: false },
+#     url: 'https://api.bitbucket.org/2.0'.freeze,
+#     request: {
+#       params_encoder: Tinybucket::Encoder::ApiParamsEncoder
+#     }
+#   }
+# end

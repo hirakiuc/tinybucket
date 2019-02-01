@@ -28,6 +28,30 @@ module Tinybucket
         )
       end
 
+      # Send 'PUT (update) an existing repository' request
+      #
+      # @param options [Hash]
+      # @return [Tinybucket::Model::Repository]
+      def put(options = {})
+        put_path(
+          path_to_put,
+          options,
+          get_parser(:object, Tinybucket::Model::Repository)
+        )
+      end
+
+      # Send 'DELETE an existing repository' request
+      #
+      # @param options [Hash]
+      # @return [Tinybucket::Model::Repository]
+      def delete(options = {})
+        delete_path(
+          path_to_delete,
+          options,
+          get_parser(:object, Tinybucket::Model::Repository)
+        )
+      end
+
       # Send 'GET a list of watchers' request
       #
       # @param options [Hash]

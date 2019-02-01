@@ -30,7 +30,10 @@ module Tinybucket
           USER_AGENT: Tinybucket.config.user_agent || DEFAULT_USER_AGENT
         },
         ssl: { verify: false },
-        url: 'https://api.bitbucket.org/2.0'.freeze
+        url: 'https://api.bitbucket.org/2.0'.freeze,
+        request: {
+          params_encoder: Tinybucket::Encoder::ApiParamsEncoder
+        }
       }
     end
 

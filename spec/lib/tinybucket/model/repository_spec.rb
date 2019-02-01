@@ -17,7 +17,13 @@ RSpec.describe Tinybucket::Model::Repository do
     m = Tinybucket::Model::Repository.new(model_json)
     m.repo_owner = owner
     m.repo_slug  = slug
+    m
+  end
 
+  let(:empty_model) do
+    m = Tinybucket::Model::Repository.new({})
+    m.repo_owner = owner
+    m.repo_slug  = slug
     m
   end
 
@@ -28,22 +34,25 @@ RSpec.describe Tinybucket::Model::Repository do
                   load_json_fixture('repository')
 
   describe 'model can reloadable' do
-    let(:repo) do
-      m = Tinybucket::Model::Repository.new({})
-      m.repo_owner = owner
-      m.repo_slug  = slug
-      m
-    end
-    before { @model = repo }
+    before { @model = empty_model }
     it_behaves_like 'the model is reloadable'
   end
 
-  describe '#create' do
-    pending 'TODO implement method'
+  describe '#update' do
+    let(:request_path) { "/repositories/#{owner}/#{slug}" }
+    let(:new_name) { 'New repository name' }
+    before { stub_apiresponse(:put, request_path) }
+    it { expect(model.name).not_to eq(new_name) }
+    subject{ model.update(name: new_name ) }
+    it { expect(subject).to be_a(Tinybucket::Model::Repository) }
+    it { expect(subject.name).to eq(new_name) }
   end
 
   describe '#destroy' do
-    pending 'TODO implement method'
+    let(:request_path) { "/repositories/#{owner}/#{slug}" }
+    before { stub_apiresponse(:delete, request_path) }
+    subject{ model.destroy }
+    it { expect(subject).to be_nil }
   end
 
   describe '#pull_requests' do

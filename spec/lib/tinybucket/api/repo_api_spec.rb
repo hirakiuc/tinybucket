@@ -18,32 +18,23 @@ RSpec.describe Tinybucket::Api::RepoApi do
 
   before { stub_apiresponse(:get, request_path) if request_path }
 
-  describe 'find' do
-    subject { api.find }
-
-    context 'when without repo_owner and repo_slug' do
-      let(:repo_owner) { nil }
-      let(:repo_slug) { nil }
-      it { expect { subject }.to raise_error(ArgumentError) }
-    end
-
-    context 'when without repo_owner' do
-      let(:repo_owner) { nil }
-      it { expect { subject }.to raise_error(ArgumentError) }
-    end
-
-    context 'when without repo_slug' do
-      let(:repo_slug) { nil }
-      it { expect { subject }.to raise_error(ArgumentError) }
-    end
-
-    context 'when with repo_owner and repo_slug' do
-      let(:request_path) { "/repositories/#{repo_owner}/#{repo_slug}" }
-      it { expect(subject).to be_an_instance_of(Tinybucket::Model::Repository) }
-    end
+  describe '#put' do 
+    let(:request_path) { "/repositories/#{repo_owner}/#{repo_slug}" }
+    let(:params){ {} }
+    before { stub_apiresponse(:put, request_path) } 
+    subject { api.put(params) }
+    it { expect(subject).to be_a(Tinybucket::Model::Repository) }
   end
 
-  describe 'watchers' do
+  describe '#delete' do
+    let(:request_path) { "/repositories/#{repo_owner}/#{repo_slug}" }
+    subject{ api.delete }
+    before { stub_apiresponse(:delete, request_path) } 
+    it { expect(subject).to be_nil }
+  end
+
+
+  describe '#watchers' do
     subject { api.watchers }
 
     context 'when without repo_owner and repo_slug' do
@@ -70,7 +61,7 @@ RSpec.describe Tinybucket::Api::RepoApi do
     end
   end
 
-  describe 'forks' do
+  describe '#forks' do
     subject { api.forks }
 
     context 'when without repo_owner and repo_slug' do
