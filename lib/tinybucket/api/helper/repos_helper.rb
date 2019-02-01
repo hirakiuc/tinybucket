@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Tinybucket
   module Api
     module Helper
