@@ -45,9 +45,11 @@ module ApiResponseMacros
   def query_string(params)
     return '' if params.empty?
 
-    '?' + params.each_pair.map do |k, v|
-      URI.escape(k.to_s) + '=' + URI.escape(v.to_s)
-    end.join('&')
+    key_values = params.to_a.map do |v|
+      [v[0].to_s, v[1].to_s]
+    end
+
+    '?' + URI.encode_www_form(key_values)
   end
 
   def fixture_json(method, path, ext)
