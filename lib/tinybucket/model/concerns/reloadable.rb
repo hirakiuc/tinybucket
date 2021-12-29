@@ -24,9 +24,8 @@ module Tinybucket
 
           def reload
             @_loaded = false
-            # rubocop:disable all
+
             self.load
-            # rubocop:enable all
           end
 
           private

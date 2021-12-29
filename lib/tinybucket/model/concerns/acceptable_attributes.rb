@@ -15,6 +15,7 @@ module Tinybucket
 
           def self.acceptable_attribute?(key)
             return false if @_acceptable_attributes.nil?
+
             @_acceptable_attributes.include?(key.intern)
           end
 
