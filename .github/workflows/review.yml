@@ -1,5 +1,0 @@
-name: Review
-
-on:
-  push:
-    branches:
