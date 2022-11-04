@@ -1,4 +1,5 @@
 AllCops:
+  TargetRubyVersion: 2.7
   Include:
     - 'lib/**/*.rb'
   Exclude:
@@ -42,7 +43,7 @@ CyclomaticComplexity:
 Next:
   Enabled: false
 
-Layout/AlignHash:
+Layout/HashAlignment:
   Enabled: false
 
 Style/RaiseArgs:
@@ -84,3 +85,7 @@ Style/SafeNavigation:
 
 Lint/DuplicateMethods:
   Enabled: false
+
+Naming/MethodParameterName:
+  MinNameLength: 1
+  AllowNamesEndingNumbers: false

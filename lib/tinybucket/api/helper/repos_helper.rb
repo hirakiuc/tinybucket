@@ -11,6 +11,7 @@ module Tinybucket
         def path_to_list(options)
           owner = options[:owner]
           return base_path if owner.blank?
+
           build_path(base_path, [owner, 'owner'])
         end
 

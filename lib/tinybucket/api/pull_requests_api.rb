@@ -65,7 +65,7 @@ module Tinybucket
         result = post_path(path_to_approve(pr_id), options)
         (result['approved'] == true)
       rescue Tinybucket::Error::Conflict => e
-        logger.debug 'Already approved: ' + e.inspect
+        logger.debug "Already approved: #{e.inspect}"
         true
       end
 
@@ -80,7 +80,7 @@ module Tinybucket
         delete_path(path_to_approve(pr_id), options)
         true
       rescue Tinybucket::Error::NotFound => e
-        logger.debug 'Already unapproved: ' + e.inspect
+        logger.debug "Already unapproved: #{e.inspect}"
         true
       end
 

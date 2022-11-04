@@ -13,9 +13,7 @@ module Tinybucket
     class CommentsApi < BaseApi
       include Tinybucket::Api::Helper::CommentsHelper
 
-      attr_accessor :repo_owner, :repo_slug
-
-      attr_accessor :commented_to
+      attr_accessor :repo_owner, :repo_slug, :commented_to
 
       # Send 'GET a list of comments' request.
       #

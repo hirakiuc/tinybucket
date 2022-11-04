@@ -60,6 +60,7 @@ module FaradayMiddleware
 
     def signature_params(params)
       return params if params.empty?
+
       params.reject { |_k, v| v.respond_to?(:content_type) }
     end
   end

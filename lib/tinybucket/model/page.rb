@@ -15,8 +15,7 @@ module Tinybucket
     #   This attribute is a array of model instance created with
     #   'values' attribute in json.
     class Page
-      attr_reader :attrs
-      attr_reader :items
+      attr_reader :attrs, :items
 
       # Initialize with json and Model class.
       #

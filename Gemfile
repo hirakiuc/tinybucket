@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # Specify your gem's dependencies in bitbucket.gemspec
 gemspec
 
-gem 'simple-auth', '~> 0.3.1'
+gem 'simple-auth', '~> 0.5.0'
 gem 'yard', '~> 0.9.12'
 gem 'yardstick', '~> 0.9.9'
 
@@ -19,14 +19,13 @@ group :development, :test do
   gem 'guard-rubocop'
   gem 'gem-release'
 
-  gem 'rake', '~> 10.4'
+  gem 'rake', '~> 13.0'
   gem 'rspec', '~> 3.4'
   gem 'rspec-mocks', '~> 3.4'
-  gem 'webmock', '~> 1.24'
-  gem 'rubocop', '~> 0.52.1'
+  gem 'webmock', '~> 3.12.1'
+  gem 'rubocop', '~> 1.11.0'
 end
 
 group :test do
-  gem 'simplecov', '~> 0.13.0', require: false
-  gem 'codeclimate-test-reporter', '~> 1.0.8', require: nil
+  gem 'simplecov', '~> 0.21.2', require: false
 end

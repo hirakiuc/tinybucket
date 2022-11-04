@@ -28,7 +28,7 @@ module Tinybucket
                    else
                      component.to_s
                    end
-            path + '/' + part
+            "#{path}/#{part}"
           end
         rescue ArgumentError => e
           raise ArgumentError, "Failed to build request URL: #{e}"
