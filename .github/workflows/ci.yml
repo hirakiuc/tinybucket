@@ -1,0 +1,30 @@
+name: CI
+
+on: [ pull_request,  push ]
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest ]
+        ruby: [ '3.1']
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true
+          cache-version: ${{ runner.os }}-${{ runner.ruby }}-${{ hashFiles('Gemfile.lock', 'tinybucket.gemspec') }}
+      - name: Install dependencies
+        run: bundle install
+      - name: Run spec & publish coverage
+        uses: paambaati/codeclimate-action@v3.2.0
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          coverageCommand: bundle exec rake spec
+          coverageLocations: ${{ github.workspace }}/coverage/coverage.json:simplecov
