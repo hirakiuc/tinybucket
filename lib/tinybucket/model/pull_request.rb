@@ -4,8 +4,8 @@ module Tinybucket
   module Model
     # PullRequest
     #
-    # @see https://confluence.atlassian.com/bitbucket/pullrequests-resource-423626332.html#pullrequestsResource-Overview
-    #   pullrequest resource - Bitbucket Cloud REST API document
+    # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/pullrequests
+    #   pullrequest Resource
     #
     # @!attribute [rw] state
     #   @return [String]

@@ -4,14 +4,13 @@ module Tinybucket
   module Api
     # BranchRestrictions API client
     #
-    # @see https://confluence.atlassian.com/bitbucket/branch-restrictions-resource-387449181.html
+    # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/branch-restrictions
     #   branch-restrictions Resource
     #
     # @!attribute [rw] repo_owner
     #   @return [String] repository owner name.
     # @!attribute [rw] repo_slug
-    #   @return [String] repository slug. (about {https://confluence.atlassian.com/bitbucket/repositories-endpoint-423626330.html#repositoriesEndpoint-Overview
-    #     repo_slug})
+    #   @return [String] {https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D repository slug}.
     class BranchRestrictionsApi < BaseApi
       include Tinybucket::Api::Helper::BranchRestrictionsHelper
 
@@ -19,7 +18,7 @@ module Tinybucket
 
       # Send 'GET the branch-restrictions' request.
       #
-      # @see https://confluence.atlassian.com/bitbucket/branch-restrictions-resource-387449181.html#branch-restrictionsResource-GETthebranch-restrictions
+      # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/branch-restrictions#get
       #   GET the branch-restrictions
       #
       # @param options [Hash]
@@ -28,13 +27,13 @@ module Tinybucket
         get_path(
           path_to_list,
           options,
-          Tinybucket::Parser::BranchRestrictionsParser
+          get_parser(:collection, Tinybucket::Model::BranchRestriction)
         )
       end
 
       # Send 'GET a specific restriction' request.
       #
-      # @see https://confluence.atlassian.com/bitbucket/branch-restrictions-resource-387449181.html#branch-restrictionsResource-GETaspecificrestriction
+      # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/branch-restrictions/%7Bid%7D#get
       #   GET a specific restriction
       #
       # @param restriction_id [String] The restriction's identifier
@@ -44,7 +43,7 @@ module Tinybucket
         get_path(
           path_to_find(restriction_id),
           options,
-          Tinybucket::Parser::BranchRestrictionParser
+          get_parser(:object, Tinybucket::Model::BranchRestriction)
         )
       end
     end

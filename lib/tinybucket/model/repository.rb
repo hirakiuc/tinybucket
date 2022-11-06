@@ -5,7 +5,7 @@ module Tinybucket
     # Repository
     #
     # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories
-    #   Repository Endpoint - Bitbucket Cloud REST API document
+    #   Repository Endpoint
     #
     # @!attribute [rw] scm
     #   @return [String]
@@ -43,6 +43,8 @@ module Tinybucket
     #   @return [String]
     # @!attribute [rw] type
     #   @return [String]
+    # @!attribute [rw] project
+    #   @return [Hash]
     class Repository < Base
       include Tinybucket::Model::Concerns::RepositoryKeys
 
@@ -50,7 +52,7 @@ module Tinybucket
         :scm, :has_wiki, :description, :links, :updated_on,
         :fork_policy, :created_on, :owner, :size, :parent, :uuid,
         :has_issues, :is_private, :full_name, :name, :language,
-        :website, :type
+        :website, :type, :project
 
       def initialize(json)
         super(json)
@@ -151,6 +153,23 @@ module Tinybucket
         branches_resource.find(branch, options)
       end
 
+      # Get tags on this repository
+      #
+      # @param options [Hash]
+      # @return [Tinybucket::Resource::Tags]
+      def tags(options = {})
+        tags_resource(options)
+      end
+
+      # Get the specific tag on this repository.
+      #
+      # @param branch [String]
+      # @param options [Hash]
+      # @return [Tinybucket::Model::Tag]
+      def tag(tag, options = {})
+        tags_resource.find(tag, options)
+      end
+
       # Get the branch restriction information associated with this repository.
       #
       # @param options [Hash]
@@ -195,6 +214,10 @@ module Tinybucket
 
       def branches_resource(options = {})
         Tinybucket::Resource::Branches.new(self, options)
+      end
+
+      def tags_resource(options = {})
+        Tinybucket::Resource::Tags.new(self, options)
       end
 
       def commits_resource(options = {})

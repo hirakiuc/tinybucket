@@ -12,9 +12,12 @@ module Tinybucket
       :Forks,
       :Hooks,
       :OwnersRepos,
+      :Projects,
       :PublicRepos,
       :PullRequests,
       :Repos,
+      :Teams,
+      :Tags,
       :Watchers
     ].each do |klass_name|
       autoload klass_name

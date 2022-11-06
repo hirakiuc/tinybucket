@@ -7,7 +7,7 @@ module Tinybucket
     # @!attribute [rw] repo_owner
     #   @return [String] repository owner name.
     # @!attribute [rw] repo_slug
-    #   @return [String] repository slug. (about {https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D repo_slug})
+    #   @return [String] {https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D repo_slug}.
     class BranchesApi < BaseApi
       include Tinybucket::Api::Helper::BranchesHelper
 
@@ -24,7 +24,7 @@ module Tinybucket
         get_path(
           path_to_list,
           options,
-          Tinybucket::Parser::BranchesParser
+          get_parser(:collection, Tinybucket::Model::Branch)
         )
       end
 
@@ -40,7 +40,7 @@ module Tinybucket
         get_path(
           path_to_find(name),
           options,
-          Tinybucket::Parser::BranchParser
+          get_parser(:object, Tinybucket::Model::Branch)
         )
       end
     end

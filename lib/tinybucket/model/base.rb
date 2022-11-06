@@ -24,9 +24,7 @@ module Tinybucket
           if acceptable_attribute?(key)
             send("#{key}=".intern, value)
           else
-            # rubocop:disable Metrics/LineLength
             logger.warn("Ignored '#{key}' attribute (value: #{value}). [#{self.class}]")
-            # rubocop:enable Metrics/LineLength
           end
         end
       end

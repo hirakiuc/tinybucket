@@ -1,4 +1,5 @@
 AllCops:
+  TargetRubyVersion: 2.7
   Include:
     - 'lib/**/*.rb'
   Exclude:
@@ -6,6 +7,10 @@ AllCops:
     - 'spec/**/*'
     - 'features/**/*'
     - 'test/**/*'
+    - 'Gemfile'
+    - 'Guardfile'
+    - 'Rakefile'
+    - '*.gemspec'
 
 Metrics/ClassLength:
   Max: 150
@@ -22,7 +27,7 @@ AndOr:
 ParenthesesAroundCondition:
   Enabled: false
 
-MethodCallParentheses:
+Style/MethodCallWithoutArgsParentheses:
   Enabled: false
 
 # why use this option ?
@@ -38,7 +43,7 @@ CyclomaticComplexity:
 Next:
   Enabled: false
 
-Style/AlignHash:
+Layout/HashAlignment:
   Enabled: false
 
 Style/RaiseArgs:
@@ -49,3 +54,38 @@ Style/RedundantFreeze:
 
 Metrics/AbcSize:
   Max: 18
+
+Metrics/LineLength:
+  Max: 100
+  IgnoredPatterns: [
+    '^\s*#',
+    'ruby wrapper for the Bitbucket REST API*'
+  ]
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/FormatStringToken:
+  Enabled: false
+
+Style/RescueStandardError:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
+Layout/SpaceAroundOperators:
+  Enabled: false
+
+Layout/ExtraSpacing:
+  Enabled: false
+
+Style/SafeNavigation:
+  Enabled: false
+
+Lint/DuplicateMethods:
+  Enabled: false
+
+Naming/MethodParameterName:
+  MinNameLength: 1
+  AllowNamesEndingNumbers: false

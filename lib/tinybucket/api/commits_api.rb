@@ -7,7 +7,7 @@ module Tinybucket
     # @!attribute [rw] repo_owner
     #   @return [String] repository owner name.
     # @!attribute [rw] repo_slug
-    #   @return [String] repository slug. (about {https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D repo_slug})
+    #   @return [String] {https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D repository slug}.
     class CommitsApi < BaseApi
       include Tinybucket::Api::Helper::CommitsHelper
 
@@ -27,7 +27,7 @@ module Tinybucket
         get_path(
           path_to_list,
           options,
-          Tinybucket::Parser::CommitsParser
+          get_parser(:collection, Tinybucket::Model::Commit)
         )
       end
 
@@ -43,7 +43,7 @@ module Tinybucket
         get_path(
           path_to_find(revision),
           options,
-          Tinybucket::Parser::CommitParser
+          get_parser(:object, Tinybucket::Model::Commit)
         )
       end
 
@@ -58,7 +58,7 @@ module Tinybucket
         result = post_path(path_to_approve(revision), options)
         (result['approved'] == true)
       rescue Tinybucket::Error::Conflict => e
-        logger.debug 'Already approved: ' + e.inspect
+        logger.debug "Already approved: #{e.inspect}"
         true
       end
 
@@ -73,7 +73,7 @@ module Tinybucket
         delete_path(path_to_approve(revision), options)
         true
       rescue Tinybucket::Error::NotFound => e
-        logger.debug 'Already unapproved: ' + e.inspect
+        logger.debug "Already unapproved: #{e.inspect}"
         true
       end
 
@@ -89,7 +89,23 @@ module Tinybucket
         get_path(
           path_to_branch(name),
           options,
-          Tinybucket::Parser::CommitsParser
+          get_parser(:collection, Tinybucket::Model::Commit)
+        )
+      end
+
+      # Send 'GET commits for a tag' request
+      #
+      # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/commits
+      #   GET an individual commit
+      #
+      # @param name [String] The branch name or a SHA1 value for the commit.
+      # @param options [Hash]
+      # @return [Tinybucket::Model::Commit]
+      def tag(name, options = {})
+        get_path(
+          path_to_tag(name),
+          options,
+          get_parser(:collection, Tinybucket::Model::Commit)
         )
       end
     end

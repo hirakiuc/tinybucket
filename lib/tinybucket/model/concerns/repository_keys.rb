@@ -29,6 +29,7 @@ module Tinybucket
             when Tinybucket::Model::Page
               result.items.map do |m|
                 next unless m.class.concern_included?(:RepositoryKeys)
+
                 m.repo_keys = repo_keys
               end
             when Tinybucket::Model::Base

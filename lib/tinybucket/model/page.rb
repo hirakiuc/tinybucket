@@ -4,8 +4,8 @@ module Tinybucket
   module Model
     # Page
     #
-    # @see https://confluence.atlassian.com/bitbucket/version-2-423626329.html#Version2-Pagingthroughobjectcollections
-    #   Paging through object collections - Bitbucket Cloud REST API document
+    # @see https://developer.atlassian.com/bitbucket/api/2/reference/meta/pagination
+    #   Paging through object collections
     #
     # @!attribute [r] attrs
     #   This attribute is a Hash object which contains
@@ -15,8 +15,7 @@ module Tinybucket
     #   This attribute is a array of model instance created with
     #   'values' attribute in json.
     class Page
-      attr_reader :attrs
-      attr_reader :items
+      attr_reader :attrs, :items
 
       # Initialize with json and Model class.
       #

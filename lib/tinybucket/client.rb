@@ -43,14 +43,22 @@ module Tinybucket
     # Get the repository
     #
     # @param owner [String] repository owner name.
-    # @param repo_slug [String] repository slug. (about {https://confluence.atlassian.com/bitbucket/repositories-endpoint-423626330.html#repositoriesEndpoint-Overview
-    #     repo_slug})
+    # @param repo_slug [String] {https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D repository slug}.
     # @return [Tinybucket::Model::Repository]
     def repo(owner, repo_slug)
       Tinybucket::Model::Repository.new({}).tap do |m|
         m.repo_owner = owner
         m.repo_slug = repo_slug
       end
+    end
+
+    # Get teams
+    #
+    # @param role_name [String] role name (one of "admin", "contributor", or "member")
+    # @param options
+    # @return [Tinybucket::Resource::Teams]
+    def teams(role_name, options = {})
+      Tinybucket::Resource::Teams.new(role_name, options)
     end
 
     # Get the team

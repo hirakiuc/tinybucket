@@ -15,8 +15,10 @@ module Tinybucket
       :Hook,
       :Page,
       :Profile,
+      :Project,
       :PullRequest,
       :Repository,
+      :Tag,
       :Team
     ].each do |klass_name|
       autoload klass_name

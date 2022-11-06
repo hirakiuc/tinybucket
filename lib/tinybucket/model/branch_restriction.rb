@@ -4,8 +4,8 @@ module Tinybucket
   module Model
     # BranchRestriction
     #
-    # @see https://confluence.atlassian.com/bitbucket/branch-restrictions-resource-387449181.html
-    #   branch-restrictions Resource - Bitbucket Cloud REST API document
+    # @see https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/branch-restrictions
+    #   branch-restrictions Resource
     #
     # @!attribute [rw] groups
     #   @return [Array]

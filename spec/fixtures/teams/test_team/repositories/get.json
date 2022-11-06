@@ -4,7 +4,7 @@
     {
       "scm": "hg",
       "has_wiki": true,
-      "description": "This repository is used by the Bitbucket tutorial documentation.  It is referenced from this page:\r\n\r\nhttps://confluence.atlassian.com/display/BITBUCKET/Split+a+Repository+in+Two ",
+      "description": "This repository is used by the Bitbucket tutorial documentation.  It is referenced from this page:\r\n\r\nhttps://confluence.atlassian.com/bitbucket/split-a-repository-in-two-313464964.html ",
       "links": {
         "watchers": {
           "href": "https://api.bitbucket.org/2.0/repositories/tutorials/hgsplitpractice/watchers"
