@@ -16,6 +16,7 @@ module Tinybucket
       :PullRequests,
       :Repos,
       :Teams,
+      :Tags,
       :Watchers
     ].each do |klass_name|
       autoload klass_name

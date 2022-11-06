@@ -137,6 +137,23 @@ module Tinybucket
         branches_resource.find(branch, options)
       end
 
+      # Get tags on this repository
+      #
+      # @param options [Hash]
+      # @return [Tinybucket::Resource::Tags]
+      def tags(options = {})
+        tags_resource(options)
+      end
+
+      # Get the specific tag on this repository.
+      #
+      # @param branch [String]
+      # @param options [Hash]
+      # @return [Tinybucket::Model::Tag]
+      def tag(tag, options = {})
+        tags_resource.find(tag, options)
+      end
+
       # Get the branch restriction information associated with this repository.
       #
       # @param options [Hash]
@@ -181,6 +198,10 @@ module Tinybucket
 
       def branches_resource(options = {})
         Tinybucket::Resource::Branches.new(self, options)
+      end
+
+      def tags_resource(options = {})
+        Tinybucket::Resource::Tags.new(self, options)
       end
 
       def commits_resource(options = {})

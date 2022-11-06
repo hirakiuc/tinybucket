@@ -24,6 +24,13 @@ module Tinybucket
                      [branch, 'branch'])
         end
 
+        def path_to_tag(tag)
+          build_path(base_path,
+                     'commits',
+                     [tag, 'tag'])
+        end
+
+
         def path_to_approve(revision)
           build_path(base_path,
                      'commit',
