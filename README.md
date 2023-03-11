@@ -152,8 +152,11 @@ repos  = bucket.repos('someone')
 ```ruby
 repos = bucket.repos('myname')
 
-# [ ] POST a new repository
-repos.create(params)
+# [x] POST (create) a new repository
+repos.create('repo-slug', params)
+
+# [x] GET a repository
+repos.find('repo_slug', params)
 ```
 
 ###### Object Methods
@@ -166,7 +169,10 @@ repo = bucket.repo('someone', 'great_repo')
 # (Load the repository attributes from Bitbucket WebAPI)
 repo.load
 
-# [ ] DELETE a repository
+# [x] PUT (update) a repository
+repo.update(params)
+
+# [x] DELETE a repository
 repo.destroy
 
 # [x] GET a list of watchers

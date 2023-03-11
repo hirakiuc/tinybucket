@@ -1,0 +1,71 @@
+{
+  "scm": "git",
+  "has_wiki": false,
+  "description": "",
+  "links": {
+    "watchers": {
+      "href": "https://api.bitbucket.org/2.0/repositories/evzijst/atlassian-connect-fork/watchers"
+    },
+    "commits": {
+      "href": "https://api.bitbucket.org/2.0/repositories/evzijst/atlassian-connect-fork/commits"
+    },
+    "self": {
+      "href": "https://api.bitbucket.org/2.0/repositories/evzijst/atlassian-connect-fork"
+    },
+    "html": {
+      "href": "https://bitbucket.org/evzijst/atlassian-connect-fork"
+    },
+    "avatar": {
+      "href": "https://bitbucket.org/m/3a846b46851a/img/language-avatars/default_16.png"
+    },
+    "forks": {
+      "href": "https://api.bitbucket.org/2.0/repositories/evzijst/atlassian-connect-fork/forks"
+    },
+    "clone": [
+      {
+        "href": "https://bitbucket.org/evzijst/atlassian-connect-fork.git",
+        "name": "https"
+      },
+      {
+        "href": "ssh://git@bitbucket.org/evzijst/atlassian-connect-fork.git",
+        "name": "ssh"
+      }
+    ],
+    "pullrequests": {
+      "href": "https://api.bitbucket.org/2.0/repositories/evzijst/atlassian-connect-fork/pullrequests"
+    }
+  },
+  "fork_policy": "allow_forks",
+  "language": "",
+  "created_on": "2013-08-26T18:13:07.339080+00:00",
+  "parent": {
+    "links": {
+      "self": {
+        "href": "https://api.bitbucket.org/2.0/repositories/evzijst/atlassian-connect"
+      },
+      "avatar": {
+        "href": "https://bitbucket-assetroot.s3.amazonaws.com/m/3a846b46851a/img/language-avatars/default_16.png"
+      }
+    },
+    "full_name": "evzijst/atlassian-connect",
+    "name": "atlassian-connect"
+  },
+  "full_name": "evzijst/atlassian-connect-fork",
+  "has_issues": false,
+  "owner": {
+    "username": "evzijst",
+    "display_name": "Erik van Zijst",
+    "links": {
+      "self": {
+        "href": "https://api.bitbucket.org/2.0/users/evzijst"
+      },
+      "avatar": {
+        "href": "https://bitbucket-assetroot.s3.amazonaws.com/c/photos/2013/Oct/28/evzijst-avatar-3454044670-3_avatar.png"
+      }
+    }
+  },
+  "updated_on": "2013-08-26T18:13:07.514065+00:00",
+  "size": 17657351,
+  "is_private": false,
+  "name": "New repository name"
+}

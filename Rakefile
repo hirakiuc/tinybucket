@@ -3,6 +3,11 @@ require 'bundler/setup'
 
 require "bundler/gem_tasks"
 
+desc 'launch an irb console with the gem loaded'
+task :console do
+  exec 'irb -I lib -r tinybucket'
+end
+
 desc 'cleanup rcov, doc directories'
 task :clean do
   rm_rf 'coverage'
