@@ -119,6 +119,25 @@ following = team.following
 repos = team.repos
 ```
 
+#### projects Endpoint
+
+```ruby
+# [x] GET the list of team projects
+projects = bucket.team('team name').projects
+
+# [x] GET the information about a specific team project
+project = projects.find('project key')
+
+# [x] POST (create) a new team project
+projects.create(key: 'project key', name: 'project name', description: '...', is_private: true ...)
+
+# [x] PUT (update) a team project
+project.update(description: 'New description'...)
+
+# [x] DELETE a team project
+project.destroy
+```
+
 #### users Endpoint
 
 ```ruby
