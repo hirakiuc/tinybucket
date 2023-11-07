@@ -6,8 +6,28 @@ module Tinybucket
 
     [
       :BaseParser,
+      :BranchParser,
+      :BranchesParser,
+      :BranchRestrictionParser,
+      :BranchRestrictionsParser,
+      :BuildStatusParser,
+      :BuildsParser,
+      :CollectionParser,
+      :CommitParser,
+      :CommitsParser,
+      :CommentParser,
+      :CommentsParser,
+      :HookParser,
+      :HooksParser,
       :ObjectParser,
-      :CollectionParser
+      :ProfileParser,
+      :ProfilesParser,
+      :PullRequestParser,
+      :PullRequestsParser,
+      :RepoParser,
+      :ReposParser,
+      :TeamParser,
+      :TeamsParser
     ].each do |klass_name|
       autoload klass_name
     end

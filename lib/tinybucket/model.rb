@@ -12,6 +12,7 @@ module Tinybucket
       :Comment,
       :Commit,
       :ErrorResponse,
+      :Hook,
       :Page,
       :Profile,
       :Project,

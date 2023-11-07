@@ -14,6 +14,7 @@ module Tinybucket
         :CommitsHelper,
         :CommentsHelper,
         :DiffHelper,
+        :HooksHelper,
         :ReposHelper,
         :RepoHelper,
         :PullRequestsHelper,
