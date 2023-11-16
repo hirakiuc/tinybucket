@@ -97,6 +97,16 @@ RSpec.describe Tinybucket::Model::PullRequest do
     it { expect(subject).to be_an_instance_of(Tinybucket::Resource::PullRequest::Commits) }
   end
 
+  describe 'activities' do
+    let(:request_path) do
+      "/repositories/#{owner}/#{slug}/pullrequests/1/activity"
+    end
+
+    subject { model.activities() }
+
+    it { expect(subject).to be_an_instance_of(Tinybucket::Resource::PullRequest::Activities) }
+  end
+
   describe 'comments' do
     let(:request_path) do
       "/repositories/#{owner}/#{slug}/pullrequests/1/comments"
