@@ -132,8 +132,8 @@ module Tinybucket
 
       # Get activities on this pull requests.
       #
-      def activities(_options = {})
-        raise NotImplementedError
+      def activities(options = {})
+        activities_resource(options)
       end
 
       private
@@ -144,6 +144,10 @@ module Tinybucket
 
       def comments_resource(options = {})
         Tinybucket::Resource::PullRequest::Comments.new(self, options)
+      end
+
+      def activities_resource(options = {})
+        Tinybucket::Resource::PullRequest::Activities.new(self, options)
       end
 
       def pull_request_api
