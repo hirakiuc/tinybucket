@@ -122,6 +122,14 @@ module Tinybucket
         pull_request_api.diff(id, options)
       end
 
+      # Get the diffstat for this pull request.
+      #
+      # @param options [Hash]
+      # @return [String] diffstat as raw text.
+      def diffstats(options = {})
+        diffstats_resource(options)
+      end
+
       # Accept and merge this pull request.
       #
       # @param options [Hash]
@@ -148,6 +156,10 @@ module Tinybucket
 
       def activities_resource(options = {})
         Tinybucket::Resource::PullRequest::Activities.new(self, options)
+      end
+
+      def diffstats_resource(options = {})
+        Tinybucket::Resource::PullRequest::Diffstats.new(self, options)
       end
 
       def pull_request_api

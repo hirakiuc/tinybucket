@@ -56,7 +56,8 @@ module Tinybucket
         :Base,
         :Commits,
         :Comments,
-        :Activities
+        :Activities,
+        :Diffstats
       ].each do |klass_name|
         autoload klass_name
       end

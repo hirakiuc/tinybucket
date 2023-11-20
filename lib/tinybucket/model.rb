@@ -12,6 +12,7 @@ module Tinybucket
       :Comment,
       :Commit,
       :Activity,
+      :Diffstat,
       :ErrorResponse,
       :Page,
       :Profile,

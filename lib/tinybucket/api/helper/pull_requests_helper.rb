@@ -40,6 +40,11 @@ module Tinybucket
                      'diff')
         end
 
+        def path_to_diffstats(pr_id)
+          build_path(path_to_find(pr_id),
+                     'diffstat')
+        end
+
         def path_to_decline(pr_id)
           build_path(base_path,
                      [pr_id, 'pullrequest_id'],
