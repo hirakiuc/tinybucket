@@ -54,6 +54,19 @@ module Tinybucket
         )
       end
 
+      # Send 'GET the activites for a pull request' request
+      #
+      # @param pr_id [String] The pull request identifier
+      # @param options [Hash]
+      # @return [Tinybucket::Model::PullRequest]
+      def activities(pr_id, options = {})
+        get_path(
+          path_to_activities(pr_id),
+          options,
+          get_parser(:collection, Tinybucket::Model::Activity)
+        )
+      end
+
       # Send 'POST a pull request approval' request
       #
       # @note This method return true if this pull request already approved.
@@ -111,6 +124,19 @@ module Tinybucket
       # @return [String] diff as raw text.
       def diff(pr_id, options = {})
         get_path(path_to_diff(pr_id), options)
+      end
+
+      # Send 'GET the diffstat for a pull request' request
+      #
+      # @param pr_id [String] The pull request identifier
+      # @param options [Hash]
+      # @return [Tinybucket::Model::PullRequest]
+      def diffstats(pr_id, options = {})
+        get_path(
+          path_to_diffstats(pr_id),
+          options,
+          get_parser(:collection, Tinybucket::Model::Diffstat)
+        )
       end
     end
   end

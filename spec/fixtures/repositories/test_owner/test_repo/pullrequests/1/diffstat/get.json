@@ -1,0 +1,33 @@
+{
+   "page" : 1,
+   "pagelen" : 500,
+   "size" : 1,
+   "values" : [
+      {
+         "lines_added" : 7,
+         "lines_removed" : 1,
+         "new" : {
+            "escaped_path" : "some_file.rb",
+            "links" : {
+               "self" : {
+                  "href" : "https://api.bitbucket.org/2.0/repositories/test_owner/test_repo/src/aaaa18b093267cdc5f179c91fc0753abee09bbbb/some_file.rb"
+               }
+            },
+            "path" : "some_file.rb",
+            "type" : "commit_file"
+         },
+         "old" : {
+            "escaped_path" : "some_file.rb",
+            "links" : {
+               "self" : {
+                  "href" : "https://api.bitbucket.org/2.0/repositories/test_owner/test_repo/src/1111630f945d8a0afb7c6497f44111f534ef5555/some_file.rb"
+               }
+            },
+            "path" : "some_file.rb",
+            "type" : "commit_file"
+         },
+         "status" : "modified",
+         "type" : "diffstat"
+      }
+   ]
+}

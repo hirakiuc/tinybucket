@@ -11,6 +11,8 @@ module Tinybucket
       :BuildStatus,
       :Comment,
       :Commit,
+      :Activity,
+      :Diffstat,
       :ErrorResponse,
       :Page,
       :Profile,
