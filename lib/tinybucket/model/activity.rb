@@ -7,26 +7,12 @@ module Tinybucket
     # @see https://developer.atlassian.com/cloud/bitbucket/rest/api-group-pullrequests/#api-repositories-workspace-repo-slug-pullrequests-pull-request-id-activity-get
     #   Activities Resource
     #
-    # @!attribute [rw] hash
-    #   @return [String]
-    # @!attribute [rw] links
-    #   @return [Hash]
-    # @!attribute [rw] repository
-    #   @return [Hash]
-    # @!attribute [rw] author
-    #   @return [Hash]
-    # @!attribute [rw] parents
-    #   @return [Array]
-    # @!attribute [rw] date
-    #   @return [String]
-    # @!attribute [rw] message
-    #   @return [String]
-    # @!attribute [rw] participants
-    #   @return [Array]
-    # @!attribute [rw] uuid
-    #   @return [NillClass]
-    # @!attribute [rw] type
-    #   @return [String]
+    # @!attribute [r] activity_type
+    #   @return [Symbol] activity type, `:update` or `:comment`
+    # @!attribute [rw] update
+    #   @return [Hash, nil]
+    # @!attribute [rw] comment
+    #   @return [Hash, nil]
     class Activity < Base
       include Tinybucket::Model::Concerns::RepositoryKeys
       include Tinybucket::Constants
