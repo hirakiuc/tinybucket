@@ -20,20 +20,22 @@ module Tinybucket
       class UnknownActivityError < StandardError; end
 
       acceptable_attributes \
-        :update, :comment
+        :update, :comment, :approval
 
       attr_accessor :activity_type
 
       def initialize(json)
         super(json)
 
-        raise UnknownActivityError if update.blank? && comment.blank?
-
         @activity_type = if update.present?
                            :update
-                         else
+                         elsif comment.present?
                            :comment
+                         elsif approval.present?
+                           :approval
                          end
+
+        raise UnknownActivityError, "Activity response keys: #{json.keys}" if activity_type.blank?
       end
 
       private
