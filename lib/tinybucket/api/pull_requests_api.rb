@@ -54,6 +54,19 @@ module Tinybucket
         )
       end
 
+      # Send 'GET the activites for a pull request' request
+      #
+      # @param pr_id [String] The pull request identifier
+      # @param options [Hash]
+      # @return [Tinybucket::Model::PullRequest]
+      def activities(pr_id, options = {})
+        get_path(
+          path_to_activities(pr_id),
+          options,
+          get_parser(:collection, Tinybucket::Model::Activity)
+        )
+      end
+
       # Send 'POST a pull request approval' request
       #
       # @note This method return true if this pull request already approved.
